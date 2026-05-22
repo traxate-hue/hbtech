@@ -89,7 +89,7 @@ function podeAdicionarProduto(produto) {
 }
 
 function minimoPorFabrica(fabrica) {
-  if (fabrica === "tendenze") return 5;
+  if (fabrica === "tendenze") return 6;
   if (fabrica === "zarrara") return 10;
   return 1;
 }
