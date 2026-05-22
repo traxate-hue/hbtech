@@ -1008,6 +1008,14 @@ h1#titulo {
   cursor: pointer;
   box-shadow: 0 12px 24px rgba(154,109,60,0.24);
   transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+
+margin-top: 28px;
+margin-bottom: 10px;
+
+height: 58px;
+
+
 }
 
 .popup-conteudo button:hover {
