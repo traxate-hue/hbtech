@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <button class="botao-carrinho-lateral" onclick="alternarCarrinho()" aria-label="Abrir carrinho">
+
+  <span class="icone-carrinho">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="22"
+         height="22"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="1.8"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+
+      <path d="M1 1h4l2.68 13.39
+               a2 2 0 0 0 2 1.61
+               h9.72
+               a2 2 0 0 0 2-1.61
+               L23 6H6">
+      </path>
+
+    </svg>
+  </span>
+
+  <span class="contador-carrinho" id="contador-carrinho">0</span>
+
+</button>
+  <div class="topo-fabrica">
+    <div class="fabrica-atual" id="fabrica-atual"></div>
+    <div class="trocar-fabrica" onclick="trocarFabrica()">ver outra fábrica →</div>
+  </div>
+
+  <header class="hero-catalogo">
+    <p class="hero-subtitulo">Coleção exclusiva para lojistas</p>
+    <h1 id="titulo"></h1>
+  </header>
+
+  <div class="categorias-area">
+    <div class="busca-catalogo">
+      <input
+        type="text"
+        id="busca-produto"
+        placeholder="Buscar por referência ou descrição"
+        oninput="atualizarBusca(this.value)"
+      >
+    </div>
+
+    <div class="categorias">
+      <button onclick="irParaCategoria('todos')">Todos</button>
+      <button onclick="irParaCategoria('Anel')">Anel</button>
+      <button onclick="irParaCategoria('Brinco')">Brinco</button>
+      <button onclick="irParaCategoria('Gargantilha')">Gargantilha</button>
+      <button onclick="irParaCategoria('Piercing')">Piercing</button>
+      <button onclick="irParaCategoria('Pulseira')">Pulseira</button>
+      <button onclick="irParaCategoria('Pingente')">Pingente</button>
+      <button onclick="irParaCategoria('Pingente Galeria')">Pingente Galeria</button>
+    </div>
+  </div>
+
+  <div class="layout-catalogo">
+
+    <main class="area-produtos">
+      <div id="produtos" class="produtos"></div>
+    </main>
+
+    <aside class="area-carrinho carrinho-fechado" id="area-carrinho">
+      <div class="carrinho">
+
+        <div class="carrinho-topo">
+          <p class="carrinho-label">Pedido atual</p>
+          <h2>Seu pedido</h2>
+          <div id="resumo-fabricas"></div>
+        </div>
+
+        <div id="lista-carrinho" class="lista-carrinho-scroll"></div>
+
+        <div class="carrinho-rodape">
+          <button onclick="enviarWhatsApp()">Enviar pedido</button>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <div id="popup" class="popup escondido">
+    <div class="popup-conteudo">
+
+      <span class="fechar-popup" onclick="fecharPopup()">×</span>
+
+      <p class="popup-label">Seleção de numerações</p>
+      <h2 id="popup-referencia"></h2>
+      <p id="popup-peso"></p>
+      <p id="popup-descricao"></p>
+      <p id="popup-minimo"></p>
+
+      <div id="numeracoes" class="numeracoes"></div>
+
+      <button onclick="confirmarPopup()">Adicionar ao pedido</button>
+
+    </div>
+  </div>
+
+
+  <div id="zoom-imagem" class="zoom-imagem" aria-hidden="true">
+    <button type="button" class="fechar-zoom" onclick="fecharZoomImagem()" aria-label="Fechar zoom">×</button>
+    <img id="zoom-img" src="" alt="Imagem ampliada do produto">
+  </div>
+
+  <script src="produtos.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
