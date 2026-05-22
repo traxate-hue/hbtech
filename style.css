@@ -1926,3 +1926,161 @@ h1#titulo {
     font-size: 14px;
   }
 }
+
+
+/* AJUSTE FINAL - escala do popup e fonte mais premium */
+.popup-label {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: rgba(233, 212, 177, 0.72);
+}
+
+.popup-conteudo h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 34px;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+
+.numero-topo span {
+  font-family: 'Cinzel', serif;
+  color: rgba(233, 212, 177, 0.68);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .popup {
+    padding: 14px;
+    align-items: center;
+  }
+
+  .popup-conteudo {
+    width: 100%;
+    max-width: 460px;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 24px 18px 20px;
+    border-radius: 26px;
+  }
+
+  .popup-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-right: 44px;
+  }
+
+  .popup-conteudo h2 {
+    font-size: 30px;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+
+  .popup-conteudo p {
+    font-size: 15px;
+    line-height: 1.32;
+    margin-bottom: 7px;
+  }
+
+  .fechar-popup {
+    width: 42px;
+    height: 42px;
+    top: 18px;
+    right: 18px;
+  }
+
+  .numeracoes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 18px 0 18px;
+  }
+
+  .numero-item {
+    min-width: 0;
+    overflow: hidden;
+    padding: 10px 8px;
+    border-radius: 18px;
+  }
+
+  .numero-topo {
+    margin-bottom: 8px;
+  }
+
+  .numero-topo span {
+    font-size: 9px;
+    letter-spacing: 1.7px;
+  }
+
+  .numero-topo strong {
+    font-size: 24px;
+  }
+
+  .controle-qtd {
+    grid-template-columns: 24px 23px minmax(32px, 1fr) 23px 24px;
+    gap: 3px;
+    width: 100%;
+  }
+
+  .controle-qtd button,
+  .controle-qtd input {
+    min-width: 0;
+    height: 34px;
+    border-radius: 10px;
+  }
+
+  .controle-qtd button {
+    font-size: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .controle-qtd input {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .popup-conteudo > button {
+    margin-top: 2px;
+    height: 62px;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .popup {
+    padding: 10px;
+  }
+
+  .popup-conteudo {
+    padding: 22px 14px 18px;
+    border-radius: 24px;
+  }
+
+  .numeracoes {
+    gap: 8px;
+  }
+
+  .numero-item {
+    padding: 9px 7px;
+  }
+
+  .controle-qtd {
+    grid-template-columns: 22px 21px minmax(29px, 1fr) 21px 22px;
+    gap: 2px;
+  }
+
+  .controle-qtd button,
+  .controle-qtd input {
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .controle-qtd button {
+    font-size: 9px;
+  }
+
+  .controle-qtd input {
+    font-size: 15px;
+  }
+}
