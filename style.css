@@ -318,6 +318,40 @@ h1#titulo {
   padding: 0 24px;
 }
 
+.categorias-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.categorias-indicador {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 78px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 14px;
+  background: linear-gradient(to right, rgba(16,17,20,0), rgba(16,17,20,0.96) 72%);
+  color: rgba(233,212,177,0.92);
+  font-size: 20px;
+  letter-spacing: 2px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  z-index: 2;
+}
+
+.categorias-indicador.visivel {
+  opacity: 1;
+}
+
+.categorias-indicador span {
+  transform: translateY(-1px);
+  text-shadow: 0 8px 18px rgba(0,0,0,0.36);
+}
+
 .busca-catalogo {
   display: flex;
   justify-content: center;
@@ -879,32 +913,88 @@ h1#titulo {
   margin: 24px 0;
 }
 
-.numeracoes label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 15px;
+.numero-item {
+  padding: 14px;
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
   color: #f3efe8;
-  font-weight: 500;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
 }
 
-.numeracoes input {
-  width: 84px;
-  padding: 10px 10px;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
+.numero-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  color: rgba(243,239,232,0.7);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.numero-topo strong {
+  color: #f7f2ea;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.controle-qtd {
+  display: grid;
+  grid-template-columns: 42px 36px minmax(48px, 1fr) 36px 42px;
+  gap: 6px;
+  align-items: center;
+}
+
+.controle-qtd button,
+.controle-qtd input {
+  height: 38px;
+  border-radius: 11px;
+  font-weight: 800;
+}
+
+.controle-qtd button {
+  width: auto;
+  padding: 0;
+  border: 1px solid rgba(233,212,177,0.14);
+  background: rgba(255,255,255,0.07);
+  color: #f3efe8;
+  box-shadow: none;
+  font-size: 13px;
+}
+
+.controle-qtd button:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #d2ab72, #9a6d3c);
+  box-shadow: 0 10px 18px rgba(154,109,60,0.22);
+}
+
+.controle-qtd input {
+  width: 100%;
+  min-width: 0;
+  padding: 0 6px;
+  border: 1px solid rgba(255,255,255,0.10);
   background: rgba(255,255,255,0.06);
   color: #f3efe8;
   outline: none;
+  text-align: center;
+  font-size: 17px;
 }
 
-.numeracoes input:focus {
+.controle-qtd input:focus {
   border-color: #d2ab72;
   box-shadow: 0 0 0 4px rgba(210,171,114,0.10);
+}
+
+.controle-qtd input::-webkit-outer-spin-button,
+.controle-qtd input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.controle-qtd input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .popup-conteudo button {
@@ -1167,18 +1257,50 @@ h1#titulo {
     font-size: 26px;
   }
 
+  .categorias-wrapper {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+  }
+
+  .categorias-indicador {
+    width: 70px;
+    padding-right: 12px;
+    background: linear-gradient(to right, rgba(16,17,20,0), rgba(16,17,20,0.98) 70%);
+  }
+
   .numeracoes {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
+    margin: 18px 0;
   }
 
-  .numeracoes label {
-    padding: 10px 12px;
-    font-size: 13px;
+  .numero-item {
+    padding: 12px;
+    border-radius: 16px;
   }
 
-  .numeracoes input {
-    width: 72px;
+  .numero-topo {
+    margin-bottom: 8px;
+  }
+
+  .numero-topo strong {
+    font-size: 21px;
+  }
+
+  .controle-qtd {
+    grid-template-columns: 42px 38px minmax(48px, 1fr) 38px 42px;
+    gap: 6px;
+  }
+
+  .controle-qtd button,
+  .controle-qtd input {
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .controle-qtd input {
+    font-size: 17px;
   }
 
   .paginacao-produtos {

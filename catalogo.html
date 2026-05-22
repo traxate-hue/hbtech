@@ -62,15 +62,21 @@
       >
     </div>
 
-    <div class="categorias">
-      <button onclick="irParaCategoria('todos')">Todos</button>
-      <button onclick="irParaCategoria('Anel')">Anel</button>
-      <button onclick="irParaCategoria('Brinco')">Brinco</button>
-      <button onclick="irParaCategoria('Gargantilha')">Gargantilha</button>
-      <button onclick="irParaCategoria('Piercing')">Piercing</button>
-      <button onclick="irParaCategoria('Pulseira')">Pulseira</button>
-      <button onclick="irParaCategoria('Pingente')">Pingente</button>
-      <button onclick="irParaCategoria('Pingente Galeria')">Pingente Galeria</button>
+    <div class="categorias-wrapper">
+      <div class="categorias" id="categorias-scroll">
+        <button onclick="irParaCategoria('todos')">Todos</button>
+        <button onclick="irParaCategoria('Anel')">Anel</button>
+        <button onclick="irParaCategoria('Brinco')">Brinco</button>
+        <button onclick="irParaCategoria('Gargantilha')">Gargantilha</button>
+        <button onclick="irParaCategoria('Piercing')">Piercing</button>
+        <button onclick="irParaCategoria('Pulseira')">Pulseira</button>
+        <button onclick="irParaCategoria('Pingente')">Pingente</button>
+        <button onclick="irParaCategoria('Pingente Galeria')">Pingente Galeria</button>
+      </div>
+
+      <div class="categorias-indicador" id="categorias-indicador" aria-hidden="true">
+        <span>•••</span>
+      </div>
     </div>
   </div>
 

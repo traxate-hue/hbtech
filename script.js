@@ -352,10 +352,20 @@ function abrirPopup(referencia) {
 
   NUMERACOES_ANEIS.forEach(numero => {
     html += `
-      <label>
-        Aro ${numero}
-        <input type="number" id="aro-${numero}" min="0" value="0">
-      </label>
+      <div class="numero-item">
+        <div class="numero-topo">
+          <span>Aro</span>
+          <strong>${numero}</strong>
+        </div>
+
+        <div class="controle-qtd" data-aro="${numero}">
+          <button type="button" onclick="alterarQtdAro(${numero}, -5)">-5</button>
+          <button type="button" onclick="alterarQtdAro(${numero}, -1)">−</button>
+          <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}">
+          <button type="button" onclick="alterarQtdAro(${numero}, 1)">+</button>
+          <button type="button" onclick="alterarQtdAro(${numero}, 5)">+5</button>
+        </div>
+      </div>
     `;
   });
 
@@ -366,6 +376,18 @@ function abrirPopup(referencia) {
 function fecharPopup() {
   document.getElementById("popup").classList.add("escondido");
 }
+
+function alterarQtdAro(numero, incremento) {
+  const input = document.getElementById(`aro-${numero}`);
+  if (!input) return;
+
+  const atual = Number(input.value) || 0;
+  const novoValor = Math.max(0, atual + incremento);
+
+  input.value = novoValor;
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+}
+
 
 function confirmarPopup() {
   if (!produtoAtual) return;
@@ -835,6 +857,29 @@ function alternarCarrinho() {
   atualizarBotaoCarrinhoLateral();
 }
 
+function atualizarIndicadorCategorias() {
+  const categorias = document.getElementById("categorias-scroll");
+  const indicador = document.getElementById("categorias-indicador");
+
+  if (!categorias || !indicador) return;
+
+  const temRolagem = categorias.scrollWidth > categorias.clientWidth + 4;
+  const chegouNoFim = categorias.scrollLeft + categorias.clientWidth >= categorias.scrollWidth - 8;
+
+  indicador.classList.toggle("visivel", temRolagem && !chegouNoFim);
+}
+
+function iniciarIndicadorCategorias() {
+  const categorias = document.getElementById("categorias-scroll");
+  if (!categorias) return;
+
+  atualizarIndicadorCategorias();
+  categorias.addEventListener("scroll", atualizarIndicadorCategorias, { passive: true });
+  window.addEventListener("resize", atualizarIndicadorCategorias);
+
+  setTimeout(atualizarIndicadorCategorias, 80);
+}
+
 window.onload = function () {
   const params = new URLSearchParams(window.location.search);
   const fabrica = params.get("fabrica");
@@ -862,6 +907,7 @@ window.onload = function () {
   carregarProdutos();
   renderizarCarrinho();
   atualizarBotaoCarrinhoLateral();
+  iniciarIndicadorCategorias();
 };
 
 function gerarMensagemWhatsApp() {
