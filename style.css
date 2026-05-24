@@ -3025,3 +3025,203 @@ height: 58px;
     gap: 6px;
   }
 }
+
+
+/* =========================================================
+   AJUSTE MOBILE - POPUP DE NUMERAÇÕES SEM CORTAR LATERAL
+   Mantém o layout desktop intacto.
+   ========================================================= */
+@media (max-width: 600px) {
+  .popup {
+    padding: 8px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow-x: hidden !important;
+  }
+
+  .popup-conteudo.popup-produto-layout {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    max-height: calc(100dvh - 22px) !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+  }
+
+  .popup-produto-grid {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 14px 10px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: calc(100dvh - 142px) !important;
+  }
+
+  /* No celular, a tela de numeração precisa ser objetiva e não pode estourar largura. */
+  .popup-produto-visual {
+    display: none !important;
+  }
+
+  .popup-selecao-numeracoes {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .popup-selecao-numeracoes .popup-label {
+    display: block !important;
+    margin: 0 58px 14px 0 !important;
+    font-size: 11px !important;
+    letter-spacing: 4px !important;
+  }
+
+  .popup-selecao-numeracoes h3 {
+    font-size: clamp(32px, 9vw, 43px) !important;
+    line-height: 1.08 !important;
+    margin: 0 58px 20px 0 !important;
+  }
+
+  .popup-ajuda {
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+    margin: 0 0 22px !important;
+  }
+
+  .popup-produto-layout .numeracoes {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .popup-produto-layout .numero-item {
+    min-width: 0 !important;
+    width: 100% !important;
+    min-height: 118px !important;
+    padding: 13px 10px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .popup-produto-layout .numero-topo {
+    margin-bottom: 16px !important;
+  }
+
+  .popup-produto-layout .numero-topo span {
+    font-size: 10px !important;
+    letter-spacing: 2.6px !important;
+  }
+
+  .popup-produto-layout .numero-topo strong {
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+
+  .popup-produto-layout .controle-qtd {
+    display: grid !important;
+    grid-template-columns: 34px 34px minmax(38px, 1fr) 34px !important;
+    gap: 7px !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* Esconde somente o +5 no celular para evitar corte lateral. Desktop continua com +5. */
+  .popup-produto-layout .controle-qtd button:last-child {
+    display: none !important;
+  }
+
+  .popup-produto-layout .controle-qtd button,
+  .popup-produto-layout .controle-qtd input {
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    line-height: 42px !important;
+    border-radius: 11px !important;
+    font-size: 15px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .popup-produto-layout .controle-qtd input {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+  }
+
+  .popup-resumo-selecao {
+    display: none !important;
+  }
+
+  .popup-rodape-fixo {
+    grid-template-columns: 1fr !important;
+    padding: 14px !important;
+    gap: 0 !important;
+  }
+
+  .popup-rodape-info {
+    display: none !important;
+  }
+
+  .popup-rodape-fixo #botao-confirmar-popup {
+    width: 100% !important;
+    height: 66px !important;
+    border-radius: 19px !important;
+    font-size: 17px !important;
+  }
+
+  .popup-conteudo.popup-produto-layout .fechar-popup,
+  .popup-conteudo.popup-produto-layout > .fechar-popup {
+    top: 18px !important;
+    right: 18px !important;
+    width: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    font-size: 34px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .popup-produto-grid {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .popup-produto-layout .numeracoes {
+    gap: 10px !important;
+  }
+
+  .popup-produto-layout .numero-item {
+    padding: 12px 8px !important;
+  }
+
+  .popup-produto-layout .controle-qtd {
+    grid-template-columns: 31px 31px minmax(34px, 1fr) 31px !important;
+    gap: 5px !important;
+  }
+
+  .popup-produto-layout .controle-qtd button,
+  .popup-produto-layout .controle-qtd input {
+    height: 39px !important;
+    min-height: 39px !important;
+    max-height: 39px !important;
+    line-height: 39px !important;
+    font-size: 14px !important;
+  }
+
+  .popup-selecao-numeracoes h3 {
+    font-size: 32px !important;
+  }
+
+  .popup-ajuda {
+    font-size: 16px !important;
+  }
+}
