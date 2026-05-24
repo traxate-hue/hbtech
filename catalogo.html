@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -71,7 +71,6 @@
         <button onclick="irParaCategoria('Piercing')">Piercing</button>
         <button onclick="irParaCategoria('Pulseira')">Pulseira</button>
         <button onclick="irParaCategoria('Pingente')">Pingente</button>
-        <button onclick="irParaCategoria('Pingente Galeria')">Pingente Galeria</button>
       </div>
 
       <div class="categorias-indicador" id="categorias-indicador" aria-hidden="true">
@@ -98,7 +97,7 @@
         <div id="lista-carrinho" class="lista-carrinho-scroll"></div>
 
         <div class="carrinho-rodape">
-          <button onclick="enviarWhatsApp()">Enviar pedido</button>
+          <button onclick="abrirResumoPedido()">Finalizar pedido</button>
         </div>
 
       </div>
@@ -107,23 +106,100 @@
   </div>
 
   <div id="popup" class="popup escondido">
-    <div class="popup-conteudo">
+    <div class="popup-conteudo popup-produto-layout">
 
-      <span class="fechar-popup" onclick="fecharPopup()">×</span>
+      <button type="button" class="fechar-popup" onclick="fecharPopup()" aria-label="Fechar seleção">×</button>
 
-      <p class="popup-label">Seleção de numerações</p>
-      <h2 id="popup-referencia"></h2>
-      <p id="popup-peso"></p>
-      <p id="popup-descricao"></p>
-      <p id="popup-minimo"></p>
+      <div class="popup-produto-grid">
 
-      <div id="numeracoes" class="numeracoes"></div>
+        <section class="popup-produto-visual">
+          <div class="popup-imagem-principal">
+            <img id="popup-imagem-produto" src="" alt="Imagem do produto selecionado">
+          </div>
 
-      <button onclick="confirmarPopup()">Adicionar ao pedido</button>
+          <div class="popup-info-produto">
+            <p class="popup-label">Produto selecionado</p>
+            <h2 id="popup-referencia"></h2>
+            <p id="popup-descricao" class="popup-descricao-destaque"></p>
+
+            <div class="popup-meta-linha">
+              <span id="popup-peso"></span>
+              <span id="popup-minimo"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="popup-selecao-numeracoes">
+          <p class="popup-label">Seleção de numerações</p>
+          <h3>Escolha aro e quantidade</h3>
+          <p class="popup-ajuda">Distribua a quantidade da referência entre os aros disponíveis.</p>
+
+          <div id="numeracoes" class="numeracoes"></div>
+
+          <div class="popup-resumo-selecao">
+            <span>Total selecionado</span>
+            <strong id="popup-total-selecionado">0 peça(s)</strong>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="popup-rodape-fixo">
+        <div class="popup-rodape-info">
+          <span>Total selecionado</span>
+          <strong id="popup-rodape-total">0 peças</strong>
+        </div>
+
+        <button id="botao-confirmar-popup" type="button" onclick="confirmarPopup()">
+          Adicionar ao pedido
+        </button>
+      </div>
 
     </div>
   </div>
 
+
+
+  <div id="modal-resumo" class="modal-resumo escondido" aria-hidden="true">
+    <div class="modal-resumo-conteudo">
+
+      <button type="button" class="fechar-resumo" onclick="fecharResumoPedido()" aria-label="Fechar resumo">×</button>
+
+      <p class="resumo-label">Resumo do pedido</p>
+      <h2>Confira antes de enviar</h2>
+      <p class="resumo-aviso">Após confirmar, o pedido será enviado para análise comercial.</p>
+
+      <div id="resumo-pedido-itens"></div>
+
+      <div class="resumo-total">
+        <span>Total estimado</span>
+        <strong id="resumo-total-valor">R$ 0,00</strong>
+      </div>
+
+      <div class="resumo-acoes">
+        <button type="button" class="botao-secundario-resumo" onclick="fecharResumoPedido()">Voltar e editar</button>
+        <button type="button" id="botao-confirmar-pedido" class="botao-confirmar-pedido" onclick="confirmarEnviarPedido()">Confirmar e enviar pedido</button>
+      </div>
+
+      <p id="status-envio-pedido" class="status-envio-pedido"></p>
+
+    </div>
+  </div>
+
+
+  <div id="aviso-sucesso-pedido" class="aviso-sucesso-pedido escondido" aria-hidden="true">
+    <div class="aviso-sucesso-card">
+      <div class="aviso-sucesso-icone">✓</div>
+      <p class="aviso-sucesso-label">Pedido enviado</p>
+      <h2>Recebemos seu pedido com sucesso</h2>
+      <p>O pedido foi registrado e a planilha será enviada para análise comercial.</p>
+      <div class="aviso-numero-box">
+        <span>Número do pedido</span>
+        <strong id="aviso-numero-pedido">PED-000</strong>
+      </div>
+      <button type="button" onclick="fecharAvisoSucessoPedido()">Continuar comprando</button>
+    </div>
+  </div>
 
   <div id="zoom-imagem" class="zoom-imagem" aria-hidden="true">
     <button type="button" class="fechar-zoom" onclick="fecharZoomImagem()" aria-label="Fechar zoom">×</button>
@@ -131,7 +207,7 @@
   </div>
 
   <script src="produtos.js?v=5"></script>
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=11"></script>
 
 </body>
 </html>

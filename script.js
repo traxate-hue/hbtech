@@ -7,7 +7,7 @@ let paginaAtualProdutos = 1;
 const PRODUTOS_POR_PAGINA = 24;
 let produtosFiltradosAtuais = [];
 
-const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22];
+const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22, 24, 26];
 
 // Ajuste este valor quando o preço por grama mudar.
 const COEFICIENTE_GRAMA = 18.50;
@@ -344,9 +344,15 @@ function abrirPopup(referencia) {
   produtoAtual = produto;
 
   document.getElementById("popup-referencia").innerText = "Ref. " + produto.referencia;
-  document.getElementById("popup-peso").innerText = "Peso: " + (produto.peso || "-") + " • Valor estimado: R$ " + formatarMoeda(valorUnitarioProduto(produto));
+  document.getElementById("popup-peso").innerText = "Peso: " + (produto.peso || "-") + " • R$ " + formatarMoeda(valorUnitarioProduto(produto));
   document.getElementById("popup-descricao").innerText = produto.descricao || "";
-  document.getElementById("popup-minimo").innerText = "Mínimo por referência: " + minimoPorFabrica(produto.fabrica) + " peças";
+  document.getElementById("popup-minimo").innerText = "Mínimo: " + minimoPorFabrica(produto.fabrica) + " peças";
+
+  const imagemPopup = document.getElementById("popup-imagem-produto");
+  if (imagemPopup) {
+    imagemPopup.src = produto.imagem || "";
+    imagemPopup.alt = "Referência " + produto.referencia;
+  }
 
   let html = "";
 
@@ -361,7 +367,7 @@ function abrirPopup(referencia) {
         <div class="controle-qtd" data-aro="${numero}">
           <button type="button" onclick="alterarQtdAro(${numero}, -5)">-5</button>
           <button type="button" onclick="alterarQtdAro(${numero}, -1)">−</button>
-          <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}">
+          <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}" oninput="atualizarResumoPopup()">
           <button type="button" onclick="alterarQtdAro(${numero}, 1)">+</button>
           <button type="button" onclick="alterarQtdAro(${numero}, 5)">+5</button>
         </div>
@@ -370,7 +376,24 @@ function abrirPopup(referencia) {
   });
 
   document.getElementById("numeracoes").innerHTML = html;
+  atualizarResumoPopup();
   document.getElementById("popup").classList.remove("escondido");
+}
+
+function atualizarResumoPopup() {
+  const totalEl = document.getElementById("popup-total-selecionado");
+  const totalRodapeEl = document.getElementById("popup-rodape-total");
+
+  let total = 0;
+  NUMERACOES_ANEIS.forEach(numero => {
+    const input = document.getElementById(`aro-${numero}`);
+    total += Number(input?.value || 0);
+  });
+
+  const textoTotal = total + (total === 1 ? " peça" : " peças");
+
+  if (totalEl) totalEl.innerText = textoTotal;
+  if (totalRodapeEl) totalRodapeEl.innerText = textoTotal;
 }
 
 function fecharPopup() {
@@ -431,12 +454,9 @@ function confirmarPopup() {
     });
   }
 
-  const botoes = Array.from(document.querySelectorAll(".produto button"));
-  const botaoProduto = botoes.find(botao => botao.getAttribute("onclick")?.includes(produtoAtual.referencia));
-  const card = botaoProduto?.closest(".produto");
-  if (card) animarProdutoVoando(card);
+  animarImagemPopupParaCarrinho();
 
-  const botaoPopup = document.querySelector(".popup-conteudo button");
+  const botaoPopup = document.getElementById("botao-confirmar-popup");
 
   salvarCarrinho();
   renderizarCarrinho();
@@ -591,6 +611,27 @@ function mensagemMeta(valorAtual, fabrica) {
   return "Você atingiu o máximo de desconto 🔥";
 }
 
+
+function iconeChevronCarrinho() {
+  return `
+    <svg class="icone-svg-carrinho icone-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6"></path>
+    </svg>
+  `;
+}
+
+function iconeLixeiraCarrinho() {
+  return `
+    <svg class="icone-svg-carrinho" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 6h18"></path>
+      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+      <path d="M10 11v6"></path>
+      <path d="M14 11v6"></path>
+    </svg>
+  `;
+}
+
 function renderizarCarrinho() {
   const lista = document.getElementById("lista-carrinho");
   const resumoDiv = document.getElementById("resumo-fabricas");
@@ -627,32 +668,62 @@ function renderizarCarrinho() {
       NUMERACOES_ANEIS.forEach(numero => {
         const qtd = item.numeracoes?.[numero] || 0;
         if (qtd > 0) {
-          linhasNumeracoes += `<li>Aro ${numero} — Qtd ${qtd}</li>`;
+          linhasNumeracoes += `<li>Aro ${numero}: ${qtd} peça(s)</li>`;
         }
       });
 
       lista.innerHTML += `
         <div class="item-carrinho">
-          <h3>Ref. ${item.referencia}</h3>
-          <p><strong>Peso un.:</strong> ${item.peso || "-"}</p>
-          <p><strong>Valor un. estimado:</strong> R$ ${formatarMoeda(valorUnitarioProduto(item))}</p>
-          <p><strong>Peças:</strong> ${totalPecasItem(item)}</p>
-          <p><strong>Peso estimado:</strong> ${formatarPeso(pesoItem(item))}</p>
-          <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorItem(item))}</p>
-          <ul>${linhasNumeracoes}</ul>
-          <button onclick="removerItem(${index})">Remover</button>
+          <div class="item-carrinho-cabecalho">
+            <div class="item-carrinho-titulo-area">
+              <h3>Ref. ${item.referencia}</h3>
+              <p class="item-carrinho-descricao">${item.descricao || ""}</p>
+            </div>
+            <div class="item-carrinho-acoes" aria-label="Ações do item">
+              <button type="button" class="botao-icone-carrinho botao-detalhes-carrinho" onclick="alternarDetalhesItem(${index}, this)" aria-label="Ver detalhes do item" title="Ver detalhes" aria-expanded="false">
+                ${iconeChevronCarrinho()}
+              </button>
+              <button type="button" class="botao-icone-carrinho botao-remover-carrinho" onclick="removerItem(${index})" aria-label="Remover item" title="Remover item">
+                ${iconeLixeiraCarrinho()}
+              </button>
+            </div>
+          </div>
+          <div class="item-carrinho-resumo-linha">
+            <span>${totalPecasItem(item)} peça(s)</span>
+            <strong>R$ ${formatarMoeda(valorItem(item))}</strong>
+          </div>
+          <div class="detalhes-carrinho escondido" id="detalhes-carrinho-${index}">
+            <p><strong>Peso un.:</strong> ${item.peso || "-"}</p>
+            <p><strong>Valor un. estimado:</strong> R$ ${formatarMoeda(valorUnitarioProduto(item))}</p>
+            <ul>${linhasNumeracoes}</ul>
+          </div>
         </div>
       `;
     } else {
       lista.innerHTML += `
         <div class="item-carrinho">
-          <h3>Ref. ${item.referencia}</h3>
-          <p><strong>Peso un.:</strong> ${item.peso || "-"}</p>
-          <p><strong>Valor un. estimado:</strong> R$ ${formatarMoeda(valorUnitarioProduto(item))}</p>
-          <p><strong>Qtd:</strong> ${item.quantidade}</p>
-          <p><strong>Peso estimado:</strong> ${formatarPeso(pesoItem(item))}</p>
-          <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorItem(item))}</p>
-          <button onclick="removerItem(${index})">Remover</button>
+          <div class="item-carrinho-cabecalho">
+            <div class="item-carrinho-titulo-area">
+              <h3>Ref. ${item.referencia}</h3>
+              <p class="item-carrinho-descricao">${item.descricao || ""}</p>
+            </div>
+            <div class="item-carrinho-acoes" aria-label="Ações do item">
+              <button type="button" class="botao-icone-carrinho botao-detalhes-carrinho" onclick="alternarDetalhesItem(${index}, this)" aria-label="Ver detalhes do item" title="Ver detalhes" aria-expanded="false">
+                ${iconeChevronCarrinho()}
+              </button>
+              <button type="button" class="botao-icone-carrinho botao-remover-carrinho" onclick="removerItem(${index})" aria-label="Remover item" title="Remover item">
+                ${iconeLixeiraCarrinho()}
+              </button>
+            </div>
+          </div>
+          <div class="item-carrinho-resumo-linha">
+            <span>${item.quantidade} peça(s)</span>
+            <strong>R$ ${formatarMoeda(valorItem(item))}</strong>
+          </div>
+          <div class="detalhes-carrinho escondido" id="detalhes-carrinho-${index}">
+            <p><strong>Peso un.:</strong> ${item.peso || "-"}</p>
+            <p><strong>Valor un. estimado:</strong> R$ ${formatarMoeda(valorUnitarioProduto(item))}</p>
+          </div>
         </div>
       `;
     }
@@ -668,6 +739,20 @@ function renderizarCarrinho() {
 
   atualizarBotaoCarrinhoLateral();
   rolarCarrinhoParaBaixo();
+}
+
+function alternarDetalhesItem(index, botao) {
+  const detalhes = document.getElementById(`detalhes-carrinho-${index}`);
+  if (!detalhes) return;
+
+  const estaEscondido = detalhes.classList.toggle("escondido");
+
+  if (botao) {
+    botao.classList.toggle("aberto", !estaEscondido);
+    botao.setAttribute("aria-expanded", String(!estaEscondido));
+    botao.setAttribute("title", estaEscondido ? "Ver detalhes" : "Ocultar detalhes");
+    botao.setAttribute("aria-label", estaEscondido ? "Ver detalhes do item" : "Ocultar detalhes do item");
+  }
 }
 
 function removerItem(index) {
@@ -748,6 +833,46 @@ function animarProdutoVoando(elementoProduto) {
   setTimeout(() => {
     clone.remove();
   }, 700);
+}
+
+function animarImagemPopupParaCarrinho() {
+  const img = document.getElementById("popup-imagem-produto");
+  if (!img || !img.src) return;
+
+  const alvo = document.querySelector(".botao-carrinho-lateral") || document.querySelector(".carrinho");
+  if (!alvo) return;
+
+  const imgRect = img.getBoundingClientRect();
+  const alvoRect = alvo.getBoundingClientRect();
+
+  const clone = img.cloneNode(true);
+  clone.classList.add("fly-item", "fly-item-popup");
+
+  clone.style.top = imgRect.top + "px";
+  clone.style.left = imgRect.left + "px";
+  clone.style.width = Math.min(imgRect.width, 260) + "px";
+  clone.style.height = Math.min(imgRect.height, 260) + "px";
+
+  document.body.appendChild(clone);
+
+  const destinoTop = alvoRect.top + alvoRect.height / 2 - 20;
+  const destinoLeft = alvoRect.left + alvoRect.width / 2 - 20;
+
+  requestAnimationFrame(() => {
+    clone.style.top = destinoTop + "px";
+    clone.style.left = destinoLeft + "px";
+    clone.style.width = "40px";
+    clone.style.height = "40px";
+    clone.style.opacity = "0.15";
+    clone.style.transform = "rotate(8deg) scale(0.2)";
+  });
+
+  alvo.classList.add("carrinho-pulso");
+
+  setTimeout(() => {
+    clone.remove();
+    alvo.classList.remove("carrinho-pulso");
+  }, 760);
 }
 
 function totalPecasPedido() {
@@ -953,4 +1078,212 @@ function gerarMensagemWhatsApp() {
   mensagem += `ITENS: ${carrinho.length}\n`;
 
   return mensagem;
+}
+
+
+// ===============================
+// ENVIO DO PEDIDO PARA PLANILHA
+// ===============================
+const URL_APPS_SCRIPT_PEDIDO = "https://script.google.com/macros/s/AKfycbz_6YoIPX8JGBR-LBFYb1PMc-TjCJtVFwxPRQuDwwxvYczWEUlD2JbForsaNF3VPvbRaA/exec";
+
+function pedidoPodeSerEnviado() {
+  if (carrinho.length === 0) {
+    alert("Seu carrinho está vazio.");
+    return false;
+  }
+
+  const resumo = resumoPorFabrica();
+
+  for (const fabrica of Object.keys(resumo)) {
+    const minimoValor = valorMinimoFabrica(fabrica);
+
+    if (resumo[fabrica].valor < minimoValor) {
+      alert(`${nomeFabrica(fabrica)} ainda não atingiu o mínimo de R$ ${formatarMoeda(minimoValor)}.`);
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function abrirResumoPedido() {
+  if (!pedidoPodeSerEnviado()) return;
+
+  const modal = document.getElementById("modal-resumo");
+  const lista = document.getElementById("resumo-pedido-itens");
+  const totalEl = document.getElementById("resumo-total-valor");
+  const status = document.getElementById("status-envio-pedido");
+  const botao = document.getElementById("botao-confirmar-pedido");
+
+  if (!modal || !lista || !totalEl) return;
+
+  lista.innerHTML = "";
+
+  if (status) {
+    status.innerText = "";
+    status.className = "status-envio-pedido";
+  }
+
+  if (botao) {
+    botao.disabled = false;
+    botao.innerText = "Confirmar e enviar pedido";
+  }
+
+  let totalPedido = 0;
+
+  carrinho.forEach(item => {
+    const subtotal = valorItem(item);
+    totalPedido += subtotal;
+
+    lista.innerHTML += `
+      <div class="item-resumo item-resumo-limpo">
+        <div>
+          <h3>Ref. ${item.referencia}</h3>
+          <p>${item.descricao || ""}</p>
+          <p>${totalPecasItem(item)} peça(s) • ${formatarPeso(pesoItem(item))}</p>
+        </div>
+        <strong>R$ ${formatarMoeda(subtotal)}</strong>
+      </div>
+    `;
+  });
+
+  totalEl.innerText = `R$ ${formatarMoeda(totalPedido)}`;
+  modal.classList.remove("escondido");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function fecharResumoPedido() {
+  const modal = document.getElementById("modal-resumo");
+  if (!modal) return;
+
+  modal.classList.add("escondido");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+function montarPedidoParaEnvio() {
+  return carrinho.map(item => {
+    const valorUnitario = valorUnitarioProduto(item);
+    const totalPecas = totalPecasItem(item);
+
+    return {
+      fabrica: nomeFabrica(item.fabrica),
+      fabricaChave: item.fabrica,
+      categoria: item.categoria || "",
+      referencia: item.referencia,
+      descricao: item.descricao || "",
+      peso: item.peso || "",
+      quantidade: ehCategoriaAnel(item.categoria) ? undefined : Number(item.quantidade || 0),
+      numeracoes: ehCategoriaAnel(item.categoria) ? { ...(item.numeracoes || {}) } : undefined,
+      totalPecas,
+      valorUnitario,
+      subtotal: valorUnitario * totalPecas
+    };
+  });
+}
+
+function gerarNumeroPedido() {
+  const agora = new Date();
+  const data = agora.toISOString().slice(0, 10).replace(/-/g, "");
+  const hora = String(agora.getHours()).padStart(2, "0") + String(agora.getMinutes()).padStart(2, "0") + String(agora.getSeconds()).padStart(2, "0");
+  const sufixo = Math.floor(Math.random() * 900 + 100);
+
+  return `PED-${data}-${hora}-${sufixo}`;
+}
+
+function mostrarAvisoSucessoPedido(numeroPedido) {
+  const aviso = document.getElementById("aviso-sucesso-pedido");
+  const numero = document.getElementById("aviso-numero-pedido");
+
+  if (!aviso) {
+    alert(`Pedido enviado com sucesso! Número do pedido: ${numeroPedido}`);
+    return;
+  }
+
+  if (numero) {
+    numero.innerText = numeroPedido;
+  }
+
+  aviso.classList.remove("escondido");
+  aviso.setAttribute("aria-hidden", "false");
+
+  setTimeout(() => {
+    fecharAvisoSucessoPedido();
+  }, 9000);
+}
+
+function fecharAvisoSucessoPedido() {
+  const aviso = document.getElementById("aviso-sucesso-pedido");
+  if (!aviso) return;
+
+  aviso.classList.add("escondido");
+  aviso.setAttribute("aria-hidden", "true");
+}
+
+async function confirmarEnviarPedido() {
+  if (!pedidoPodeSerEnviado()) return;
+
+  const botao = document.getElementById("botao-confirmar-pedido");
+  const status = document.getElementById("status-envio-pedido");
+  const numeroPedido = gerarNumeroPedido();
+
+  if (botao) {
+    botao.disabled = true;
+    botao.innerText = "Enviando pedido...";
+  }
+
+  if (status) {
+    status.innerText = "Enviando pedido e criando a planilha...";
+    status.className = "status-envio-pedido carregando";
+  }
+
+  const payload = {
+    origem: "catalogo-online",
+    numeroPedido,
+    dataPedido: new Date().toISOString(),
+    fabrica: nomeFabrica(fabricaDoCarrinho()),
+    totalPecas: totalPecasPedido(),
+    totalEstimado: valorTotalPedido(),
+    pedido: montarPedidoParaEnvio()
+  };
+
+  try {
+    await fetch(URL_APPS_SCRIPT_PEDIDO, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (status) {
+      status.innerText = "Pedido enviado com sucesso!";
+      status.className = "status-envio-pedido sucesso";
+    }
+
+    carrinho = [];
+    salvarCarrinho();
+    renderizarCarrinho();
+
+    fecharResumoPedido();
+    mostrarAvisoSucessoPedido(numeroPedido);
+
+    if (botao) {
+      botao.disabled = false;
+      botao.innerText = "Confirmar e enviar pedido";
+    }
+
+  } catch (erro) {
+    console.error("Erro ao enviar pedido:", erro);
+
+    if (status) {
+      status.innerText = "Não foi possível enviar agora. Confira sua conexão e tente novamente.";
+      status.className = "status-envio-pedido erro";
+    }
+
+    if (botao) {
+      botao.disabled = false;
+      botao.innerText = "Tentar enviar novamente";
+    }
+  }
 }
