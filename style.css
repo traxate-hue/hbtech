@@ -4579,3 +4579,103 @@ body {
     font-size: 12px !important;
   }
 }
+
+/* =========================================================
+   V26 — FIX REAL DO POPUP DE AROS NO CELULAR
+   Problema anterior: uma regra antiga escondia o +5 no mobile.
+   Este bloco vence aquela regra e mantém o desktop intacto.
+   ========================================================= */
+@media (max-width: 760px) {
+  .popup-conteudo.popup-produto-layout {
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+
+  .popup-produto-grid {
+    grid-template-columns: 1fr !important;
+    padding: 16px 10px 10px !important;
+    overflow-x: hidden !important;
+  }
+
+  .popup-produto-visual {
+    display: none !important;
+  }
+
+  .popup-selecao-numeracoes {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .popup-produto-layout .numeracoes,
+  #numeracoes.numeracoes {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .popup-produto-layout .numero-item {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+    padding: 10px !important;
+  }
+
+  .popup-produto-layout .controle-qtd {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .popup-produto-layout .controle-qtd button,
+  .popup-produto-layout .controle-qtd input {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 38px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    line-height: 1 !important;
+  }
+
+  .popup-produto-layout .controle-qtd button {
+    font-size: 12px !important;
+    letter-spacing: -0.2px !important;
+  }
+
+  .popup-produto-layout .controle-qtd input {
+    font-size: 15px !important;
+    text-align: center !important;
+  }
+
+  /* selector exato para vencer a regra antiga que escondia o +5 */
+  .popup-produto-layout .controle-qtd button[data-passo="5"],
+  .popup-produto-layout .controle-qtd button[onclick*="5"]:last-child {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .popup-produto-grid {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .popup-produto-layout .controle-qtd {
+    gap: 4px !important;
+  }
+
+  .popup-produto-layout .controle-qtd button {
+    font-size: 11px !important;
+  }
+}
