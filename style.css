@@ -2538,7 +2538,7 @@ height: 58px;
 }
 
 .popup-produto-layout .controle-qtd {
-  grid-template-columns: 39px 34px minmax(48px, 1fr) 34px 39px;
+  grid-template-columns: 42px 42px minmax(46px, 1fr) 42px 42px !important;
 }
 
 .popup-produto-layout .controle-qtd button {
@@ -2657,9 +2657,9 @@ height: 58px;
   }
 
   .popup-produto-layout .controle-qtd button,
-  .popup-produto-layout .controle-qtd input {
-    height: 34px;
-  }
+.popup-produto-layout .controle-qtd input {
+  font-size: 13px !important;
+}
 
   .popup-rodape-fixo {
     grid-template-columns: 1fr;
