@@ -949,11 +949,38 @@ h1#titulo {
   letter-spacing: 0;
 }
 
-.controle-qtd {
-  display: grid;
-  grid-template-columns: 42px 36px minmax(48px, 1fr) 36px 42px;
-  gap: 6px;
-  align-items: center;
+@media (max-width: 600px) {
+
+  .numero-item {
+    padding: 10px !important;
+  }
+
+  .controle-qtd {
+    display: grid;
+    grid-template-columns: 36px 36px minmax(42px, 1fr) 36px 36px !important;
+    gap: 4px !important;
+    align-items: center;
+    width: 100%;
+  }
+
+  .controle-qtd button,
+  .controle-qtd input {
+    height: 36px !important;
+    border-radius: 9px !important;
+  }
+
+  .controle-qtd button {
+    font-size: 11px !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+    letter-spacing: -0.3px;
+  }
+
+  .controle-qtd input {
+    font-size: 15px !important;
+    padding: 0 2px !important;
+  }
+
 }
 
 .controle-qtd button,
