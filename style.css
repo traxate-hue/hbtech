@@ -4424,3 +4424,34 @@ body {
     font-size: 15px !important;
   }
 }
+
+
+/* FIX DEFINITIVO BOTÕES ARO MOBILE */
+@media (max-width: 600px) {
+
+  .popup-conteudo.popup-produto-layout {
+    overflow-x: visible !important;
+  }
+
+  .popup-selecao-numeracoes {
+    overflow-x: visible !important;
+  }
+
+  .controle-qtd {
+    grid-template-columns: 48px 48px minmax(52px, 1fr) 48px 48px !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .controle-qtd button {
+    font-size: 13px !important;
+    padding: 0 !important;
+    min-width: 48px !important;
+    white-space: nowrap !important;
+  }
+
+  .controle-qtd input {
+    min-width: 0 !important;
+  }
+
+}
