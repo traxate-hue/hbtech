@@ -44,7 +44,10 @@
       </div>
     </div>
   </div>
-
-  <script src="script.js"></script>
+  <script>
+    function entrar(fabrica) {
+      window.location.href = `catalogo.html?fabrica=${encodeURIComponent(fabrica)}`;
+    }
+  </script>
 </body>
 </html>

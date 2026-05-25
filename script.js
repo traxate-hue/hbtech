@@ -81,6 +81,7 @@ function fabricaDoCarrinho() {
 }
 
 function nomeFabrica(fabrica) {
+  fabrica = String(fabrica || "").toLowerCase();
   if (fabrica === "tendenze") return "TENDENZE";
   if (fabrica === "zarrara") return "ZARRARA";
   return String(fabrica || "").toUpperCase();
@@ -116,6 +117,7 @@ function podeAdicionarProduto(produto) {
 }
 
 function minimoPorFabrica(fabrica) {
+  fabrica = String(fabrica || "").toLowerCase();
   if (fabrica === "tendenze") return 6;
   if (fabrica === "zarrara") return 10;
   return 1;
@@ -141,6 +143,12 @@ function formatarMoeda(valor) {
 }
 
 function valorUnitarioProduto(produtoOuItem) {
+  // Zarrara vem do importador com preço pronto no campo "preco".
+  if (produtoOuItem && produtoOuItem.preco !== undefined && produtoOuItem.preco !== null) {
+    return Number(produtoOuItem.preco) || 0;
+  }
+
+  // Tendenze continua usando peso x coeficiente por grama.
   return pesoNumerico(produtoOuItem.peso) * COEFICIENTE_GRAMA;
 }
 
@@ -208,7 +216,7 @@ function carregarProdutos() {
   container.innerHTML = "";
 
   produtosFiltradosAtuais = produtos
-    .filter(produto => produto.fabrica === fabricaAtual)
+    .filter(produto => String(produto.fabrica || "").toLowerCase() === String(fabricaAtual || "").toLowerCase())
     .filter(produto => categoriaAtual === "todos" || categoriaChave(produto.categoria) === categoriaChave(categoriaAtual))
     .filter(produto => produtoPassaFiltroPreco(produto))
     .filter(produto => {
@@ -252,7 +260,7 @@ function carregarProdutos() {
       <div class="imagem-produto">${imagemHtml}</div>
       <div class="info-produto">
         <p class="ref-produto">Ref. ${produto.referencia}</p>
-        <p class="peso-produto">Peso: ${produto.peso || "-"}</p>
+        ${produto.peso ? `<p class="peso-produto">Peso: ${produto.peso}</p>` : ""}
         <p class="valor-produto">Valor estimado: R$ ${formatarMoeda(valorUnitarioProduto(produto))}</p>
         <p class="descricao-produto">${produto.descricao || ""}</p>
         <p class="minimo-produto">Mínimo: ${minimoPorFabrica(produto.fabrica)} peças</p>
@@ -596,6 +604,7 @@ function resumoPorFabrica() {
 }
 
 function valorMinimoFabrica(fabrica) {
+  fabrica = String(fabrica || "").toLowerCase();
   if (fabrica === "tendenze") return 5000;
   if (fabrica === "zarrara") return 5000;
   return 0;

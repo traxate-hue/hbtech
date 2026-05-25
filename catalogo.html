@@ -218,8 +218,38 @@
     <img id="zoom-img" src="" alt="Imagem ampliada do produto">
   </div>
 
-  <script src="produtos.js?v=5"></script>
-  <script src="script.js?v=15"></script>
+  <script>
+    (function carregarCatalogoPorFabrica() {
+      const params = new URLSearchParams(window.location.search);
+      const fabrica = (params.get("fabrica") || "tendenze").toLowerCase();
+      const arquivoProdutos = fabrica === "zarrara" ? "produtos-zarrara.js" : "produtos-tendenze.js";
+
+      document.documentElement.dataset.fabrica = fabrica;
+
+      const scriptProdutos = document.createElement("script");
+      scriptProdutos.src = arquivoProdutos + "?v=" + Date.now();
+
+      scriptProdutos.onload = function () {
+        // Normaliza os produtos importados para o mesmo padrão usado pelo catálogo.
+        if (typeof produtos !== "undefined" && Array.isArray(produtos)) {
+          produtos.forEach(function (produto) {
+            produto.fabrica = String(produto.fabrica || fabrica).toLowerCase();
+            produto.categoria = String(produto.categoria || "").toLowerCase();
+          });
+        }
+
+        const scriptApp = document.createElement("script");
+        scriptApp.src = "script.js?v=" + Date.now();
+        document.body.appendChild(scriptApp);
+      };
+
+      scriptProdutos.onerror = function () {
+        alert("Não encontrei o arquivo " + arquivoProdutos + ". Confira se ele está na pasta do projeto.");
+      };
+
+      document.head.appendChild(scriptProdutos);
+    })();
+  </script>
 
 </body>
 </html>
