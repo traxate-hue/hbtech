@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
@@ -47,9 +47,13 @@
     <div class="trocar-fabrica" onclick="trocarFabrica()">ver outra fábrica →</div>
   </div>
 
-  <header class="hero-catalogo">
-    <p class="hero-subtitulo">Coleção exclusiva para lojistas</p>
-    <h1 id="titulo"></h1>
+  <header class="hero-catalogo hero-premium">
+    <div class="hero-joia-decor" aria-hidden="true"></div>
+    <div class="hero-conteudo-premium">
+      <p class="hero-subtitulo">Joias que valorizam você</p>
+      <h1 id="titulo"></h1>
+      <div class="hero-divisor" aria-hidden="true"><span></span></div>
+    </div>
   </header>
 
   <div class="categorias-area">
@@ -62,15 +66,23 @@
       >
     </div>
 
+    <div class="filtros-preco" id="filtros-preco" aria-label="Filtros por valor estimado">
+      <button class="ativo" type="button" data-filtro-preco="todos" onclick="atualizarFiltroPreco('todos')">Todos</button>
+      <button type="button" data-filtro-preco="ate25" onclick="atualizarFiltroPreco('ate25')">Até R$25</button>
+      <button type="button" data-filtro-preco="25a50" onclick="atualizarFiltroPreco('25a50')">R$25 ~ R$50</button>
+      <button type="button" data-filtro-preco="50a100" onclick="atualizarFiltroPreco('50a100')">R$50 ~ R$100</button>
+      <button type="button" data-filtro-preco="acima100" onclick="atualizarFiltroPreco('acima100')">Acima de R$100</button>
+    </div>
+
     <div class="categorias-wrapper">
-      <div class="categorias" id="categorias-scroll">
-        <button onclick="irParaCategoria('todos')">Todos</button>
-        <button onclick="irParaCategoria('Anel')">Anel</button>
-        <button onclick="irParaCategoria('Brinco')">Brinco</button>
-        <button onclick="irParaCategoria('Gargantilha')">Gargantilha</button>
-        <button onclick="irParaCategoria('Piercing')">Piercing</button>
-        <button onclick="irParaCategoria('Pulseira')">Pulseira</button>
-        <button onclick="irParaCategoria('Pingente')">Pingente</button>
+      <div class="categorias categorias-premium" id="categorias-scroll">
+        <button onclick="irParaCategoria('todos')"><span class="cat-icone cat-todos" aria-hidden="true"></span>Todos</button>
+        <button onclick="irParaCategoria('Anel')"><span class="cat-icone cat-anel" aria-hidden="true"></span>Anel</button>
+        <button onclick="irParaCategoria('Brinco')"><span class="cat-icone cat-brinco" aria-hidden="true"></span>Brinco</button>
+        <button onclick="irParaCategoria('Gargantilha')"><span class="cat-icone cat-gargantilha" aria-hidden="true"></span>Gargantilha</button>
+        <button onclick="irParaCategoria('Piercing')"><span class="cat-icone cat-piercing" aria-hidden="true"></span>Piercing</button>
+        <button onclick="irParaCategoria('Pulseira')"><span class="cat-icone cat-pulseira" aria-hidden="true"></span>Pulseira</button>
+        <button onclick="irParaCategoria('Pingente')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Pingente</button>
       </div>
 
       <div class="categorias-indicador" id="categorias-indicador" aria-hidden="true">
@@ -206,8 +218,8 @@
     <img id="zoom-img" src="" alt="Imagem ampliada do produto">
   </div>
 
-  <script src="produtos.js?v=6"></script>
-  <script src="script.js?v=12"></script>
+  <script src="produtos.js?v=5"></script>
+  <script src="script.js?v=13"></script>
 
 </body>
 </html>

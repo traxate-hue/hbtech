@@ -1,6 +1,7 @@
 let fabricaAtual = "";
 let categoriaAtual = "todos";
 let buscaAtual = "";
+let filtroPrecoAtual = "todos";
 let produtoAtual = null;
 let carrinho = [];
 let paginaAtualProdutos = 1;
@@ -29,6 +30,32 @@ function atualizarBusca(valor) {
   buscaAtual = normalizarTexto(valor);
   paginaAtualProdutos = 1;
   carregarProdutos();
+}
+
+function atualizarFiltroPreco(filtro) {
+  filtroPrecoAtual = filtro || "todos";
+  paginaAtualProdutos = 1;
+  atualizarBotoesFiltroPreco();
+  carregarProdutos();
+}
+
+function produtoPassaFiltroPreco(produto) {
+  if (!filtroPrecoAtual || filtroPrecoAtual === "todos") return true;
+
+  const valor = valorUnitarioProduto(produto);
+
+  if (filtroPrecoAtual === "ate25") return valor <= 25;
+  if (filtroPrecoAtual === "25a50") return valor > 25 && valor <= 50;
+  if (filtroPrecoAtual === "50a100") return valor > 50 && valor <= 100;
+  if (filtroPrecoAtual === "acima100") return valor > 100;
+
+  return true;
+}
+
+function atualizarBotoesFiltroPreco() {
+  document.querySelectorAll("[data-filtro-preco]").forEach(botao => {
+    botao.classList.toggle("ativo", botao.dataset.filtroPreco === filtroPrecoAtual);
+  });
 }
 
 function salvarCarrinho() {
@@ -183,6 +210,7 @@ function carregarProdutos() {
   produtosFiltradosAtuais = produtos
     .filter(produto => produto.fabrica === fabricaAtual)
     .filter(produto => categoriaAtual === "todos" || categoriaChave(produto.categoria) === categoriaChave(categoriaAtual))
+    .filter(produto => produtoPassaFiltroPreco(produto))
     .filter(produto => {
       if (!buscaAtual) return true;
 
@@ -1287,3 +1315,7 @@ async function confirmarEnviarPedido() {
     }
   }
 }
+
+
+// Mantém o estado visual dos filtros de preço sincronizado após carregamentos parciais/cache.
+window.addEventListener("DOMContentLoaded", atualizarBotoesFiltroPreco);
