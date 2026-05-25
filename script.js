@@ -143,13 +143,25 @@ function formatarMoeda(valor) {
 }
 
 function valorUnitarioProduto(produtoOuItem) {
+  const fabrica = String(produtoOuItem?.fabrica || "").toLowerCase();
+
   // Zarrara vem do importador com preço pronto no campo "preco".
-  if (produtoOuItem && produtoOuItem.preco !== undefined && produtoOuItem.preco !== null) {
-    return Number(produtoOuItem.preco) || 0;
+  if (fabrica === "zarrara") {
+    if (produtoOuItem && produtoOuItem.preco !== undefined && produtoOuItem.preco !== null) {
+      return Number(produtoOuItem.preco) || 0;
+    }
+
+    // Segurança para itens antigos que já estavam salvos no carrinho sem o campo preco.
+    const produtoOriginal = produtos.find(produto =>
+      produto.referencia === produtoOuItem?.referencia &&
+      String(produto.fabrica || "").toLowerCase() === "zarrara"
+    );
+
+    return Number(produtoOriginal?.preco) || 0;
   }
 
   // Tendenze continua usando peso x coeficiente por grama.
-  return pesoNumerico(produtoOuItem.peso) * COEFICIENTE_GRAMA;
+  return pesoNumerico(produtoOuItem?.peso) * COEFICIENTE_GRAMA;
 }
 
 function valorItem(item) {
@@ -486,6 +498,8 @@ function confirmarPopup() {
       categoria: produtoAtual.categoria,
       minimo: minimoPorFabrica(produtoAtual.fabrica),
       imagem: produtoAtual.imagem,
+      preco: produtoAtual.preco,
+      precoEtiqueta: produtoAtual.precoEtiqueta,
       numeracoes: { ...numeracoes }
     });
   }
@@ -549,6 +563,8 @@ function adicionarProdutoSimples(referencia, botao) {
       categoria: produto.categoria,
       minimo: minimoPorFabrica(produto.fabrica),
       imagem: produto.imagem,
+      preco: produto.preco,
+      precoEtiqueta: produto.precoEtiqueta,
       quantidade: quantidade
     });
   }
