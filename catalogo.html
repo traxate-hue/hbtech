@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=26">
+<link rel="stylesheet" href="style.css?v=31">
 </head>
 <body>
 
@@ -83,6 +83,11 @@
         <button onclick="irParaCategoria('Piercing')"><span class="cat-icone cat-piercing" aria-hidden="true"></span>Piercing</button>
         <button onclick="irParaCategoria('Pulseira')"><span class="cat-icone cat-pulseira" aria-hidden="true"></span>Pulseira</button>
         <button onclick="irParaCategoria('Pingente')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Pingente</button>
+        <button onclick="irParaCategoria('Berloque')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Berloque</button>
+        <button onclick="irParaCategoria('Conjunto')"><span class="cat-icone cat-todos" aria-hidden="true"></span>Conjunto</button>
+        <button onclick="irParaCategoria('Escapulario')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Escapulário</button>
+        <button onclick="irParaCategoria('Infantil')"><span class="cat-icone cat-todos" aria-hidden="true"></span>Infantil</button>
+        <button onclick="irParaCategoria('Tornozeleira')"><span class="cat-icone cat-pulseira" aria-hidden="true"></span>Tornozeleira</button>
       </div>
 
       <div class="categorias-indicador" id="categorias-indicador" aria-hidden="true">
@@ -222,7 +227,12 @@
     (function carregarCatalogoPorFabrica() {
       const params = new URLSearchParams(window.location.search);
       const fabrica = (params.get("fabrica") || "tendenze").toLowerCase();
-      const arquivoProdutos = fabrica === "zarrara" ? "produtos-zarrara.js" : "produtos-tendenze.js";
+      const arquivosPorFabrica = {
+        tendenze: "produtos-tendenze.js",
+        zarrara: "produtos-zarrara.js",
+        inove: "produtos-inove.js"
+      };
+      const arquivoProdutos = arquivosPorFabrica[fabrica] || "produtos-tendenze.js";
 
       document.documentElement.dataset.fabrica = fabrica;
 

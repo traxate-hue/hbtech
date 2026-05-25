@@ -84,6 +84,7 @@ function nomeFabrica(fabrica) {
   fabrica = String(fabrica || "").toLowerCase();
   if (fabrica === "tendenze") return "TENDENZE";
   if (fabrica === "zarrara") return "ZARRARA";
+  if (fabrica === "inove") return "INOVE";
   return String(fabrica || "").toUpperCase();
 }
 
@@ -120,6 +121,7 @@ function minimoPorFabrica(fabrica) {
   fabrica = String(fabrica || "").toLowerCase();
   if (fabrica === "tendenze") return 6;
   if (fabrica === "zarrara") return 10;
+  if (fabrica === "inove") return 6;
   return 1;
 }
 
@@ -160,7 +162,7 @@ function valorUnitarioProduto(produtoOuItem) {
     return Number(produtoOriginal?.preco) || 0;
   }
 
-  // Tendenze continua usando peso x coeficiente por grama.
+  // Tendenze e Inove usam peso x coeficiente por grama.
   return pesoNumerico(produtoOuItem?.peso) * COEFICIENTE_GRAMA;
 }
 
@@ -200,6 +202,13 @@ function pastaCategoria(categoria) {
     "aneis": "aneis",
     "brinco": "brincos",
     "brincos": "brincos",
+    "berloque": "berloques",
+    "berloques": "berloques",
+    "escapulario": "escapularios",
+    "escapularios": "escapularios",
+    "infantil": "infantil",
+    "linha-infantil": "infantil",
+    "conjunto-infantil-cji": "infantil",
     "gargantilha": "gargantilhas",
     "gargantilhas": "gargantilhas",
     "piercing": "piercings",
@@ -212,6 +221,125 @@ function pastaCategoria(categoria) {
   };
 
   return mapa[cat] || cat;
+}
+
+function nomeCategoriaExibicao(categoria) {
+  const original = String(categoria || "").trim();
+  const cat = categoriaChave(original);
+
+  const mapa = {
+    "todos": "Todos",
+    "anel": "Anel",
+    "aneis": "Anéis",
+    "alianca": "Aliança",
+    "aliancas": "Alianças",
+    "brinco": "Brinco",
+    "brincos": "Brincos",
+    "argola": "Argola",
+    "argolas": "Argolas",
+    "bracelete": "Bracelete",
+    "braceletes": "Braceletes",
+    "gargantilha": "Gargantilha",
+    "gargantilhas": "Gargantilhas",
+    "piercing": "Piercing",
+    "piercings": "Piercings",
+    "pulseira": "Pulseira",
+    "pulseiras": "Pulseiras",
+    "pingente": "Pingente",
+    "pingentes": "Pingentes",
+    "berloque": "Berloque",
+    "berloques": "Berloques",
+    "conjunto": "Conjunto",
+    "conjuntos": "Conjuntos",
+    "conjunto-infantil-cji": "Conjunto Infantil",
+    "escapulario": "Escapulário",
+    "escapularios": "Escapulários",
+    "infantil": "Infantil",
+    "tornozeleira": "Tornozeleira",
+    "tornozeleiras": "Tornozeleiras",
+    "acessorios": "Acessórios",
+    "gravatas": "Gravatas",
+    "aro": "Aro",
+    "brd-brincos-duplo": "Brincos Duplo"
+  };
+
+  if (mapa[cat]) return mapa[cat];
+
+  return original
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, letra => letra.toUpperCase());
+}
+
+function iconeCategoria(categoria) {
+  const cat = categoriaChave(categoria);
+
+  if (cat === "todos") return "cat-todos";
+  if (["anel", "aneis", "alianca", "aliancas", "aro"].includes(cat)) return "cat-anel";
+  if (["brinco", "brincos", "argola", "argolas", "brd-brincos-duplo"].includes(cat)) return "cat-brinco";
+  if (["gargantilha", "gargantilhas", "gravatas"].includes(cat)) return "cat-gargantilha";
+  if (["piercing", "piercings"].includes(cat)) return "cat-piercing";
+  if (["pulseira", "pulseiras", "bracelete", "braceletes", "tornozeleira", "tornozeleiras"].includes(cat)) return "cat-pulseira";
+  if (["pingente", "pingentes", "berloque", "berloques", "escapulario", "escapularios"].includes(cat)) return "cat-pingente";
+  if (["infantil", "linha-infantil", "conjunto-infantil-cji"].includes(cat)) return "cat-todos";
+
+  return "cat-todos";
+}
+
+function categoriasDisponiveisDaFabrica() {
+  const vistas = new Set();
+  const categoriasDaFabrica = [];
+
+  produtos
+    .filter(produto => String(produto.fabrica || "").toLowerCase() === String(fabricaAtual || "").toLowerCase())
+    .forEach(produto => {
+      const categoria = String(produto.categoria || "").trim();
+      const chave = categoriaChave(categoria);
+
+      if (!categoria || vistas.has(chave)) return;
+
+      vistas.add(chave);
+      categoriasDaFabrica.push(categoria);
+    });
+
+  return categoriasDaFabrica.sort((a, b) =>
+    nomeCategoriaExibicao(a).localeCompare(nomeCategoriaExibicao(b), "pt-BR")
+  );
+}
+
+function categoriaExisteNaFabrica(categoria) {
+  if (!categoria || categoriaChave(categoria) === "todos") return true;
+
+  const chaveAtual = categoriaChave(categoria);
+  return categoriasDisponiveisDaFabrica().some(cat => categoriaChave(cat) === chaveAtual);
+}
+
+function renderizarCategorias() {
+  const container = document.getElementById("categorias-scroll");
+  if (!container) return;
+
+  const categoriasDaFabrica = categoriasDisponiveisDaFabrica();
+
+  let html = `
+    <button type="button" class="${categoriaChave(categoriaAtual) === "todos" ? "ativo" : ""}" onclick="irParaCategoria('todos')">
+      <span class="cat-icone cat-todos" aria-hidden="true"></span>Todos
+    </button>
+  `;
+
+  categoriasDaFabrica.forEach(categoria => {
+    const categoriaJson = JSON.stringify(categoria);
+    const ativa = categoriaChave(categoriaAtual) === categoriaChave(categoria) ? "ativo" : "";
+
+    html += `
+      <button type="button" class="${ativa}" onclick='irParaCategoria(${categoriaJson})'>
+        <span class="cat-icone ${iconeCategoria(categoria)}" aria-hidden="true"></span>${nomeCategoriaExibicao(categoria)}
+      </button>
+    `;
+  });
+
+  container.innerHTML = html;
+  setTimeout(atualizarIndicadorCategorias, 50);
 }
 
 
@@ -623,6 +751,7 @@ function valorMinimoFabrica(fabrica) {
   fabrica = String(fabrica || "").toLowerCase();
   if (fabrica === "tendenze") return 5000;
   if (fabrica === "zarrara") return 5000;
+  if (fabrica === "inove") return 5000;
   return 0;
 }
 
@@ -1064,7 +1193,7 @@ window.onload = function () {
   const categoria = params.get("categoria");
 
   if (fabrica) {
-    fabricaAtual = fabrica === "inove" ? "tendenze" : fabrica;
+    fabricaAtual = fabrica;
   }
 
   if (categoria) {
@@ -1082,6 +1211,12 @@ window.onload = function () {
   }
 
   carregarCarrinho();
+
+  if (!categoriaExisteNaFabrica(categoriaAtual)) {
+    categoriaAtual = "todos";
+  }
+
+  renderizarCategorias();
   carregarProdutos();
   renderizarCarrinho();
   atualizarBotaoCarrinhoLateral();
