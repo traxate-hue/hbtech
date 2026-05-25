@@ -4393,33 +4393,34 @@ body {
   }
 }
 
-/* CORREÇÃO MOBILE - botões +1 e +5 cortando no popup de anéis */
+/* CORREÇÃO DEFINITIVA MOBILE - numerações dos aros sem cortar botões */
 @media (max-width: 720px) {
-  .controle-qtd {
-    grid-template-columns: 28px 26px minmax(34px, 1fr) 30px 34px !important;
-    gap: 4px !important;
+  .popup-produto-layout .numeracoes {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
   }
 
-  .controle-qtd button,
-  .controle-qtd input {
+  .popup-produto-layout .numero-item {
+    padding: 10px !important;
+    overflow: visible !important;
+  }
+
+  .popup-produto-layout .controle-qtd {
+    grid-template-columns: 34px 32px minmax(42px, 1fr) 32px 38px !important;
+    gap: 5px !important;
+    width: 100% !important;
+  }
+
+  .popup-produto-layout .controle-qtd button,
+  .popup-produto-layout .controle-qtd input {
     min-width: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    font-size: 10px !important;
+    padding: 0 !important;
+    height: 36px !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
   }
 
-  .controle-qtd input {
+  .popup-produto-layout .controle-qtd input {
     font-size: 15px !important;
-  }
-}
-
-@media (max-width: 380px) {
-  .controle-qtd {
-    grid-template-columns: 25px 24px minmax(30px, 1fr) 28px 32px !important;
-    gap: 3px !important;
-  }
-
-  .controle-qtd button {
-    font-size: 9px !important;
   }
 }
