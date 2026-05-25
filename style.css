@@ -4392,3 +4392,34 @@ body {
     transform: scale(1.01) translateY(0) !important;
   }
 }
+
+/* CORREÇÃO MOBILE - botões +1 e +5 cortando no popup de anéis */
+@media (max-width: 720px) {
+  .controle-qtd {
+    grid-template-columns: 28px 26px minmax(34px, 1fr) 30px 34px !important;
+    gap: 4px !important;
+  }
+
+  .controle-qtd button,
+  .controle-qtd input {
+    min-width: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-size: 10px !important;
+  }
+
+  .controle-qtd input {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .controle-qtd {
+    grid-template-columns: 25px 24px minmax(30px, 1fr) 28px 32px !important;
+    gap: 3px !important;
+  }
+
+  .controle-qtd button {
+    font-size: 9px !important;
+  }
+}
