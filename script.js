@@ -394,7 +394,7 @@ function abrirPopup(referencia) {
 
         <div class="controle-qtd" data-aro="${numero}">
           <button type="button" onclick="alterarQtdAro(${numero}, -5)">-5</button>
-          <button type="button" onclick="alterarQtdAro(${numero}, -1)">−1</button>
+          <button type="button" onclick="alterarQtdAro(${numero}, -1)">-1</button>
           <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}" oninput="atualizarResumoPopup()">
           <button type="button" onclick="alterarQtdAro(${numero}, 1)">+1</button>
           <button type="button" onclick="alterarQtdAro(${numero}, 5)">+5</button>

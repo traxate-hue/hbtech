@@ -949,38 +949,11 @@ h1#titulo {
   letter-spacing: 0;
 }
 
-@media (max-width: 600px) {
-
-  .numero-item {
-    padding: 10px !important;
-  }
-
-  .controle-qtd {
-    display: grid;
-    grid-template-columns: 36px 36px minmax(42px, 1fr) 36px 36px !important;
-    gap: 4px !important;
-    align-items: center;
-    width: 100%;
-  }
-
-  .controle-qtd button,
-  .controle-qtd input {
-    height: 36px !important;
-    border-radius: 9px !important;
-  }
-
-  .controle-qtd button {
-    font-size: 11px !important;
-    padding: 0 !important;
-    min-width: 0 !important;
-    letter-spacing: -0.3px;
-  }
-
-  .controle-qtd input {
-    font-size: 15px !important;
-    padding: 0 2px !important;
-  }
-
+.controle-qtd {
+  display: grid;
+  grid-template-columns: 42px 36px minmax(48px, 1fr) 36px 42px;
+  gap: 6px;
+  align-items: center;
 }
 
 .controle-qtd button,
@@ -4452,33 +4425,157 @@ body {
   }
 }
 
-
-/* FIX DEFINITIVO BOTÕES ARO MOBILE */
-@media (max-width: 600px) {
+/* =========================================================
+   FIX FINAL REAL — popup de aros no celular
+   - mantém -5, -1, +1 e +5 visíveis
+   - remove o aperto lateral do popup premium
+   - no celular oculta a foto grande e mantém as infos do produto
+   ========================================================= */
+@media (max-width: 760px) {
+  .popup {
+    padding: 10px !important;
+    align-items: center !important;
+    overflow-x: hidden !important;
+  }
 
   .popup-conteudo.popup-produto-layout {
-    overflow-x: visible !important;
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: 92vh !important;
+    overflow: hidden !important;
+    border-radius: 24px !important;
   }
 
+  .popup-produto-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 18px 12px 10px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .popup-produto-visual,
   .popup-selecao-numeracoes {
-    overflow-x: visible !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
   }
 
-  .controle-qtd {
-    grid-template-columns: 48px 48px minmax(52px, 1fr) 48px 48px !important;
-    gap: 6px !important;
+  .popup-imagem-principal {
+    display: none !important;
+  }
+
+  .popup-info-produto {
+    margin-top: 0 !important;
+    padding: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .popup-conteudo.popup-produto-layout h2,
+  #popup-referencia {
+    font-size: 24px !important;
+    line-height: 1.05 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .popup-descricao-destaque,
+  .popup-meta-linha span {
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  .popup-selecao-numeracoes h3 {
+    font-size: 20px !important;
+  }
+
+  .popup-ajuda {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .popup-produto-layout .numeracoes,
+  #numeracoes.numeracoes {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+    margin: 12px 0 !important;
     width: 100% !important;
   }
 
-  .controle-qtd button {
-    font-size: 13px !important;
-    padding: 0 !important;
-    min-width: 48px !important;
-    white-space: nowrap !important;
-  }
-
-  .controle-qtd input {
+  .popup-produto-layout .numero-item {
+    width: 100% !important;
     min-width: 0 !important;
+    padding: 10px !important;
+    overflow: visible !important;
+    border-radius: 16px !important;
   }
 
+  .popup-produto-layout .numero-topo {
+    margin-bottom: 8px !important;
+  }
+
+  .popup-produto-layout .controle-qtd {
+    display: grid !important;
+    grid-template-columns: 44px 44px minmax(48px, 1fr) 44px 44px !important;
+    gap: 5px !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .popup-produto-layout .controle-qtd button,
+  .popup-produto-layout .controle-qtd input {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 36px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    box-sizing: border-box !important;
+    line-height: 1 !important;
+  }
+
+  .popup-produto-layout .controle-qtd button {
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .popup-produto-layout .controle-qtd input {
+    font-size: 15px !important;
+    text-align: center !important;
+  }
+
+  .popup-produto-layout .controle-qtd button[onclick*="5"] {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .popup-rodape-fixo {
+    padding: 10px 12px !important;
+    gap: 10px !important;
+  }
+
+  .popup-rodape-fixo #botao-confirmar-popup {
+    min-height: 48px !important;
+    height: 48px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .popup-produto-layout .controle-qtd {
+    grid-template-columns: 40px 40px minmax(42px, 1fr) 40px 40px !important;
+    gap: 4px !important;
+  }
+
+  .popup-produto-layout .controle-qtd button {
+    font-size: 12px !important;
+  }
 }
