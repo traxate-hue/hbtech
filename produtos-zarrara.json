@@ -1,4 +1,4 @@
-const produtos = [
+[
   {
     "referencia": "AL-0002",
     "descricao": "AL-0002",
@@ -9619,4 +9619,4 @@ const produtos = [
       "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-068_.jpg"
     ]
   }
-];
+]
