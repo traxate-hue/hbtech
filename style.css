@@ -10757,3 +10757,27 @@ body.filtro-preco-aberto .btn-filtro-toggle {
     font-size: 9.2px !important;
   }
 }
+
+/* PATCH INDEX MOBILE - ordem do carretel e cards menos largos
+   Somente mobile: não altera desktop. */
+@media (max-width: 680px) {
+  .factory-tendenze { order: 1 !important; }
+  .factory-inove { order: 2 !important; }
+  .factory-zarrara { order: 3 !important; }
+  .factory-futura { order: 4 !important; }
+
+  .home-v2-grid .factory-card {
+    flex: 0 0 74vw !important;
+    width: 74vw !important;
+    max-width: 310px !important;
+    min-width: 248px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .home-v2-grid .factory-card {
+    flex-basis: 78vw !important;
+    width: 78vw !important;
+    min-width: 244px !important;
+  }
+}
