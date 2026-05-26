@@ -8,10 +8,20 @@ let paginaAtualProdutos = 1;
 const PRODUTOS_POR_PAGINA = 24;
 let produtosFiltradosAtuais = [];
 
+const ORDEM_INICIAL_TENDENZE = [
+  "31036402", "31009602", "31038502", "31022702", "31034202",
+  "31040702", "31040202", "31086602", "31092902", "31088302"
+];
+const PRIORIDADE_TENDENZE = new Map(ORDEM_INICIAL_TENDENZE.map((ref, index) => [ref, index]));
+
 const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22, 24, 26];
 
 // Ajuste este valor quando o preço por grama mudar.
 const COEFICIENTE_GRAMA = 18.50;
+const COEFICIENTE_GRAMA_POR_FABRICA = {
+  inove: 20.00,
+  tendenze: 18.50
+};
 
 function entrar(fabrica) {
   window.location.href = "catalogo.html?fabrica=" + fabrica + "&categoria=todos";
@@ -25,11 +35,88 @@ function trocarFabrica() {
   window.location.href = "index.html";
 }
 
+function voltarAoTopo() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function atualizarBotaoVoltarTopo() {
+  const botao = document.getElementById("btn-voltar-topo");
+  if (!botao) return;
+
+  botao.classList.toggle("visivel", window.scrollY > 420);
+}
+
+window.addEventListener("scroll", atualizarBotaoVoltarTopo, { passive: true });
+window.addEventListener("DOMContentLoaded", atualizarBotaoVoltarTopo);
+
 
 function atualizarBusca(valor) {
   buscaAtual = normalizarTexto(valor);
   paginaAtualProdutos = 1;
+
+  document.body.classList.toggle("busca-catalogo-com-texto", Boolean(String(valor || "").trim()));
   carregarProdutos();
+  atualizarVisibilidadeControlesMobile();
+}
+
+function alternarFiltroPrecoPainel() {
+  const abriu = !document.body.classList.contains("filtro-preco-aberto");
+  document.body.classList.toggle("filtro-preco-aberto", abriu);
+
+  const botao = document.querySelector(".btn-filtro-toggle");
+  if (botao) {
+    botao.setAttribute("aria-expanded", abriu ? "true" : "false");
+  }
+}
+
+function fecharFiltroPrecoPainel() {
+  document.body.classList.remove("filtro-preco-aberto");
+  const botao = document.querySelector(".btn-filtro-toggle");
+  if (botao) {
+    botao.setAttribute("aria-expanded", "false");
+  }
+}
+
+function alternarBuscaCatalogo() {
+  const input = document.getElementById("busca-produto");
+  fecharFiltroPrecoPainel();
+
+  if (window.innerWidth <= 768) {
+    document.body.classList.remove("mobile-rolou");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    if (input) {
+      setTimeout(() => input.focus(), 420);
+    }
+    return;
+  }
+
+  if (input) {
+    setTimeout(() => input.focus(), 80);
+  }
+}
+
+function fecharBuscaCatalogo() {
+  const input = document.getElementById("busca-produto");
+
+  if (input) {
+    input.value = "";
+  }
+
+  buscaAtual = "";
+  paginaAtualProdutos = 1;
+  document.body.classList.remove("busca-catalogo-com-texto");
+  carregarProdutos();
+}
+
+function alternarMenuTopo() {
+  const abriu = !document.body.classList.contains("menu-topo-aberto");
+  document.body.classList.toggle("menu-topo-aberto", abriu);
+
+  const botao = document.querySelector(".btn-menu-topo");
+  if (botao) {
+    botao.setAttribute("aria-expanded", abriu ? "true" : "false");
+  }
 }
 
 function atualizarFiltroPreco(filtro) {
@@ -37,6 +124,10 @@ function atualizarFiltroPreco(filtro) {
   paginaAtualProdutos = 1;
   atualizarBotoesFiltroPreco();
   carregarProdutos();
+
+  // Depois que o cliente escolhe uma opção, recolhe o painel de filtro.
+  // O pequeno atraso deixa a seleção parecer intencional antes da animação fechar.
+  setTimeout(fecharFiltroPrecoPainel, 140);
 }
 
 function produtoPassaFiltroPreco(produto) {
@@ -144,6 +235,11 @@ function formatarMoeda(valor) {
   });
 }
 
+function coeficienteGramaPorFabrica(fabrica) {
+  fabrica = String(fabrica || "").toLowerCase();
+  return COEFICIENTE_GRAMA_POR_FABRICA[fabrica] || COEFICIENTE_GRAMA;
+}
+
 function valorUnitarioProduto(produtoOuItem) {
   const fabrica = String(produtoOuItem?.fabrica || "").toLowerCase();
 
@@ -163,7 +259,7 @@ function valorUnitarioProduto(produtoOuItem) {
   }
 
   // Tendenze e Inove usam peso x coeficiente por grama.
-  return pesoNumerico(produtoOuItem?.peso) * COEFICIENTE_GRAMA;
+  return pesoNumerico(produtoOuItem?.peso) * coeficienteGramaPorFabrica(fabrica);
 }
 
 function valorItem(item) {
@@ -191,7 +287,14 @@ function categoriaChave(valor) {
 
 function ehCategoriaAnel(categoria) {
   const cat = categoriaChave(categoria);
-  return cat === "anel" || cat === "aneis" || cat === "anéis";
+
+  return [
+    "anel",
+    "aneis",
+    "aneis",
+    "alianca",
+    "aliancas"
+  ].includes(cat);
 }
 
 function pastaCategoria(categoria) {
@@ -375,6 +478,23 @@ function carregarProdutos() {
       );
     });
 
+  if (String(fabricaAtual || "").toLowerCase() === "tendenze") {
+    produtosFiltradosAtuais = produtosFiltradosAtuais
+      .map((produto, ordemOriginal) => ({ produto, ordemOriginal }))
+      .sort((a, b) => {
+        const prioridadeA = PRIORIDADE_TENDENZE.has(String(a.produto.referencia))
+          ? PRIORIDADE_TENDENZE.get(String(a.produto.referencia))
+          : 999999;
+        const prioridadeB = PRIORIDADE_TENDENZE.has(String(b.produto.referencia))
+          ? PRIORIDADE_TENDENZE.get(String(b.produto.referencia))
+          : 999999;
+
+        if (prioridadeA !== prioridadeB) return prioridadeA - prioridadeB;
+        return a.ordemOriginal - b.ordemOriginal;
+      })
+      .map(item => item.produto);
+  }
+
   const totalPaginas = Math.max(1, Math.ceil(produtosFiltradosAtuais.length / PRODUTOS_POR_PAGINA));
 
   if (paginaAtualProdutos > totalPaginas) paginaAtualProdutos = totalPaginas;
@@ -397,11 +517,15 @@ function carregarProdutos() {
       : `<span>Sem imagem</span>`;
 
     const infoHtml = `
-      <div class="imagem-produto">${imagemHtml}</div>
+      <div class="imagem-produto">
+        ${imagemHtml}
+        <span class="badge-ref-card">Ref. ${produto.referencia}</span>
+        ${produto.peso ? `<span class="badge-peso-card">Peso: ${produto.peso}</span>` : ""}
+      </div>
       <div class="info-produto">
         <p class="ref-produto">Ref. ${produto.referencia}</p>
         ${produto.peso ? `<p class="peso-produto">Peso: ${produto.peso}</p>` : ""}
-        <p class="valor-produto">Valor estimado: R$ ${formatarMoeda(valorUnitarioProduto(produto))}</p>
+        <p class="valor-produto">R$ ${formatarMoeda(valorUnitarioProduto(produto))}</p>
         <p class="descricao-produto">${produto.descricao || ""}</p>
         <p class="minimo-produto">Mínimo: ${minimoPorFabrica(produto.fabrica)} peças</p>
       </div>
@@ -409,17 +533,21 @@ function carregarProdutos() {
 
     if (ehCategoriaAnel(produto.categoria)) {
       container.innerHTML += `
-        <div class="produto">
+        <div class="produto produto-anel">
           ${infoHtml}
-          <button onclick='abrirPopup(${refJson})'>Ver numerações</button>
+          <div class="produto-acoes produto-acoes-anel">
+            <button class="btn-escolher-numeracoes" onclick='abrirPopup(${refJson})'>Escolher numerações</button>
+          </div>
         </div>
       `;
     } else {
       container.innerHTML += `
-        <div class="produto">
+        <div class="produto produto-simples">
           ${infoHtml}
-          <input type="number" id="${inputId}" min="0" placeholder="Quantidade">
-          <button onclick='adicionarProdutoSimples(${refJson}, this)'>Adicionar</button>
+          <div class="produto-acoes produto-acoes-simples">
+            <button class="btn-adicionar-card" onclick='adicionarProdutoSimples(${refJson}, this)'>Adicionar</button>
+            <input class="input-qtd-card" type="number" id="${inputId}" min="0" placeholder="Qtd." inputmode="numeric">
+          </div>
         </div>
       `;
     }
@@ -747,12 +875,28 @@ function resumoPorFabrica() {
   return resumo;
 }
 
-function valorMinimoFabrica(fabrica) {
+function regrasComerciaisFabrica(fabrica) {
   fabrica = String(fabrica || "").toLowerCase();
-  if (fabrica === "tendenze") return 5000;
-  if (fabrica === "zarrara") return 5000;
-  if (fabrica === "inove") return 5000;
-  return 0;
+
+  const regras = {
+    inove: { minimo: 20000, desconto5: 40000, desconto10: 80000 },
+    tendenze: { minimo: 30000, desconto5: 60000, desconto10: 100000 },
+    zarrara: { minimo: 20000, desconto5: 40000, desconto10: 80000 }
+  };
+
+  return regras[fabrica] || { minimo: 0, desconto5: 0, desconto10: 0 };
+}
+
+function valorMinimoFabrica(fabrica) {
+  return regrasComerciaisFabrica(fabrica).minimo;
+}
+
+function primeiraMetaDescontoFabrica(fabrica) {
+  return regrasComerciaisFabrica(fabrica).desconto5;
+}
+
+function segundaMetaDescontoFabrica(fabrica) {
+  return regrasComerciaisFabrica(fabrica).desconto10;
 }
 
 function percentualMeta(valorAtual, valorMeta) {
@@ -777,17 +921,19 @@ function criarBarraMeta(titulo, valorAtual, valorMeta) {
 
 function mensagemMeta(valorAtual, fabrica) {
   const minimo = valorMinimoFabrica(fabrica);
+  const meta5 = primeiraMetaDescontoFabrica(fabrica);
+  const meta10 = segundaMetaDescontoFabrica(fabrica);
 
   if (valorAtual < minimo) {
     return `Faltam R$ ${formatarMoeda(minimo - valorAtual)} para o mínimo`;
   }
 
-  if (valorAtual < 30000) {
-    return `Faltam R$ ${formatarMoeda(30000 - valorAtual)} para 5%`;
+  if (valorAtual < meta5) {
+    return `Faltam R$ ${formatarMoeda(meta5 - valorAtual)} para 5%`;
   }
 
-  if (valorAtual < 75000) {
-    return `Faltam R$ ${formatarMoeda(75000 - valorAtual)} para 10%`;
+  if (valorAtual < meta10) {
+    return `Faltam R$ ${formatarMoeda(meta10 - valorAtual)} para mais 5%`;
   }
 
   return "Você atingiu o máximo de desconto 🔥";
@@ -837,8 +983,8 @@ function renderizarCarrinho() {
         <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorAtual)}</p>
         <p class="mensagem-meta">${mensagemMeta(valorAtual, fabCarrinho)}</p>
         ${criarBarraMeta("mín", valorAtual, valorMinimoFabrica(fabCarrinho))}
-        ${criarBarraMeta("5%", valorAtual, 30000)}
-        ${criarBarraMeta("10%", valorAtual, 75000)}
+        ${criarBarraMeta("5%", valorAtual, primeiraMetaDescontoFabrica(fabCarrinho))}
+        ${criarBarraMeta("+5%", valorAtual, segundaMetaDescontoFabrica(fabCarrinho))}
       </div>
     `;
   }
@@ -1065,19 +1211,44 @@ function valorTotalPedido() {
   return carrinho.reduce((acc, item) => acc + valorItem(item), 0);
 }
 
-function atualizarBotaoCarrinhoLateral() {
-  const botao = document.querySelector(".botao-carrinho-lateral");
-  if (!botao) return;
+function atualizarBotaoPedidoMobile() {
+  const botaoPedido = document.querySelector(".mobile-tabbar .tab-pedido");
+  if (!botaoPedido) return;
 
   const referencias = carrinho.length;
   const pecas = totalPecasPedido();
   const valor = valorTotalPedido();
 
+  botaoPedido.innerHTML = `
+    <span class="tab-pedido-icone" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+    </span>
+    <span class="tab-pedido-texto">${referencias} ref. • ${pecas} peça(s)</span>
+    <strong class="tab-pedido-total">R$ ${formatarMoeda(valor)}</strong>
+  `;
+}
+
+function atualizarBotaoCarrinhoLateral() {
+  const botao = document.querySelector(".botao-carrinho-lateral");
+  const areaCarrinho = document.getElementById("area-carrinho");
+
+  if (!botao) return;
+
+  const aberto =
+    areaCarrinho &&
+    !areaCarrinho.classList.contains("carrinho-fechado");
+
+  botao.classList.toggle("oculto", aberto);
+
   botao.innerHTML = `
-    <span class="icone-carrinho">
+    <span class="icone-carrinho" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg"
-           width="22"
-           height="22"
+           width="24"
+           height="24"
            viewBox="0 0 24 24"
            fill="none"
            stroke="currentColor"
@@ -1094,15 +1265,11 @@ function atualizarBotaoCarrinhoLateral() {
         </path>
       </svg>
     </span>
-    <span class="contador-carrinho" id="contador-carrinho">${pecas}</span>
   `;
 
-  botao.title =
-    referencias > 0
-      ? `${referencias} referência(s) • ${pecas} peça(s) • R$ ${formatarMoeda(valor)}`
-      : "Abrir carrinho";
+  botao.title = "Abrir carrinho";
+  atualizarBotaoPedidoMobile();
 }
-
 
 function abrirZoomImagem(src, alt) {
   const zoom = document.getElementById("zoom-imagem");
@@ -1149,19 +1316,190 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
+let scrollBloqueadoCarrinho = 0;
+let carrinhoDragYInicial = 0;
+let carrinhoArrastando = false;
+let carrinhoDeltaY = 0;
+
+function mobileAtivo() {
+  return window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+}
+
+function bloquearRolagemFundoCarrinho() {
+  if (!mobileAtivo()) return;
+  if (document.body.classList.contains("carrinho-mobile-bloqueado")) return;
+
+  scrollBloqueadoCarrinho = window.scrollY || document.documentElement.scrollTop || 0;
+  document.body.classList.add("carrinho-mobile-bloqueado");
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollBloqueadoCarrinho}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+}
+
+function liberarRolagemFundoCarrinho() {
+  if (!document.body.classList.contains("carrinho-mobile-bloqueado")) return;
+
+  document.body.classList.remove("carrinho-mobile-bloqueado");
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  window.scrollTo(0, scrollBloqueadoCarrinho || 0);
+}
+
+function limparArrastoCarrinho() {
+  const areaCarrinho = document.getElementById("area-carrinho");
+  if (areaCarrinho) {
+    areaCarrinho.style.removeProperty("transform");
+    areaCarrinho.style.removeProperty("transition");
+  }
+  carrinhoArrastando = false;
+  carrinhoDeltaY = 0;
+}
+
+function atualizarAlturaCarrinhoMobile() {
+  if (!mobileAtivo()) return;
+
+  const alturaTela = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  document.documentElement.style.setProperty("--altura-carrinho-mobile", `${Math.round(alturaTela * 0.94)}px`);
+}
+
 function alternarCarrinho() {
   const areaCarrinho = document.getElementById("area-carrinho");
   const botao = document.querySelector(".botao-carrinho-lateral");
 
-  if (!areaCarrinho || !botao) return;
+  if (!areaCarrinho) return;
 
+  limparArrastoCarrinho();
   areaCarrinho.classList.toggle("carrinho-fechado");
-  botao.setAttribute(
-    "aria-label",
-    areaCarrinho.classList.contains("carrinho-fechado") ? "Abrir carrinho" : "Fechar carrinho"
-  );
+
+  const aberto = !areaCarrinho.classList.contains("carrinho-fechado");
+  document.body.classList.toggle("carrinho-aberto", aberto);
+
+  if (aberto) {
+    atualizarAlturaCarrinhoMobile();
+    bloquearRolagemFundoCarrinho();
+  } else {
+    liberarRolagemFundoCarrinho();
+  }
+
+  if (botao) {
+    botao.setAttribute("aria-label", aberto ? "Fechar carrinho" : "Abrir carrinho");
+  }
 
   atualizarBotaoCarrinhoLateral();
+}
+
+function fecharCarrinho() {
+  const areaCarrinho = document.getElementById("area-carrinho");
+  const botao = document.querySelector(".botao-carrinho-lateral");
+
+  if (!areaCarrinho || areaCarrinho.classList.contains("carrinho-fechado")) return;
+
+  limparArrastoCarrinho();
+  areaCarrinho.classList.add("carrinho-fechado");
+  document.body.classList.remove("carrinho-aberto");
+  liberarRolagemFundoCarrinho();
+
+  if (botao) botao.setAttribute("aria-label", "Abrir carrinho");
+  atualizarBotaoCarrinhoLateral();
+}
+
+function cliqueForaDoCarrinho(event) {
+  const areaCarrinho = document.getElementById("area-carrinho");
+  const botao = document.querySelector(".botao-carrinho-lateral");
+  const menuMobile = document.querySelector(".mobile-tabbar");
+
+  if (!areaCarrinho || areaCarrinho.classList.contains("carrinho-fechado")) return;
+  if (areaCarrinho.contains(event.target)) return;
+  if (botao && botao.contains(event.target)) return;
+  if (menuMobile && menuMobile.contains(event.target)) return;
+
+  fecharCarrinho();
+}
+
+document.addEventListener("mousedown", cliqueForaDoCarrinho);
+document.addEventListener("touchstart", cliqueForaDoCarrinho, { passive: true });
+
+function iniciarArrastoCarrinhoMobile() {
+  const areaCarrinho = document.getElementById("area-carrinho");
+  if (!areaCarrinho) return;
+
+  const handle = areaCarrinho.querySelector(".cart-sheet-handle");
+  const topo = areaCarrinho.querySelector(".carrinho-topo");
+  const alvosArrasto = [handle, topo].filter(Boolean);
+
+  function podeIniciarArrasto(event) {
+    if (!mobileAtivo() || areaCarrinho.classList.contains("carrinho-fechado")) return false;
+    if (!event.touches || event.touches.length !== 1) return false;
+
+    const alvo = event.target;
+    const tocouHandleOuTopo = alvosArrasto.some(el => el.contains(alvo));
+
+    // O arrasto fica fácil na aba e no topo do carrinho, mas não prende a rolagem da lista.
+    if (tocouHandleOuTopo) return true;
+
+    const lista = alvo.closest && alvo.closest(".lista-carrinho-scroll");
+    if (lista) return lista.scrollTop <= 0;
+
+    return false;
+  }
+
+  areaCarrinho.addEventListener("touchstart", function (event) {
+    if (!podeIniciarArrasto(event)) return;
+
+    carrinhoDragYInicial = event.touches[0].clientY;
+    carrinhoArrastando = true;
+    carrinhoDeltaY = 0;
+    areaCarrinho.style.setProperty("transition", "none", "important");
+  }, { passive: true });
+
+  areaCarrinho.addEventListener("touchmove", function (event) {
+    if (!carrinhoArrastando || !mobileAtivo()) return;
+    if (!event.touches || event.touches.length !== 1) return;
+
+    const yAtual = event.touches[0].clientY;
+    carrinhoDeltaY = Math.max(0, yAtual - carrinhoDragYInicial);
+
+    if (carrinhoDeltaY > 3) {
+      event.preventDefault();
+      areaCarrinho.style.setProperty("transform", `translateY(${carrinhoDeltaY}px)`, "important");
+    }
+  }, { passive: false });
+
+  areaCarrinho.addEventListener("touchend", function () {
+    if (!carrinhoArrastando) return;
+
+    areaCarrinho.style.setProperty("transition", "transform 0.24s ease", "important");
+
+    if (carrinhoDeltaY > 90) {
+      areaCarrinho.style.setProperty("transform", "translateY(110%)", "important");
+      setTimeout(fecharCarrinho, 80);
+    } else {
+      areaCarrinho.style.setProperty("transform", "translateY(0)", "important");
+      setTimeout(limparArrastoCarrinho, 260);
+    }
+
+    carrinhoArrastando = false;
+  }, { passive: true });
+
+  areaCarrinho.addEventListener("touchcancel", limparArrastoCarrinho, { passive: true });
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  atualizarAlturaCarrinhoMobile();
+  iniciarArrastoCarrinhoMobile();
+});
+window.addEventListener("resize", function () {
+  atualizarAlturaCarrinhoMobile();
+  if (!mobileAtivo()) liberarRolagemFundoCarrinho();
+});
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", atualizarAlturaCarrinhoMobile);
 }
 
 function atualizarIndicadorCategorias() {
@@ -1187,6 +1525,25 @@ function iniciarIndicadorCategorias() {
   setTimeout(atualizarIndicadorCategorias, 80);
 }
 
+
+
+function atualizarVisibilidadeControlesMobile() {
+  if (window.innerWidth > 768) {
+    document.body.classList.remove("mobile-rolou");
+    return;
+  }
+
+  const busca = document.getElementById("busca-produto");
+  const buscaEmUso = busca && String(busca.value || "").trim().length > 0;
+  const noTopo = window.scrollY <= 90;
+
+  document.body.classList.toggle("mobile-rolou", !noTopo && !buscaEmUso);
+}
+
+window.addEventListener("scroll", atualizarVisibilidadeControlesMobile, { passive: true });
+window.addEventListener("resize", atualizarVisibilidadeControlesMobile);
+window.addEventListener("DOMContentLoaded", atualizarVisibilidadeControlesMobile);
+
 window.onload = function () {
   const params = new URLSearchParams(window.location.search);
   const fabrica = params.get("fabrica");
@@ -1201,13 +1558,18 @@ window.onload = function () {
   }
 
   const titulo = document.getElementById("titulo");
-  if (titulo && fabricaAtual) {
-    titulo.innerText = nomeFabrica(fabricaAtual);
+  if (titulo) {
+    titulo.innerText = "HBJOIAS";
+  }
+
+  const heroSubtitulo = document.getElementById("hero-subtitulo");
+  if (heroSubtitulo && fabricaAtual) {
+    heroSubtitulo.innerText = `Representações • catálogo ${nomeFabrica(fabricaAtual)}`;
   }
 
   const fabricaAtualEl = document.getElementById("fabrica-atual");
   if (fabricaAtualEl && fabricaAtual) {
-    fabricaAtualEl.innerText = nomeFabrica(fabricaAtual);
+    fabricaAtualEl.innerText = `Catálogo ${nomeFabrica(fabricaAtual)}`;
   }
 
   carregarCarrinho();
@@ -1479,3 +1841,12 @@ async function confirmarEnviarPedido() {
 
 // Mantém o estado visual dos filtros de preço sincronizado após carregamentos parciais/cache.
 window.addEventListener("DOMContentLoaded", atualizarBotoesFiltroPreco);
+
+window.addEventListener("click", (evento) => {
+  const menuWrap = evento.target.closest && evento.target.closest(".menu-topo-wrap");
+  if (!menuWrap) {
+    document.body.classList.remove("menu-topo-aberto");
+    const botaoMenu = document.querySelector(".btn-menu-topo");
+    if (botaoMenu) botaoMenu.setAttribute("aria-expanded", "false");
+  }
+});

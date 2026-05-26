@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=31">
+<link rel="stylesheet" href="style.css?v=33">
 </head>
 <body>
 
@@ -44,34 +44,53 @@
 </button>
   <div class="topo-fabrica">
     <div class="fabrica-atual" id="fabrica-atual"></div>
-    <div class="trocar-fabrica" onclick="trocarFabrica()">ver outra fábrica →</div>
+    <div class="marca-topo">HBJOIAS <span>REPRESENTAÇÕES</span></div>
+    <div class="menu-topo-wrap">
+      <button type="button" class="btn-menu-topo" onclick="alternarMenuTopo()" aria-label="Abrir menu" aria-expanded="false">
+        <span class="menu-topo-icone">☰</span>
+        <span>Menu</span>
+      </button>
+      <nav class="nav-topo-desktop" id="menu-topo-opcoes" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
   </div>
 
   <header class="hero-catalogo hero-premium">
     <div class="hero-joia-decor" aria-hidden="true"></div>
     <div class="hero-conteudo-premium">
-      <p class="hero-subtitulo">Joias que valorizam você</p>
+      <p class="hero-subtitulo" id="hero-subtitulo">Catálogo selecionado para lojistas</p>
       <h1 id="titulo"></h1>
       <div class="hero-divisor" aria-hidden="true"><span></span></div>
     </div>
   </header>
 
   <div class="categorias-area">
-    <div class="busca-catalogo">
-      <input
-        type="text"
-        id="busca-produto"
-        placeholder="Buscar por referência ou descrição"
-        oninput="atualizarBusca(this.value)"
-      >
-    </div>
+    <div class="catalogo-controlbar">
+      <div class="busca-catalogo">
+        <input
+          type="text"
+          id="busca-produto"
+          placeholder="Buscar por referência ou descrição"
+          oninput="atualizarBusca(this.value)"
+        >
+        <button type="button" class="btn-fechar-busca" onclick="fecharBuscaCatalogo()" aria-label="Limpar busca">×</button>
+      </div>
 
-    <div class="filtros-preco" id="filtros-preco" aria-label="Filtros por valor estimado">
+      <button type="button" class="btn-filtro-toggle" onclick="alternarFiltroPrecoPainel()" aria-label="Abrir filtros de preço" aria-expanded="false">
+        <span>☷</span>
+        <strong>Filtro</strong>
+      </button>
+
+      <div class="filtros-preco" id="filtros-preco" aria-label="Filtros por valor estimado">
       <button class="ativo" type="button" data-filtro-preco="todos" onclick="atualizarFiltroPreco('todos')">Todos</button>
       <button type="button" data-filtro-preco="ate25" onclick="atualizarFiltroPreco('ate25')">Até R$25</button>
       <button type="button" data-filtro-preco="25a50" onclick="atualizarFiltroPreco('25a50')">R$25 ~ R$50</button>
       <button type="button" data-filtro-preco="50a100" onclick="atualizarFiltroPreco('50a100')">R$50 ~ R$100</button>
       <button type="button" data-filtro-preco="acima100" onclick="atualizarFiltroPreco('acima100')">Acima de R$100</button>
+      </div>
     </div>
 
     <div class="categorias-wrapper">
@@ -104,6 +123,8 @@
 
     <aside class="area-carrinho carrinho-fechado" id="area-carrinho">
       <div class="carrinho">
+
+        <button type="button" class="cart-sheet-handle" aria-label="Arraste para baixo para fechar o carrinho"></button>
 
         <div class="carrinho-topo">
           <p class="carrinho-label">Pedido atual</p>
@@ -222,6 +243,32 @@
     <button type="button" class="fechar-zoom" onclick="fecharZoomImagem()" aria-label="Fechar zoom">×</button>
     <img id="zoom-img" src="" alt="Imagem ampliada do produto">
   </div>
+
+
+  <button type="button" id="btn-voltar-topo" class="btn-voltar-topo" onclick="voltarAoTopo()" aria-label="Voltar ao topo">↑</button>
+
+  <nav class="mobile-tabbar" aria-label="Navegação mobile">
+    <button type="button" onclick="window.location.href='index.html'">
+      <span class="tab-ico">⌂</span>
+      <span>Início</span>
+    </button>
+    <button type="button" onclick="alternarBuscaCatalogo()">
+      <span class="tab-ico">⌕</span>
+      <span>Busca</span>
+    </button>
+    <button type="button" onclick="window.location.href='contato.html'">
+      <span class="tab-ico">☏</span>
+      <span>Contato</span>
+    </button>
+    <button type="button" onclick="window.location.href='sobre.html'">
+      <span class="tab-ico">ⓘ</span>
+      <span>Sobre</span>
+    </button>
+    <button type="button" onclick="alternarCarrinho()" class="tab-pedido">
+      <span class="tab-ico">🛒</span>
+      <span>Pedido</span>
+    </button>
+  </nav>
 
   <script>
     (function carregarCatalogoPorFabrica() {
