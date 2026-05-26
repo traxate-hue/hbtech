@@ -10049,11 +10049,8 @@ body.filtro-preco-aberto .btn-filtro-toggle {
   }
 
   .produto-acoes {
-    order: 4 !important;
     margin-top: auto !important;
     width: 100% !important;
-    position: relative !important;
-    z-index: 6 !important;
   }
 
   .produto-acoes-anel {
@@ -10062,9 +10059,9 @@ body.filtro-preco-aberto .btn-filtro-toggle {
 
   .produto-acoes-simples {
     display: grid !important;
-    grid-template-columns: 1.15fr 0.85fr !important;
+    grid-template-columns: minmax(54px, 0.62fr) minmax(82px, 1fr) !important;
     align-items: stretch !important;
-    gap: 8px !important;
+    gap: 7px !important;
   }
 
   .produto .input-qtd-card {
@@ -10084,13 +10081,11 @@ body.filtro-preco-aberto .btn-filtro-toggle {
     height: 38px !important;
     min-height: 38px !important;
     margin: 0 !important;
-    padding: 0 12px !important;
+    padding: 0 8px !important;
     border-radius: 12px !important;
     font-size: 11px !important;
     line-height: 1.1 !important;
     white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
   }
 
   .produto-anel .btn-escolher-numeracoes {
@@ -10114,7 +10109,651 @@ body.filtro-preco-aberto .btn-filtro-toggle {
   }
 
   .produto-acoes-simples {
-    grid-template-columns: 1.15fr 0.85fr !important;
+    grid-template-columns: minmax(48px, 0.58fr) minmax(78px, 1fr) !important;
     gap: 6px !important;
+  }
+}
+
+/* =========================================================
+   CORREÇÃO REAL MOBILE — card com ações SEMPRE embaixo
+   26/05 - Não altera desktop
+   ========================================================= */
+@media (max-width: 768px) {
+  .produtos {
+    gap: 14px 12px !important;
+    padding-bottom: 92px !important;
+  }
+
+  .produto,
+  .produto.produto-anel,
+  .produto.produto-simples {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    position: relative !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 8px !important;
+    border-radius: 18px !important;
+  }
+
+  .produto .imagem-produto {
+    order: 1 !important;
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+  }
+
+  .produto .imagem-produto img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    transform: scale(1.035) !important;
+  }
+
+  .produto .info-produto {
+    order: 2 !important;
+    display: block !important;
+    flex: 0 0 auto !important;
+    padding: 6px 0 0 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .produto .info-produto .ref-produto,
+  .produto .info-produto .peso-produto,
+  .produto .descricao-produto,
+  .produto .minimo-produto {
+    display: none !important;
+  }
+
+  .produto .valor-produto {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #f2c56b !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    letter-spacing: .07em !important;
+    text-shadow: 0 0 12px rgba(218,169,84,.24) !important;
+  }
+
+  .produto .produto-acoes,
+  .produto .produto-acoes-anel,
+  .produto .produto-acoes-simples {
+    order: 3 !important;
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 7px 0 0 0 !important;
+    padding: 0 !important;
+    z-index: 1 !important;
+  }
+
+  .produto .produto-acoes-anel {
+    display: block !important;
+  }
+
+  .produto .btn-escolher-numeracoes {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    border-radius: 15px !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .produto .produto-acoes-simples {
+    display: grid !important;
+    grid-template-columns: 1fr .74fr !important;
+    gap: 7px !important;
+    align-items: stretch !important;
+  }
+
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card {
+    width: 100% !important;
+    height: 37px !important;
+    min-height: 37px !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+  }
+
+  .produto .btn-adicionar-card {
+    order: 1 !important;
+    padding: 0 8px !important;
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .produto .input-qtd-card {
+    order: 2 !important;
+    min-width: 0 !important;
+    padding: 0 6px !important;
+    font-size: 11px !important;
+    text-align: center !important;
+  }
+
+  .botao-carrinho-lateral {
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 64px !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    border-radius: 24px !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card {
+    height: 36px !important;
+    min-height: 36px !important;
+    font-size: 10px !important;
+  }
+
+  .produto .valor-produto {
+    font-size: 11.5px !important;
+  }
+}
+
+/* =========================================================
+   PATCH MOBILE V19 — fotos maiores, botões mais baixos e carretel no index
+   Somente mobile. Desktop permanece intocado.
+   ========================================================= */
+@media (max-width: 768px) {
+  /* Cards do catálogo: mais área para foto e menos peso no botão */
+  .produtos {
+    gap: 12px 10px !important;
+  }
+
+  .produto,
+  .produto.produto-anel,
+  .produto.produto-simples {
+    padding: 5px !important;
+    border-radius: 17px !important;
+  }
+
+  .produto .imagem-produto {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 14px !important;
+  }
+
+  .produto .imagem-produto img {
+    width: 106% !important;
+    height: 106% !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    transform: scale(1.075) translateY(0) !important;
+  }
+
+  .produto .info-produto {
+    padding-top: 5px !important;
+  }
+
+  .produto .valor-produto {
+    font-size: 11.5px !important;
+    line-height: 1 !important;
+  }
+
+  .produto .produto-acoes,
+  .produto .produto-acoes-anel,
+  .produto .produto-acoes-simples {
+    margin-top: 5px !important;
+  }
+
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card {
+    height: 32px !important;
+    min-height: 32px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-radius: 12px !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+  }
+
+  .produto .btn-escolher-numeracoes {
+    font-size: 10.5px !important;
+    letter-spacing: .02em !important;
+  }
+
+  .produto .produto-acoes-simples {
+    grid-template-columns: 1fr .72fr !important;
+    gap: 6px !important;
+  }
+
+  .badge-ref-card {
+    left: 10px !important;
+    top: 10px !important;
+    padding: 6px 10px !important;
+    font-size: 10px !important;
+  }
+
+  .badge-peso-card {
+    right: 10px !important;
+    bottom: 10px !important;
+    padding: 6px 10px !important;
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card {
+    height: 31px !important;
+    min-height: 31px !important;
+    font-size: 9.5px !important;
+  }
+
+  .produto .btn-escolher-numeracoes {
+    font-size: 10px !important;
+  }
+}
+
+/* Index mobile: carretel horizontal de fábricas em vez de quebrar em 2 linhas */
+@media (max-width: 680px) {
+  .home-v2-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    width: calc(100% + 32px) !important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    padding: 2px 16px 16px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .home-v2-grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .home-v2-grid {
+    scrollbar-width: none !important;
+  }
+
+  .home-v2-grid .factory-card {
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    max-width: 340px !important;
+    min-width: 282px !important;
+    scroll-snap-align: center !important;
+  }
+
+  .home-v2-grid .factory-card:first-child {
+    scroll-snap-align: start !important;
+  }
+
+  .home-v2-grid::after {
+    content: "" !important;
+    flex: 0 0 2px !important;
+  }
+}
+
+/* =========================================================
+   PATCH V20 — AJUSTE FORTE SOMENTE MOBILE
+   Fotos mais aproveitadas + botões realmente mais baixos.
+   Desktop intocado.
+   ========================================================= */
+@media (max-width: 768px) {
+  .produtos {
+    gap: 10px 8px !important;
+  }
+
+  .produto,
+  .produto.produto-anel,
+  .produto.produto-simples {
+    padding: 4px !important;
+    border-radius: 16px !important;
+    min-height: 0 !important;
+  }
+
+  .produto .imagem-produto,
+  .produto.produto-anel .imagem-produto,
+  .produto.produto-simples .imagem-produto {
+    width: calc(100% + 2px) !important;
+    max-width: none !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
+    aspect-ratio: 1 / 1 !important;
+    margin: -1px -1px 0 -1px !important;
+    border-radius: 14px !important;
+  }
+
+  .produto .imagem-produto img,
+  .produto.produto-anel .imagem-produto img,
+  .produto.produto-simples .imagem-produto img {
+    width: 116% !important;
+    height: 116% !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    transform: scale(1.12) !important;
+    padding: 0 !important;
+  }
+
+  .produto .info-produto {
+    padding: 4px 0 0 0 !important;
+    margin: 0 !important;
+  }
+
+  .produto .valor-produto {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 11.5px !important;
+    line-height: 1 !important;
+  }
+
+  .produto .produto-acoes,
+  .produto .produto-acoes-anel,
+  .produto .produto-acoes-simples,
+  .produto.produto-anel .produto-acoes,
+  .produto.produto-anel .produto-acoes-anel,
+  .produto.produto-simples .produto-acoes,
+  .produto.produto-simples .produto-acoes-simples {
+    margin: 4px 0 0 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card,
+  .produto.produto-anel .btn-escolher-numeracoes,
+  .produto.produto-simples .btn-adicionar-card,
+  .produto.produto-simples .input-qtd-card {
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    margin: 0 !important;
+    padding: 0 7px !important;
+    border-radius: 10px !important;
+    font-size: 9.5px !important;
+    line-height: 1 !important;
+    box-shadow: 0 8px 16px rgba(45,8,4,0.24) !important;
+  }
+
+  .produto.produto-anel .btn-escolher-numeracoes {
+    font-size: 10px !important;
+    letter-spacing: 0 !important;
+  }
+
+  .produto.produto-simples .produto-acoes-simples {
+    grid-template-columns: 1fr .66fr !important;
+    gap: 5px !important;
+  }
+
+  .produto .badge-ref-card {
+    top: 8px !important;
+    left: 8px !important;
+    padding: 5px 9px !important;
+    font-size: 9.5px !important;
+  }
+
+  .produto .badge-peso-card {
+    right: 8px !important;
+    bottom: 8px !important;
+    padding: 5px 9px !important;
+    font-size: 9.5px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card,
+  .produto.produto-anel .btn-escolher-numeracoes,
+  .produto.produto-simples .btn-adicionar-card,
+  .produto.produto-simples .input-qtd-card {
+    height: 27px !important;
+    min-height: 27px !important;
+    max-height: 27px !important;
+    font-size: 9px !important;
+  }
+
+  .produto.produto-anel .btn-escolher-numeracoes {
+    font-size: 9.5px !important;
+  }
+}
+
+/* =========================================================
+   PATCH V21 — MOBILE 2 COLUNAS ESTÁVEL
+   Corrige o caos dos cards mantendo 2 colunas no mobile.
+   Desktop intocado.
+   ========================================================= */
+@media (max-width: 768px) {
+  .produtos,
+  #produtos {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    align-items: start !important;
+  }
+
+  .produto,
+  .produto.produto-anel,
+  .produto.produto-simples {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    padding: 7px !important;
+    gap: 5px !important;
+    border-radius: 15px !important;
+  }
+
+  .produto .imagem-produto,
+  .produto.produto-anel .imagem-produto,
+  .produto.produto-simples .imagem-produto {
+    position: relative !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 13px !important;
+  }
+
+  .produto .imagem-produto img,
+  .produto.produto-anel .imagem-produto img,
+  .produto.produto-simples .imagem-produto img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .produto .info-produto,
+  .produto.produto-anel .info-produto,
+  .produto.produto-simples .info-produto {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .produto .ref-produto,
+  .produto .peso-produto,
+  .produto .descricao-produto,
+  .produto .minimo-produto {
+    display: none !important;
+  }
+
+  .produto .valor-produto {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 1px !important;
+    font-size: 12px !important;
+    line-height: 1.05 !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+  }
+
+  .produto .produto-acoes,
+  .produto .produto-acoes-anel,
+  .produto .produto-acoes-simples,
+  .produto.produto-anel .produto-acoes,
+  .produto.produto-anel .produto-acoes-anel,
+  .produto.produto-simples .produto-acoes,
+  .produto.produto-simples .produto-acoes-simples {
+    width: 100% !important;
+    margin: 1px 0 0 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .produto.produto-anel .produto-acoes-anel {
+    display: block !important;
+  }
+
+  .produto.produto-simples .produto-acoes-simples {
+    display: grid !important;
+    grid-template-columns: 1fr .62fr !important;
+    gap: 5px !important;
+    align-items: stretch !important;
+  }
+
+  .produto.produto-simples .btn-adicionar-card {
+    order: 1 !important;
+  }
+
+  .produto.produto-simples .input-qtd-card {
+    order: 2 !important;
+  }
+
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card,
+  .produto.produto-anel .btn-escolher-numeracoes,
+  .produto.produto-simples .btn-adicionar-card,
+  .produto.produto-simples .input-qtd-card {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 29px !important;
+    min-height: 29px !important;
+    max-height: 29px !important;
+    margin: 0 !important;
+    padding: 0 7px !important;
+    border-radius: 9px !important;
+    font-size: 9.5px !important;
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .produto.produto-anel .btn-escolher-numeracoes {
+    font-size: 10px !important;
+    font-weight: 800 !important;
+  }
+
+  .produto .badge-ref-card {
+    top: 8px !important;
+    left: 8px !important;
+    max-width: calc(100% - 16px) !important;
+    padding: 5px 8px !important;
+    border-radius: 10px !important;
+    font-size: 9px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .produto .badge-peso-card {
+    right: 8px !important;
+    bottom: 8px !important;
+    max-width: calc(100% - 16px) !important;
+    padding: 5px 8px !important;
+    border-radius: 10px !important;
+    font-size: 9px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .produtos,
+  #produtos {
+    gap: 9px !important;
+  }
+
+  .produto,
+  .produto.produto-anel,
+  .produto.produto-simples {
+    padding: 6px !important;
+    gap: 5px !important;
+  }
+
+  .produto .valor-produto {
+    font-size: 11.5px !important;
+  }
+
+  .produto .btn-escolher-numeracoes,
+  .produto .btn-adicionar-card,
+  .produto .input-qtd-card,
+  .produto.produto-anel .btn-escolher-numeracoes,
+  .produto.produto-simples .btn-adicionar-card,
+  .produto.produto-simples .input-qtd-card {
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    font-size: 9px !important;
+    padding: 0 6px !important;
+  }
+
+  .produto.produto-anel .btn-escolher-numeracoes {
+    font-size: 9.2px !important;
   }
 }

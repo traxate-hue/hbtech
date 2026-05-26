@@ -5,8 +5,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.99,
-    "preco": 9.44,
+    "precoEtiqueta": 16.26,
+    "preco": 10.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-002.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-002.jpg"
@@ -18,8 +18,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.75,
-    "preco": 10.63,
+    "precoEtiqueta": 18.3,
+    "preco": 12.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-008.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-008.jpg"
@@ -31,8 +31,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.34,
-    "preco": 6.98,
+    "precoEtiqueta": 12.02,
+    "preco": 8.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-001.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-001.jpg"
@@ -44,8 +44,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.46,
-    "preco": 6.39,
+    "precoEtiqueta": 10.99,
+    "preco": 7.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-004.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-004.jpg"
@@ -57,8 +57,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 38.32,
-    "preco": 25.87,
+    "precoEtiqueta": 44.53,
+    "preco": 30.06,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-003.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-003.jpg"
@@ -70,8 +70,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.64,
-    "preco": 9.21,
+    "precoEtiqueta": 15.85,
+    "preco": 10.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-ST001.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL-ST001.jpg"
@@ -83,8 +83,8 @@ const produtos = [
     "categoria": "alianca",
     "categoriaOriginal": "ALIANÇAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.77,
-    "preco": 14.02,
+    "precoEtiqueta": 24.14,
+    "preco": 16.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL1_2-005.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ALIANÇAS/AL1_2-005.jpg"
@@ -96,8 +96,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.02,
-    "preco": 8.79,
+    "precoEtiqueta": 15.13,
+    "preco": 10.21,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-139.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-139.jpg"
@@ -109,8 +109,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.54,
-    "preco": 8.46,
+    "precoEtiqueta": 14.57,
+    "preco": 9.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-217.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-217.jpg"
@@ -122,8 +122,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.16,
-    "preco": 11.58,
+    "precoEtiqueta": 19.94,
+    "preco": 13.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-229.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-229.jpg"
@@ -135,8 +135,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.35,
-    "preco": 7.66,
+    "precoEtiqueta": 13.19,
+    "preco": 8.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-291.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-291.jpg"
@@ -148,8 +148,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 30.89,
-    "preco": 20.85,
+    "precoEtiqueta": 35.9,
+    "preco": 24.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-297.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-297.jpg"
@@ -161,8 +161,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.45,
-    "preco": 5.7,
+    "precoEtiqueta": 9.82,
+    "preco": 6.62,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-310.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-310.jpg"
@@ -174,8 +174,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.41,
-    "preco": 15.8,
+    "precoEtiqueta": 27.2,
+    "preco": 18.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-312.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-312.jpg"
@@ -187,8 +187,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.76,
-    "preco": 16.04,
+    "precoEtiqueta": 27.61,
+    "preco": 18.64,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-319.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-319.jpg"
@@ -200,8 +200,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-337.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-337.jpg"
@@ -213,8 +213,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.06,
-    "preco": 22.99,
+    "precoEtiqueta": 39.58,
+    "preco": 26.72,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-351.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-351.jpg"
@@ -226,8 +226,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-354.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-354.jpg"
@@ -239,8 +239,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.2,
-    "preco": 16.34,
+    "precoEtiqueta": 28.12,
+    "preco": 18.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-358.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-358.jpg"
@@ -252,8 +252,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-361.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-361.jpg"
@@ -265,8 +265,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.2,
-    "preco": 16.34,
+    "precoEtiqueta": 28.12,
+    "preco": 18.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-362.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-362.jpg"
@@ -278,8 +278,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.3,
-    "preco": 12.36,
+    "precoEtiqueta": 21.27,
+    "preco": 14.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-365.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-365.jpg"
@@ -291,8 +291,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.08,
-    "preco": 6.8,
+    "precoEtiqueta": 11.71,
+    "preco": 7.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-369.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-369.jpg"
@@ -304,8 +304,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 31.42,
-    "preco": 21.21,
+    "precoEtiqueta": 36.51,
+    "preco": 24.65,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-370.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-370.jpg"
@@ -317,8 +317,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.35,
-    "preco": 7.66,
+    "precoEtiqueta": 13.19,
+    "preco": 8.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-373.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-373.jpg"
@@ -330,8 +330,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 39.86,
-    "preco": 26.91,
+    "precoEtiqueta": 46.32,
+    "preco": 31.27,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-395.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-395.jpg"
@@ -343,8 +343,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.03,
-    "preco": 14.2,
+    "precoEtiqueta": 24.44,
+    "preco": 16.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-402.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-402.jpg"
@@ -356,8 +356,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 45.41,
-    "preco": 30.65,
+    "precoEtiqueta": 52.77,
+    "preco": 35.62,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-405.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-405.jpg"
@@ -369,8 +369,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.31,
-    "preco": 10.34,
+    "precoEtiqueta": 17.79,
+    "preco": 12.02,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-409.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-409.jpg"
@@ -382,8 +382,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 31.94,
-    "preco": 21.56,
+    "precoEtiqueta": 37.12,
+    "preco": 25.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-414.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-414.jpg"
@@ -395,8 +395,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.93,
-    "preco": 18.18,
+    "precoEtiqueta": 31.3,
+    "preco": 21.13,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-418.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-418.jpg"
@@ -408,8 +408,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.66,
-    "preco": 12.59,
+    "precoEtiqueta": 21.68,
+    "preco": 14.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-421.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-421.jpg"
@@ -421,8 +421,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.52,
-    "preco": 7.1,
+    "precoEtiqueta": 12.23,
+    "preco": 8.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-423.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-423.jpg"
@@ -434,8 +434,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.3,
-    "preco": 6.95,
+    "precoEtiqueta": 11.97,
+    "preco": 8.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-424.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-424.jpg"
@@ -447,8 +447,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.04,
-    "preco": 12.18,
+    "precoEtiqueta": 20.96,
+    "preco": 14.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-426.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-426.jpg"
@@ -460,8 +460,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.32,
-    "preco": 23.17,
+    "precoEtiqueta": 39.88,
+    "preco": 26.93,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-445.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-445.jpg"
@@ -473,8 +473,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.42,
-    "preco": 11.76,
+    "precoEtiqueta": 20.24,
+    "preco": 13.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-452.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-452.jpg"
@@ -486,8 +486,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.34,
-    "preco": 9.68,
+    "precoEtiqueta": 16.66,
+    "preco": 11.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-453.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-453.jpg"
@@ -499,8 +499,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.64,
-    "preco": 16.63,
+    "precoEtiqueta": 28.63,
+    "preco": 19.33,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-469.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-469.jpg"
@@ -512,8 +512,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.81,
-    "preco": 14.05,
+    "precoEtiqueta": 24.18,
+    "preco": 16.33,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-471.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-471.jpg"
@@ -525,8 +525,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.38,
-    "preco": 7.01,
+    "precoEtiqueta": 12.06,
+    "preco": 8.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-483.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-483.jpg"
@@ -538,8 +538,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.34,
-    "preco": 6.98,
+    "precoEtiqueta": 12.02,
+    "preco": 8.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-484.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-484.jpg"
@@ -551,8 +551,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.53,
-    "preco": 7.78,
+    "precoEtiqueta": 13.4,
+    "preco": 9.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-486.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-486.jpg"
@@ -564,8 +564,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 30.89,
-    "preco": 20.85,
+    "precoEtiqueta": 35.9,
+    "preco": 24.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-490.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-490.jpg"
@@ -577,8 +577,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.53,
-    "preco": 7.78,
+    "precoEtiqueta": 13.4,
+    "preco": 9.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-492.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-492.jpg"
@@ -590,8 +590,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.33,
-    "preco": 9.0,
+    "precoEtiqueta": 15.49,
+    "preco": 10.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-509.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-509.jpg"
@@ -603,8 +603,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.68,
-    "preco": 11.26,
+    "precoEtiqueta": 19.38,
+    "preco": 13.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-510.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-510.jpg"
@@ -616,8 +616,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.6,
-    "preco": 11.88,
+    "precoEtiqueta": 20.45,
+    "preco": 13.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-513.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-513.jpg"
@@ -629,8 +629,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.37,
-    "preco": 6.33,
+    "precoEtiqueta": 10.89,
+    "preco": 7.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-514.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-514.jpg"
@@ -642,8 +642,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.85,
-    "preco": 8.67,
+    "precoEtiqueta": 14.93,
+    "preco": 10.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-520.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-520.jpg"
@@ -655,8 +655,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.95,
-    "preco": 12.12,
+    "precoEtiqueta": 20.86,
+    "preco": 14.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-521.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-521.jpg"
@@ -668,8 +668,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.0,
-    "preco": 7.43,
+    "precoEtiqueta": 12.78,
+    "preco": 8.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-525.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-525.jpg"
@@ -681,8 +681,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.78,
-    "preco": 7.28,
+    "precoEtiqueta": 12.53,
+    "preco": 8.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-526.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-526.jpg"
@@ -694,8 +694,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.43,
-    "preco": 17.17,
+    "precoEtiqueta": 29.55,
+    "preco": 19.95,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-527.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-527.jpg"
@@ -707,8 +707,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.17,
-    "preco": 12.27,
+    "precoEtiqueta": 21.12,
+    "preco": 14.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-531.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-531.jpg"
@@ -720,8 +720,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.87,
-    "preco": 10.04,
+    "precoEtiqueta": 17.28,
+    "preco": 11.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-532.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-532.jpg"
@@ -733,8 +733,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.87,
-    "preco": 10.04,
+    "precoEtiqueta": 17.28,
+    "preco": 11.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-533.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-533.jpg"
@@ -746,8 +746,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.79,
-    "preco": 22.81,
+    "precoEtiqueta": 39.27,
+    "preco": 26.51,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-536.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-536.jpg"
@@ -759,8 +759,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.32,
-    "preco": 8.32,
+    "precoEtiqueta": 14.32,
+    "preco": 9.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-542.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-542.jpg"
@@ -772,8 +772,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.53,
-    "preco": 10.48,
+    "precoEtiqueta": 18.05,
+    "preco": 12.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-543.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-543.jpg"
@@ -785,8 +785,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.08,
-    "preco": 16.93,
+    "precoEtiqueta": 29.15,
+    "preco": 19.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-550.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-550.jpg"
@@ -798,8 +798,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.59,
-    "preco": 13.9,
+    "precoEtiqueta": 23.93,
+    "preco": 16.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-551.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-551.jpg"
@@ -811,8 +811,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.34,
-    "preco": 11.7,
+    "precoEtiqueta": 20.15,
+    "preco": 13.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-553.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-553.jpg"
@@ -824,8 +824,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.87,
-    "preco": 22.19,
+    "precoEtiqueta": 38.2,
+    "preco": 25.79,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-554.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-554.jpg"
@@ -837,8 +837,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.94,
-    "preco": 14.14,
+    "precoEtiqueta": 24.33,
+    "preco": 16.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-563.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-563.jpg"
@@ -850,8 +850,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.67,
-    "preco": 15.98,
+    "precoEtiqueta": 27.51,
+    "preco": 18.57,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-574.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-574.jpg"
@@ -863,8 +863,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.33,
-    "preco": 28.57,
+    "precoEtiqueta": 49.19,
+    "preco": 33.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-581.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-581.jpg"
@@ -876,8 +876,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.94,
-    "preco": 14.14,
+    "precoEtiqueta": 24.33,
+    "preco": 16.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-589.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-589.jpg"
@@ -889,8 +889,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.34,
-    "preco": 11.7,
+    "precoEtiqueta": 20.15,
+    "preco": 13.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-602.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-602.jpg"
@@ -902,8 +902,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.36,
-    "preco": 10.37,
+    "precoEtiqueta": 17.85,
+    "preco": 12.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-607.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-607.jpg"
@@ -915,8 +915,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.2,
-    "preco": 13.63,
+    "precoEtiqueta": 23.47,
+    "preco": 15.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-608.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-608.jpg"
@@ -928,8 +928,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.68,
-    "preco": 11.26,
+    "precoEtiqueta": 19.38,
+    "preco": 13.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-615.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-615.jpg"
@@ -941,8 +941,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.8,
-    "preco": 8.64,
+    "precoEtiqueta": 14.87,
+    "preco": 10.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-145.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-145.jpg"
@@ -954,8 +954,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.71,
-    "preco": 13.31,
+    "precoEtiqueta": 22.9,
+    "preco": 15.47,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-146.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-146.jpg"
@@ -967,8 +967,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-260.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-260.jpg"
@@ -980,8 +980,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.43,
-    "preco": 7.04,
+    "precoEtiqueta": 12.12,
+    "preco": 8.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-267.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-267.jpg"
@@ -993,8 +993,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 30.27,
-    "preco": 20.43,
+    "precoEtiqueta": 35.18,
+    "preco": 23.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-299.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-299.jpg"
@@ -1006,8 +1006,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.9,
-    "preco": 16.81,
+    "precoEtiqueta": 28.94,
+    "preco": 19.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-304.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-304.jpg"
@@ -1019,8 +1019,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.4,
-    "preco": 17.82,
+    "precoEtiqueta": 30.68,
+    "preco": 20.71,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-322.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-322.jpg"
@@ -1032,8 +1032,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.8,
-    "preco": 16.07,
+    "precoEtiqueta": 27.66,
+    "preco": 18.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-326.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-326.jpg"
@@ -1045,8 +1045,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.18,
-    "preco": 10.25,
+    "precoEtiqueta": 17.64,
+    "preco": 11.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-334.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-334.jpg"
@@ -1058,8 +1058,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.08,
-    "preco": 9.5,
+    "precoEtiqueta": 16.36,
+    "preco": 11.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-335.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-335.jpg"
@@ -1071,8 +1071,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-348.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-348.jpg"
@@ -1084,8 +1084,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.82,
-    "preco": 7.31,
+    "precoEtiqueta": 12.57,
+    "preco": 8.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-357.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-357.jpg"
@@ -1097,8 +1097,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.48,
-    "preco": 17.2,
+    "precoEtiqueta": 29.61,
+    "preco": 19.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-359.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-359.jpg"
@@ -1110,8 +1110,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.46,
-    "preco": 18.53,
+    "precoEtiqueta": 31.91,
+    "preco": 21.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-371.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-371.jpg"
@@ -1123,8 +1123,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.82,
-    "preco": 7.31,
+    "precoEtiqueta": 12.57,
+    "preco": 8.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-375.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-375.jpg"
@@ -1136,8 +1136,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 53.33,
-    "preco": 36.0,
+    "precoEtiqueta": 61.97,
+    "preco": 41.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-385.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-385.jpg"
@@ -1149,8 +1149,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.61,
-    "preco": 12.56,
+    "precoEtiqueta": 21.63,
+    "preco": 14.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-389.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-389.jpg"
@@ -1162,8 +1162,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.57,
-    "preco": 12.53,
+    "precoEtiqueta": 21.58,
+    "preco": 14.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-392.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-392.jpg"
@@ -1175,8 +1175,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.02,
-    "preco": 10.81,
+    "precoEtiqueta": 18.62,
+    "preco": 12.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-396.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-396.jpg"
@@ -1188,8 +1188,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.35,
-    "preco": 7.66,
+    "precoEtiqueta": 13.19,
+    "preco": 8.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-398.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-398.jpg"
@@ -1201,8 +1201,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.58,
-    "preco": 15.92,
+    "precoEtiqueta": 27.4,
+    "preco": 18.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-403.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-403.jpg"
@@ -1214,8 +1214,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.5,
-    "preco": 23.28,
+    "precoEtiqueta": 40.09,
+    "preco": 27.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-406.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-406.jpg"
@@ -1227,8 +1227,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 44.97,
-    "preco": 30.35,
+    "precoEtiqueta": 52.26,
+    "preco": 35.27,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-407.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-407.jpg"
@@ -1240,8 +1240,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.03,
-    "preco": 6.77,
+    "precoEtiqueta": 11.66,
+    "preco": 7.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-411.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-411.jpg"
@@ -1253,8 +1253,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.37,
-    "preco": 13.75,
+    "precoEtiqueta": 23.67,
+    "preco": 15.98,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-435.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-435.jpg"
@@ -1266,8 +1266,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.24,
-    "preco": 16.36,
+    "precoEtiqueta": 28.17,
+    "preco": 19.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-438.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-438.jpg"
@@ -1279,8 +1279,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.2,
-    "preco": 16.34,
+    "precoEtiqueta": 28.12,
+    "preco": 18.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-439.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-439.jpg"
@@ -1292,8 +1292,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.72,
-    "preco": 18.71,
+    "precoEtiqueta": 32.21,
+    "preco": 21.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-444.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-444.jpg"
@@ -1305,8 +1305,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.91,
-    "preco": 14.79,
+    "precoEtiqueta": 25.46,
+    "preco": 17.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-446.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-446.jpg"
@@ -1318,8 +1318,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.79,
-    "preco": 15.38,
+    "precoEtiqueta": 26.48,
+    "preco": 17.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-447.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-447.jpg"
@@ -1331,8 +1331,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.17,
-    "preco": 9.56,
+    "precoEtiqueta": 16.47,
+    "preco": 11.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-454.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-454.jpg"
@@ -1344,8 +1344,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.38,
-    "preco": 16.45,
+    "precoEtiqueta": 28.33,
+    "preco": 19.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-457.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-457.jpg"
@@ -1357,8 +1357,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.0,
-    "preco": 12.15,
+    "precoEtiqueta": 20.92,
+    "preco": 14.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-459.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-459.jpg"
@@ -1370,8 +1370,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.9,
-    "preco": 9.39,
+    "precoEtiqueta": 16.15,
+    "preco": 10.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-479.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-479.jpg"
@@ -1383,8 +1383,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.59,
-    "preco": 6.47,
+    "precoEtiqueta": 11.14,
+    "preco": 7.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-516.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-516.jpg"
@@ -1396,8 +1396,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.57,
-    "preco": 7.81,
+    "precoEtiqueta": 13.45,
+    "preco": 9.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-517.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-517.jpg"
@@ -1409,8 +1409,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.61,
-    "preco": 9.86,
+    "precoEtiqueta": 16.98,
+    "preco": 11.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-522.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-522.jpg"
@@ -1422,8 +1422,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.19,
-    "preco": 10.93,
+    "precoEtiqueta": 18.81,
+    "preco": 12.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-524.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-524.jpg"
@@ -1435,8 +1435,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.29,
-    "preco": 8.97,
+    "precoEtiqueta": 15.44,
+    "preco": 10.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-528.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-528.jpg"
@@ -1448,8 +1448,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.94,
-    "preco": 8.73,
+    "precoEtiqueta": 15.04,
+    "preco": 10.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-539.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-539.jpg"
@@ -1461,8 +1461,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.27,
-    "preco": 13.01,
+    "precoEtiqueta": 22.39,
+    "preco": 15.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-541.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-541.jpg"
@@ -1474,8 +1474,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 38.15,
-    "preco": 25.75,
+    "precoEtiqueta": 44.33,
+    "preco": 29.92,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-544.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-544.jpg"
@@ -1487,8 +1487,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.56,
-    "preco": 21.98,
+    "precoEtiqueta": 37.84,
+    "preco": 25.54,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-545.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-545.jpg"
@@ -1500,8 +1500,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.76,
-    "preco": 16.04,
+    "precoEtiqueta": 27.61,
+    "preco": 18.64,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-548.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-548.jpg"
@@ -1513,8 +1513,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.46,
-    "preco": 13.81,
+    "precoEtiqueta": 23.78,
+    "preco": 16.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-549.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-549.jpg"
@@ -1526,8 +1526,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.68,
-    "preco": 11.26,
+    "precoEtiqueta": 19.38,
+    "preco": 13.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-552.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-552.jpg"
@@ -1539,8 +1539,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.32,
-    "preco": 23.17,
+    "precoEtiqueta": 39.88,
+    "preco": 26.93,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-555.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-555.jpg"
@@ -1552,8 +1552,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.02,
-    "preco": 18.24,
+    "precoEtiqueta": 31.4,
+    "preco": 21.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-556.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-556.jpg"
@@ -1565,8 +1565,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.17,
-    "preco": 16.99,
+    "precoEtiqueta": 29.25,
+    "preco": 19.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-557.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-557.jpg"
@@ -1578,8 +1578,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.34,
-    "preco": 19.13,
+    "precoEtiqueta": 32.93,
+    "preco": 22.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-558.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/AN-558.jpg"
@@ -1591,8 +1591,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.55,
-    "preco": 16.57,
+    "precoEtiqueta": 28.53,
+    "preco": 19.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-562.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-562.jpg"
@@ -1604,8 +1604,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.64,
-    "preco": 9.21,
+    "precoEtiqueta": 15.85,
+    "preco": 10.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-564.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-564.jpg"
@@ -1617,8 +1617,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.42,
-    "preco": 13.78,
+    "precoEtiqueta": 23.73,
+    "preco": 16.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-566.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-566.jpg"
@@ -1630,8 +1630,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.45,
-    "preco": 13.13,
+    "precoEtiqueta": 22.6,
+    "preco": 15.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-568.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-568.jpg"
@@ -1643,8 +1643,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 35.73,
-    "preco": 24.12,
+    "precoEtiqueta": 41.52,
+    "preco": 28.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-582.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-582.jpg"
@@ -1656,8 +1656,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.49,
-    "preco": 17.88,
+    "precoEtiqueta": 30.78,
+    "preco": 20.78,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-583.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-583.jpg"
@@ -1669,8 +1669,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.73,
-    "preco": 16.69,
+    "precoEtiqueta": 28.74,
+    "preco": 19.4,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-584.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-584.jpg"
@@ -1682,8 +1682,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.33,
-    "preco": 9.0,
+    "precoEtiqueta": 15.49,
+    "preco": 10.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-593.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-593.jpg"
@@ -1695,8 +1695,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.65,
-    "preco": 17.32,
+    "precoEtiqueta": 29.81,
+    "preco": 20.13,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-601.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-601.jpg"
@@ -1708,8 +1708,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.94,
-    "preco": 16.16,
+    "precoEtiqueta": 27.82,
+    "preco": 18.78,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-604.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-604.jpg"
@@ -1721,8 +1721,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.16,
-    "preco": 16.31,
+    "precoEtiqueta": 28.08,
+    "preco": 18.95,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-605.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-605.jpg"
@@ -1734,8 +1734,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-606.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-606.jpg"
@@ -1747,8 +1747,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.8,
-    "preco": 13.37,
+    "precoEtiqueta": 23.01,
+    "preco": 15.54,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-609.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-609.jpg"
@@ -1760,8 +1760,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.24,
-    "preco": 10.96,
+    "precoEtiqueta": 18.87,
+    "preco": 12.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-610.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-610.jpg"
@@ -1773,8 +1773,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.28,
-    "preco": 15.71,
+    "precoEtiqueta": 27.05,
+    "preco": 18.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-611.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-611.jpg"
@@ -1786,8 +1786,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.36,
-    "preco": 13.07,
+    "precoEtiqueta": 22.5,
+    "preco": 15.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-612.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-612.jpg"
@@ -1799,8 +1799,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.44,
-    "preco": 12.44,
+    "precoEtiqueta": 21.43,
+    "preco": 14.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-613.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-613.jpg"
@@ -1812,8 +1812,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.48,
-    "preco": 17.2,
+    "precoEtiqueta": 29.61,
+    "preco": 19.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-614.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-614.jpg"
@@ -1825,8 +1825,8 @@ const produtos = [
     "categoria": "anel",
     "categoriaOriginal": "ANÉIS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.6,
-    "preco": 9.18,
+    "precoEtiqueta": 15.8,
+    "preco": 10.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-616.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ANÉIS/An-616.jpg"
@@ -1838,8 +1838,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.12,
-    "preco": 18.98,
+    "precoEtiqueta": 32.68,
+    "preco": 22.06,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-022.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-022.jpg"
@@ -1851,8 +1851,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.52,
-    "preco": 7.1,
+    "precoEtiqueta": 12.23,
+    "preco": 8.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-095.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-095.jpg"
@@ -1864,8 +1864,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.36,
-    "preco": 10.37,
+    "precoEtiqueta": 17.85,
+    "preco": 12.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-175.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-175.jpg"
@@ -1877,8 +1877,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.29,
-    "preco": 16.39,
+    "precoEtiqueta": 28.23,
+    "preco": 19.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-177.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-177.jpg"
@@ -1890,8 +1890,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.1,
-    "preco": 12.89,
+    "precoEtiqueta": 22.2,
+    "preco": 14.98,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-209_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-209_.jpg"
@@ -1903,8 +1903,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.74,
-    "preco": 5.23,
+    "precoEtiqueta": 8.99,
+    "preco": 6.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-219.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-219.jpg"
@@ -1916,8 +1916,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.46,
-    "preco": 9.09,
+    "precoEtiqueta": 15.64,
+    "preco": 10.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-314.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-314.jpg"
@@ -1929,8 +1929,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.95,
-    "preco": 16.84,
+    "precoEtiqueta": 28.99,
+    "preco": 19.57,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-368.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-368.jpg"
@@ -1942,8 +1942,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.44,
-    "preco": 5.02,
+    "precoEtiqueta": 8.65,
+    "preco": 5.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-442.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-442.jpg"
@@ -1955,8 +1955,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.18,
-    "preco": 7.54,
+    "precoEtiqueta": 12.99,
+    "preco": 8.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-485.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-485.jpg"
@@ -1968,8 +1968,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.68,
-    "preco": 9.24,
+    "precoEtiqueta": 15.9,
+    "preco": 10.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-500.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-500.jpg"
@@ -1981,8 +1981,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.22,
-    "preco": 7.57,
+    "precoEtiqueta": 13.04,
+    "preco": 8.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-549.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-549.jpg"
@@ -1994,8 +1994,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.1,
-    "preco": 5.46,
+    "precoEtiqueta": 9.41,
+    "preco": 6.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-552_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-552_.jpg"
@@ -2007,8 +2007,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.91,
-    "preco": 12.09,
+    "precoEtiqueta": 20.81,
+    "preco": 14.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-623.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-623.jpg"
@@ -2020,8 +2020,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.91,
-    "preco": 12.09,
+    "precoEtiqueta": 20.81,
+    "preco": 14.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-631.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-631.jpg"
@@ -2033,8 +2033,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.04,
-    "preco": 7.45,
+    "precoEtiqueta": 12.83,
+    "preco": 8.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-632.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-632.jpg"
@@ -2046,8 +2046,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.25,
-    "preco": 4.22,
+    "precoEtiqueta": 7.26,
+    "preco": 4.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-648.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-648.jpg"
@@ -2059,8 +2059,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.7,
-    "preco": 15.33,
+    "precoEtiqueta": 26.38,
+    "preco": 17.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-650.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-650.jpg"
@@ -2072,8 +2072,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.28,
-    "preco": 18.41,
+    "precoEtiqueta": 31.7,
+    "preco": 21.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-651.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-651.jpg"
@@ -2085,8 +2085,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.86,
-    "preco": 14.08,
+    "precoEtiqueta": 24.24,
+    "preco": 16.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-654_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-654_.jpg"
@@ -2098,8 +2098,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.86,
-    "preco": 4.63,
+    "precoEtiqueta": 7.97,
+    "preco": 5.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-656.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-656.jpg"
@@ -2111,8 +2111,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.66,
-    "preco": 5.17,
+    "precoEtiqueta": 8.9,
+    "preco": 6.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-659.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-659.jpg"
@@ -2124,8 +2124,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.22,
-    "preco": 7.57,
+    "precoEtiqueta": 13.04,
+    "preco": 8.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-660.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-660.jpg"
@@ -2137,8 +2137,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.42,
-    "preco": 6.36,
+    "precoEtiqueta": 10.95,
+    "preco": 7.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-719.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-719.jpg"
@@ -2150,8 +2150,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.44,
-    "preco": 7.72,
+    "precoEtiqueta": 13.29,
+    "preco": 8.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-721.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-721.jpg"
@@ -2163,8 +2163,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.74,
-    "preco": 5.23,
+    "precoEtiqueta": 8.99,
+    "preco": 6.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-730.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-730.jpg"
@@ -2176,8 +2176,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.64,
-    "preco": 6.5,
+    "precoEtiqueta": 11.2,
+    "preco": 7.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-739.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-739.jpg"
@@ -2189,8 +2189,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.49,
-    "preco": 5.73,
+    "precoEtiqueta": 9.87,
+    "preco": 6.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-074.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-074.jpg"
@@ -2202,8 +2202,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.93,
-    "preco": 10.75,
+    "precoEtiqueta": 18.51,
+    "preco": 12.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-752.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-752.jpg"
@@ -2215,8 +2215,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.84,
-    "preco": 7.99,
+    "precoEtiqueta": 13.76,
+    "preco": 9.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-756 menor_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-756 menor_.jpg"
@@ -2228,8 +2228,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.72,
-    "preco": 6.56,
+    "precoEtiqueta": 11.3,
+    "preco": 7.62,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-759.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-759.jpg"
@@ -2241,8 +2241,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.61,
-    "preco": 5.14,
+    "precoEtiqueta": 8.84,
+    "preco": 5.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-796.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-796.jpg"
@@ -2254,8 +2254,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.74,
-    "preco": 7.25,
+    "precoEtiqueta": 12.48,
+    "preco": 8.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-804.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-804.jpg"
@@ -2267,8 +2267,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.71,
-    "preco": 10.6,
+    "precoEtiqueta": 18.26,
+    "preco": 12.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-805.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-805.jpg"
@@ -2280,8 +2280,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.0,
-    "preco": 17.55,
+    "precoEtiqueta": 30.21,
+    "preco": 20.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-807.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-807.jpg"
@@ -2293,8 +2293,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.28,
-    "preco": 10.99,
+    "precoEtiqueta": 18.92,
+    "preco": 12.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-808.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-808.jpg"
@@ -2306,8 +2306,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.08,
-    "preco": 12.21,
+    "precoEtiqueta": 21.01,
+    "preco": 14.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-823.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-823.jpg"
@@ -2319,8 +2319,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.0,
-    "preco": 4.72,
+    "precoEtiqueta": 8.13,
+    "preco": 5.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-825.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-825.jpg"
@@ -2332,8 +2332,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.57,
-    "preco": 5.11,
+    "precoEtiqueta": 8.8,
+    "preco": 5.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-836.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-836.jpg"
@@ -2345,8 +2345,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.54,
-    "preco": 5.76,
+    "precoEtiqueta": 9.92,
+    "preco": 6.69,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-838.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-838.jpg"
@@ -2358,8 +2358,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.44,
-    "preco": 5.02,
+    "precoEtiqueta": 8.65,
+    "preco": 5.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-852.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-852.jpg"
@@ -2371,8 +2371,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.44,
-    "preco": 5.02,
+    "precoEtiqueta": 8.65,
+    "preco": 5.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-853.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-853.jpg"
@@ -2384,8 +2384,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.89,
-    "preco": 6.0,
+    "precoEtiqueta": 10.33,
+    "preco": 6.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-856.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-856.jpg"
@@ -2397,8 +2397,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.32,
-    "preco": 5.61,
+    "precoEtiqueta": 9.67,
+    "preco": 6.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-858.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-858.jpg"
@@ -2410,8 +2410,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.5,
-    "preco": 6.42,
+    "precoEtiqueta": 11.04,
+    "preco": 7.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-859.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-859.jpg"
@@ -2423,8 +2423,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.01,
-    "preco": 8.11,
+    "precoEtiqueta": 13.96,
+    "preco": 9.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-860.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-860.jpg"
@@ -2436,8 +2436,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.5,
-    "preco": 6.42,
+    "precoEtiqueta": 11.04,
+    "preco": 7.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-865.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-865.jpg"
@@ -2449,8 +2449,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.79,
-    "preco": 22.81,
+    "precoEtiqueta": 39.27,
+    "preco": 26.51,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-869.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-869.jpg"
@@ -2462,8 +2462,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.22,
-    "preco": 4.87,
+    "precoEtiqueta": 8.39,
+    "preco": 5.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-872.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-872.jpg"
@@ -2475,8 +2475,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.53,
-    "preco": 7.78,
+    "precoEtiqueta": 13.4,
+    "preco": 9.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-873.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-873.jpg"
@@ -2488,8 +2488,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.57,
-    "preco": 5.11,
+    "precoEtiqueta": 8.8,
+    "preco": 5.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-877.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-877.jpg"
@@ -2501,8 +2501,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.76,
-    "preco": 13.34,
+    "precoEtiqueta": 22.96,
+    "preco": 15.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-890.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-890.jpg"
@@ -2514,8 +2514,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.31,
-    "preco": 7.63,
+    "precoEtiqueta": 13.14,
+    "preco": 8.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-894.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-894.jpg"
@@ -2527,8 +2527,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.5,
-    "preco": 15.86,
+    "precoEtiqueta": 27.31,
+    "preco": 18.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-899.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-899.jpg"
@@ -2540,8 +2540,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.29,
-    "preco": 8.97,
+    "precoEtiqueta": 15.44,
+    "preco": 10.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-905.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-905.jpg"
@@ -2553,8 +2553,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.85,
-    "preco": 8.67,
+    "precoEtiqueta": 14.93,
+    "preco": 10.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-918.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-918.jpg"
@@ -2566,8 +2566,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.45,
-    "preco": 5.7,
+    "precoEtiqueta": 9.82,
+    "preco": 6.62,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-922.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-922.jpg"
@@ -2579,8 +2579,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.8,
-    "preco": 10.66,
+    "precoEtiqueta": 18.36,
+    "preco": 12.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-932.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-932.jpg"
@@ -2592,8 +2592,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.28,
-    "preco": 8.29,
+    "precoEtiqueta": 14.27,
+    "preco": 9.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-939.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-939.jpg"
@@ -2605,8 +2605,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.49,
-    "preco": 17.88,
+    "precoEtiqueta": 30.78,
+    "preco": 20.78,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-943.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-943.jpg"
@@ -2618,8 +2618,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.78,
-    "preco": 9.98,
+    "precoEtiqueta": 17.18,
+    "preco": 11.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-952.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-952.jpg"
@@ -2631,8 +2631,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.94,
-    "preco": 11.43,
+    "precoEtiqueta": 19.69,
+    "preco": 13.28,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-992.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-992.jpg"
@@ -2644,8 +2644,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.56,
-    "preco": 7.13,
+    "precoEtiqueta": 12.27,
+    "preco": 8.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1007.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1007.jpg"
@@ -2657,8 +2657,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.04,
-    "preco": 9.47,
+    "precoEtiqueta": 16.32,
+    "preco": 11.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1012.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1012.jpg"
@@ -2670,8 +2670,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.68,
-    "preco": 18.68,
+    "precoEtiqueta": 32.17,
+    "preco": 21.71,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1015.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1015.jpg"
@@ -2683,8 +2683,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.48,
-    "preco": 17.2,
+    "precoEtiqueta": 29.61,
+    "preco": 19.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1016.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1016.jpg"
@@ -2696,8 +2696,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.64,
-    "preco": 16.63,
+    "precoEtiqueta": 28.63,
+    "preco": 19.33,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-1017.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-1017.jpg"
@@ -2709,8 +2709,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.68,
-    "preco": 18.68,
+    "precoEtiqueta": 32.17,
+    "preco": 21.71,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-1018.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-1018.jpg"
@@ -2722,8 +2722,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1019.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1019.jpg"
@@ -2735,8 +2735,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.28,
-    "preco": 15.71,
+    "precoEtiqueta": 27.05,
+    "preco": 18.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1020.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1020.jpg"
@@ -2748,8 +2748,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.98,
-    "preco": 11.46,
+    "precoEtiqueta": 19.73,
+    "preco": 13.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1021.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1021.jpg"
@@ -2761,8 +2761,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.95,
-    "preco": 4.69,
+    "precoEtiqueta": 8.08,
+    "preco": 5.45,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1022.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-1022.jpg"
@@ -2774,8 +2774,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.64,
-    "preco": 6.5,
+    "precoEtiqueta": 11.2,
+    "preco": 7.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-109.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-109.jpg"
@@ -2787,8 +2787,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.23,
-    "preco": 12.98,
+    "precoEtiqueta": 22.35,
+    "preco": 15.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-176.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-176.jpg"
@@ -2800,8 +2800,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.36,
-    "preco": 5.64,
+    "precoEtiqueta": 9.72,
+    "preco": 6.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-206_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-206_.jpg"
@@ -2813,8 +2813,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.25,
-    "preco": 11.64,
+    "precoEtiqueta": 20.05,
+    "preco": 13.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-208_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-208_.jpg"
@@ -2826,8 +2826,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.06,
-    "preco": 6.12,
+    "precoEtiqueta": 10.53,
+    "preco": 7.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-220.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-220.jpg"
@@ -2839,8 +2839,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.08,
-    "preco": 9.5,
+    "precoEtiqueta": 16.36,
+    "preco": 11.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-221.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-221.jpg"
@@ -2852,8 +2852,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.93,
-    "preco": 13.45,
+    "precoEtiqueta": 23.16,
+    "preco": 15.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-280.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-280.jpg"
@@ -2865,8 +2865,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.09,
-    "preco": 7.48,
+    "precoEtiqueta": 12.89,
+    "preco": 8.69,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-288.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-288.jpg"
@@ -2878,8 +2878,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.48,
-    "preco": 9.77,
+    "precoEtiqueta": 16.83,
+    "preco": 11.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-302.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-302.jpg"
@@ -2891,8 +2891,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.08,
-    "preco": 12.21,
+    "precoEtiqueta": 21.01,
+    "preco": 14.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-385.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-385.jpg"
@@ -2904,8 +2904,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.88,
-    "preco": 5.32,
+    "precoEtiqueta": 9.16,
+    "preco": 6.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-411.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-411.jpg"
@@ -2917,8 +2917,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.26,
-    "preco": 7.6,
+    "precoEtiqueta": 13.09,
+    "preco": 8.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-421 Menor.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-421 Menor.jpg"
@@ -2930,8 +2930,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.02,
-    "preco": 8.79,
+    "precoEtiqueta": 15.13,
+    "preco": 10.21,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-422 Maior.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-422 Maior.jpg"
@@ -2943,8 +2943,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.96,
-    "preco": 7.4,
+    "precoEtiqueta": 12.74,
+    "preco": 8.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-443_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-443_.jpg"
@@ -2956,8 +2956,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.69,
-    "preco": 7.22,
+    "precoEtiqueta": 12.42,
+    "preco": 8.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-448.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-448.jpg"
@@ -2969,8 +2969,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.93,
-    "preco": 10.75,
+    "precoEtiqueta": 18.51,
+    "preco": 12.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-454.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-454.jpg"
@@ -2982,8 +2982,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.17,
-    "preco": 9.56,
+    "precoEtiqueta": 16.47,
+    "preco": 11.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-459.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-459.jpg"
@@ -2995,8 +2995,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.01,
-    "preco": 5.41,
+    "precoEtiqueta": 9.31,
+    "preco": 6.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-513.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-513.jpg"
@@ -3008,8 +3008,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.88,
-    "preco": 5.32,
+    "precoEtiqueta": 9.16,
+    "preco": 6.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-537.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-537.jpg"
@@ -3021,8 +3021,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.16,
-    "preco": 6.86,
+    "precoEtiqueta": 11.81,
+    "preco": 7.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-547.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-547.jpg"
@@ -3034,8 +3034,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.88,
-    "preco": 8.02,
+    "precoEtiqueta": 13.81,
+    "preco": 9.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-548.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-548.jpg"
@@ -3047,8 +3047,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.48,
-    "preco": 9.77,
+    "precoEtiqueta": 16.83,
+    "preco": 11.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-550.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-550.jpg"
@@ -3060,8 +3060,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.79,
-    "preco": 7.96,
+    "precoEtiqueta": 13.7,
+    "preco": 9.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-568.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-568.jpg"
@@ -3073,8 +3073,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.96,
-    "preco": 7.4,
+    "precoEtiqueta": 12.74,
+    "preco": 8.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-579.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-579.jpg"
@@ -3086,8 +3086,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.14,
-    "preco": 8.2,
+    "precoEtiqueta": 14.11,
+    "preco": 9.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-580.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-580.jpg"
@@ -3099,8 +3099,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.06,
-    "preco": 8.14,
+    "precoEtiqueta": 14.01,
+    "preco": 9.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-594.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-594.jpg"
@@ -3112,8 +3112,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.12,
-    "preco": 6.83,
+    "precoEtiqueta": 11.76,
+    "preco": 7.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-609.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-609.jpg"
@@ -3125,8 +3125,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.06,
-    "preco": 8.14,
+    "precoEtiqueta": 14.01,
+    "preco": 9.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-622.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-622.jpg"
@@ -3138,8 +3138,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.94,
-    "preco": 6.71,
+    "precoEtiqueta": 11.55,
+    "preco": 7.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-646.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-646.jpg"
@@ -3151,8 +3151,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.76,
-    "preco": 13.34,
+    "precoEtiqueta": 22.96,
+    "preco": 15.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-661.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-661.jpg"
@@ -3164,8 +3164,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.57,
-    "preco": 5.11,
+    "precoEtiqueta": 8.8,
+    "preco": 5.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-669.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-669.jpg"
@@ -3177,8 +3177,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.89,
-    "preco": 6.0,
+    "precoEtiqueta": 10.33,
+    "preco": 6.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-701.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-701.jpg"
@@ -3190,8 +3190,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.28,
-    "preco": 8.29,
+    "precoEtiqueta": 14.27,
+    "preco": 9.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-716.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-716.jpg"
@@ -3203,8 +3203,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.54,
-    "preco": 5.76,
+    "precoEtiqueta": 9.92,
+    "preco": 6.69,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-717.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-717.jpg"
@@ -3216,8 +3216,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.33,
-    "preco": 6.3,
+    "precoEtiqueta": 10.84,
+    "preco": 7.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-720.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-720.jpg"
@@ -3229,8 +3229,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.38,
-    "preco": 7.01,
+    "precoEtiqueta": 12.06,
+    "preco": 8.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-731.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-731.jpg"
@@ -3242,8 +3242,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.54,
-    "preco": 5.76,
+    "precoEtiqueta": 9.92,
+    "preco": 6.69,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-749.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-749.jpg"
@@ -3255,8 +3255,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.26,
-    "preco": 9.62,
+    "precoEtiqueta": 16.57,
+    "preco": 11.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-758 maior_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-758 maior_.jpg"
@@ -3268,8 +3268,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.48,
-    "preco": 17.2,
+    "precoEtiqueta": 29.61,
+    "preco": 19.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-763.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-763.jpg"
@@ -3281,8 +3281,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.56,
-    "preco": 19.28,
+    "precoEtiqueta": 33.19,
+    "preco": 22.41,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-764.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-764.jpg"
@@ -3294,8 +3294,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.29,
-    "preco": 8.97,
+    "precoEtiqueta": 15.44,
+    "preco": 10.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-788.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-788.jpg"
@@ -3307,8 +3307,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.7,
-    "preco": 5.2,
+    "precoEtiqueta": 8.95,
+    "preco": 6.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-797.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-797.jpg"
@@ -3320,8 +3320,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.42,
-    "preco": 6.36,
+    "precoEtiqueta": 10.95,
+    "preco": 7.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-817.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-817.jpg"
@@ -3333,8 +3333,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.44,
-    "preco": 5.02,
+    "precoEtiqueta": 8.65,
+    "preco": 5.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-826.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-826.jpg"
@@ -3346,8 +3346,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.2,
-    "preco": 4.19,
+    "precoEtiqueta": 7.21,
+    "preco": 4.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-827.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-827.jpg"
@@ -3359,8 +3359,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.82,
-    "preco": 4.6,
+    "precoEtiqueta": 7.93,
+    "preco": 5.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-828.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-828.jpg"
@@ -3372,8 +3372,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.18,
-    "preco": 5.52,
+    "precoEtiqueta": 9.51,
+    "preco": 6.41,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-855.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-855.jpg"
@@ -3385,8 +3385,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.96,
-    "preco": 7.4,
+    "precoEtiqueta": 12.74,
+    "preco": 8.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-866.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-866.jpg"
@@ -3398,8 +3398,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.04,
-    "preco": 4.75,
+    "precoEtiqueta": 8.18,
+    "preco": 5.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-875.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-875.jpg"
@@ -3411,8 +3411,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.57,
-    "preco": 12.53,
+    "precoEtiqueta": 21.58,
+    "preco": 14.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-891.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-891.jpg"
@@ -3424,8 +3424,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.86,
-    "preco": 12.06,
+    "precoEtiqueta": 20.76,
+    "preco": 14.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-898.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-898.jpg"
@@ -3437,8 +3437,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.44,
-    "preco": 5.02,
+    "precoEtiqueta": 8.65,
+    "preco": 5.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-910.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-910.jpg"
@@ -3450,8 +3450,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.1,
-    "preco": 10.87,
+    "precoEtiqueta": 18.71,
+    "preco": 12.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-920.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-920.jpg"
@@ -3463,8 +3463,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.44,
-    "preco": 15.15,
+    "precoEtiqueta": 26.08,
+    "preco": 17.61,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-921.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-921.jpg"
@@ -3476,8 +3476,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.6,
-    "preco": 9.18,
+    "precoEtiqueta": 15.8,
+    "preco": 10.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-933.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-933.jpg"
@@ -3489,8 +3489,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.26,
-    "preco": 17.05,
+    "precoEtiqueta": 29.35,
+    "preco": 19.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-944.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-944.jpg"
@@ -3502,8 +3502,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.64,
-    "preco": 16.63,
+    "precoEtiqueta": 28.63,
+    "preco": 19.33,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-947.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-947.jpg"
@@ -3515,8 +3515,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.82,
-    "preco": 14.73,
+    "precoEtiqueta": 25.36,
+    "preco": 17.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-955.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-955.jpg"
@@ -3528,8 +3528,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.82,
-    "preco": 9.33,
+    "precoEtiqueta": 16.06,
+    "preco": 10.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-959.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-959.jpg"
@@ -3541,8 +3541,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.78,
-    "preco": 7.28,
+    "precoEtiqueta": 12.53,
+    "preco": 8.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-977.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-977.jpg"
@@ -3554,8 +3554,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.01,
-    "preco": 12.83,
+    "precoEtiqueta": 22.09,
+    "preco": 14.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-980.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/BA-980.jpg"
@@ -3567,8 +3567,8 @@ const produtos = [
     "categoria": "argola",
     "categoriaOriginal": "ARGOLAS (BA)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.68,
-    "preco": 11.26,
+    "precoEtiqueta": 19.38,
+    "preco": 13.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-993.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ARGOLAS (BA)/Ba-993.jpg"
@@ -3580,8 +3580,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.23,
-    "preco": 15.68,
+    "precoEtiqueta": 27,
+    "preco": 18.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-012.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-012.jpg"
@@ -3593,8 +3593,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.9,
-    "preco": 9.39,
+    "precoEtiqueta": 16.15,
+    "preco": 10.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-014.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-014.jpg"
@@ -3606,8 +3606,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.61,
-    "preco": 5.14,
+    "precoEtiqueta": 8.84,
+    "preco": 5.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-016.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-016.jpg"
@@ -3619,8 +3619,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 58.96,
-    "preco": 39.8,
+    "precoEtiqueta": 68.52,
+    "preco": 46.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-003 dourado e prata_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-003 dourado e prata_.jpg"
@@ -3632,8 +3632,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 93.32,
-    "preco": 62.99,
+    "precoEtiqueta": 108.45,
+    "preco": 73.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-005 dourado e prata_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-005 dourado e prata_.jpg"
@@ -3645,8 +3645,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 71.94,
-    "preco": 48.56,
+    "precoEtiqueta": 83.6,
+    "preco": 56.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-002 dourado e prata_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-002 dourado e prata_.jpg"
@@ -3658,8 +3658,8 @@ const produtos = [
     "categoria": "aro",
     "categoriaOriginal": "Aro",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 66.31,
-    "preco": 44.76,
+    "precoEtiqueta": 77.06,
+    "preco": 52.02,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-004 liso dourado e prata_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Aro/Aro-004 liso dourado e prata_.jpg"
@@ -3671,8 +3671,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 38.54,
-    "preco": 26.02,
+    "precoEtiqueta": 44.79,
+    "preco": 30.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRac-016.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRac-016.jpg"
@@ -3684,8 +3684,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.38,
-    "preco": 29.28,
+    "precoEtiqueta": 50.41,
+    "preco": 34.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-019.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-019.jpg"
@@ -3697,8 +3697,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 74.45,
-    "preco": 50.25,
+    "precoEtiqueta": 86.52,
+    "preco": 58.4,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-022.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-022.jpg"
@@ -3710,8 +3710,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 72.29,
-    "preco": 48.8,
+    "precoEtiqueta": 84.01,
+    "preco": 56.71,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-023.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-023.jpg"
@@ -3723,8 +3723,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 44.88,
-    "preco": 30.29,
+    "precoEtiqueta": 52.16,
+    "preco": 35.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRAC-015.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRAC-015.jpg"
@@ -3736,8 +3736,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 60.54,
-    "preco": 40.87,
+    "precoEtiqueta": 70.35,
+    "preco": 47.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRAC-017.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRAC-017.jpg"
@@ -3749,8 +3749,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 49.1,
-    "preco": 33.15,
+    "precoEtiqueta": 57.06,
+    "preco": 38.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRAC-012.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/BRAC-012.jpg"
@@ -3762,8 +3762,8 @@ const produtos = [
     "categoria": "bracelete",
     "categoriaOriginal": "BRACELETES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.92,
-    "preco": 22.9,
+    "precoEtiqueta": 39.42,
+    "preco": 26.61,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-020.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRACELETES/Brac-020.jpg"
@@ -3775,8 +3775,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.18,
-    "preco": 7.54,
+    "precoEtiqueta": 12.99,
+    "preco": 8.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-002.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-002.jpg"
@@ -3788,8 +3788,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.2,
-    "preco": 16.34,
+    "precoEtiqueta": 28.12,
+    "preco": 18.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-007 dourado e prata_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-007 dourado e prata_.jpg"
@@ -3801,8 +3801,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.04,
-    "preco": 16.9,
+    "precoEtiqueta": 29.1,
+    "preco": 19.64,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-036.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-036.jpg"
@@ -3814,8 +3814,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.4,
-    "preco": 15.12,
+    "precoEtiqueta": 26.03,
+    "preco": 17.57,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-037.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-037.jpg"
@@ -3827,8 +3827,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.09,
-    "preco": 10.19,
+    "precoEtiqueta": 17.54,
+    "preco": 11.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-004.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-004.jpg"
@@ -3840,8 +3840,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 37.84,
-    "preco": 25.54,
+    "precoEtiqueta": 43.97,
+    "preco": 29.68,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-020.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-020.jpg"
@@ -3853,8 +3853,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.4,
-    "preco": 13.1,
+    "precoEtiqueta": 22.54,
+    "preco": 15.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-029.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-029.jpg"
@@ -3866,8 +3866,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.78,
-    "preco": 7.28,
+    "precoEtiqueta": 12.53,
+    "preco": 8.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-032.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-032.jpg"
@@ -3879,8 +3879,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.15,
-    "preco": 6.18,
+    "precoEtiqueta": 10.63,
+    "preco": 7.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-038.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-038.jpg"
@@ -3892,8 +3892,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.7,
-    "preco": 9.92,
+    "precoEtiqueta": 17.08,
+    "preco": 11.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-013.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-013.jpg"
@@ -3905,8 +3905,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.7,
-    "preco": 15.33,
+    "precoEtiqueta": 26.38,
+    "preco": 17.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-014.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-014.jpg"
@@ -3918,8 +3918,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.42,
-    "preco": 11.76,
+    "precoEtiqueta": 20.24,
+    "preco": 13.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-015.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-015.jpg"
@@ -3931,8 +3931,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.17,
-    "preco": 12.27,
+    "precoEtiqueta": 21.12,
+    "preco": 14.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-018.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-018.jpg"
@@ -3944,8 +3944,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.08,
-    "preco": 14.23,
+    "precoEtiqueta": 24.5,
+    "preco": 16.54,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-035.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/Brd-035.jpg"
@@ -3957,8 +3957,8 @@ const produtos = [
     "categoria": "brd- (brincos duplo)",
     "categoriaOriginal": "BRD- (brincos duplo)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 31.86,
-    "preco": 21.5,
+    "precoEtiqueta": 37.02,
+    "preco": 24.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-008 dourado e prata_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/Argola Dupla ( BRD )/BRD- (brincos duplo)/BRD-008 dourado e prata_.jpg"
@@ -3970,8 +3970,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-0980.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-0980.jpg"
@@ -3983,8 +3983,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.73,
-    "preco": 4.54,
+    "precoEtiqueta": 7.82,
+    "preco": 5.28,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1006.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1006.jpg"
@@ -3996,8 +3996,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.69,
-    "preco": 7.22,
+    "precoEtiqueta": 12.42,
+    "preco": 8.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1072.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1072.jpg"
@@ -4009,8 +4009,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.16,
-    "preco": 11.58,
+    "precoEtiqueta": 19.94,
+    "preco": 13.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1074.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1074.jpg"
@@ -4022,8 +4022,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.15,
-    "preco": 3.47,
+    "precoEtiqueta": 5.98,
+    "preco": 4.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1269_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1269_.jpg"
@@ -4035,8 +4035,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.5,
-    "preco": 3.71,
+    "precoEtiqueta": 6.39,
+    "preco": 4.31,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1273.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1273.jpg"
@@ -4048,8 +4048,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.16,
-    "preco": 4.16,
+    "precoEtiqueta": 7.16,
+    "preco": 4.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1306.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1306.jpg"
@@ -4061,8 +4061,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.57,
-    "preco": 7.81,
+    "precoEtiqueta": 13.45,
+    "preco": 9.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1307.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1307.jpg"
@@ -4074,8 +4074,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.16,
-    "preco": 11.58,
+    "precoEtiqueta": 19.94,
+    "preco": 13.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1333 menor_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1333 menor_.jpg"
@@ -4087,8 +4087,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.86,
-    "preco": 14.08,
+    "precoEtiqueta": 24.24,
+    "preco": 16.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1334.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1334.jpg"
@@ -4100,8 +4100,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.02,
-    "preco": 16.22,
+    "precoEtiqueta": 27.91,
+    "preco": 18.85,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1336.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1336.jpg"
@@ -4113,8 +4113,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.49,
-    "preco": 3.03,
+    "precoEtiqueta": 5.22,
+    "preco": 3.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1358.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1358.jpg"
@@ -4126,8 +4126,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.22,
-    "preco": 4.87,
+    "precoEtiqueta": 8.39,
+    "preco": 5.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1375.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1375.jpg"
@@ -4139,8 +4139,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.6,
-    "preco": 16.6,
+    "precoEtiqueta": 28.59,
+    "preco": 19.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1388_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1388_.jpg"
@@ -4152,8 +4152,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.65,
-    "preco": 2.47,
+    "precoEtiqueta": 4.24,
+    "preco": 2.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1475.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1475.jpg"
@@ -4165,8 +4165,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.84,
-    "preco": 5.97,
+    "precoEtiqueta": 10.27,
+    "preco": 6.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1485.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1485.jpg"
@@ -4178,8 +4178,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.65,
-    "preco": 2.47,
+    "precoEtiqueta": 4.24,
+    "preco": 2.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1502.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1502.jpg"
@@ -4191,8 +4191,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.86,
-    "preco": 4.63,
+    "precoEtiqueta": 7.97,
+    "preco": 5.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1504.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1504.jpg"
@@ -4204,8 +4204,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.47,
-    "preco": 7.07,
+    "precoEtiqueta": 12.17,
+    "preco": 8.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1505.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1505.jpg"
@@ -4217,8 +4217,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.74,
-    "preco": 5.23,
+    "precoEtiqueta": 8.99,
+    "preco": 6.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1519.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1519.jpg"
@@ -4230,8 +4230,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.67,
-    "preco": 8.55,
+    "precoEtiqueta": 14.72,
+    "preco": 9.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1531.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1531.jpg"
@@ -4243,8 +4243,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.0,
-    "preco": 12.15,
+    "precoEtiqueta": 20.92,
+    "preco": 14.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1534.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1534.jpg"
@@ -4256,8 +4256,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 31.2,
-    "preco": 21.06,
+    "precoEtiqueta": 36.26,
+    "preco": 24.47,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1539_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1539_.jpg"
@@ -4269,8 +4269,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.89,
-    "preco": 6.0,
+    "precoEtiqueta": 10.33,
+    "preco": 6.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1542.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1542.jpg"
@@ -4282,8 +4282,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.82,
-    "preco": 4.6,
+    "precoEtiqueta": 7.93,
+    "preco": 5.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1570.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1570.jpg"
@@ -4295,8 +4295,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.17,
-    "preco": 9.56,
+    "precoEtiqueta": 16.47,
+    "preco": 11.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1573.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1573.jpg"
@@ -4308,8 +4308,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.55,
-    "preco": 9.15,
+    "precoEtiqueta": 15.75,
+    "preco": 10.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1588.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1588.jpg"
@@ -4321,8 +4321,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.54,
-    "preco": 3.74,
+    "precoEtiqueta": 6.44,
+    "preco": 4.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1616.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1616.jpg"
@@ -4334,8 +4334,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.36,
-    "preco": 10.37,
+    "precoEtiqueta": 17.85,
+    "preco": 12.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1687.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1687.jpg"
@@ -4347,8 +4347,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.91,
-    "preco": 7.37,
+    "precoEtiqueta": 12.68,
+    "preco": 8.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1691_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1691_.jpg"
@@ -4360,8 +4360,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.92,
-    "preco": 10.07,
+    "precoEtiqueta": 17.34,
+    "preco": 11.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1726_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1726_.jpg"
@@ -4373,8 +4373,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.93,
-    "preco": 10.75,
+    "precoEtiqueta": 18.51,
+    "preco": 12.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1736.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1736.jpg"
@@ -4386,8 +4386,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.7,
-    "preco": 5.2,
+    "precoEtiqueta": 8.95,
+    "preco": 6.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1749.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1749.jpg"
@@ -4399,8 +4399,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.15,
-    "preco": 10.9,
+    "precoEtiqueta": 18.77,
+    "preco": 12.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1764.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1764.jpg"
@@ -4412,8 +4412,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.12,
-    "preco": 4.13,
+    "precoEtiqueta": 7.11,
+    "preco": 4.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-1767.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-1767.jpg"
@@ -4425,8 +4425,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.32,
-    "preco": 5.61,
+    "precoEtiqueta": 9.67,
+    "preco": 6.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1810.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1810.jpg"
@@ -4438,8 +4438,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.32,
-    "preco": 5.61,
+    "precoEtiqueta": 9.67,
+    "preco": 6.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1811.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1811.jpg"
@@ -4451,8 +4451,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.08,
-    "preco": 9.5,
+    "precoEtiqueta": 16.36,
+    "preco": 11.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1825.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1825.jpg"
@@ -4464,8 +4464,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.5,
-    "preco": 11.14,
+    "precoEtiqueta": 19.17,
+    "preco": 12.95,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1828.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1828.jpg"
@@ -4477,8 +4477,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.12,
-    "preco": 4.13,
+    "precoEtiqueta": 7.11,
+    "preco": 4.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1849.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1849.jpg"
@@ -4490,8 +4490,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.67,
-    "preco": 13.28,
+    "precoEtiqueta": 22.86,
+    "preco": 15.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1854.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1854.jpg"
@@ -4503,8 +4503,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.07,
-    "preco": 4.1,
+    "precoEtiqueta": 7.05,
+    "preco": 4.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1858.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1858.jpg"
@@ -4516,8 +4516,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.03,
-    "preco": 11.49,
+    "precoEtiqueta": 19.79,
+    "preco": 13.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1878.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1878.jpg"
@@ -4529,8 +4529,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.42,
-    "preco": 6.36,
+    "precoEtiqueta": 10.95,
+    "preco": 7.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1879.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1879.jpg"
@@ -4542,8 +4542,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.33,
-    "preco": 6.3,
+    "precoEtiqueta": 10.84,
+    "preco": 7.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1889.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1889.jpg"
@@ -4555,8 +4555,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.81,
-    "preco": 3.92,
+    "precoEtiqueta": 6.75,
+    "preco": 4.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1899.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1899.jpg"
@@ -4568,8 +4568,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.86,
-    "preco": 6.65,
+    "precoEtiqueta": 11.46,
+    "preco": 7.73,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1931.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1931.jpg"
@@ -4581,8 +4581,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.02,
-    "preco": 10.81,
+    "precoEtiqueta": 18.62,
+    "preco": 12.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1941.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1941.jpg"
@@ -4594,8 +4594,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.36,
-    "preco": 5.64,
+    "precoEtiqueta": 9.72,
+    "preco": 6.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1956.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1956.jpg"
@@ -4607,8 +4607,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.42,
-    "preco": 11.76,
+    "precoEtiqueta": 20.24,
+    "preco": 13.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1961.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1961.jpg"
@@ -4620,8 +4620,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.55,
-    "preco": 16.57,
+    "precoEtiqueta": 28.53,
+    "preco": 19.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1966.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1966.jpg"
@@ -4633,8 +4633,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.4,
-    "preco": 10.4,
+    "precoEtiqueta": 17.9,
+    "preco": 12.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1970.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1970.jpg"
@@ -4646,8 +4646,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.18,
-    "preco": 7.54,
+    "precoEtiqueta": 12.99,
+    "preco": 8.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1971.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1971.jpg"
@@ -4659,8 +4659,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.66,
-    "preco": 10.57,
+    "precoEtiqueta": 18.2,
+    "preco": 12.28,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1972.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1972.jpg"
@@ -4672,8 +4672,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.21,
-    "preco": 14.32,
+    "precoEtiqueta": 24.65,
+    "preco": 16.64,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1974.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1974.jpg"
@@ -4685,8 +4685,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.6,
-    "preco": 9.18,
+    "precoEtiqueta": 15.8,
+    "preco": 10.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1981.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1981.jpg"
@@ -4698,8 +4698,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.81,
-    "preco": 3.92,
+    "precoEtiqueta": 6.75,
+    "preco": 4.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1982.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1982.jpg"
@@ -4711,8 +4711,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.39,
-    "preco": 12.41,
+    "precoEtiqueta": 21.37,
+    "preco": 14.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1997.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-1997.jpg"
@@ -4724,8 +4724,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.32,
-    "preco": 5.61,
+    "precoEtiqueta": 9.67,
+    "preco": 6.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2000.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2000.jpg"
@@ -4737,8 +4737,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.54,
-    "preco": 3.74,
+    "precoEtiqueta": 6.44,
+    "preco": 4.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2001.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2001.jpg"
@@ -4750,8 +4750,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.38,
-    "preco": 4.31,
+    "precoEtiqueta": 7.41,
+    "preco": 5.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2002.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2002.jpg"
@@ -4763,8 +4763,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.62,
-    "preco": 10.54,
+    "precoEtiqueta": 18.15,
+    "preco": 12.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2009.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2009.jpg"
@@ -4776,8 +4776,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.92,
-    "preco": 12.77,
+    "precoEtiqueta": 21.99,
+    "preco": 14.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2014.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2014.jpg"
@@ -4789,8 +4789,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 29.48,
-    "preco": 19.9,
+    "precoEtiqueta": 34.26,
+    "preco": 23.13,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2023.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2023.jpg"
@@ -4802,8 +4802,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.91,
-    "preco": 12.09,
+    "precoEtiqueta": 20.81,
+    "preco": 14.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2030.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2030.jpg"
@@ -4815,8 +4815,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.0,
-    "preco": 7.43,
+    "precoEtiqueta": 12.78,
+    "preco": 8.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2041.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2041.jpg"
@@ -4828,8 +4828,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.52,
-    "preco": 14.52,
+    "precoEtiqueta": 25.01,
+    "preco": 16.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2050.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2050.jpg"
@@ -4841,8 +4841,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.44,
-    "preco": 7.72,
+    "precoEtiqueta": 13.29,
+    "preco": 8.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2060.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2060.jpg"
@@ -4854,8 +4854,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.14,
-    "preco": 10.22,
+    "precoEtiqueta": 17.59,
+    "preco": 11.88,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2066.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2066.jpg"
@@ -4867,8 +4867,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.62,
-    "preco": 5.82,
+    "precoEtiqueta": 10.02,
+    "preco": 6.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2079.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2079.jpg"
@@ -4880,8 +4880,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.04,
-    "preco": 7.45,
+    "precoEtiqueta": 12.83,
+    "preco": 8.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2084.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2084.jpg"
@@ -4893,8 +4893,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.36,
-    "preco": 8.35,
+    "precoEtiqueta": 14.36,
+    "preco": 9.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2087.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2087.jpg"
@@ -4906,8 +4906,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.64,
-    "preco": 6.5,
+    "precoEtiqueta": 11.2,
+    "preco": 7.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2088.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2088.jpg"
@@ -4919,8 +4919,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.14,
-    "preco": 12.92,
+    "precoEtiqueta": 22.24,
+    "preco": 15.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2089.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2089.jpg"
@@ -4932,8 +4932,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.08,
-    "preco": 4.78,
+    "precoEtiqueta": 8.23,
+    "preco": 5.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2091.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2091.jpg"
@@ -4945,8 +4945,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.62,
-    "preco": 5.82,
+    "precoEtiqueta": 10.02,
+    "preco": 6.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2092.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2092.jpg"
@@ -4958,8 +4958,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.5,
-    "preco": 13.84,
+    "precoEtiqueta": 23.82,
+    "preco": 16.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2093.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2093.jpg"
@@ -4971,8 +4971,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.96,
-    "preco": 17.52,
+    "precoEtiqueta": 30.17,
+    "preco": 20.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2098.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2098.jpg"
@@ -4984,8 +4984,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.17,
-    "preco": 9.56,
+    "precoEtiqueta": 16.47,
+    "preco": 11.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2100.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2100.jpg"
@@ -4997,8 +4997,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.52,
-    "preco": 7.1,
+    "precoEtiqueta": 12.23,
+    "preco": 8.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2101.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2101.jpg"
@@ -5010,8 +5010,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.86,
-    "preco": 14.08,
+    "precoEtiqueta": 24.24,
+    "preco": 16.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2103.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2103.jpg"
@@ -5023,8 +5023,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.25,
-    "preco": 11.64,
+    "precoEtiqueta": 20.05,
+    "preco": 13.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2104.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2104.jpg"
@@ -5036,8 +5036,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.31,
-    "preco": 10.34,
+    "precoEtiqueta": 17.79,
+    "preco": 12.02,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2105.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2105.jpg"
@@ -5049,8 +5049,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.14,
-    "preco": 8.2,
+    "precoEtiqueta": 14.11,
+    "preco": 9.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2106.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2106.jpg"
@@ -5062,8 +5062,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.56,
-    "preco": 9.83,
+    "precoEtiqueta": 16.92,
+    "preco": 11.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2110.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2110.jpg"
@@ -5075,8 +5075,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.45,
-    "preco": 8.41,
+    "precoEtiqueta": 14.47,
+    "preco": 9.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2114.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2114.jpg"
@@ -5088,8 +5088,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.96,
-    "preco": 12.8,
+    "precoEtiqueta": 22.03,
+    "preco": 14.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2116.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2116.jpg"
@@ -5101,8 +5101,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.7,
-    "preco": 7.9,
+    "precoEtiqueta": 13.6,
+    "preco": 9.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2118.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2118.jpg"
@@ -5114,8 +5114,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.0,
-    "preco": 7.43,
+    "precoEtiqueta": 12.78,
+    "preco": 8.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2119.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2119.jpg"
@@ -5127,8 +5127,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.81,
-    "preco": 11.35,
+    "precoEtiqueta": 19.53,
+    "preco": 13.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2122.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2122.jpg"
@@ -5140,8 +5140,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.12,
-    "preco": 11.55,
+    "precoEtiqueta": 19.9,
+    "preco": 13.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2123.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2123.jpg"
@@ -5153,8 +5153,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.98,
-    "preco": 11.46,
+    "precoEtiqueta": 19.73,
+    "preco": 13.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2126.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2126.jpg"
@@ -5166,8 +5166,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.68,
-    "preco": 13.96,
+    "precoEtiqueta": 24.03,
+    "preco": 16.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2129.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2129.jpg"
@@ -5179,8 +5179,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.58,
-    "preco": 10.51,
+    "precoEtiqueta": 18.11,
+    "preco": 12.21,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2149.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2149.jpg"
@@ -5192,8 +5192,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.57,
-    "preco": 12.53,
+    "precoEtiqueta": 21.58,
+    "preco": 14.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2169.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2169.jpg"
@@ -5205,8 +5205,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 41.98,
-    "preco": 28.33,
+    "precoEtiqueta": 48.78,
+    "preco": 32.92,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2177.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2177.jpg"
@@ -5218,8 +5218,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.78,
-    "preco": 12.0,
+    "precoEtiqueta": 20.66,
+    "preco": 13.95,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2195.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2195.jpg"
@@ -5231,8 +5231,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.57,
-    "preco": 12.53,
+    "precoEtiqueta": 21.58,
+    "preco": 14.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2203.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2203.jpg"
@@ -5244,8 +5244,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.3,
-    "preco": 6.95,
+    "precoEtiqueta": 11.97,
+    "preco": 8.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2206.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2206.jpg"
@@ -5257,8 +5257,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.16,
-    "preco": 6.86,
+    "precoEtiqueta": 11.81,
+    "preco": 7.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2208.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2208.jpg"
@@ -5270,8 +5270,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2209.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2209.jpg"
@@ -5283,8 +5283,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.04,
-    "preco": 9.47,
+    "precoEtiqueta": 16.32,
+    "preco": 11.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2210.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2210.jpg"
@@ -5296,8 +5296,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.06,
-    "preco": 8.14,
+    "precoEtiqueta": 14.01,
+    "preco": 9.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2211.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2211.jpg"
@@ -5309,8 +5309,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.99,
-    "preco": 16.87,
+    "precoEtiqueta": 29.04,
+    "preco": 19.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2216.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2216.jpg"
@@ -5322,8 +5322,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.82,
-    "preco": 9.33,
+    "precoEtiqueta": 16.06,
+    "preco": 10.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2243.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2243.jpg"
@@ -5335,8 +5335,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.62,
-    "preco": 7.84,
+    "precoEtiqueta": 13.5,
+    "preco": 9.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2244.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2244.jpg"
@@ -5348,8 +5348,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.53,
-    "preco": 7.78,
+    "precoEtiqueta": 13.4,
+    "preco": 9.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2245.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2245.jpg"
@@ -5361,8 +5361,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.53,
-    "preco": 7.78,
+    "precoEtiqueta": 13.4,
+    "preco": 9.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2246.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2246.jpg"
@@ -5374,8 +5374,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.5,
-    "preco": 8.43,
+    "precoEtiqueta": 14.53,
+    "preco": 9.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2247.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2247.jpg"
@@ -5387,8 +5387,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.12,
-    "preco": 11.55,
+    "precoEtiqueta": 19.9,
+    "preco": 13.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2248.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2248.jpg"
@@ -5400,8 +5400,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.08,
-    "preco": 6.8,
+    "precoEtiqueta": 11.71,
+    "preco": 7.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2249.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2249.jpg"
@@ -5413,8 +5413,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.3,
-    "preco": 6.95,
+    "precoEtiqueta": 11.97,
+    "preco": 8.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2250.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2250.jpg"
@@ -5426,8 +5426,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.53,
-    "preco": 15.21,
+    "precoEtiqueta": 26.18,
+    "preco": 17.68,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2253.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2253.jpg"
@@ -5439,8 +5439,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.36,
-    "preco": 2.94,
+    "precoEtiqueta": 5.07,
+    "preco": 3.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2255.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2255.jpg"
@@ -5452,8 +5452,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.24,
-    "preco": 10.96,
+    "precoEtiqueta": 18.87,
+    "preco": 12.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2256.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2256.jpg"
@@ -5465,8 +5465,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.6,
-    "preco": 9.18,
+    "precoEtiqueta": 15.8,
+    "preco": 10.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2257.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2257.jpg"
@@ -5478,8 +5478,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2258.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2258.jpg"
@@ -5491,8 +5491,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.08,
-    "preco": 6.8,
+    "precoEtiqueta": 11.71,
+    "preco": 7.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2259.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2259.jpg"
@@ -5504,8 +5504,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.96,
-    "preco": 22.25,
+    "precoEtiqueta": 38.3,
+    "preco": 25.86,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2260.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2260.jpg"
@@ -5517,8 +5517,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2261.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2261.jpg"
@@ -5530,8 +5530,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.28,
-    "preco": 8.29,
+    "precoEtiqueta": 14.27,
+    "preco": 9.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2262.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2262.jpg"
@@ -5543,8 +5543,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2263.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2263.jpg"
@@ -5556,8 +5556,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2264.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2264.jpg"
@@ -5569,8 +5569,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.28,
-    "preco": 8.29,
+    "precoEtiqueta": 14.27,
+    "preco": 9.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2265.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2265.jpg"
@@ -5582,8 +5582,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.2,
-    "preco": 13.63,
+    "precoEtiqueta": 23.47,
+    "preco": 15.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2266.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2266.jpg"
@@ -5595,8 +5595,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.28,
-    "preco": 8.29,
+    "precoEtiqueta": 14.27,
+    "preco": 9.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2267.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2267.jpg"
@@ -5608,8 +5608,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.6,
-    "preco": 9.18,
+    "precoEtiqueta": 15.8,
+    "preco": 10.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2268.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2268.jpg"
@@ -5621,8 +5621,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.8,
-    "preco": 10.66,
+    "precoEtiqueta": 18.36,
+    "preco": 12.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2270.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2270.jpg"
@@ -5634,8 +5634,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.88,
-    "preco": 12.74,
+    "precoEtiqueta": 21.94,
+    "preco": 14.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2271.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2271.jpg"
@@ -5647,8 +5647,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.8,
-    "preco": 10.66,
+    "precoEtiqueta": 18.36,
+    "preco": 12.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2272.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2272.jpg"
@@ -5660,8 +5660,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.24,
-    "preco": 10.96,
+    "precoEtiqueta": 18.87,
+    "preco": 12.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2273.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2273.jpg"
@@ -5673,8 +5673,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2275.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2275.jpg"
@@ -5686,8 +5686,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.72,
-    "preco": 16.01,
+    "precoEtiqueta": 27.57,
+    "preco": 18.61,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2276.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2276.jpg"
@@ -5699,8 +5699,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 31.2,
-    "preco": 21.06,
+    "precoEtiqueta": 36.26,
+    "preco": 24.47,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2277.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2277.jpg"
@@ -5712,8 +5712,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 36.48,
-    "preco": 24.62,
+    "precoEtiqueta": 42.39,
+    "preco": 28.61,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2278.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2278.jpg"
@@ -5725,8 +5725,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.92,
-    "preco": 17.49,
+    "precoEtiqueta": 30.12,
+    "preco": 20.33,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2279.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2279.jpg"
@@ -5738,8 +5738,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.88,
-    "preco": 12.74,
+    "precoEtiqueta": 21.94,
+    "preco": 14.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2280.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2280.jpg"
@@ -5751,8 +5751,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.92,
-    "preco": 10.07,
+    "precoEtiqueta": 17.34,
+    "preco": 11.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2281.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2281.jpg"
@@ -5764,8 +5764,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.48,
-    "preco": 9.77,
+    "precoEtiqueta": 16.83,
+    "preco": 11.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2282.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2282.jpg"
@@ -5777,8 +5777,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2283.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2283.jpg"
@@ -5790,8 +5790,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2284.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2284.jpg"
@@ -5803,8 +5803,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.84,
-    "preco": 22.84,
+    "precoEtiqueta": 39.33,
+    "preco": 26.54,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2285.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2285.jpg"
@@ -5816,8 +5816,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.88,
-    "preco": 27.59,
+    "precoEtiqueta": 47.51,
+    "preco": 32.06,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2286.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2286.jpg"
@@ -5829,8 +5829,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.4,
-    "preco": 7.69,
+    "precoEtiqueta": 13.25,
+    "preco": 8.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2287.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-2287.jpg"
@@ -5842,8 +5842,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.84,
-    "preco": 7.99,
+    "precoEtiqueta": 13.76,
+    "preco": 9.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2288.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2288.jpg"
@@ -5855,8 +5855,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2289.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2289.jpg"
@@ -5868,8 +5868,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.52,
-    "preco": 7.1,
+    "precoEtiqueta": 12.23,
+    "preco": 8.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2290.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2290.jpg"
@@ -5881,8 +5881,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.0,
-    "preco": 12.15,
+    "precoEtiqueta": 20.92,
+    "preco": 14.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2291.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2291.jpg"
@@ -5894,8 +5894,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.56,
-    "preco": 19.28,
+    "precoEtiqueta": 33.19,
+    "preco": 22.41,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2292.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2292.jpg"
@@ -5907,8 +5907,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.94,
-    "preco": 8.73,
+    "precoEtiqueta": 15.04,
+    "preco": 10.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2293.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2293.jpg"
@@ -5920,8 +5920,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2294.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2294.jpg"
@@ -5933,8 +5933,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2295.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2295.jpg"
@@ -5946,8 +5946,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.76,
-    "preco": 13.34,
+    "precoEtiqueta": 22.96,
+    "preco": 15.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2296.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2296.jpg"
@@ -5959,8 +5959,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.72,
-    "preco": 8.58,
+    "precoEtiqueta": 14.78,
+    "preco": 9.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2297.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2297.jpg"
@@ -5972,8 +5972,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.48,
-    "preco": 9.77,
+    "precoEtiqueta": 16.83,
+    "preco": 11.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2298.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2298.jpg"
@@ -5985,8 +5985,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.4,
-    "preco": 7.69,
+    "precoEtiqueta": 13.25,
+    "preco": 8.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2299.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2299.jpg"
@@ -5998,8 +5998,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.96,
-    "preco": 7.4,
+    "precoEtiqueta": 12.74,
+    "preco": 8.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2300.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2300.jpg"
@@ -6011,8 +6011,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.14,
-    "preco": 8.2,
+    "precoEtiqueta": 14.11,
+    "preco": 9.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2301.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2301.jpg"
@@ -6024,8 +6024,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2302.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2302.jpg"
@@ -6037,8 +6037,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.49,
-    "preco": 13.16,
+    "precoEtiqueta": 22.65,
+    "preco": 15.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2303.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2303.jpg"
@@ -6050,8 +6050,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.86,
-    "preco": 6.65,
+    "precoEtiqueta": 11.46,
+    "preco": 7.73,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2304.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2304.jpg"
@@ -6063,8 +6063,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.32,
-    "preco": 11.02,
+    "precoEtiqueta": 18.97,
+    "preco": 12.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2305.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2305.jpg"
@@ -6076,8 +6076,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.86,
-    "preco": 4.63,
+    "precoEtiqueta": 7.97,
+    "preco": 5.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2306.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2306.jpg"
@@ -6089,8 +6089,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.96,
-    "preco": 10.1,
+    "precoEtiqueta": 17.39,
+    "preco": 11.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2307.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2307.jpg"
@@ -6102,8 +6102,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.48,
-    "preco": 12.47,
+    "precoEtiqueta": 21.48,
+    "preco": 14.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2308.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2308.jpg"
@@ -6115,8 +6115,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.19,
-    "preco": 10.93,
+    "precoEtiqueta": 18.81,
+    "preco": 12.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2309.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2309.jpg"
@@ -6128,8 +6128,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.32,
-    "preco": 13.04,
+    "precoEtiqueta": 22.45,
+    "preco": 15.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2310.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2310.jpg"
@@ -6141,8 +6141,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.77,
-    "preco": 14.02,
+    "precoEtiqueta": 24.14,
+    "preco": 16.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2311.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2311.jpg"
@@ -6154,8 +6154,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.58,
-    "preco": 13.22,
+    "precoEtiqueta": 22.75,
+    "preco": 15.36,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2312.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2312.jpg"
@@ -6167,8 +6167,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.69,
-    "preco": 11.94,
+    "precoEtiqueta": 20.56,
+    "preco": 13.88,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2313.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2313.jpg"
@@ -6180,8 +6180,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.45,
-    "preco": 13.13,
+    "precoEtiqueta": 22.6,
+    "preco": 15.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2314.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2314.jpg"
@@ -6193,8 +6193,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2317.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2317.jpg"
@@ -6206,8 +6206,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.16,
-    "preco": 16.31,
+    "precoEtiqueta": 28.08,
+    "preco": 18.95,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2318.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2318.jpg"
@@ -6219,8 +6219,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.16,
-    "preco": 8.88,
+    "precoEtiqueta": 15.29,
+    "preco": 10.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2319.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/Br-2319.jpg"
@@ -6232,8 +6232,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.96,
-    "preco": 2.67,
+    "precoEtiqueta": 4.6,
+    "preco": 3.1,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-0690.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-0690.jpg"
@@ -6245,8 +6245,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.94,
-    "preco": 4.01,
+    "precoEtiqueta": 6.9,
+    "preco": 4.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-0953.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS/BR-0953.jpg"
@@ -6258,8 +6258,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.31,
-    "preco": 2.91,
+    "precoEtiqueta": 5.01,
+    "preco": 3.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-007.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-007.jpg"
@@ -6271,8 +6271,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.22,
-    "preco": 4.87,
+    "precoEtiqueta": 8.39,
+    "preco": 5.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-017.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-017.jpg"
@@ -6284,8 +6284,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.92,
-    "preco": 2.64,
+    "precoEtiqueta": 4.56,
+    "preco": 3.07,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-002.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-002.jpg"
@@ -6297,8 +6297,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.88,
-    "preco": 5.32,
+    "precoEtiqueta": 9.16,
+    "preco": 6.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-028.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-028.jpg"
@@ -6310,8 +6310,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.59,
-    "preco": 3.77,
+    "precoEtiqueta": 6.5,
+    "preco": 4.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-031.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-031.jpg"
@@ -6323,8 +6323,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.02,
-    "preco": 3.39,
+    "precoEtiqueta": 5.83,
+    "preco": 3.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-034.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-034.jpg"
@@ -6336,8 +6336,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.8,
-    "preco": 3.24,
+    "precoEtiqueta": 5.58,
+    "preco": 3.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-036.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-036.jpg"
@@ -6349,8 +6349,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.92,
-    "preco": 2.64,
+    "precoEtiqueta": 4.56,
+    "preco": 3.07,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-004.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-004.jpg"
@@ -6362,8 +6362,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.53,
-    "preco": 3.06,
+    "precoEtiqueta": 5.26,
+    "preco": 3.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-051.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-051.jpg"
@@ -6375,8 +6375,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.23,
-    "preco": 5.55,
+    "precoEtiqueta": 9.56,
+    "preco": 6.45,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-068.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-068.jpg"
@@ -6388,8 +6388,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.57,
-    "preco": 5.11,
+    "precoEtiqueta": 8.8,
+    "preco": 5.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-071.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-071.jpg"
@@ -6401,8 +6401,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.83,
-    "preco": 5.29,
+    "precoEtiqueta": 9.1,
+    "preco": 6.15,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-072.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-072.jpg"
@@ -6414,8 +6414,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.42,
-    "preco": 4.34,
+    "precoEtiqueta": 7.46,
+    "preco": 5.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-075.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-075.jpg"
@@ -6427,8 +6427,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.46,
-    "preco": 11.11,
+    "precoEtiqueta": 19.13,
+    "preco": 12.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-089.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-089.jpg"
@@ -6440,8 +6440,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.39,
-    "preco": 2.29,
+    "precoEtiqueta": 3.94,
+    "preco": 2.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-012.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-012.jpg"
@@ -6453,8 +6453,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.84,
-    "preco": 5.97,
+    "precoEtiqueta": 10.27,
+    "preco": 6.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-013.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-013.jpg"
@@ -6466,8 +6466,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.89,
-    "preco": 6.0,
+    "precoEtiqueta": 10.33,
+    "preco": 6.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-015.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-015.jpg"
@@ -6479,8 +6479,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.44,
-    "preco": 3.0,
+    "precoEtiqueta": 5.16,
+    "preco": 3.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-027.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-027.jpg"
@@ -6492,8 +6492,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.08,
-    "preco": 6.8,
+    "precoEtiqueta": 11.71,
+    "preco": 7.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-029.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-029.jpg"
@@ -6505,8 +6505,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.92,
-    "preco": 2.64,
+    "precoEtiqueta": 4.56,
+    "preco": 3.07,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-032.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-032.jpg"
@@ -6518,8 +6518,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.84,
-    "preco": 3.27,
+    "precoEtiqueta": 5.62,
+    "preco": 3.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-035.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-035.jpg"
@@ -6531,8 +6531,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.8,
-    "preco": 3.24,
+    "precoEtiqueta": 5.58,
+    "preco": 3.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-037.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-037.jpg"
@@ -6544,8 +6544,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.02,
-    "preco": 3.39,
+    "precoEtiqueta": 5.83,
+    "preco": 3.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-044.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-044.jpg"
@@ -6557,8 +6557,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.97,
-    "preco": 3.36,
+    "precoEtiqueta": 5.78,
+    "preco": 3.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-045.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-045.jpg"
@@ -6570,8 +6570,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.97,
-    "preco": 3.36,
+    "precoEtiqueta": 5.78,
+    "preco": 3.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-046.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-046.jpg"
@@ -6583,8 +6583,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.41,
-    "preco": 3.65,
+    "precoEtiqueta": 6.29,
+    "preco": 4.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-054.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-054.jpg"
@@ -6596,8 +6596,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.29,
-    "preco": 8.97,
+    "precoEtiqueta": 15.44,
+    "preco": 10.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-057.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-057.jpg"
@@ -6609,8 +6609,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.5,
-    "preco": 3.71,
+    "precoEtiqueta": 6.39,
+    "preco": 4.31,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-064.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-064.jpg"
@@ -6622,8 +6622,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.49,
-    "preco": 3.03,
+    "precoEtiqueta": 5.22,
+    "preco": 3.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-066.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-066.jpg"
@@ -6635,8 +6635,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.74,
-    "preco": 7.25,
+    "precoEtiqueta": 12.48,
+    "preco": 8.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-087.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-087.jpg"
@@ -6648,8 +6648,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.26,
-    "preco": 9.62,
+    "precoEtiqueta": 16.57,
+    "preco": 11.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-093.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-093.jpg"
@@ -6661,8 +6661,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.66,
-    "preco": 3.15,
+    "precoEtiqueta": 5.42,
+    "preco": 3.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-094.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-094.jpg"
@@ -6674,8 +6674,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.05,
-    "preco": 2.73,
+    "precoEtiqueta": 4.71,
+    "preco": 3.17,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-010.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-010.jpg"
@@ -6687,8 +6687,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.88,
-    "preco": 3.3,
+    "precoEtiqueta": 5.67,
+    "preco": 3.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-018.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-018.jpg"
@@ -6700,8 +6700,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.8,
-    "preco": 3.24,
+    "precoEtiqueta": 5.58,
+    "preco": 3.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-033.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-033.jpg"
@@ -6713,8 +6713,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.88,
-    "preco": 3.3,
+    "precoEtiqueta": 5.67,
+    "preco": 3.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-040.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-040.jpg"
@@ -6726,8 +6726,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.31,
-    "preco": 2.91,
+    "precoEtiqueta": 5.01,
+    "preco": 3.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-041.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-041.jpg"
@@ -6739,8 +6739,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.8,
-    "preco": 3.24,
+    "precoEtiqueta": 5.58,
+    "preco": 3.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-042.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-042.jpg"
@@ -6752,8 +6752,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.93,
-    "preco": 3.33,
+    "precoEtiqueta": 5.73,
+    "preco": 3.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-043.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-043.jpg"
@@ -6765,8 +6765,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.96,
-    "preco": 2.67,
+    "precoEtiqueta": 4.6,
+    "preco": 3.1,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-005.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-005.jpg"
@@ -6778,8 +6778,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.62,
-    "preco": 3.12,
+    "precoEtiqueta": 5.37,
+    "preco": 3.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-055.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-055.jpg"
@@ -6791,8 +6791,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.53,
-    "preco": 3.06,
+    "precoEtiqueta": 5.26,
+    "preco": 3.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-056.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-056.jpg"
@@ -6804,8 +6804,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.14,
-    "preco": 8.2,
+    "precoEtiqueta": 14.11,
+    "preco": 9.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-059.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-059.jpg"
@@ -6817,8 +6817,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.6,
-    "preco": 7.16,
+    "precoEtiqueta": 12.32,
+    "preco": 8.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-062.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-062.jpg"
@@ -6830,8 +6830,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.22,
-    "preco": 4.87,
+    "precoEtiqueta": 8.39,
+    "preco": 5.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-065.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-065.jpg"
@@ -6843,8 +6843,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.1,
-    "preco": 3.45,
+    "precoEtiqueta": 5.93,
+    "preco": 4.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-067.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-067.jpg"
@@ -6856,8 +6856,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.66,
-    "preco": 5.17,
+    "precoEtiqueta": 8.9,
+    "preco": 6.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-069.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-069.jpg"
@@ -6869,8 +6869,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.69,
-    "preco": 4.51,
+    "precoEtiqueta": 7.77,
+    "preco": 5.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-070.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-070.jpg"
@@ -6882,8 +6882,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.72,
-    "preco": 3.86,
+    "precoEtiqueta": 6.65,
+    "preco": 4.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-073.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-073.jpg"
@@ -6895,8 +6895,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.58,
-    "preco": 8.49,
+    "precoEtiqueta": 14.62,
+    "preco": 9.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-084.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-084.jpg"
@@ -6908,8 +6908,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.25,
-    "preco": 6.92,
+    "precoEtiqueta": 11.91,
+    "preco": 8.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-086.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-086.jpg"
@@ -6921,8 +6921,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.38,
-    "preco": 9.03,
+    "precoEtiqueta": 15.55,
+    "preco": 10.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-088.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-088.jpg"
@@ -6934,8 +6934,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.96,
-    "preco": 2.67,
+    "precoEtiqueta": 4.6,
+    "preco": 3.1,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-009.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/BRP-009.jpg"
@@ -6947,8 +6947,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.77,
-    "preco": 9.3,
+    "precoEtiqueta": 16,
+    "preco": 10.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-090.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-090.jpg"
@@ -6960,8 +6960,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS BABY (BRP)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.14,
-    "preco": 10.22,
+    "precoEtiqueta": 17.59,
+    "preco": 11.88,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-091.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS BABY (BRP)/Brp-091.jpg"
@@ -6973,8 +6973,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.98,
-    "preco": 11.46,
+    "precoEtiqueta": 19.73,
+    "preco": 13.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-013.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-013.jpg"
@@ -6986,8 +6986,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.14,
-    "preco": 10.22,
+    "precoEtiqueta": 17.59,
+    "preco": 11.88,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-030.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-030.jpg"
@@ -6999,8 +6999,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.04,
-    "preco": 16.9,
+    "precoEtiqueta": 29.1,
+    "preco": 19.64,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-055.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-055.jpg"
@@ -7012,8 +7012,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.02,
-    "preco": 28.36,
+    "precoEtiqueta": 48.83,
+    "preco": 32.96,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-060.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-060.jpg"
@@ -7025,8 +7025,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 29.44,
-    "preco": 19.87,
+    "precoEtiqueta": 34.21,
+    "preco": 23.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-063.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-063.jpg"
@@ -7038,8 +7038,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.09,
-    "preco": 7.48,
+    "precoEtiqueta": 12.89,
+    "preco": 8.69,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-065.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-065.jpg"
@@ -7051,8 +7051,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.99,
-    "preco": 29.02,
+    "precoEtiqueta": 49.96,
+    "preco": 33.72,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-078.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-078.jpg"
@@ -7064,8 +7064,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.34,
-    "preco": 29.25,
+    "precoEtiqueta": 50.37,
+    "preco": 33.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-096.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-096.jpg"
@@ -7077,8 +7077,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.96,
-    "preco": 14.82,
+    "precoEtiqueta": 25.52,
+    "preco": 17.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-118.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-118.jpg"
@@ -7090,8 +7090,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.64,
-    "preco": 13.93,
+    "precoEtiqueta": 23.99,
+    "preco": 16.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-119.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-119.jpg"
@@ -7103,8 +7103,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.34,
-    "preco": 19.13,
+    "precoEtiqueta": 32.93,
+    "preco": 22.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-026.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-026.jpg"
@@ -7116,8 +7116,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 45.94,
-    "preco": 31.01,
+    "precoEtiqueta": 53.39,
+    "preco": 36.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-058.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-058.jpg"
@@ -7129,8 +7129,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 37.22,
-    "preco": 25.13,
+    "precoEtiqueta": 43.25,
+    "preco": 29.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-089.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-089.jpg"
@@ -7142,8 +7142,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 54.3,
-    "preco": 36.65,
+    "precoEtiqueta": 63.1,
+    "preco": 42.59,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-094.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-094.jpg"
@@ -7155,8 +7155,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.45,
-    "preco": 23.26,
+    "precoEtiqueta": 40.03,
+    "preco": 27.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-101.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-101.jpg"
@@ -7168,8 +7168,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.2,
-    "preco": 13.63,
+    "precoEtiqueta": 23.47,
+    "preco": 15.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-120.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-120.jpg"
@@ -7181,8 +7181,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.36,
-    "preco": 10.37,
+    "precoEtiqueta": 17.85,
+    "preco": 12.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-121.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-121.jpg"
@@ -7194,8 +7194,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 39.56,
-    "preco": 26.7,
+    "precoEtiqueta": 45.97,
+    "preco": 31.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-122.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-122.jpg"
@@ -7207,8 +7207,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 59.8,
-    "preco": 40.36,
+    "precoEtiqueta": 69.49,
+    "preco": 46.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-123.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-123.jpg"
@@ -7220,8 +7220,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 30.71,
-    "preco": 20.73,
+    "precoEtiqueta": 35.69,
+    "preco": 24.09,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-038.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-038.jpg"
@@ -7233,8 +7233,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.1,
-    "preco": 10.87,
+    "precoEtiqueta": 18.71,
+    "preco": 12.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-059.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-059.jpg"
@@ -7246,8 +7246,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.34,
-    "preco": 19.13,
+    "precoEtiqueta": 32.93,
+    "preco": 22.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-064.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-064.jpg"
@@ -7259,8 +7259,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.08,
-    "preco": 9.5,
+    "precoEtiqueta": 16.36,
+    "preco": 11.04,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-067.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-067.jpg"
@@ -7272,8 +7272,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 55.97,
-    "preco": 37.78,
+    "precoEtiqueta": 65.04,
+    "preco": 43.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-077.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/BRT-077.jpg"
@@ -7285,8 +7285,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCOS DE TRIO (BRT)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 49.15,
-    "preco": 33.17,
+    "precoEtiqueta": 57.12,
+    "preco": 38.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-082.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCOS DE TRIO (BRT)/Brt-082.jpg"
@@ -7298,8 +7298,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.12,
-    "preco": 29.11,
+    "precoEtiqueta": 50.11,
+    "preco": 33.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-290.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-290.jpg"
@@ -7311,8 +7311,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.18,
-    "preco": 5.52,
+    "precoEtiqueta": 9.51,
+    "preco": 6.41,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/Bs-292.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/Bs-292.jpg"
@@ -7324,8 +7324,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 36.3,
-    "preco": 24.5,
+    "precoEtiqueta": 42.18,
+    "preco": 28.47,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-297.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-297.jpg"
@@ -7337,8 +7337,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.58,
-    "preco": 17.94,
+    "precoEtiqueta": 30.89,
+    "preco": 20.85,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-302.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-302.jpg"
@@ -7350,8 +7350,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.21,
-    "preco": 14.32,
+    "precoEtiqueta": 24.65,
+    "preco": 16.64,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-310.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-310.jpg"
@@ -7363,8 +7363,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.52,
-    "preco": 17.23,
+    "precoEtiqueta": 29.66,
+    "preco": 20.02,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-311.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-311.jpg"
@@ -7376,8 +7376,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 26.22,
-    "preco": 17.7,
+    "precoEtiqueta": 30.47,
+    "preco": 20.57,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-314.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-314.jpg"
@@ -7389,8 +7389,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.83,
-    "preco": 27.56,
+    "precoEtiqueta": 47.45,
+    "preco": 32.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-320.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-320.jpg"
@@ -7402,8 +7402,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.02,
-    "preco": 13.51,
+    "precoEtiqueta": 23.27,
+    "preco": 15.7,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-329.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-329.jpg"
@@ -7415,8 +7415,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 21.38,
-    "preco": 14.43,
+    "precoEtiqueta": 24.85,
+    "preco": 16.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-333.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-333.jpg"
@@ -7428,8 +7428,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.85,
-    "preco": 16.1,
+    "precoEtiqueta": 27.72,
+    "preco": 18.71,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-337.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-337.jpg"
@@ -7441,8 +7441,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 29.26,
-    "preco": 19.75,
+    "precoEtiqueta": 34,
+    "preco": 22.95,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-340.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-340.jpg"
@@ -7454,8 +7454,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.98,
-    "preco": 13.48,
+    "precoEtiqueta": 23.22,
+    "preco": 15.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-341.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-341.jpg"
@@ -7467,8 +7467,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 38.54,
-    "preco": 26.02,
+    "precoEtiqueta": 44.79,
+    "preco": 30.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-342.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-342.jpg"
@@ -7480,8 +7480,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.35,
-    "preco": 7.66,
+    "precoEtiqueta": 13.19,
+    "preco": 8.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-348.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-348.jpg"
@@ -7493,8 +7493,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.49,
-    "preco": 13.16,
+    "precoEtiqueta": 22.65,
+    "preco": 15.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-349.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-349.jpg"
@@ -7506,8 +7506,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.4,
-    "preco": 13.1,
+    "precoEtiqueta": 22.54,
+    "preco": 15.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-352.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-352.jpg"
@@ -7519,8 +7519,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 13.6,
-    "preco": 9.18,
+    "precoEtiqueta": 15.8,
+    "preco": 10.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-359.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-359.jpg"
@@ -7532,8 +7532,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 23.72,
-    "preco": 16.01,
+    "precoEtiqueta": 27.57,
+    "preco": 18.61,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-360.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-360.jpg"
@@ -7545,8 +7545,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.23,
-    "preco": 8.26,
+    "precoEtiqueta": 14.21,
+    "preco": 9.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-231.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-231.jpg"
@@ -7558,8 +7558,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.74,
-    "preco": 7.25,
+    "precoEtiqueta": 12.48,
+    "preco": 8.43,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-270.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-270.jpg"
@@ -7571,8 +7571,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.88,
-    "preco": 27.59,
+    "precoEtiqueta": 47.51,
+    "preco": 32.06,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-284.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-284.jpg"
@@ -7584,8 +7584,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.91,
-    "preco": 12.09,
+    "precoEtiqueta": 20.81,
+    "preco": 14.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-288.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-288.jpg"
@@ -7597,8 +7597,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.1,
-    "preco": 3.45,
+    "precoEtiqueta": 5.93,
+    "preco": 4.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-289.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-289.jpg"
@@ -7610,8 +7610,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.08,
-    "preco": 27.06,
+    "precoEtiqueta": 46.58,
+    "preco": 31.45,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-294.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-294.jpg"
@@ -7623,8 +7623,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.28,
-    "preco": 18.41,
+    "precoEtiqueta": 31.7,
+    "preco": 21.39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-303.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-303.jpg"
@@ -7636,8 +7636,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 44.75,
-    "preco": 30.2,
+    "precoEtiqueta": 52,
+    "preco": 35.1,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-309.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-309.jpg"
@@ -7649,8 +7649,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 16.54,
-    "preco": 11.17,
+    "precoEtiqueta": 19.22,
+    "preco": 12.98,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-313.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-313.jpg"
@@ -7662,8 +7662,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 25.56,
-    "preco": 17.26,
+    "precoEtiqueta": 29.7,
+    "preco": 20.06,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-332.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-332.jpg"
@@ -7675,8 +7675,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 28.12,
-    "preco": 18.98,
+    "precoEtiqueta": 32.68,
+    "preco": 22.06,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-336.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-336.jpg"
@@ -7688,8 +7688,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.03,
-    "preco": 21.62,
+    "precoEtiqueta": 37.22,
+    "preco": 25.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-343.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-343.jpg"
@@ -7701,8 +7701,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.46,
-    "preco": 16.51,
+    "precoEtiqueta": 28.42,
+    "preco": 19.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-344.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-344.jpg"
@@ -7714,8 +7714,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 38.15,
-    "preco": 25.75,
+    "precoEtiqueta": 44.33,
+    "preco": 29.92,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-345.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-345.jpg"
@@ -7727,8 +7727,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.79,
-    "preco": 7.96,
+    "precoEtiqueta": 13.7,
+    "preco": 9.25,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-350.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-350.jpg"
@@ -7740,8 +7740,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.83,
-    "preco": 12.71,
+    "precoEtiqueta": 21.88,
+    "preco": 14.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/Bs-357.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/Bs-357.jpg"
@@ -7753,8 +7753,8 @@ const produtos = [
     "categoria": "brinco",
     "categoriaOriginal": "BRINCO DE STRASS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.84,
-    "preco": 15.41,
+    "precoEtiqueta": 26.54,
+    "preco": 17.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-361.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/BRINCO DE STRASS/BS-361.jpg"
@@ -7766,8 +7766,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.08,
-    "preco": 29.08,
+    "precoEtiqueta": 50.06,
+    "preco": 33.79,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-154.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-154.jpg"
@@ -7779,8 +7779,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.06,
-    "preco": 28.39,
+    "precoEtiqueta": 48.88,
+    "preco": 32.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-156.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-156.jpg"
@@ -7792,8 +7792,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.56,
-    "preco": 21.98,
+    "precoEtiqueta": 37.84,
+    "preco": 25.54,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-157.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-157.jpg"
@@ -7805,8 +7805,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.0,
-    "preco": 27.0,
+    "precoEtiqueta": 46.48,
+    "preco": 31.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-172.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-172.jpg"
@@ -7818,8 +7818,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.33,
-    "preco": 28.57,
+    "precoEtiqueta": 49.19,
+    "preco": 33.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/CJ-173.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/CJ-173.jpg"
@@ -7831,8 +7831,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.08,
-    "preco": 29.08,
+    "precoEtiqueta": 50.06,
+    "preco": 33.79,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/CJ-174.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/CJ-174.jpg"
@@ -7844,8 +7844,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 39.86,
-    "preco": 26.91,
+    "precoEtiqueta": 46.32,
+    "preco": 31.27,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-176.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-176.jpg"
@@ -7857,8 +7857,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 44.04,
-    "preco": 29.73,
+    "precoEtiqueta": 51.18,
+    "preco": 34.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-066.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-066.jpg"
@@ -7870,8 +7870,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 45.8,
-    "preco": 30.92,
+    "precoEtiqueta": 53.22,
+    "preco": 35.93,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-117.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-117.jpg"
@@ -7883,8 +7883,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.03,
-    "preco": 29.05,
+    "precoEtiqueta": 50.01,
+    "preco": 33.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-140.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-140.jpg"
@@ -7896,8 +7896,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 41.27,
-    "preco": 27.86,
+    "precoEtiqueta": 47.96,
+    "preco": 32.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-155.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-155.jpg"
@@ -7909,8 +7909,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 49.1,
-    "preco": 33.15,
+    "precoEtiqueta": 57.06,
+    "preco": 38.52,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-159.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-159.jpg"
@@ -7922,8 +7922,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 41.36,
-    "preco": 27.92,
+    "precoEtiqueta": 48.06,
+    "preco": 32.45,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-160.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-160.jpg"
@@ -7935,8 +7935,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.13,
-    "preco": 27.09,
+    "precoEtiqueta": 46.64,
+    "preco": 31.48,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-169.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-169.jpg"
@@ -7948,8 +7948,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 64.42,
-    "preco": 43.48,
+    "precoEtiqueta": 74.86,
+    "preco": 50.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/CJ-170.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/CJ-170.jpg"
@@ -7961,8 +7961,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.64,
-    "preco": 28.78,
+    "precoEtiqueta": 49.55,
+    "preco": 33.45,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-175.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-175.jpg"
@@ -7974,8 +7974,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.39,
-    "preco": 27.26,
+    "precoEtiqueta": 46.94,
+    "preco": 31.68,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-059.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-059.jpg"
@@ -7987,8 +7987,8 @@ const produtos = [
     "categoria": "conjunto",
     "categoriaOriginal": "CONJUNTO ( CJ )",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 35.33,
-    "preco": 23.85,
+    "precoEtiqueta": 41.06,
+    "preco": 27.72,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-081.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO ( CJ )/Cj-081.jpg"
@@ -8000,8 +8000,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.38,
-    "preco": 21.86,
+    "precoEtiqueta": 37.63,
+    "preco": 25.4,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-060.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-060.jpg"
@@ -8013,8 +8013,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.04,
-    "preco": 22.3,
+    "precoEtiqueta": 38.4,
+    "preco": 25.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/Cji-065.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/Cji-065.jpg"
@@ -8026,8 +8026,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.79,
-    "preco": 22.81,
+    "precoEtiqueta": 39.27,
+    "preco": 26.51,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-066.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-066.jpg"
@@ -8039,8 +8039,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.53,
-    "preco": 22.63,
+    "precoEtiqueta": 38.97,
+    "preco": 26.3,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-067.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-067.jpg"
@@ -8052,8 +8052,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.04,
-    "preco": 22.3,
+    "precoEtiqueta": 38.4,
+    "preco": 25.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-049.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-049.jpg"
@@ -8065,8 +8065,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.12,
-    "preco": 21.68,
+    "precoEtiqueta": 37.33,
+    "preco": 25.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-064.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-064.jpg"
@@ -8078,8 +8078,8 @@ const produtos = [
     "categoria": "conjunto infantil (cji)",
     "categoriaOriginal": "CONJUNTO INFANTIL (CJI)",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 36.56,
-    "preco": 24.68,
+    "precoEtiqueta": 42.49,
+    "preco": 28.68,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-068.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/CONJUNTO INFANTIL (CJI)/CJI-068.jpg"
@@ -8091,8 +8091,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.58,
-    "preco": 23.34,
+    "precoEtiqueta": 40.19,
+    "preco": 27.12,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-004.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-004.jpg"
@@ -8104,8 +8104,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 53.33,
-    "preco": 36.0,
+    "precoEtiqueta": 61.97,
+    "preco": 41.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-010.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-010.jpg"
@@ -8117,8 +8117,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 62.61,
-    "preco": 42.26,
+    "precoEtiqueta": 72.76,
+    "preco": 49.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-016.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-016.jpg"
@@ -8130,8 +8130,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.66,
-    "preco": 27.44,
+    "precoEtiqueta": 47.25,
+    "preco": 31.89,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-014.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-014.jpg"
@@ -8143,8 +8143,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 41.76,
-    "preco": 28.19,
+    "precoEtiqueta": 48.53,
+    "preco": 32.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-017.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-017.jpg"
@@ -8156,8 +8156,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.13,
-    "preco": 27.09,
+    "precoEtiqueta": 46.64,
+    "preco": 31.48,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-018.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-018.jpg"
@@ -8169,8 +8169,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.44,
-    "preco": 22.57,
+    "precoEtiqueta": 38.86,
+    "preco": 26.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-021.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-021.jpg"
@@ -8182,8 +8182,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 74.98,
-    "preco": 50.61,
+    "precoEtiqueta": 87.13,
+    "preco": 58.81,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/Esc-022.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/Esc-022.jpg"
@@ -8195,8 +8195,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 39.69,
-    "preco": 26.79,
+    "precoEtiqueta": 46.12,
+    "preco": 31.13,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-011.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-011.jpg"
@@ -8208,8 +8208,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 41.27,
-    "preco": 27.86,
+    "precoEtiqueta": 47.96,
+    "preco": 32.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-020.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-020.jpg"
@@ -8221,8 +8221,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.72,
-    "preco": 23.43,
+    "precoEtiqueta": 40.35,
+    "preco": 27.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/Esc-023.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/Esc-023.jpg"
@@ -8234,8 +8234,8 @@ const produtos = [
     "categoria": "escapulários",
     "categoriaOriginal": "ESCAPULÁRIOS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 54.38,
-    "preco": 36.71,
+    "precoEtiqueta": 63.19,
+    "preco": 42.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-009.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/ESCAPULÁRIOS/ESC-009.jpg"
@@ -8247,8 +8247,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 33.0,
-    "preco": 22.28,
+    "precoEtiqueta": 38.35,
+    "preco": 25.89,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-202.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-202.jpg"
@@ -8260,8 +8260,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 125.8,
-    "preco": 84.91,
+    "precoEtiqueta": 146.19,
+    "preco": 98.67,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-223.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-223.jpg"
@@ -8273,8 +8273,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.5,
-    "preco": 28.69,
+    "precoEtiqueta": 49.39,
+    "preco": 33.34,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-237.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-237.jpg"
@@ -8286,8 +8286,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 48.22,
-    "preco": 32.55,
+    "precoEtiqueta": 56.04,
+    "preco": 37.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-258.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-258.jpg"
@@ -8299,8 +8299,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 37.44,
-    "preco": 25.27,
+    "precoEtiqueta": 43.51,
+    "preco": 29.37,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-272.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-272.jpg"
@@ -8312,8 +8312,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 43.56,
-    "preco": 29.4,
+    "precoEtiqueta": 50.62,
+    "preco": 34.17,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-277.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-277.jpg"
@@ -8325,8 +8325,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.8,
-    "preco": 5.94,
+    "precoEtiqueta": 10.23,
+    "preco": 6.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-280.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-280.jpg"
@@ -8338,8 +8338,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.94,
-    "preco": 23.58,
+    "precoEtiqueta": 40.6,
+    "preco": 27.4,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-295.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-295.jpg"
@@ -8351,8 +8351,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 37.62,
-    "preco": 25.39,
+    "precoEtiqueta": 43.72,
+    "preco": 29.51,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARg-303.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARg-303.jpg"
@@ -8364,8 +8364,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 56.63,
-    "preco": 38.22,
+    "precoEtiqueta": 65.81,
+    "preco": 44.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-314.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-314.jpg"
@@ -8377,8 +8377,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 173.98,
-    "preco": 117.43,
+    "precoEtiqueta": 202.18,
+    "preco": 136.47,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-318.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-318.jpg"
@@ -8390,8 +8390,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 29.13,
-    "preco": 19.66,
+    "precoEtiqueta": 33.85,
+    "preco": 22.85,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-179_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-179_.jpg"
@@ -8403,8 +8403,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 58.34,
-    "preco": 39.38,
+    "precoEtiqueta": 67.8,
+    "preco": 45.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-196.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-196.jpg"
@@ -8416,8 +8416,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 60.54,
-    "preco": 40.87,
+    "precoEtiqueta": 70.35,
+    "preco": 47.5,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-212.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-212.jpg"
@@ -8429,8 +8429,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 35.64,
-    "preco": 24.06,
+    "precoEtiqueta": 41.42,
+    "preco": 27.96,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-233.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-233.jpg"
@@ -8442,8 +8442,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 57.38,
-    "preco": 38.73,
+    "precoEtiqueta": 66.68,
+    "preco": 45.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-242.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-242.jpg"
@@ -8455,8 +8455,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.44,
-    "preco": 27.29,
+    "precoEtiqueta": 47,
+    "preco": 31.71,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-244.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-244.jpg"
@@ -8468,8 +8468,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 60.02,
-    "preco": 40.51,
+    "precoEtiqueta": 69.75,
+    "preco": 47.08,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-245.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-245.jpg"
@@ -8481,8 +8481,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 40.57,
-    "preco": 27.38,
+    "precoEtiqueta": 47.15,
+    "preco": 31.82,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-254.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-254.jpg"
@@ -8494,8 +8494,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 39.95,
-    "preco": 26.97,
+    "precoEtiqueta": 46.43,
+    "preco": 31.34,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-276.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-276.jpg"
@@ -8507,8 +8507,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 32.96,
-    "preco": 22.25,
+    "precoEtiqueta": 38.3,
+    "preco": 25.86,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-281.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-281.jpg"
@@ -8520,8 +8520,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 84.0,
-    "preco": 56.7,
+    "precoEtiqueta": 97.62,
+    "preco": 65.89,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-284.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-284.jpg"
@@ -8533,8 +8533,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 45.14,
-    "preco": 30.47,
+    "precoEtiqueta": 52.46,
+    "preco": 35.41,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-287.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-287.jpg"
@@ -8546,8 +8546,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 61.16,
-    "preco": 41.28,
+    "precoEtiqueta": 71.07,
+    "preco": 47.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-292.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-292.jpg"
@@ -8559,8 +8559,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 51.83,
-    "preco": 34.99,
+    "precoEtiqueta": 60.23,
+    "preco": 40.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-301.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/GARG-301.jpg"
@@ -8572,8 +8572,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 99.97,
-    "preco": 67.48,
+    "precoEtiqueta": 116.18,
+    "preco": 78.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-315.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-315.jpg"
@@ -8585,8 +8585,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 24.99,
-    "preco": 16.87,
+    "precoEtiqueta": 29.04,
+    "preco": 19.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-316.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-316.jpg"
@@ -8598,8 +8598,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 37.58,
-    "preco": 25.36,
+    "precoEtiqueta": 43.67,
+    "preco": 29.47,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-329.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-329.jpg"
@@ -8611,8 +8611,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 31.42,
-    "preco": 21.21,
+    "precoEtiqueta": 36.51,
+    "preco": 24.65,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-370.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-370.jpg"
@@ -8624,8 +8624,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 85.62,
-    "preco": 57.8,
+    "precoEtiqueta": 99.5,
+    "preco": 67.17,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-375.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-375.jpg"
@@ -8637,8 +8637,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.72,
-    "preco": 23.43,
+    "precoEtiqueta": 40.35,
+    "preco": 27.23,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-388.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-388.jpg"
@@ -8650,8 +8650,8 @@ const produtos = [
     "categoria": "gargantilha",
     "categoriaOriginal": "GARGANTILHAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 34.01,
-    "preco": 22.96,
+    "precoEtiqueta": 39.52,
+    "preco": 26.68,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-389.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GARGANTILHAS/Garg-389.jpg"
@@ -8663,8 +8663,8 @@ const produtos = [
     "categoria": "gravatas",
     "categoriaOriginal": "GRAVATAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 42.68,
-    "preco": 28.81,
+    "precoEtiqueta": 49.6,
+    "preco": 33.48,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/Grav-001.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/Grav-001.jpg"
@@ -8676,8 +8676,8 @@ const produtos = [
     "categoria": "gravatas",
     "categoriaOriginal": "GRAVATAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 35.68,
-    "preco": 24.09,
+    "precoEtiqueta": 41.46,
+    "preco": 27.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/Grav-004.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/Grav-004.jpg"
@@ -8689,8 +8689,8 @@ const produtos = [
     "categoria": "gravatas",
     "categoriaOriginal": "GRAVATAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 37.14,
-    "preco": 25.07,
+    "precoEtiqueta": 43.16,
+    "preco": 29.13,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/Grav-006.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/Grav-006.jpg"
@@ -8702,8 +8702,8 @@ const produtos = [
     "categoria": "gravatas",
     "categoriaOriginal": "GRAVATAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 30.27,
-    "preco": 20.43,
+    "precoEtiqueta": 35.18,
+    "preco": 23.74,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/GRAV-026.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/GRAV-026.jpg"
@@ -8715,8 +8715,8 @@ const produtos = [
     "categoria": "gravatas",
     "categoriaOriginal": "GRAVATAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 38.28,
-    "preco": 25.84,
+    "precoEtiqueta": 44.49,
+    "preco": 30.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/GRAV-003_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/GRAV-003_.jpg"
@@ -8728,8 +8728,8 @@ const produtos = [
     "categoria": "gravatas",
     "categoriaOriginal": "GRAVATAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 46.6,
-    "preco": 31.45,
+    "precoEtiqueta": 54.15,
+    "preco": 36.55,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/GRAV-031.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/GRAVATAS/GRAV-031.jpg"
@@ -8741,8 +8741,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.02,
-    "preco": 3.39,
+    "precoEtiqueta": 5.83,
+    "preco": 3.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-002.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-002.jpg"
@@ -8754,8 +8754,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.1,
-    "preco": 3.45,
+    "precoEtiqueta": 5.93,
+    "preco": 4.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-001_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-001_.jpg"
@@ -8767,8 +8767,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.02,
-    "preco": 3.39,
+    "precoEtiqueta": 5.83,
+    "preco": 3.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-019.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-019.jpg"
@@ -8780,8 +8780,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.32,
-    "preco": 3.59,
+    "precoEtiqueta": 6.18,
+    "preco": 4.17,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-026.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-026.jpg"
@@ -8793,8 +8793,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.24,
-    "preco": 3.53,
+    "precoEtiqueta": 6.09,
+    "preco": 4.1,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-018.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-018.jpg"
@@ -8806,8 +8806,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.37,
-    "preco": 3.62,
+    "precoEtiqueta": 6.24,
+    "preco": 4.21,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-020.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-020.jpg"
@@ -8819,8 +8819,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.1,
-    "preco": 3.45,
+    "precoEtiqueta": 5.93,
+    "preco": 4.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-021.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-021.jpg"
@@ -8832,8 +8832,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.93,
-    "preco": 3.33,
+    "precoEtiqueta": 5.73,
+    "preco": 3.87,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-023.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-023.jpg"
@@ -8845,8 +8845,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.1,
-    "preco": 3.45,
+    "precoEtiqueta": 5.93,
+    "preco": 4.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-022.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-022.jpg"
@@ -8858,8 +8858,8 @@ const produtos = [
     "categoria": "piercing",
     "categoriaOriginal": "PIERCING",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.1,
-    "preco": 3.45,
+    "precoEtiqueta": 5.93,
+    "preco": 4.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-024.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PIERCING/PIERC-024.jpg"
@@ -8871,8 +8871,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.24,
-    "preco": 3.53,
+    "precoEtiqueta": 6.09,
+    "preco": 4.1,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-153.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-153.jpg"
@@ -8884,8 +8884,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 49.72,
-    "preco": 33.56,
+    "precoEtiqueta": 57.78,
+    "preco": 39,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-162.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-162.jpg"
@@ -8897,8 +8897,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.53,
-    "preco": 10.48,
+    "precoEtiqueta": 18.05,
+    "preco": 12.18,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-204.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-204.jpg"
@@ -8910,8 +8910,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.69,
-    "preco": 4.51,
+    "precoEtiqueta": 7.77,
+    "preco": 5.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-205.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-205.jpg"
@@ -8923,8 +8923,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.86,
-    "preco": 6.65,
+    "precoEtiqueta": 11.46,
+    "preco": 7.73,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-206.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-206.jpg"
@@ -8936,8 +8936,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.86,
-    "preco": 4.63,
+    "precoEtiqueta": 7.97,
+    "preco": 5.38,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-215.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-215.jpg"
@@ -8949,8 +8949,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.81,
-    "preco": 14.05,
+    "precoEtiqueta": 24.18,
+    "preco": 16.33,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-225.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-225.jpg"
@@ -8962,8 +8962,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.98,
-    "preco": 4.04,
+    "precoEtiqueta": 6.95,
+    "preco": 4.69,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-289.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-289.jpg"
@@ -8975,8 +8975,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 2.82,
-    "preco": 1.9,
+    "precoEtiqueta": 3.28,
+    "preco": 2.21,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-294.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-294.jpg"
@@ -8988,8 +8988,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.05,
-    "preco": 2.73,
+    "precoEtiqueta": 4.71,
+    "preco": 3.17,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-311.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-311.jpg"
@@ -9001,8 +9001,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.71,
-    "preco": 5.88,
+    "precoEtiqueta": 10.12,
+    "preco": 6.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-316.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-316.jpg"
@@ -9014,8 +9014,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.69,
-    "preco": 4.51,
+    "precoEtiqueta": 7.77,
+    "preco": 5.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-331.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-331.jpg"
@@ -9027,8 +9027,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.44,
-    "preco": 3.0,
+    "precoEtiqueta": 5.16,
+    "preco": 3.49,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-344.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-344.jpg"
@@ -9040,8 +9040,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 11.62,
-    "preco": 7.84,
+    "precoEtiqueta": 13.5,
+    "preco": 9.11,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-356.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-356.jpg"
@@ -9053,8 +9053,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 7.22,
-    "preco": 4.87,
+    "precoEtiqueta": 8.39,
+    "preco": 5.66,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-357.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-357.jpg"
@@ -9066,8 +9066,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.69,
-    "preco": 4.51,
+    "precoEtiqueta": 7.77,
+    "preco": 5.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-358.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-358.jpg"
@@ -9079,8 +9079,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.46,
-    "preco": 3.68,
+    "precoEtiqueta": 6.35,
+    "preco": 4.28,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-362.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-362.jpg"
@@ -9092,8 +9092,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.87,
-    "preco": 2.61,
+    "precoEtiqueta": 4.5,
+    "preco": 3.03,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-363.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-363.jpg"
@@ -9105,8 +9105,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.75,
-    "preco": 3.21,
+    "precoEtiqueta": 5.52,
+    "preco": 3.73,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-378.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-378.jpg"
@@ -9118,8 +9118,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 27.02,
-    "preco": 18.24,
+    "precoEtiqueta": 31.4,
+    "preco": 21.2,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-382.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-382.jpg"
@@ -9131,8 +9131,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.54,
-    "preco": 3.74,
+    "precoEtiqueta": 6.44,
+    "preco": 4.35,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-386.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-386.jpg"
@@ -9144,8 +9144,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.61,
-    "preco": 2.44,
+    "precoEtiqueta": 4.2,
+    "preco": 2.84,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-394.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-394.jpg"
@@ -9157,8 +9157,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.58,
-    "preco": 10.51,
+    "precoEtiqueta": 18.11,
+    "preco": 12.21,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-402.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-402.jpg"
@@ -9170,8 +9170,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.33,
-    "preco": 6.3,
+    "precoEtiqueta": 10.84,
+    "preco": 7.32,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-405.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-405.jpg"
@@ -9183,8 +9183,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.68,
-    "preco": 13.96,
+    "precoEtiqueta": 24.03,
+    "preco": 16.22,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-406.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-406.jpg"
@@ -9196,8 +9196,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.62,
-    "preco": 5.82,
+    "precoEtiqueta": 10.02,
+    "preco": 6.76,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-407.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-407.jpg"
@@ -9209,8 +9209,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 14.04,
-    "preco": 9.47,
+    "precoEtiqueta": 16.32,
+    "preco": 11.01,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/Pg-421.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/Pg-421.jpg"
@@ -9222,8 +9222,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.96,
-    "preco": 7.4,
+    "precoEtiqueta": 12.74,
+    "preco": 8.6,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-168.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-168.jpg"
@@ -9235,8 +9235,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.28,
-    "preco": 3.56,
+    "precoEtiqueta": 6.14,
+    "preco": 4.14,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-188.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-188.jpg"
@@ -9248,8 +9248,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.84,
-    "preco": 3.27,
+    "precoEtiqueta": 5.62,
+    "preco": 3.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-216.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-216.jpg"
@@ -9261,8 +9261,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.84,
-    "preco": 3.27,
+    "precoEtiqueta": 5.62,
+    "preco": 3.8,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-217.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-217.jpg"
@@ -9274,8 +9274,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.84,
-    "preco": 13.39,
+    "precoEtiqueta": 23.06,
+    "preco": 15.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-219.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-219.jpg"
@@ -9287,8 +9287,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.12,
-    "preco": 6.83,
+    "precoEtiqueta": 11.76,
+    "preco": 7.94,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-275.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-275.jpg"
@@ -9300,8 +9300,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.54,
-    "preco": 8.46,
+    "precoEtiqueta": 14.57,
+    "preco": 9.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-321.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-321.jpg"
@@ -9313,8 +9313,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.18,
-    "preco": 10.25,
+    "precoEtiqueta": 17.64,
+    "preco": 11.91,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-322.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-322.jpg"
@@ -9326,8 +9326,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 17.91,
-    "preco": 12.09,
+    "precoEtiqueta": 20.81,
+    "preco": 14.05,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-323.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-323.jpg"
@@ -9339,8 +9339,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.89,
-    "preco": 6.0,
+    "precoEtiqueta": 10.33,
+    "preco": 6.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-342.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-342.jpg"
@@ -9352,8 +9352,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.97,
-    "preco": 3.36,
+    "precoEtiqueta": 5.78,
+    "preco": 3.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-343.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-343.jpg"
@@ -9365,8 +9365,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.78,
-    "preco": 2.55,
+    "precoEtiqueta": 4.39,
+    "preco": 2.96,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-347.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-347.jpg"
@@ -9378,8 +9378,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.74,
-    "preco": 2.52,
+    "precoEtiqueta": 4.35,
+    "preco": 2.93,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-348.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-348.jpg"
@@ -9391,8 +9391,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.69,
-    "preco": 4.51,
+    "precoEtiqueta": 7.77,
+    "preco": 5.24,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-360 face Cristo maior_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-360 face Cristo maior_.jpg"
@@ -9404,8 +9404,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 4.97,
-    "preco": 3.36,
+    "precoEtiqueta": 5.78,
+    "preco": 3.9,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-361.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-361.jpg"
@@ -9417,8 +9417,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 3.52,
-    "preco": 2.38,
+    "precoEtiqueta": 4.09,
+    "preco": 2.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-371.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-371.jpg"
@@ -9430,8 +9430,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 15.0,
-    "preco": 10.13,
+    "precoEtiqueta": 17.43,
+    "preco": 11.77,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-373.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-373.jpg"
@@ -9443,8 +9443,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 18.39,
-    "preco": 12.41,
+    "precoEtiqueta": 21.37,
+    "preco": 14.42,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-374.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-374.jpg"
@@ -9456,8 +9456,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.91,
-    "preco": 7.37,
+    "precoEtiqueta": 12.68,
+    "preco": 8.56,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-375.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-375.jpg"
@@ -9469,8 +9469,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 10.56,
-    "preco": 7.13,
+    "precoEtiqueta": 12.27,
+    "preco": 8.29,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-376.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-376.jpg"
@@ -9482,8 +9482,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 8.89,
-    "preco": 6.0,
+    "precoEtiqueta": 10.33,
+    "preco": 6.97,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-397.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-397.jpg"
@@ -9495,8 +9495,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 12.14,
-    "preco": 8.2,
+    "precoEtiqueta": 14.11,
+    "preco": 9.53,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-399.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-399.jpg"
@@ -9508,8 +9508,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 6.16,
-    "preco": 4.16,
+    "precoEtiqueta": 7.16,
+    "preco": 4.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-404.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-404.jpg"
@@ -9521,8 +9521,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 19.36,
-    "preco": 13.07,
+    "precoEtiqueta": 22.5,
+    "preco": 15.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-408.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-408.jpg"
@@ -9534,8 +9534,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.62,
-    "preco": 15.27,
+    "precoEtiqueta": 26.29,
+    "preco": 17.75,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-409.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-409.jpg"
@@ -9547,8 +9547,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.5,
-    "preco": 6.42,
+    "precoEtiqueta": 11.04,
+    "preco": 7.46,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/Pg-410.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/Pg-410.jpg"
@@ -9560,8 +9560,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 5.9,
-    "preco": 3.98,
+    "precoEtiqueta": 6.86,
+    "preco": 4.63,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-414.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-414.jpg"
@@ -9573,8 +9573,8 @@ const produtos = [
     "categoria": "pingente",
     "categoriaOriginal": "PINGENTES",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 20.64,
-    "preco": 13.93,
+    "precoEtiqueta": 23.99,
+    "preco": 16.19,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-422.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PINGENTES/PG-422.jpg"
@@ -9586,8 +9586,8 @@ const produtos = [
     "categoria": "pulseira",
     "categoriaOriginal": "PULSEIRAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 36.96,
-    "preco": 24.95,
+    "precoEtiqueta": 42.95,
+    "preco": 28.99,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-029.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-029.jpg"
@@ -9599,8 +9599,8 @@ const produtos = [
     "categoria": "pulseira",
     "categoriaOriginal": "PULSEIRAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 9.99,
-    "preco": 6.74,
+    "precoEtiqueta": 11.61,
+    "preco": 7.83,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-061_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-061_.jpg"
@@ -9612,8 +9612,8 @@ const produtos = [
     "categoria": "pulseira",
     "categoriaOriginal": "PULSEIRAS",
     "fabrica": "ZARRARA",
-    "precoEtiqueta": 22.0,
-    "preco": 14.85,
+    "precoEtiqueta": 25.57,
+    "preco": 17.26,
     "imagem": "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-068_.jpg",
     "imagens": [
       "FOTOS_ZARRARA_OTIMIZADAS/PULSEIRAS/PUL-068_.jpg"

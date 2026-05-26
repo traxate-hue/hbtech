@@ -16,12 +16,15 @@ const PRIORIDADE_TENDENZE = new Map(ORDEM_INICIAL_TENDENZE.map((ref, index) => [
 
 const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22, 24, 26];
 
-// Ajuste este valor quando o preço por grama mudar.
+// Ajuste estes valores quando o preço por grama mudar.
 const COEFICIENTE_GRAMA = 18.50;
 const COEFICIENTE_GRAMA_POR_FABRICA = {
   inove: 20.00,
-  tendenze: 18.50
+  tendenze: 22.08
 };
+
+const GRAMA_TENDENZE_SEM_ZIRC = 22.08;
+const GRAMA_TENDENZE_COM_ZIRC = 24.30;
 
 function entrar(fabrica) {
   window.location.href = "catalogo.html?fabrica=" + fabrica + "&categoria=todos";
@@ -240,6 +243,26 @@ function coeficienteGramaPorFabrica(fabrica) {
   return COEFICIENTE_GRAMA_POR_FABRICA[fabrica] || COEFICIENTE_GRAMA;
 }
 
+function coeficienteGramaProduto(produto) {
+  const fabrica = String(produto?.fabrica || "").toLowerCase();
+  const descricao = String(produto?.descricao || "").toUpperCase();
+
+  if (fabrica === "tendenze") {
+    if (descricao.includes("C/ ZIRC") || descricao.includes("C/ZIRC")) {
+      return GRAMA_TENDENZE_COM_ZIRC;
+    }
+
+    if (descricao.includes("S/ ZIRC") || descricao.includes("S/ZIRC")) {
+      return GRAMA_TENDENZE_SEM_ZIRC;
+    }
+
+    // Segurança: se alguma peça da Tendenze vier sem marcação, usa o valor sem zircônia.
+    return GRAMA_TENDENZE_SEM_ZIRC;
+  }
+
+  return coeficienteGramaPorFabrica(fabrica);
+}
+
 function valorUnitarioProduto(produtoOuItem) {
   const fabrica = String(produtoOuItem?.fabrica || "").toLowerCase();
 
@@ -258,8 +281,9 @@ function valorUnitarioProduto(produtoOuItem) {
     return Number(produtoOriginal?.preco) || 0;
   }
 
-  // Tendenze e Inove usam peso x coeficiente por grama.
-  return pesoNumerico(produtoOuItem?.peso) * coeficienteGramaPorFabrica(fabrica);
+  // Tendenze usa preço por grama conforme a descrição: C/ ZIRC. ou S/ ZIRC.
+  // As outras fábricas continuam usando o coeficiente padrão por fábrica.
+  return pesoNumerico(produtoOuItem?.peso) * coeficienteGramaProduto(produtoOuItem);
 }
 
 function valorItem(item) {
@@ -545,8 +569,8 @@ function carregarProdutos() {
         <div class="produto produto-simples">
           ${infoHtml}
           <div class="produto-acoes produto-acoes-simples">
-            <button class="btn-adicionar-card" onclick='adicionarProdutoSimples(${refJson}, this)'>Adicionar</button>
             <input class="input-qtd-card" type="number" id="${inputId}" min="0" placeholder="Qtd." inputmode="numeric">
+            <button class="btn-adicionar-card" onclick='adicionarProdutoSimples(${refJson}, this)'>Adicionar</button>
           </div>
         </div>
       `;
@@ -1320,6 +1344,7 @@ let scrollBloqueadoCarrinho = 0;
 let carrinhoDragYInicial = 0;
 let carrinhoArrastando = false;
 let carrinhoDeltaY = 0;
+let arrastoCarrinhoMobileIniciado = false;
 
 function mobileAtivo() {
   return window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
@@ -1425,8 +1450,12 @@ document.addEventListener("mousedown", cliqueForaDoCarrinho);
 document.addEventListener("touchstart", cliqueForaDoCarrinho, { passive: true });
 
 function iniciarArrastoCarrinhoMobile() {
+  if (arrastoCarrinhoMobileIniciado) return;
+
   const areaCarrinho = document.getElementById("area-carrinho");
   if (!areaCarrinho) return;
+
+  arrastoCarrinhoMobileIniciado = true;
 
   const handle = areaCarrinho.querySelector(".cart-sheet-handle");
   const topo = areaCarrinho.querySelector(".carrinho-topo");
@@ -1489,10 +1518,16 @@ function iniciarArrastoCarrinhoMobile() {
   areaCarrinho.addEventListener("touchcancel", limparArrastoCarrinho, { passive: true });
 }
 
-window.addEventListener("DOMContentLoaded", function () {
+function inicializarCarrinhoMobile() {
   atualizarAlturaCarrinhoMobile();
   iniciarArrastoCarrinhoMobile();
-});
+}
+
+if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", inicializarCarrinhoMobile);
+} else {
+  inicializarCarrinhoMobile();
+}
 window.addEventListener("resize", function () {
   atualizarAlturaCarrinhoMobile();
   if (!mobileAtivo()) liberarRolagemFundoCarrinho();
