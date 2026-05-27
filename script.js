@@ -17,14 +17,14 @@ const PRIORIDADE_TENDENZE = new Map(ORDEM_INICIAL_TENDENZE.map((ref, index) => [
 const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22, 24, 26];
 
 // Ajuste estes valores quando o preço por grama mudar.
-const COEFICIENTE_GRAMA = 18.50;
+const COEFICIENTE_GRAMA = 18.90;
 const COEFICIENTE_GRAMA_POR_FABRICA = {
-  inove: 20.00,
-  tendenze: 22.08
+  inove: 18.90,
+  tendenze: 20.78
 };
 
-const GRAMA_TENDENZE_SEM_ZIRC = 22.08;
-const GRAMA_TENDENZE_COM_ZIRC = 24.30;
+const GRAMA_TENDENZE_SEM_ZIRC = 20.78;
+const GRAMA_TENDENZE_COM_ZIRC = 22.86;
 
 function entrar(fabrica) {
   window.location.href = "catalogo.html?fabrica=" + fabrica + "&categoria=todos";
@@ -153,6 +153,7 @@ function atualizarBotoesFiltroPreco() {
 }
 
 function salvarCarrinho() {
+  unificarCarrinhoPorReferencia();
   localStorage.setItem("carrinhoCatalogo", JSON.stringify(carrinho));
 }
 
@@ -163,6 +164,7 @@ function carregarCarrinho() {
     try {
       carrinho = JSON.parse(salvo) || [];
       carrinho = carrinho.filter(item => item && item.referencia && item.fabrica);
+      unificarCarrinhoPorReferencia();
     } catch (e) {
       carrinho = [];
     }
@@ -476,6 +478,111 @@ function renderizarCategorias() {
 
 
 
+function chaveProdutoCarrinho(produtoOuItem) {
+  return `${String(produtoOuItem?.fabrica || '').toLowerCase()}::${String(produtoOuItem?.referencia || '')}`;
+}
+
+
+function mesclarDadosItemCarrinho(destino, origem) {
+  if (!destino || !origem) return destino;
+
+  const destinoEhAnel = ehCategoriaAnel(destino.categoria || origem.categoria);
+
+  // Mantém os dados mais completos/atuais do produto.
+  ["descricao", "peso", "categoria", "minimo", "imagem", "preco", "precoEtiqueta"].forEach(campo => {
+    if ((destino[campo] === undefined || destino[campo] === null || destino[campo] === "") && origem[campo] !== undefined) {
+      destino[campo] = origem[campo];
+    }
+  });
+
+  if (origem.observacao) {
+    if (!destino.observacao) {
+      destino.observacao = origem.observacao;
+    } else if (!destino.observacao.includes(origem.observacao)) {
+      destino.observacao += ` | ${origem.observacao}`;
+    }
+  }
+
+  if (destinoEhAnel) {
+    destino.numeracoes = destino.numeracoes || {};
+    Object.entries(origem.numeracoes || {}).forEach(([numero, qtd]) => {
+      destino.numeracoes[numero] = Number(destino.numeracoes[numero] || 0) + Number(qtd || 0);
+    });
+    destino.quantidade = null;
+  } else {
+    destino.quantidade = Number(destino.quantidade || 0) + Number(origem.quantidade || 0);
+    destino.numeracoes = null;
+  }
+
+  return destino;
+}
+
+function adicionarOuSomarNoCarrinho(novoItem) {
+  const chaveNova = chaveProdutoCarrinho(novoItem);
+  const existente = carrinho.find(item => chaveProdutoCarrinho(item) === chaveNova);
+
+  if (existente) {
+    mesclarDadosItemCarrinho(existente, novoItem);
+    return existente;
+  }
+
+  carrinho.push(novoItem);
+  return novoItem;
+}
+
+function unificarCarrinhoPorReferencia() {
+  const unificado = [];
+
+  carrinho.forEach(item => {
+    if (!item || !item.referencia || !item.fabrica) return;
+    const existente = unificado.find(atual => chaveProdutoCarrinho(atual) === chaveProdutoCarrinho(item));
+
+    if (existente) {
+      mesclarDadosItemCarrinho(existente, item);
+    } else {
+      unificado.push({ ...item, numeracoes: item.numeracoes ? { ...item.numeracoes } : item.numeracoes });
+    }
+  });
+
+  carrinho = unificado;
+}
+
+function produtoJaNoCarrinho(produto) {
+  const chave = chaveProdutoCarrinho(produto);
+  return carrinho.some(item => chaveProdutoCarrinho(item) === chave && totalPecasItem(item) > 0);
+}
+
+function seloProdutoNoCarrinhoHtml() {
+  return `
+    <span class="selo-no-carrinho" title="Item já adicionado ao carrinho" aria-label="Item já adicionado ao carrinho">
+      <span class="selo-no-carrinho-icone">✓</span>
+      <span class="selo-no-carrinho-texto">No carrinho</span>
+    </span>
+  `;
+}
+
+function atualizarSelosProdutosNoCarrinho() {
+  document.querySelectorAll('.produto[data-ref][data-fabrica]').forEach(card => {
+    const ref = card.getAttribute('data-ref') || '';
+    const fab = card.getAttribute('data-fabrica') || '';
+    const existe = carrinho.some(item =>
+      String(item.referencia || '') === ref &&
+      String(item.fabrica || '').toLowerCase() === fab.toLowerCase() &&
+      totalPecasItem(item) > 0
+    );
+
+    card.classList.toggle('produto-no-carrinho', existe);
+
+    let selo = card.querySelector('.selo-no-carrinho');
+    if (existe && !selo) {
+      const imagem = card.querySelector('.imagem-produto');
+      if (imagem) imagem.insertAdjacentHTML('beforeend', seloProdutoNoCarrinhoHtml());
+    } else if (!existe && selo) {
+      selo.remove();
+    }
+  });
+}
+
 function carregarProdutos() {
   const container = document.getElementById("produtos");
   if (!container) return;
@@ -530,7 +637,6 @@ function carregarProdutos() {
 
   produtosParaMostrar.forEach(produto => {
     const refJson = JSON.stringify(produto.referencia);
-    const inputId = `qtd-${referenciaSegura(produto.referencia)}`;
     const altImagem = `Referência ${produto.referencia}`;
 
     const imagemSrcJson = JSON.stringify(produto.imagem || "");
@@ -540,9 +646,16 @@ function carregarProdutos() {
       ? `<img src="${produto.imagem}" alt="${altImagem}" loading="lazy" onclick='abrirZoomImagem(${imagemSrcJson}, ${imagemAltJson})'>`
       : `<span>Sem imagem</span>`;
 
+    const jaNoCarrinho = produtoJaNoCarrinho(produto);
+    const classeNoCarrinho = jaNoCarrinho ? " produto-no-carrinho" : "";
+    const seloNoCarrinho = jaNoCarrinho ? seloProdutoNoCarrinhoHtml() : "";
+    const dataRef = String(produto.referencia || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+    const dataFabrica = String(produto.fabrica || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+
     const infoHtml = `
       <div class="imagem-produto">
         ${imagemHtml}
+        ${seloNoCarrinho}
         <span class="badge-ref-card">Ref. ${produto.referencia}</span>
         ${produto.peso ? `<span class="badge-peso-card">Peso: ${produto.peso}</span>` : ""}
       </div>
@@ -550,14 +663,12 @@ function carregarProdutos() {
         <p class="ref-produto">Ref. ${produto.referencia}</p>
         ${produto.peso ? `<p class="peso-produto">Peso: ${produto.peso}</p>` : ""}
         <p class="valor-produto">R$ ${formatarMoeda(valorUnitarioProduto(produto))}</p>
-        <p class="descricao-produto">${produto.descricao || ""}</p>
-        <p class="minimo-produto">Mínimo: ${minimoPorFabrica(produto.fabrica)} peças</p>
       </div>
     `;
 
     if (ehCategoriaAnel(produto.categoria)) {
       container.innerHTML += `
-        <div class="produto produto-anel">
+        <div class="produto produto-anel${classeNoCarrinho}" data-ref="${dataRef}" data-fabrica="${dataFabrica}">
           ${infoHtml}
           <div class="produto-acoes produto-acoes-anel">
             <button class="btn-escolher-numeracoes" onclick='abrirPopup(${refJson})'>Escolher numerações</button>
@@ -566,11 +677,10 @@ function carregarProdutos() {
       `;
     } else {
       container.innerHTML += `
-        <div class="produto produto-simples">
+        <div class="produto produto-simples${classeNoCarrinho}" data-ref="${dataRef}" data-fabrica="${dataFabrica}">
           ${infoHtml}
           <div class="produto-acoes produto-acoes-simples">
-            <input class="input-qtd-card" type="number" id="${inputId}" min="0" placeholder="Qtd." inputmode="numeric">
-            <button class="btn-adicionar-card" onclick='adicionarProdutoSimples(${refJson}, this)'>Adicionar</button>
+            <button class="btn-adicionar-card" onclick='abrirPopup(${refJson})'>Adicionar</button>
           </div>
         </div>
       `;
@@ -682,26 +792,51 @@ function abrirPopup(referencia) {
     imagemPopup.alt = "Referência " + produto.referencia;
   }
 
+  const ehAnel = ehCategoriaAnel(produto.categoria);
+
+  document.querySelector(".popup-selecao-numeracoes .popup-label").innerText = ehAnel ? "Seleção de numerações" : "Adicionar ao carrinho";
+  document.querySelector(".popup-selecao-numeracoes h3").innerText = ehAnel ? "Escolha aro e quantidade" : "Escolha quantidade";
+  document.querySelector(".popup-ajuda").innerText = ehAnel ? "Distribua a quantidade da referência entre os aros disponíveis." : "Selecione a quantidade desejada para este produto.";
+
   let html = "";
 
-  NUMERACOES_ANEIS.forEach(numero => {
-    html += `
-      <div class="numero-item">
+  if (ehAnel) {
+    NUMERACOES_ANEIS.forEach(numero => {
+      html += `
+        <div class="numero-item">
+          <div class="numero-topo">
+            <span>Aro</span>
+            <strong>${numero}</strong>
+          </div>
+
+          <div class="controle-qtd" data-aro="${numero}">
+            <button type="button" onclick="alterarQtdAro(${numero}, -5)">-5</button>
+            <button type="button" onclick="alterarQtdAro(${numero}, -1)">-1</button>
+            <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}" oninput="atualizarResumoPopup()">
+            <button type="button" onclick="alterarQtdAro(${numero}, 1)">+1</button>
+            <button type="button" onclick="alterarQtdAro(${numero}, 5)">+5</button>
+          </div>
+        </div>
+      `;
+    });
+  } else {
+    html = `
+      <div class="numero-item numero-item-simples">
         <div class="numero-topo">
-          <span>Aro</span>
-          <strong>${numero}</strong>
+          <span>Quantidade</span>
+          <strong>Peças</strong>
         </div>
 
-        <div class="controle-qtd" data-aro="${numero}">
-          <button type="button" onclick="alterarQtdAro(${numero}, -5)">-5</button>
-          <button type="button" onclick="alterarQtdAro(${numero}, -1)">-1</button>
-          <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}" oninput="atualizarResumoPopup()">
-          <button type="button" onclick="alterarQtdAro(${numero}, 1)">+1</button>
-          <button type="button" onclick="alterarQtdAro(${numero}, 5)">+5</button>
+        <div class="controle-qtd">
+          <button type="button" onclick="alterarQtdSimples(-5)">-5</button>
+          <button type="button" onclick="alterarQtdSimples(-1)">-1</button>
+          <input type="number" id="qtd-popup-simples" min="0" value="${minimoPorFabrica(produto.fabrica)}" inputmode="numeric" oninput="atualizarResumoPopup()">
+          <button type="button" onclick="alterarQtdSimples(1)">+1</button>
+          <button type="button" onclick="alterarQtdSimples(5)">+5</button>
         </div>
       </div>
     `;
-  });
+  }
 
   document.getElementById("numeracoes").innerHTML = html;
   atualizarResumoPopup();
@@ -713,15 +848,22 @@ function atualizarResumoPopup() {
   const totalRodapeEl = document.getElementById("popup-rodape-total");
 
   let total = 0;
-  NUMERACOES_ANEIS.forEach(numero => {
-    const input = document.getElementById(`aro-${numero}`);
-    total += Number(input?.value || 0);
-  });
+
+  if (produtoAtual && ehCategoriaAnel(produtoAtual.categoria)) {
+    NUMERACOES_ANEIS.forEach(numero => {
+      const input = document.getElementById(`aro-${numero}`);
+      total += Number(input?.value || 0);
+    });
+  } else {
+    total = Number(document.getElementById("qtd-popup-simples")?.value || 0);
+  }
 
   const textoTotal = total + (total === 1 ? " peça" : " peças");
+  const valorTotal = produtoAtual ? total * valorUnitarioProduto(produtoAtual) : 0;
+  const textoTotalComValor = textoTotal + " • R$ " + formatarMoeda(valorTotal);
 
-  if (totalEl) totalEl.innerText = textoTotal;
-  if (totalRodapeEl) totalRodapeEl.innerText = textoTotal;
+  if (totalEl) totalEl.innerText = textoTotalComValor;
+  if (totalRodapeEl) totalRodapeEl.innerText = textoTotalComValor;
 }
 
 function fecharPopup() {
@@ -740,17 +882,34 @@ function alterarQtdAro(numero, incremento) {
 }
 
 
+
+
+function alterarQtdSimples(incremento) {
+  const input = document.getElementById("qtd-popup-simples");
+  if (!input) return;
+
+  const atual = Number(input.value) || 0;
+  input.value = Math.max(0, atual + incremento);
+  atualizarResumoPopup();
+}
+
 function confirmarPopup() {
   if (!produtoAtual) return;
 
+  const observacao = document.getElementById("popup-observacao")?.value?.trim() || "";
   const numeracoes = {};
   let totalPecas = 0;
+  const ehAnel = ehCategoriaAnel(produtoAtual.categoria);
 
-  NUMERACOES_ANEIS.forEach(numero => {
-    const valor = Number(document.getElementById(`aro-${numero}`).value) || 0;
-    numeracoes[numero] = valor;
-    totalPecas += valor;
-  });
+  if (ehAnel) {
+    NUMERACOES_ANEIS.forEach(numero => {
+      const valor = Number(document.getElementById(`aro-${numero}`).value) || 0;
+      numeracoes[numero] = valor;
+      totalPecas += valor;
+    });
+  } else {
+    totalPecas = Number(document.getElementById("qtd-popup-simples")?.value || 0);
+  }
 
   const minimoAtual = minimoPorFabrica(produtoAtual.fabrica);
 
@@ -759,54 +918,35 @@ function confirmarPopup() {
     return;
   }
 
-  const existente = carrinho.find(item =>
-    item.referencia === produtoAtual.referencia &&
-    item.fabrica === produtoAtual.fabrica &&
-    ehCategoriaAnel(item.categoria)
-  );
+  adicionarOuSomarNoCarrinho({
+    referencia: produtoAtual.referencia,
+    descricao: produtoAtual.descricao,
+    peso: produtoAtual.peso,
+    fabrica: produtoAtual.fabrica,
+    categoria: produtoAtual.categoria,
+    minimo: minimoPorFabrica(produtoAtual.fabrica),
+    imagem: produtoAtual.imagem,
+    preco: produtoAtual.preco,
+    precoEtiqueta: produtoAtual.precoEtiqueta,
+    observacao,
+    numeracoes: ehAnel ? { ...numeracoes } : null,
+    quantidade: ehAnel ? null : totalPecas
+  });
 
-  if (existente) {
-    NUMERACOES_ANEIS.forEach(numero => {
-      existente.numeracoes[numero] = (existente.numeracoes[numero] || 0) + (numeracoes[numero] || 0);
-    });
-  } else {
-    carrinho.push({
-      referencia: produtoAtual.referencia,
-      descricao: produtoAtual.descricao,
-      peso: produtoAtual.peso,
-      fabrica: produtoAtual.fabrica,
-      categoria: produtoAtual.categoria,
-      minimo: minimoPorFabrica(produtoAtual.fabrica),
-      imagem: produtoAtual.imagem,
-      preco: produtoAtual.preco,
-      precoEtiqueta: produtoAtual.precoEtiqueta,
-      numeracoes: { ...numeracoes }
-    });
-  }
-
+  // Cria o clone da imagem antes de fechar o popup.
+  // Assim a animação continua, mas a aba de adicionar fecha imediatamente.
   animarImagemPopupParaCarrinho();
-
-  const botaoPopup = document.getElementById("botao-confirmar-popup");
 
   salvarCarrinho();
   renderizarCarrinho();
+  animarConfirmacaoMobileCarrinho("Adicionado ao carrinho");
 
-  if (botaoPopup) {
-    const textoOriginal = botaoPopup.innerText;
-    botaoPopup.innerText = "✔ Adicionado";
-    botaoPopup.classList.add("botao-adicionado");
-    botaoPopup.style.animation = "pulseAdd 0.3s ease";
+  const observacaoEl = document.getElementById("popup-observacao");
+  if (observacaoEl) observacaoEl.value = "";
 
-    setTimeout(() => {
-      botaoPopup.innerText = textoOriginal;
-      botaoPopup.classList.remove("botao-adicionado");
-      botaoPopup.style.animation = "";
-      fecharPopup();
-    }, 800);
-  } else {
-    fecharPopup();
-  }
+  fecharPopup();
 }
+
 
 function adicionarProdutoSimples(referencia, botao) {
   const produto = buscarProdutoPorReferencia(referencia);
@@ -826,32 +966,24 @@ function adicionarProdutoSimples(referencia, botao) {
   const card = botao?.closest(".produto");
   if (card) animarProdutoVoando(card);
 
-  const existente = carrinho.find(item =>
-    item.referencia === produto.referencia &&
-    item.fabrica === produto.fabrica &&
-    !ehCategoriaAnel(item.categoria)
-  );
-
-  if (existente) {
-    existente.quantidade += quantidade;
-  } else {
-    carrinho.push({
-      referencia: produto.referencia,
-      descricao: produto.descricao,
-      peso: produto.peso,
-      fabrica: produto.fabrica,
-      categoria: produto.categoria,
-      minimo: minimoPorFabrica(produto.fabrica),
-      imagem: produto.imagem,
-      preco: produto.preco,
-      precoEtiqueta: produto.precoEtiqueta,
-      quantidade: quantidade
-    });
-  }
+  adicionarOuSomarNoCarrinho({
+    referencia: produto.referencia,
+    descricao: produto.descricao,
+    peso: produto.peso,
+    fabrica: produto.fabrica,
+    categoria: produto.categoria,
+    minimo: minimoPorFabrica(produto.fabrica),
+    imagem: produto.imagem,
+    preco: produto.preco,
+    precoEtiqueta: produto.precoEtiqueta,
+    numeracoes: null,
+    quantidade: quantidade
+  });
 
   input.value = "";
   salvarCarrinho();
   renderizarCarrinho();
+  animarConfirmacaoMobileCarrinho("Adicionado ao carrinho");
 
   if (botao) {
     const textoOriginal = botao.innerText;
@@ -868,11 +1000,52 @@ function adicionarProdutoSimples(referencia, botao) {
 }
 
 function totalPecasItem(item) {
-  if (ehCategoriaAnel(item.categoria)) {
-    return Object.values(item.numeracoes || {}).reduce((acc, valor) => acc + Number(valor || 0), 0);
+  const itemEhAnel = ehCategoriaAnel(item?.categoria);
+
+  if (itemEhAnel) {
+    return Object.values(item?.numeracoes || {}).reduce((acc, valor) => acc + Number(valor || 0), 0);
   }
 
-  return Number(item.quantidade || 0);
+  return Number(item?.quantidade || 0);
+}
+
+function textoObservacaoItem(item) {
+  return String(item?.observacao || "").trim();
+}
+
+function escaparHtml(texto) {
+  return String(texto ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function observacaoItemHtml(item) {
+  const observacao = textoObservacaoItem(item);
+  if (!observacao) return "";
+
+  return `<p class="detalhe-cliente-item"><strong>Detalhes do cliente:</strong> ${escaparHtml(observacao)}</p>`;
+}
+
+function blocoObservacoesPedidoHtml() {
+  const itensComObservacao = carrinho.filter(item => textoObservacaoItem(item));
+  if (!itensComObservacao.length) return "";
+
+  const linhas = itensComObservacao.map(item => `
+    <li>
+      <strong>Ref. ${escaparHtml(item.referencia || "-")}</strong>
+      <span>${escaparHtml(textoObservacaoItem(item))}</span>
+    </li>
+  `).join("");
+
+  return `
+    <div class="resumo-observacoes-bloco">
+      <h3>Detalhes informados pelo cliente</h3>
+      <ul>${linhas}</ul>
+    </div>
+  `;
 }
 
 function pesoItem(item) {
@@ -903,24 +1076,24 @@ function regrasComerciaisFabrica(fabrica) {
   fabrica = String(fabrica || "").toLowerCase();
 
   const regras = {
-    inove: { minimo: 20000, desconto5: 40000, desconto10: 80000 },
-    tendenze: { minimo: 30000, desconto5: 60000, desconto10: 100000 },
-    zarrara: { minimo: 20000, desconto5: 40000, desconto10: 80000 }
+    inove: { minimo: 20000, metaDesconto: 70000, percentualDesconto: 5 },
+    tendenze: { minimo: 30000, metaDesconto: 70000, percentualDesconto: 5 },
+    zarrara: { minimo: 20000, metaDesconto: 70000, percentualDesconto: 5 }
   };
 
-  return regras[fabrica] || { minimo: 0, desconto5: 0, desconto10: 0 };
+  return regras[fabrica] || { minimo: 0, metaDesconto: 70000, percentualDesconto: 5 };
 }
 
 function valorMinimoFabrica(fabrica) {
   return regrasComerciaisFabrica(fabrica).minimo;
 }
 
-function primeiraMetaDescontoFabrica(fabrica) {
-  return regrasComerciaisFabrica(fabrica).desconto5;
+function metaDescontoFabrica(fabrica) {
+  return regrasComerciaisFabrica(fabrica).metaDesconto;
 }
 
-function segundaMetaDescontoFabrica(fabrica) {
-  return regrasComerciaisFabrica(fabrica).desconto10;
+function percentualDescontoFabrica(fabrica) {
+  return regrasComerciaisFabrica(fabrica).percentualDesconto;
 }
 
 function percentualMeta(valorAtual, valorMeta) {
@@ -945,22 +1118,31 @@ function criarBarraMeta(titulo, valorAtual, valorMeta) {
 
 function mensagemMeta(valorAtual, fabrica) {
   const minimo = valorMinimoFabrica(fabrica);
-  const meta5 = primeiraMetaDescontoFabrica(fabrica);
-  const meta10 = segundaMetaDescontoFabrica(fabrica);
+  const metaDesconto = metaDescontoFabrica(fabrica);
+  const percentual = percentualDescontoFabrica(fabrica);
 
   if (valorAtual < minimo) {
     return `Faltam R$ ${formatarMoeda(minimo - valorAtual)} para o mínimo`;
   }
 
-  if (valorAtual < meta5) {
-    return `Faltam R$ ${formatarMoeda(meta5 - valorAtual)} para 5%`;
+  if (valorAtual < metaDesconto) {
+    return `Faltam R$ ${formatarMoeda(metaDesconto - valorAtual)} para ${percentual}% de desconto`;
   }
 
-  if (valorAtual < meta10) {
-    return `Faltam R$ ${formatarMoeda(meta10 - valorAtual)} para mais 5%`;
-  }
+  return `${percentual}% de desconto aplicado 🔥`;
+}
 
-  return "Você atingiu o máximo de desconto 🔥";
+function percentualDescontoPedido(valorAtual, fabrica) {
+  if (!fabrica) return 0;
+  return valorAtual >= metaDescontoFabrica(fabrica) ? percentualDescontoFabrica(fabrica) : 0;
+}
+
+function valorDescontoPedido(valorAtual, fabrica) {
+  return valorAtual * (percentualDescontoPedido(valorAtual, fabrica) / 100);
+}
+
+function valorTotalComDesconto(valorAtual, fabrica) {
+  return Math.max(valorAtual - valorDescontoPedido(valorAtual, fabrica), 0);
 }
 
 
@@ -1004,17 +1186,20 @@ function renderizarCarrinho() {
     resumoDiv.innerHTML = `
       <div class="resumo-fabrica">
         <strong>${nomeFabrica(fabCarrinho)}</strong> • ${pecasAtual} peças • ${formatarPeso(pesoAtual)}
-        <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorAtual)}</p>
+        <p><strong>Subtotal:</strong> R$ ${formatarMoeda(valorAtual)}</p>
+        ${percentualDescontoPedido(valorAtual, fabCarrinho) > 0 ? `<p><strong>Desconto (${percentualDescontoPedido(valorAtual, fabCarrinho)}%):</strong> - R$ ${formatarMoeda(valorDescontoPedido(valorAtual, fabCarrinho))}</p>` : ""}
+        <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</p>
         <p class="mensagem-meta">${mensagemMeta(valorAtual, fabCarrinho)}</p>
         ${criarBarraMeta("mín", valorAtual, valorMinimoFabrica(fabCarrinho))}
-        ${criarBarraMeta("5%", valorAtual, primeiraMetaDescontoFabrica(fabCarrinho))}
-        ${criarBarraMeta("+5%", valorAtual, segundaMetaDescontoFabrica(fabCarrinho))}
+        ${criarBarraMeta("5%", valorAtual, metaDescontoFabrica(fabCarrinho))}
       </div>
     `;
   }
 
   carrinho.forEach((item, index) => {
-    if (ehCategoriaAnel(item.categoria)) {
+    const ehAnel = ehCategoriaAnel(item.categoria);
+
+    if (ehAnel) {
       let linhasNumeracoes = "";
 
       NUMERACOES_ANEIS.forEach(numero => {
@@ -1029,7 +1214,6 @@ function renderizarCarrinho() {
           <div class="item-carrinho-cabecalho">
             <div class="item-carrinho-titulo-area">
               <h3>Ref. ${item.referencia}</h3>
-              <p class="item-carrinho-descricao">${item.descricao || ""}</p>
             </div>
             <div class="item-carrinho-acoes" aria-label="Ações do item">
               <button type="button" class="botao-icone-carrinho botao-detalhes-carrinho" onclick="alternarDetalhesItem(${index}, this)" aria-label="Ver detalhes do item" title="Ver detalhes" aria-expanded="false">
@@ -1046,6 +1230,7 @@ function renderizarCarrinho() {
           </div>
           <div class="detalhes-carrinho escondido" id="detalhes-carrinho-${index}">
             <p><strong>Peso un.:</strong> ${item.peso || "-"}</p>
+            ${observacaoItemHtml(item)}
             <p><strong>Valor un. estimado:</strong> R$ ${formatarMoeda(valorUnitarioProduto(item))}</p>
             <ul>${linhasNumeracoes}</ul>
           </div>
@@ -1057,7 +1242,6 @@ function renderizarCarrinho() {
           <div class="item-carrinho-cabecalho">
             <div class="item-carrinho-titulo-area">
               <h3>Ref. ${item.referencia}</h3>
-              <p class="item-carrinho-descricao">${item.descricao || ""}</p>
             </div>
             <div class="item-carrinho-acoes" aria-label="Ações do item">
               <button type="button" class="botao-icone-carrinho botao-detalhes-carrinho" onclick="alternarDetalhesItem(${index}, this)" aria-label="Ver detalhes do item" title="Ver detalhes" aria-expanded="false">
@@ -1074,6 +1258,7 @@ function renderizarCarrinho() {
           </div>
           <div class="detalhes-carrinho escondido" id="detalhes-carrinho-${index}">
             <p><strong>Peso un.:</strong> ${item.peso || "-"}</p>
+            ${observacaoItemHtml(item)}
             <p><strong>Valor un. estimado:</strong> R$ ${formatarMoeda(valorUnitarioProduto(item))}</p>
           </div>
         </div>
@@ -1090,6 +1275,7 @@ function renderizarCarrinho() {
   }
 
   atualizarBotaoCarrinhoLateral();
+  atualizarSelosProdutosNoCarrinho();
   rolarCarrinhoParaBaixo();
 }
 
@@ -1154,11 +1340,74 @@ function rolarCarrinhoParaBaixo() {
   });
 }
 
+
+function animarConfirmacaoMobileCarrinho(texto = "Item adicionado ao carrinho") {
+  if (!window.matchMedia || !window.matchMedia("(max-width: 768px)").matches) return;
+
+  const existente = document.querySelector(".toast-carrinho-mobile");
+  if (existente) existente.remove();
+
+  const toast = document.createElement("div");
+  toast.className = "toast-carrinho-mobile";
+  toast.innerHTML = `
+    <span class="toast-carrinho-check" aria-hidden="true">✓</span>
+    <span>${texto}</span>
+  `;
+
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.classList.add("toast-carrinho-mobile-visivel");
+  });
+
+  const botaoCarrinho = document.querySelector(".botao-carrinho-lateral");
+  if (botaoCarrinho) {
+    botaoCarrinho.classList.remove("carrinho-mobile-salto");
+    void botaoCarrinho.offsetWidth;
+    botaoCarrinho.classList.add("carrinho-mobile-salto");
+
+    setTimeout(() => {
+      botaoCarrinho.classList.remove("carrinho-mobile-salto");
+    }, 680);
+  }
+
+  setTimeout(() => {
+    toast.classList.remove("toast-carrinho-mobile-visivel");
+    setTimeout(() => toast.remove(), 220);
+  }, 1050);
+}
+
+function alvoAnimacaoCarrinho() {
+  if (window.matchMedia && window.matchMedia("(max-width: 768px)").matches) {
+    return document.querySelector(".mobile-tabbar .tab-pedido") ||
+           document.querySelector(".botao-carrinho-lateral") ||
+           document.querySelector(".carrinho");
+  }
+
+  return document.querySelector(".botao-carrinho-lateral") ||
+         document.querySelector(".carrinho");
+}
+
+function pulsarAlvoCarrinho(alvo) {
+  if (!alvo) return;
+
+  if (window.matchMedia && window.matchMedia("(max-width: 768px)").matches) {
+    alvo.classList.remove("carrinho-mobile-salto");
+    void alvo.offsetWidth;
+    alvo.classList.add("carrinho-mobile-salto");
+    setTimeout(() => alvo.classList.remove("carrinho-mobile-salto"), 680);
+    return;
+  }
+
+  alvo.classList.add("carrinho-pulso");
+  setTimeout(() => alvo.classList.remove("carrinho-pulso"), 760);
+}
+
 function animarProdutoVoando(elementoProduto) {
   const img = elementoProduto.querySelector("img");
   if (!img) return;
 
-  const carrinho = document.querySelector(".carrinho");
+  const carrinho = alvoAnimacaoCarrinho();
   if (!carrinho) return;
 
   const imgRect = img.getBoundingClientRect();
@@ -1182,6 +1431,8 @@ function animarProdutoVoando(elementoProduto) {
     clone.style.opacity = "0.3";
   }, 10);
 
+  pulsarAlvoCarrinho(carrinho);
+
   setTimeout(() => {
     clone.remove();
   }, 700);
@@ -1191,7 +1442,7 @@ function animarImagemPopupParaCarrinho() {
   const img = document.getElementById("popup-imagem-produto");
   if (!img || !img.src) return;
 
-  const alvo = document.querySelector(".botao-carrinho-lateral") || document.querySelector(".carrinho");
+  const alvo = alvoAnimacaoCarrinho();
   if (!alvo) return;
 
   const imgRect = img.getBoundingClientRect();
@@ -1219,11 +1470,10 @@ function animarImagemPopupParaCarrinho() {
     clone.style.transform = "rotate(8deg) scale(0.2)";
   });
 
-  alvo.classList.add("carrinho-pulso");
+  pulsarAlvoCarrinho(alvo);
 
   setTimeout(() => {
     clone.remove();
-    alvo.classList.remove("carrinho-pulso");
   }, 760);
 }
 
@@ -1231,8 +1481,12 @@ function totalPecasPedido() {
   return carrinho.reduce((acc, item) => acc + totalPecasItem(item), 0);
 }
 
-function valorTotalPedido() {
+function valorSubtotalPedido() {
   return carrinho.reduce((acc, item) => acc + valorItem(item), 0);
+}
+
+function valorTotalPedido() {
+  return valorTotalComDesconto(valorSubtotalPedido(), fabricaDoCarrinho());
 }
 
 function atualizarBotaoPedidoMobile() {
@@ -1629,6 +1883,7 @@ function gerarMensagemWhatsApp() {
   let mensagem = "*NOVO PEDIDO - CATÁLOGO ONLINE*\n\n";
 
   let totalPedido = 0;
+  const detalhesCliente = [];
 
   carrinho.forEach(item => {
     const valorUnitario = valorUnitarioProduto(item);
@@ -1640,7 +1895,12 @@ function gerarMensagemWhatsApp() {
     mensagem += `REF: ${item.referencia}\n`;
     mensagem += `PESO: ${item.peso || "-"}\n`;
     mensagem += `DESCRICAO: ${item.descricao || "-"}\n`;
-    mensagem += `CATEGORIA: ${item.categoria || "-"}\n`;
+    mensagem += `CATEGORIA: ${item.categoria || "-"}
+`;
+
+    if (textoObservacaoItem(item)) {
+      detalhesCliente.push(`Ref. ${item.referencia} — ${textoObservacaoItem(item)}`);
+    }
     mensagem += `VALOR ESTIMADO: R$ ${formatarMoeda(valorUnitario)}\n`;
 
     if (item.numeracoes) {
@@ -1670,6 +1930,7 @@ function gerarMensagemWhatsApp() {
 // ENVIO DO PEDIDO PARA PLANILHA
 // ===============================
 const URL_APPS_SCRIPT_PEDIDO = "https://script.google.com/macros/s/AKfycbz_6YoIPX8JGBR-LBFYb1PMc-TjCJtVFwxPRQuDwwxvYczWEUlD2JbForsaNF3VPvbRaA/exec";
+const EMAILS_DESTINO_PEDIDO = ["traxate@gmail.com", "hbjoiasrepresentacoes@gmail.com"];
 
 function pedidoPodeSerEnviado() {
   if (carrinho.length === 0) {
@@ -1697,12 +1958,18 @@ function abrirResumoPedido() {
   const modal = document.getElementById("modal-resumo");
   const lista = document.getElementById("resumo-pedido-itens");
   const totalEl = document.getElementById("resumo-total-valor");
+  const observacoesEl = document.getElementById("resumo-observacoes-cliente");
   const status = document.getElementById("status-envio-pedido");
   const botao = document.getElementById("botao-confirmar-pedido");
 
   if (!modal || !lista || !totalEl) return;
 
   lista.innerHTML = "";
+
+  if (observacoesEl) {
+    observacoesEl.innerHTML = "";
+    observacoesEl.classList.add("escondido");
+  }
 
   if (status) {
     status.innerText = "";
@@ -1732,7 +1999,21 @@ function abrirResumoPedido() {
     `;
   });
 
-  totalEl.innerText = `R$ ${formatarMoeda(totalPedido)}`;
+  if (observacoesEl) {
+    const htmlObservacoes = blocoObservacoesPedidoHtml();
+    if (htmlObservacoes) {
+      observacoesEl.innerHTML = htmlObservacoes;
+      observacoesEl.classList.remove("escondido");
+    }
+  }
+
+  const percentualDesconto = percentualDescontoPedido(totalPedido, fabricaDoCarrinho());
+  const valorDesconto = valorDescontoPedido(totalPedido, fabricaDoCarrinho());
+  const totalFinal = valorTotalComDesconto(totalPedido, fabricaDoCarrinho());
+
+  totalEl.innerText = percentualDesconto > 0
+    ? `R$ ${formatarMoeda(totalFinal)} (5% aplicado)`
+    : `R$ ${formatarMoeda(totalFinal)}`;
   modal.classList.remove("escondido");
   modal.setAttribute("aria-hidden", "false");
 }
@@ -1749,6 +2030,7 @@ function montarPedidoParaEnvio() {
   return carrinho.map(item => {
     const valorUnitario = valorUnitarioProduto(item);
     const totalPecas = totalPecasItem(item);
+    const itemEhAnel = ehCategoriaAnel(item.categoria);
 
     return {
       fabrica: nomeFabrica(item.fabrica),
@@ -1756,14 +2038,382 @@ function montarPedidoParaEnvio() {
       categoria: item.categoria || "",
       referencia: item.referencia,
       descricao: item.descricao || "",
+      observacao: textoObservacaoItem(item),
+      observacaoCliente: textoObservacaoItem(item),
+      detalheCliente: textoObservacaoItem(item),
+      descricaoCliente: textoObservacaoItem(item),
+      descricaoDigitadaCliente: textoObservacaoItem(item),
       peso: item.peso || "",
-      quantidade: ehCategoriaAnel(item.categoria) ? undefined : Number(item.quantidade || 0),
-      numeracoes: ehCategoriaAnel(item.categoria) ? { ...(item.numeracoes || {}) } : undefined,
+      quantidade: itemEhAnel ? undefined : Number(item.quantidade || 0),
+      numeracoes: itemEhAnel ? { ...(item.numeracoes || {}) } : undefined,
       totalPecas,
       valorUnitario,
       subtotal: valorUnitario * totalPecas
     };
   });
+}
+
+function montarTextoDadosClienteEmail(dadosCliente) {
+  if (!dadosCliente) return "";
+
+  return [
+    "DADOS DO CLIENTE",
+    "",
+    `Loja/Cliente: ${dadosCliente.nome || "-"}`,
+    `CNPJ: ${dadosCliente.cnpj || "-"}`,
+    `Telefone: ${dadosCliente.contato || "-"}`,
+    "",
+    "ENDEREÇO DE ENTREGA",
+    "",
+    `CEP: ${dadosCliente.cep || "-"}`,
+    `Rua/Avenida: ${dadosCliente.rua || "-"}`,
+    `Número: ${dadosCliente.numero || "-"}`,
+    `Bairro: ${dadosCliente.bairro || "-"}`,
+    `Cidade: ${dadosCliente.cidade || "-"}`,
+    `UF: ${dadosCliente.estado || "-"}`,
+    `Complemento/Referência: ${dadosCliente.complemento || "-"}`,
+    "",
+    `Endereço completo: ${dadosCliente.localEntrega || "-"}`
+  ].join("\n");
+}
+
+function montarDadosClienteParaPayload(dadosCliente) {
+  const texto = montarTextoDadosClienteEmail(dadosCliente);
+
+  return {
+    texto,
+    nome: dadosCliente?.nome || "",
+    loja: dadosCliente?.nome || "",
+    cnpj: dadosCliente?.cnpj || "",
+    telefone: dadosCliente?.contato || "",
+    contato: dadosCliente?.contato || "",
+    cep: dadosCliente?.cep || "",
+    rua: dadosCliente?.rua || "",
+    numero: dadosCliente?.numero || "",
+    bairro: dadosCliente?.bairro || "",
+    cidade: dadosCliente?.cidade || "",
+    estado: dadosCliente?.estado || "",
+    uf: dadosCliente?.estado || "",
+    complemento: dadosCliente?.complemento || "",
+    enderecoCompleto: dadosCliente?.localEntrega || "",
+    enderecoEntrega: dadosCliente?.localEntrega || ""
+  };
+}
+
+function montarTextoDetalhesClienteEmail() {
+  const itensComObservacao = carrinho.filter(item => textoObservacaoItem(item));
+
+  if (!itensComObservacao.length) return "";
+
+  return [
+    "DETALHES INFORMADOS PELO CLIENTE",
+    "",
+    ...itensComObservacao.map(item => `Ref. ${item.referencia} — ${textoObservacaoItem(item)}`)
+  ].join("\n");
+}
+
+function montarTextoItensPedidoEmail() {
+  const linhas = ["ITENS DO PEDIDO", ""];
+
+  carrinho.forEach(item => {
+    linhas.push("--------------------------------");
+    linhas.push(`Ref.: ${item.referencia}`);
+    linhas.push(`Descrição: ${item.descricao || "-"}`);
+    linhas.push(`Categoria: ${item.categoria || "-"}`);
+    linhas.push(`Peso un.: ${item.peso || "-"}`);
+    linhas.push(`Valor un. estimado: R$ ${formatarMoeda(valorUnitarioProduto(item))}`);
+
+    if (item.numeracoes) {
+      linhas.push("Numerações:");
+      Object.entries(item.numeracoes).forEach(([aro, qtd]) => {
+        if (Number(qtd || 0) > 0) {
+          linhas.push(`- Aro ${aro}: ${qtd} un.`);
+        }
+      });
+    } else {
+      linhas.push(`Quantidade: ${item.quantidade || 0} un.`);
+    }
+
+    if (textoObservacaoItem(item)) {
+      linhas.push(`Detalhe do cliente: ${textoObservacaoItem(item)}`);
+    }
+
+    linhas.push(`Subtotal: R$ ${formatarMoeda(valorItem(item))}`);
+  });
+
+  return linhas.join("\n");
+}
+
+function montarCorpoEmailPedido(numeroPedido, dadosCliente) {
+  const subtotal = valorSubtotalPedido();
+  const fabrica = fabricaDoCarrinho();
+  const descontoPercentual = percentualDescontoPedido(subtotal, fabrica);
+  const descontoValor = valorDescontoPedido(subtotal, fabrica);
+  const totalFinal = valorTotalComDesconto(subtotal, fabrica);
+  const detalhesCliente = montarTextoDetalhesClienteEmail();
+
+  const blocos = [
+    `NOVO PEDIDO - CATÁLOGO ONLINE`,
+    `Número do pedido: ${numeroPedido}`,
+    `Data: ${new Date().toLocaleString("pt-BR")}`,
+    `Fábrica: ${nomeFabrica(fabrica)}`,
+    "",
+    montarTextoDadosClienteEmail(dadosCliente),
+    ""
+  ];
+
+  if (detalhesCliente) {
+    blocos.push("--------------------------------");
+    blocos.push(detalhesCliente);
+    blocos.push("");
+  }
+
+  blocos.push("--------------------------------");
+  blocos.push(montarTextoItensPedidoEmail());
+  blocos.push("");
+  blocos.push("--------------------------------");
+  blocos.push("RESUMO FINANCEIRO");
+  blocos.push("");
+  blocos.push(`Total de referências: ${carrinho.length}`);
+  blocos.push(`Total de peças: ${totalPecasPedido()}`);
+  blocos.push(`Subtotal estimado: R$ ${formatarMoeda(subtotal)}`);
+
+  if (descontoPercentual > 0) {
+    blocos.push(`Desconto (${descontoPercentual}%): - R$ ${formatarMoeda(descontoValor)}`);
+  }
+
+  blocos.push(`Total estimado: R$ ${formatarMoeda(totalFinal)}`);
+
+  return blocos.join("\n");
+}
+
+function limparErroCampoCliente() {
+  document.querySelectorAll(".campo-cliente.erro").forEach(campo => campo.classList.remove("erro"));
+}
+
+function somenteNumeros(texto) {
+  return String(texto || "").replace(/\D/g, "");
+}
+
+function formatarCep(valor) {
+  const cep = somenteNumeros(valor).slice(0, 8);
+  if (cep.length > 5) return `${cep.slice(0, 5)}-${cep.slice(5)}`;
+  return cep;
+}
+
+function montarLabelCampoCliente(classe, texto, htmlCampo) {
+  return `
+    <label class="${classe}">
+      <span>${texto}</span>
+      ${htmlCampo}
+    </label>
+  `;
+}
+
+function inicializarEnderecoClientePedido() {
+  const form = document.querySelector(".form-dados-cliente");
+  if (!form || document.getElementById("cliente-cep")) return;
+
+  const campoEntrega = document.querySelector(".campo-entrega");
+  const textareaEntrega = document.getElementById("cliente-local-entrega");
+
+  if (campoEntrega) {
+    const tituloEntrega = campoEntrega.querySelector("span");
+    if (tituloEntrega) tituloEntrega.innerText = "Complemento ou referência";
+  }
+
+  if (textareaEntrega) {
+    textareaEntrega.placeholder = "Apartamento, sala, ponto de referência ou observação de entrega";
+    textareaEntrega.classList.remove("campo-cliente");
+  }
+
+  const blocoEndereco = document.createElement("div");
+  blocoEndereco.className = "campos-endereco-cliente";
+  blocoEndereco.innerHTML = `
+    ${montarLabelCampoCliente("campo-cep-cliente", "CEP", '<input type="text" id="cliente-cep" class="campo-cliente" placeholder="00000-000" inputmode="numeric" maxlength="9" autocomplete="postal-code">')}
+    ${montarLabelCampoCliente("campo-rua-cliente campo-largo", "Rua / Avenida", '<input type="text" id="cliente-rua" class="campo-cliente" placeholder="Rua, avenida ou travessa" autocomplete="address-line1">')}
+    ${montarLabelCampoCliente("campo-numero-cliente", "Número", '<input type="text" id="cliente-numero" class="campo-cliente" placeholder="Nº" autocomplete="address-line2">')}
+    ${montarLabelCampoCliente("campo-bairro-cliente", "Bairro", '<input type="text" id="cliente-bairro" class="campo-cliente" placeholder="Bairro">')}
+    ${montarLabelCampoCliente("campo-cidade-cliente", "Cidade", '<input type="text" id="cliente-cidade" class="campo-cliente" placeholder="Cidade" autocomplete="address-level2">')}
+    ${montarLabelCampoCliente("campo-estado-cliente", "UF", '<input type="text" id="cliente-estado" class="campo-cliente" placeholder="UF" maxlength="2" autocomplete="address-level1">')}
+  `;
+
+  if (campoEntrega) {
+    form.insertBefore(blocoEndereco, campoEntrega);
+  } else {
+    form.appendChild(blocoEndereco);
+  }
+
+  const cepInput = document.getElementById("cliente-cep");
+  if (cepInput) {
+    cepInput.addEventListener("input", () => {
+      cepInput.value = formatarCep(cepInput.value);
+    });
+
+    cepInput.addEventListener("blur", buscarEnderecoClientePorCep);
+  }
+}
+
+async function buscarEnderecoClientePorCep() {
+  const cepInput = document.getElementById("cliente-cep");
+  const status = document.getElementById("status-dados-cliente");
+  const cep = somenteNumeros(cepInput?.value);
+
+  if (!cepInput || cep.length !== 8) return;
+
+  cepInput.classList.remove("erro");
+
+  if (status) {
+    status.innerText = "Buscando endereço pelo CEP...";
+    status.className = "status-envio-pedido carregando";
+  }
+
+  try {
+    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const dados = await resposta.json();
+
+    if (!resposta.ok || dados.erro) {
+      cepInput.classList.add("erro");
+      if (status) {
+        status.innerText = "CEP não encontrado. Preencha o endereço manualmente.";
+        status.className = "status-envio-pedido erro";
+      }
+      return;
+    }
+
+    const rua = document.getElementById("cliente-rua");
+    const bairro = document.getElementById("cliente-bairro");
+    const cidade = document.getElementById("cliente-cidade");
+    const estado = document.getElementById("cliente-estado");
+    const numero = document.getElementById("cliente-numero");
+
+    if (rua) rua.value = dados.logradouro || "";
+    if (bairro) bairro.value = dados.bairro || "";
+    if (cidade) cidade.value = dados.localidade || "";
+    if (estado) estado.value = dados.uf || "";
+
+    [rua, bairro, cidade, estado].forEach(campo => campo?.classList.remove("erro"));
+
+    if (status) {
+      status.innerText = "";
+      status.className = "status-envio-pedido";
+    }
+
+    if (numero) numero.focus();
+  } catch (erro) {
+    if (status) {
+      status.innerText = "Não foi possível buscar o CEP agora. Preencha o endereço manualmente.";
+      status.className = "status-envio-pedido erro";
+    }
+  }
+}
+
+function montarEnderecoCliente(dados) {
+  const partes = [
+    dados.rua,
+    dados.numero ? `nº ${dados.numero}` : "",
+    dados.bairro,
+    [dados.cidade, dados.estado].filter(Boolean).join(" / "),
+    dados.cep ? `CEP ${dados.cep}` : ""
+  ].filter(Boolean);
+
+  return partes.join(" - ");
+}
+
+function abrirDadosClientePedido() {
+  if (!pedidoPodeSerEnviado()) return;
+
+  const modal = document.getElementById("modal-dados-cliente");
+  const status = document.getElementById("status-dados-cliente");
+  const botao = document.getElementById("botao-enviar-dados-cliente");
+
+  if (!modal) return;
+
+  inicializarEnderecoClientePedido();
+  limparErroCampoCliente();
+
+  if (status) {
+    status.innerText = "";
+    status.className = "status-envio-pedido";
+  }
+
+  if (botao) {
+    botao.disabled = false;
+    botao.innerText = "Enviar pedido";
+  }
+
+  modal.classList.remove("escondido");
+  modal.setAttribute("aria-hidden", "false");
+
+  const primeiroCampo = document.getElementById("cliente-nome");
+  if (primeiroCampo) setTimeout(() => primeiroCampo.focus(), 80);
+}
+
+function fecharDadosClientePedido() {
+  const modal = document.getElementById("modal-dados-cliente");
+  if (!modal) return;
+
+  modal.classList.add("escondido");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+function coletarDadosClientePedido() {
+  inicializarEnderecoClientePedido();
+
+  const campos = {
+    nome: document.getElementById("cliente-nome"),
+    cnpj: document.getElementById("cliente-cnpj"),
+    contato: document.getElementById("cliente-contato"),
+    cep: document.getElementById("cliente-cep"),
+    rua: document.getElementById("cliente-rua"),
+    numero: document.getElementById("cliente-numero"),
+    bairro: document.getElementById("cliente-bairro"),
+    cidade: document.getElementById("cliente-cidade"),
+    estado: document.getElementById("cliente-estado")
+  };
+
+  const campoComplemento = document.getElementById("cliente-local-entrega");
+
+  limparErroCampoCliente();
+
+  const dados = {
+    nome: campos.nome ? campos.nome.value.trim() : "",
+    cnpj: campos.cnpj ? campos.cnpj.value.trim() : "",
+    contato: campos.contato ? campos.contato.value.trim() : "",
+    cep: campos.cep ? formatarCep(campos.cep.value.trim()) : "",
+    rua: campos.rua ? campos.rua.value.trim() : "",
+    numero: campos.numero ? campos.numero.value.trim() : "",
+    bairro: campos.bairro ? campos.bairro.value.trim() : "",
+    cidade: campos.cidade ? campos.cidade.value.trim() : "",
+    estado: campos.estado ? campos.estado.value.trim().toUpperCase() : "",
+    complemento: campoComplemento ? campoComplemento.value.trim() : ""
+  };
+
+  dados.localEntrega = montarEnderecoCliente(dados);
+  if (dados.complemento) {
+    dados.localEntrega += `${dados.localEntrega ? " - " : ""}${dados.complemento}`;
+  }
+
+  let valido = true;
+
+  Object.entries(campos).forEach(([chave, campo]) => {
+    if (!campo) return;
+    if (!dados[chave]) {
+      campo.classList.add("erro");
+      valido = false;
+    }
+  });
+
+  if (!valido) {
+    const status = document.getElementById("status-dados-cliente");
+    if (status) {
+      status.innerText = "Preencha os dados obrigatórios do cliente e endereço.";
+      status.className = "status-envio-pedido erro";
+    }
+    return null;
+  }
+
+  return dados;
 }
 
 function gerarNumeroPedido() {
@@ -1804,11 +2454,18 @@ function fecharAvisoSucessoPedido() {
   aviso.setAttribute("aria-hidden", "true");
 }
 
-async function confirmarEnviarPedido() {
+function confirmarEnviarPedido() {
+  abrirDadosClientePedido();
+}
+
+async function enviarPedidoComDadosCliente() {
   if (!pedidoPodeSerEnviado()) return;
 
-  const botao = document.getElementById("botao-confirmar-pedido");
-  const status = document.getElementById("status-envio-pedido");
+  const dadosCliente = coletarDadosClientePedido();
+  if (!dadosCliente) return;
+
+  const botao = document.getElementById("botao-enviar-dados-cliente");
+  const status = document.getElementById("status-dados-cliente");
   const numeroPedido = gerarNumeroPedido();
 
   if (botao) {
@@ -1817,19 +2474,39 @@ async function confirmarEnviarPedido() {
   }
 
   if (status) {
-    status.innerText = "Enviando pedido e criando a planilha...";
+    status.innerText = "Preparando pedido...";
     status.className = "status-envio-pedido carregando";
   }
 
+  const dadosClientePayload = montarDadosClienteParaPayload(dadosCliente);
+  const detalhesCliente = carrinho
+    .filter(item => textoObservacaoItem(item))
+    .map(item => ({
+      referencia: item.referencia,
+      observacao: textoObservacaoItem(item)
+    }));
+
+  // Payload limpo: sem linhas técnicas, sem dados duplicados em excesso.
+  // O Apps Script novo coloca os dados uma única vez no topo da planilha.
   const payload = {
     origem: "catalogo-online",
     numeroPedido,
     dataPedido: new Date().toISOString(),
+    emailsDestino: EMAILS_DESTINO_PEDIDO,
+    dadosCliente: dadosClientePayload,
+    detalhesCliente,
     fabrica: nomeFabrica(fabricaDoCarrinho()),
     totalPecas: totalPecasPedido(),
+    subtotalEstimado: valorSubtotalPedido(),
+    percentualDesconto: percentualDescontoPedido(valorSubtotalPedido(), fabricaDoCarrinho()),
+    valorDesconto: valorDescontoPedido(valorSubtotalPedido(), fabricaDoCarrinho()),
     totalEstimado: valorTotalPedido(),
     pedido: montarPedidoParaEnvio()
   };
+
+  if (status) {
+    status.innerText = "Enviando e criando planilha...";
+  }
 
   try {
     await fetch(URL_APPS_SCRIPT_PEDIDO, {
@@ -1850,12 +2527,13 @@ async function confirmarEnviarPedido() {
     salvarCarrinho();
     renderizarCarrinho();
 
+    fecharDadosClientePedido();
     fecharResumoPedido();
     mostrarAvisoSucessoPedido(numeroPedido);
 
     if (botao) {
       botao.disabled = false;
-      botao.innerText = "Confirmar e enviar pedido";
+      botao.innerText = "Enviar pedido";
     }
 
   } catch (erro) {

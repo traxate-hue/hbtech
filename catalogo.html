@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css?v=33">
+<link rel="stylesheet" href="style.css?v=34">
 </head>
 <body>
 
@@ -174,9 +174,14 @@
 
           <div id="numeracoes" class="numeracoes"></div>
 
+          <div class="popup-observacao-box">
+            <label for="popup-observacao">Observação opcional</label>
+            <textarea id="popup-observacao" placeholder="Ex: cores, detalhes ou preferências"></textarea>
+          </div>
+
           <div class="popup-resumo-selecao">
             <span>Total selecionado</span>
-            <strong id="popup-total-selecionado">0 peça(s)</strong>
+            <strong id="popup-total-selecionado">0 peças • R$ 0,00</strong>
           </div>
         </section>
 
@@ -185,7 +190,7 @@
       <div class="popup-rodape-fixo">
         <div class="popup-rodape-info">
           <span>Total selecionado</span>
-          <strong id="popup-rodape-total">0 peças</strong>
+          <strong id="popup-rodape-total">0 peças • R$ 0,00</strong>
         </div>
 
         <button id="botao-confirmar-popup" type="button" onclick="confirmarPopup()">
@@ -209,6 +214,8 @@
 
       <div id="resumo-pedido-itens"></div>
 
+      <div id="resumo-observacoes-cliente" class="resumo-observacoes-cliente escondido"></div>
+
       <div class="resumo-total">
         <span>Total estimado</span>
         <strong id="resumo-total-valor">R$ 0,00</strong>
@@ -220,6 +227,48 @@
       </div>
 
       <p id="status-envio-pedido" class="status-envio-pedido"></p>
+
+    </div>
+  </div>
+
+
+  <div id="modal-dados-cliente" class="modal-resumo modal-dados-cliente escondido" aria-hidden="true">
+    <div class="modal-resumo-conteudo modal-dados-cliente-conteudo">
+
+      <button type="button" class="fechar-resumo" onclick="fecharDadosClientePedido()" aria-label="Fechar dados do cliente">×</button>
+
+      <p class="resumo-label">Dados do cliente</p>
+      <h2>Para onde enviamos o pedido?</h2>
+      <p class="resumo-aviso">Preencha os dados abaixo para identificar o pedido e o local de entrega.</p>
+
+      <div class="form-dados-cliente">
+        <label>
+          <span>Nome do cliente ou loja</span>
+          <input id="cliente-nome" class="campo-cliente" type="text" autocomplete="organization" placeholder="Ex: Relojoaria Modelo">
+        </label>
+
+        <label>
+          <span>CNPJ</span>
+          <input id="cliente-cnpj" class="campo-cliente" type="text" inputmode="numeric" autocomplete="off" placeholder="00.000.000/0000-00">
+        </label>
+
+        <label>
+          <span>Número para contato</span>
+          <input id="cliente-contato" class="campo-cliente" type="tel" autocomplete="tel" placeholder="(11) 99999-9999">
+        </label>
+
+        <label class="campo-entrega">
+          <span>Local de entrega</span>
+          <textarea id="cliente-local-entrega" class="campo-cliente" rows="3" placeholder="Endereço completo ou referência para entrega"></textarea>
+        </label>
+      </div>
+
+      <div class="resumo-acoes">
+        <button type="button" class="botao-secundario-resumo" onclick="fecharDadosClientePedido()">Voltar ao resumo</button>
+        <button type="button" id="botao-enviar-dados-cliente" class="botao-confirmar-pedido" onclick="enviarPedidoComDadosCliente()">Enviar pedido</button>
+      </div>
+
+      <p id="status-dados-cliente" class="status-envio-pedido"></p>
 
     </div>
   </div>
