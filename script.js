@@ -4,6 +4,14 @@ let buscaAtual = "";
 let filtroPrecoAtual = "todos";
 let produtoAtual = null;
 let carrinho = [];
+let codigoComercialAplicado = carregarCodigoComercialSalvo();
+let statusValidacaoCodigo = "";
+
+// Código provisório fixo para liberar o pedido mínimo especial.
+// Futuramente essa validação será trocada pela integração Python + Google Sheets + Apps Script.
+const CODIGO_COMERCIAL_PROVISORIO = "CLIENTEESTRELA";
+const VALOR_MINIMO_CODIGO_PROVISORIO = 10000;
+
 let paginaAtualProdutos = 1;
 const PRODUTOS_POR_PAGINA = 24;
 let produtosFiltradosAtuais = [];
@@ -1085,7 +1093,175 @@ function regrasComerciaisFabrica(fabrica) {
 }
 
 function valorMinimoFabrica(fabrica) {
+  if (codigoComercialAplicado && codigoComercialAplicado.valido) {
+    return Number(codigoComercialAplicado.valorMinimo || 10000);
+  }
+
   return regrasComerciaisFabrica(fabrica).minimo;
+}
+
+function valorMinimoNormalFabrica(fabrica) {
+  return regrasComerciaisFabrica(fabrica).minimo;
+}
+
+function carregarCodigoComercialSalvo() {
+  try {
+    const salvo = localStorage.getItem("codigoComercialAplicado");
+    if (!salvo) return null;
+
+    const dados = JSON.parse(salvo);
+    if (!dados || !dados.codigo || !dados.valido) return null;
+
+    // Durante a fase provisória, só aceitamos o código fixo CLIENTEESTRELA.
+    // Isso evita que códigos antigos, como OFFICIAL20/RUBI20, continuem salvos no navegador.
+    const codigoSalvo = normalizarCodigoComercial(dados.codigo);
+    if (codigoSalvo !== CODIGO_COMERCIAL_PROVISORIO) {
+      localStorage.removeItem("codigoComercialAplicado");
+      return null;
+    }
+
+    return {
+      codigo: CODIGO_COMERCIAL_PROVISORIO,
+      valido: true,
+      tipo: "MINIMO_ESPECIAL",
+      loja: "Cliente Estrela",
+      valorMinimo: VALOR_MINIMO_CODIGO_PROVISORIO
+    };
+  } catch (erro) {
+    return null;
+  }
+}
+
+function salvarCodigoComercial() {
+  if (codigoComercialAplicado && codigoComercialAplicado.valido) {
+    localStorage.setItem("codigoComercialAplicado", JSON.stringify(codigoComercialAplicado));
+    return;
+  }
+
+  localStorage.removeItem("codigoComercialAplicado");
+}
+
+function normalizarCodigoComercial(codigo) {
+  return String(codigo || "").trim().toUpperCase();
+}
+
+function codigoComercialParaPayload() {
+  if (!codigoComercialAplicado || !codigoComercialAplicado.valido) return null;
+
+  return {
+    codigo: codigoComercialAplicado.codigo,
+    tipo: codigoComercialAplicado.tipo || "PRIMEIRA_COMPRA",
+    loja: codigoComercialAplicado.loja || "",
+    valorMinimo: Number(codigoComercialAplicado.valorMinimo || 10000),
+    status: "VALIDADO"
+  };
+}
+
+function jsonpAppsScript(params) {
+  return new Promise((resolve, reject) => {
+    const callbackName = "callbackCodigoComercial_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+    const script = document.createElement("script");
+    const url = new URL(URL_APPS_SCRIPT_PEDIDO);
+
+    Object.entries(params || {}).forEach(([chave, valor]) => {
+      url.searchParams.set(chave, valor == null ? "" : String(valor));
+    });
+
+    url.searchParams.set("callback", callbackName);
+
+    const limpar = () => {
+      delete window[callbackName];
+      script.remove();
+    };
+
+    const timeout = setTimeout(() => {
+      limpar();
+      reject(new Error("Tempo esgotado ao validar o código."));
+    }, 12000);
+
+    window[callbackName] = resposta => {
+      clearTimeout(timeout);
+      limpar();
+      resolve(resposta || {});
+    };
+
+    script.onerror = () => {
+      clearTimeout(timeout);
+      limpar();
+      reject(new Error("Não foi possível consultar o código."));
+    };
+
+    script.src = url.toString();
+    document.body.appendChild(script);
+  });
+}
+
+function renderizarBlocoCodigoComercial() {
+  const codigo = codigoComercialAplicado?.codigo || "";
+  const validado = Boolean(codigoComercialAplicado?.valido);
+  const valorMinimo = Number(codigoComercialAplicado?.valorMinimo || 10000);
+
+  return `
+    <div class="codigo-comercial-box ${validado ? "codigo-validado" : ""}">
+      <label for="codigo-comercial-input">Código comercial</label>
+      <div class="codigo-comercial-linha">
+        <input id="codigo-comercial-input" type="text" value="${codigo}" placeholder="Código comercial"" autocomplete="off" oninput="statusValidacaoCodigo = '';">
+        <button type="button" onclick="aplicarCodigoComercial()">Aplicar</button>
+      </div>
+      <p id="codigo-comercial-status" class="codigo-comercial-status ${validado ? "sucesso" : ""}">
+        ${validado ? `✓ ${codigo} • Mín. R$ ${formatarMoeda(valorMinimo)}` : (statusValidacaoCodigo || "Digite seu código.")}
+      </p>
+      ${validado ? `<button type="button" class="codigo-comercial-remover" onclick="removerCodigoComercial()">Remover código</button>` : ""}
+    </div>
+  `;
+}
+
+async function aplicarCodigoComercial() {
+  const input = document.getElementById("codigo-comercial-input");
+  const status = document.getElementById("codigo-comercial-status");
+  const codigo = normalizarCodigoComercial(input ? input.value : "");
+
+  if (!codigo) {
+    codigoComercialAplicado = null;
+    statusValidacaoCodigo = "Digite um código comercial.";
+    salvarCodigoComercial();
+    renderizarCarrinho();
+    return;
+  }
+
+  // Validação provisória local: não consulta Apps Script.
+  // Código ativo: CLIENTEESTRELA -> libera mínimo de R$ 10.000.
+  if (codigo !== CODIGO_COMERCIAL_PROVISORIO) {
+    codigoComercialAplicado = null;
+    statusValidacaoCodigo = "Código inválido.";
+    salvarCodigoComercial();
+    renderizarCarrinho();
+    return;
+  }
+
+  codigoComercialAplicado = {
+    codigo: CODIGO_COMERCIAL_PROVISORIO,
+    valido: true,
+    tipo: "MINIMO_ESPECIAL",
+    loja: "Cliente Estrela",
+    valorMinimo: VALOR_MINIMO_CODIGO_PROVISORIO
+  };
+
+  statusValidacaoCodigo = "";
+  salvarCodigoComercial();
+  renderizarCarrinho();
+
+  if (status) {
+    status.innerText = `✓ ${CODIGO_COMERCIAL_PROVISORIO} • Mín. R$ ${formatarMoeda(VALOR_MINIMO_CODIGO_PROVISORIO)}`;
+    status.className = "codigo-comercial-status sucesso";
+  }
+}
+
+function removerCodigoComercial() {
+  codigoComercialAplicado = null;
+  statusValidacaoCodigo = "Código removido.";
+  salvarCodigoComercial();
+  renderizarCarrinho();
 }
 
 function metaDescontoFabrica(fabrica) {
@@ -1112,6 +1288,22 @@ function criarBarraMeta(titulo, valorAtual, valorMeta) {
         <div class="meta-barra-preenchimento ${atingiu ? "atingido" : ""}" style="width: ${percentual}%;"></div>
       </div>
       <span class="meta-valor">${percentual.toFixed(0)}%</span>
+    </div>
+  `;
+}
+
+function criarResumoMetasMobile(valorAtual, fabrica) {
+  if (!fabrica) return "";
+
+  const minimo = valorMinimoFabrica(fabrica);
+  const metaDesconto = metaDescontoFabrica(fabrica);
+  const percMinimo = percentualMeta(valorAtual, minimo);
+  const percDesconto = percentualMeta(valorAtual, metaDesconto);
+
+  return `
+    <div class="resumo-metas-mobile">
+      <span>Mín: ${percMinimo.toFixed(0)}%</span>
+      <span>Desc: ${percDesconto.toFixed(0)}%</span>
     </div>
   `;
 }
@@ -1185,16 +1377,28 @@ function renderizarCarrinho() {
 
     resumoDiv.innerHTML = `
       <div class="resumo-fabrica">
-        <strong>${nomeFabrica(fabCarrinho)}</strong> • ${pecasAtual} peças • ${formatarPeso(pesoAtual)}
-        <p><strong>Subtotal:</strong> R$ ${formatarMoeda(valorAtual)}</p>
-        ${percentualDescontoPedido(valorAtual, fabCarrinho) > 0 ? `<p><strong>Desconto (${percentualDescontoPedido(valorAtual, fabCarrinho)}%):</strong> - R$ ${formatarMoeda(valorDescontoPedido(valorAtual, fabCarrinho))}</p>` : ""}
-        <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</p>
+        <div class="resumo-principal-mobile">
+          <strong>${nomeFabrica(fabCarrinho)}</strong>
+          <span>${pecasAtual}p • R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</span>
+        </div>
+        <div class="resumo-detalhes-desktop">
+          <strong>${nomeFabrica(fabCarrinho)}</strong> • ${pecasAtual} peças • ${formatarPeso(pesoAtual)}
+          <p><strong>Subtotal:</strong> R$ ${formatarMoeda(valorAtual)}</p>
+          ${percentualDescontoPedido(valorAtual, fabCarrinho) > 0 ? `<p><strong>Desconto (${percentualDescontoPedido(valorAtual, fabCarrinho)}%):</strong> - R$ ${formatarMoeda(valorDescontoPedido(valorAtual, fabCarrinho))}</p>` : ""}
+          <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</p>
+        </div>
+        ${codigoComercialAplicado?.valido ? `<p class="mensagem-codigo-aplicado">✓ ${codigoComercialAplicado.codigo} • Mín. R$ ${formatarMoeda(valorMinimoFabrica(fabCarrinho))}</p>` : ""}
         <p class="mensagem-meta">${mensagemMeta(valorAtual, fabCarrinho)}</p>
-        ${criarBarraMeta("mín", valorAtual, valorMinimoFabrica(fabCarrinho))}
-        ${criarBarraMeta("5%", valorAtual, metaDescontoFabrica(fabCarrinho))}
+        <div class="resumo-metas-desktop">
+          ${criarBarraMeta("mín", valorAtual, valorMinimoFabrica(fabCarrinho))}
+          ${criarBarraMeta("5%", valorAtual, metaDescontoFabrica(fabCarrinho))}
+        </div>
+        ${criarResumoMetasMobile(valorAtual, fabCarrinho)}
       </div>
     `;
   }
+
+  resumoDiv.innerHTML += renderizarBlocoCodigoComercial();
 
   carrinho.forEach((item, index) => {
     const ehAnel = ehCategoriaAnel(item.categoria);
@@ -1922,6 +2126,11 @@ function gerarMensagemWhatsApp() {
   mensagem += `TOTAL ESTIMADO: R$ ${formatarMoeda(totalPedido)}\n`;
   mensagem += `ITENS: ${carrinho.length}\n`;
 
+  if (codigoComercialAplicado?.valido) {
+    mensagem += `CÓDIGO COMERCIAL: ${codigoComercialAplicado.codigo}\n`;
+    mensagem += `MÍNIMO LIBERADO PELO CÓDIGO: R$ ${formatarMoeda(codigoComercialAplicado.valorMinimo || 10000)}\n`;
+  }
+
   return mensagem;
 }
 
@@ -2493,6 +2702,7 @@ async function enviarPedidoComDadosCliente() {
     numeroPedido,
     dataPedido: new Date().toISOString(),
     emailsDestino: EMAILS_DESTINO_PEDIDO,
+    codigoComercial: codigoComercialParaPayload(),
     dadosCliente: dadosClientePayload,
     detalhesCliente,
     fabrica: nomeFabrica(fabricaDoCarrinho()),
