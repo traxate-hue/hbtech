@@ -31,8 +31,8 @@ const COEFICIENTE_GRAMA_POR_FABRICA = {
   tendenze: 20.78
 };
 
-const GRAMA_TENDENZE_SEM_ZIRC = 20.78;
-const GRAMA_TENDENZE_COM_ZIRC = 22.86;
+const GRAMA_TENDENZE_SEM_ZIRC = 18.70;
+const GRAMA_TENDENZE_COM_ZIRC = 20.78;
 
 function entrar(fabrica) {
   window.location.href = "catalogo.html?fabrica=" + fabrica + "&categoria=todos";
