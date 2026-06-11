@@ -1,325 +1,246 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css?v=34">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Catálogo | HB Joias Representações</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="style.css?v=34" rel="stylesheet"/>
+<link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#0f0f0f" name="theme-color"/></head>
 <body>
-
- <button class="botao-carrinho-lateral" onclick="alternarCarrinho()" aria-label="Abrir carrinho">
-
-  <span class="icone-carrinho">
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="22"
-         height="22"
-         viewBox="0 0 24 24"
-         fill="none"
-         stroke="currentColor"
-         stroke-width="1.8"
-         stroke-linecap="round"
-         stroke-linejoin="round">
-
-      <circle cx="9" cy="21" r="1"></circle>
-      <circle cx="20" cy="21" r="1"></circle>
-
-      <path d="M1 1h4l2.68 13.39
+<button aria-label="Abrir carrinho" class="botao-carrinho-lateral" onclick="alternarCarrinho()">
+<span class="icone-carrinho">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+<circle cx="9" cy="21" r="1"></circle>
+<circle cx="20" cy="21" r="1"></circle>
+<path d="M1 1h4l2.68 13.39
                a2 2 0 0 0 2 1.61
                h9.72
                a2 2 0 0 0 2-1.61
                L23 6H6">
-      </path>
-
-    </svg>
-  </span>
-
-  <span class="contador-carrinho" id="contador-carrinho">0</span>
-
+</path>
+</svg>
+</span>
+<span class="contador-carrinho" id="contador-carrinho">0</span>
 </button>
-  <div class="topo-fabrica">
-    <div class="fabrica-atual" id="fabrica-atual"></div>
-    <div class="marca-topo">HBJOIAS <span>REPRESENTAÇÕES</span></div>
-    <div class="menu-topo-wrap">
-      <button type="button" class="btn-menu-topo" onclick="alternarMenuTopo()" aria-label="Abrir menu" aria-expanded="false">
-        <span class="menu-topo-icone">☰</span>
-        <span>Menu</span>
-      </button>
-      <nav class="nav-topo-desktop" id="menu-topo-opcoes" aria-label="Navegação principal">
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-    </div>
-  </div>
-
-  <header class="hero-catalogo hero-premium">
-    <div class="hero-joia-decor" aria-hidden="true"></div>
-    <div class="hero-conteudo-premium">
-      <p class="hero-subtitulo" id="hero-subtitulo">Catálogo selecionado para lojistas</p>
-      <h1 id="titulo"></h1>
-      <div class="hero-divisor" aria-hidden="true"><span></span></div>
-    </div>
-  </header>
-
-  <div class="categorias-area">
-    <div class="catalogo-controlbar">
-      <div class="busca-catalogo">
-        <input
-          type="text"
-          id="busca-produto"
-          placeholder="Buscar por referência ou descrição"
-          oninput="atualizarBusca(this.value)"
-        >
-        <button type="button" class="btn-fechar-busca" onclick="fecharBuscaCatalogo()" aria-label="Limpar busca">×</button>
-      </div>
-
-      <button type="button" class="btn-filtro-toggle" onclick="alternarFiltroPrecoPainel()" aria-label="Abrir filtros de preço" aria-expanded="false">
-        <span>☷</span>
-        <strong>Filtro</strong>
-      </button>
-
-      <div class="filtros-preco" id="filtros-preco" aria-label="Filtros por valor estimado">
-      <button class="ativo" type="button" data-filtro-preco="todos" onclick="atualizarFiltroPreco('todos')">Todos</button>
-      <button type="button" data-filtro-preco="ate25" onclick="atualizarFiltroPreco('ate25')">Até R$25</button>
-      <button type="button" data-filtro-preco="25a50" onclick="atualizarFiltroPreco('25a50')">R$25 ~ R$50</button>
-      <button type="button" data-filtro-preco="50a100" onclick="atualizarFiltroPreco('50a100')">R$50 ~ R$100</button>
-      <button type="button" data-filtro-preco="acima100" onclick="atualizarFiltroPreco('acima100')">Acima de R$100</button>
-      </div>
-    </div>
-
-    <div class="categorias-wrapper">
-      <div class="categorias categorias-premium" id="categorias-scroll">
-        <button onclick="irParaCategoria('todos')"><span class="cat-icone cat-todos" aria-hidden="true"></span>Todos</button>
-        <button onclick="irParaCategoria('Anel')"><span class="cat-icone cat-anel" aria-hidden="true"></span>Anel</button>
-        <button onclick="irParaCategoria('Brinco')"><span class="cat-icone cat-brinco" aria-hidden="true"></span>Brinco</button>
-        <button onclick="irParaCategoria('Gargantilha')"><span class="cat-icone cat-gargantilha" aria-hidden="true"></span>Gargantilha</button>
-        <button onclick="irParaCategoria('Piercing')"><span class="cat-icone cat-piercing" aria-hidden="true"></span>Piercing</button>
-        <button onclick="irParaCategoria('Pulseira')"><span class="cat-icone cat-pulseira" aria-hidden="true"></span>Pulseira</button>
-        <button onclick="irParaCategoria('Pingente')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Pingente</button>
-        <button onclick="irParaCategoria('Berloque')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Berloque</button>
-        <button onclick="irParaCategoria('Conjunto')"><span class="cat-icone cat-todos" aria-hidden="true"></span>Conjunto</button>
-        <button onclick="irParaCategoria('Escapulario')"><span class="cat-icone cat-pingente" aria-hidden="true"></span>Escapulário</button>
-        <button onclick="irParaCategoria('Infantil')"><span class="cat-icone cat-todos" aria-hidden="true"></span>Infantil</button>
-        <button onclick="irParaCategoria('Tornozeleira')"><span class="cat-icone cat-pulseira" aria-hidden="true"></span>Tornozeleira</button>
-      </div>
-
-      <div class="categorias-indicador" id="categorias-indicador" aria-hidden="true">
-        <span>›</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="layout-catalogo">
-
-    <main class="area-produtos">
-      <div id="produtos" class="produtos"></div>
-    </main>
-
-    <aside class="area-carrinho carrinho-fechado" id="area-carrinho">
-      <div class="carrinho">
-
-        <button type="button" class="cart-sheet-handle" aria-label="Arraste para baixo para fechar o carrinho"></button>
-
-        <div class="carrinho-topo">
-          <p class="carrinho-label">Pedido atual</p>
-          <h2>Seu pedido</h2>
-          <div id="resumo-fabricas"></div>
-        </div>
-
-        <div id="lista-carrinho" class="lista-carrinho-scroll"></div>
-
-        <div class="carrinho-rodape">
-          <button onclick="abrirResumoPedido()">Finalizar pedido</button>
-        </div>
-
-      </div>
-    </aside>
-
-  </div>
-
-  <div id="popup" class="popup escondido">
-    <div class="popup-conteudo popup-produto-layout">
-
-      <button type="button" class="fechar-popup" onclick="fecharPopup()" aria-label="Fechar seleção">×</button>
-
-      <div class="popup-produto-grid">
-
-        <section class="popup-produto-visual">
-          <div class="popup-imagem-principal">
-            <img id="popup-imagem-produto" src="" alt="Imagem do produto selecionado">
-          </div>
-
-          <div class="popup-info-produto">
-            <p class="popup-label">Produto selecionado</p>
-            <h2 id="popup-referencia"></h2>
-            <p id="popup-descricao" class="popup-descricao-destaque"></p>
-
-            <div class="popup-meta-linha">
-              <span id="popup-peso"></span>
-              <span id="popup-minimo"></span>
-            </div>
-          </div>
-        </section>
-
-        <section class="popup-selecao-numeracoes">
-          <p class="popup-label">Seleção de numerações</p>
-          <h3>Escolha aro e quantidade</h3>
-          <p class="popup-ajuda">Distribua a quantidade da referência entre os aros disponíveis.</p>
-
-          <div id="numeracoes" class="numeracoes"></div>
-
-          <div class="popup-observacao-box">
-            <label for="popup-observacao">Observação opcional</label>
-            <textarea id="popup-observacao" placeholder="Ex: cores, detalhes ou preferências"></textarea>
-          </div>
-
-          <div class="popup-resumo-selecao">
-            <span>Total selecionado</span>
-            <strong id="popup-total-selecionado">0 peças • R$ 0,00</strong>
-          </div>
-        </section>
-
-      </div>
-
-      <div class="popup-rodape-fixo">
-        <div class="popup-rodape-info">
-          <span>Total selecionado</span>
-          <strong id="popup-rodape-total">0 peças • R$ 0,00</strong>
-        </div>
-
-        <button id="botao-confirmar-popup" type="button" onclick="confirmarPopup()">
+<div class="topo-fabrica">
+<div class="fabrica-atual" id="fabrica-atual"></div>
+<div class="marca-topo">HBJOIAS <span>REPRESENTAÇÕES</span></div>
+<div class="menu-topo-wrap">
+<button aria-expanded="false" aria-label="Abrir menu" class="btn-menu-topo" onclick="alternarMenuTopo()" type="button">
+<span class="menu-topo-icone">☰</span>
+<span>Menu</span>
+</button>
+<nav aria-label="Navegação principal" class="nav-topo-desktop" id="menu-topo-opcoes">
+<a href="index.html">Início</a>
+<a href="sobre.html">Sobre</a>
+<a href="contato.html">Contato</a>
+</nav>
+</div>
+</div>
+<header class="hero-catalogo hero-premium">
+<div aria-hidden="true" class="hero-joia-decor"></div>
+<div class="hero-conteudo-premium">
+<p class="hero-subtitulo" id="hero-subtitulo">Catálogo selecionado para lojistas</p>
+<h1 id="titulo"></h1>
+<div aria-hidden="true" class="hero-divisor"><span></span></div>
+</div>
+</header>
+<div class="categorias-area">
+<div class="catalogo-controlbar">
+<div class="busca-catalogo">
+<input id="busca-produto" oninput="atualizarBusca(this.value)" placeholder="Buscar por referência ou descrição" type="text"/>
+<button aria-label="Limpar busca" class="btn-fechar-busca" onclick="fecharBuscaCatalogo()" type="button">×</button>
+</div>
+<button aria-expanded="false" aria-label="Abrir filtros de preço" class="btn-filtro-toggle" onclick="alternarFiltroPrecoPainel()" type="button">
+<span>☷</span>
+<strong>Filtro</strong>
+</button>
+<div aria-label="Filtros por valor estimado" class="filtros-preco" id="filtros-preco">
+<button class="ativo" data-filtro-preco="todos" onclick="atualizarFiltroPreco('todos')" type="button">Todos</button>
+<button data-filtro-preco="ate25" onclick="atualizarFiltroPreco('ate25')" type="button">Até R$25</button>
+<button data-filtro-preco="25a50" onclick="atualizarFiltroPreco('25a50')" type="button">R$25 ~ R$50</button>
+<button data-filtro-preco="50a100" onclick="atualizarFiltroPreco('50a100')" type="button">R$50 ~ R$100</button>
+<button data-filtro-preco="acima100" onclick="atualizarFiltroPreco('acima100')" type="button">Acima de R$100</button>
+</div>
+</div>
+<div class="categorias-wrapper">
+<div class="categorias categorias-premium" id="categorias-scroll">
+<button onclick="irParaCategoria('todos')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Todos</button>
+<button onclick="irParaCategoria('Anel')"><span aria-hidden="true" class="cat-icone cat-anel"></span>Anel</button>
+<button onclick="irParaCategoria('Brinco')"><span aria-hidden="true" class="cat-icone cat-brinco"></span>Brinco</button>
+<button onclick="irParaCategoria('Gargantilha')"><span aria-hidden="true" class="cat-icone cat-gargantilha"></span>Gargantilha</button>
+<button onclick="irParaCategoria('Piercing')"><span aria-hidden="true" class="cat-icone cat-piercing"></span>Piercing</button>
+<button onclick="irParaCategoria('Pulseira')"><span aria-hidden="true" class="cat-icone cat-pulseira"></span>Pulseira</button>
+<button onclick="irParaCategoria('Pingente')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Pingente</button>
+<button onclick="irParaCategoria('Berloque')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Berloque</button>
+<button onclick="irParaCategoria('Conjunto')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Conjunto</button>
+<button onclick="irParaCategoria('Escapulario')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Escapulário</button>
+<button onclick="irParaCategoria('Infantil')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Infantil</button>
+<button onclick="irParaCategoria('Tornozeleira')"><span aria-hidden="true" class="cat-icone cat-pulseira"></span>Tornozeleira</button>
+</div>
+<div aria-hidden="true" class="categorias-indicador" id="categorias-indicador">
+<span>›</span>
+</div>
+</div>
+</div>
+<div class="layout-catalogo">
+<main class="area-produtos">
+<div class="produtos" id="produtos"></div>
+</main>
+<aside class="area-carrinho carrinho-fechado" id="area-carrinho">
+<div class="carrinho">
+<button aria-label="Arraste para baixo para fechar o carrinho" class="cart-sheet-handle" type="button"></button>
+<div class="carrinho-topo">
+<p class="carrinho-label">Pedido atual</p>
+<h2>Seu pedido</h2>
+<div id="resumo-fabricas"></div>
+</div>
+<div class="lista-carrinho-scroll" id="lista-carrinho"></div>
+<div class="carrinho-rodape">
+<button onclick="abrirResumoPedido()">Finalizar pedido</button>
+</div>
+</div>
+</aside>
+</div>
+<div class="popup escondido" id="popup">
+<div class="popup-conteudo popup-produto-layout">
+<button aria-label="Fechar seleção" class="fechar-popup" onclick="fecharPopup()" type="button">×</button>
+<div class="popup-produto-grid">
+<section class="popup-produto-visual">
+<div class="popup-imagem-principal">
+<img alt="Imagem do produto selecionado" id="popup-imagem-produto" src=""/>
+</div>
+<div class="popup-info-produto">
+<p class="popup-label">Produto selecionado</p>
+<h2 id="popup-referencia"></h2>
+<p class="popup-descricao-destaque" id="popup-descricao"></p>
+<div class="popup-meta-linha">
+<span id="popup-peso"></span>
+<span id="popup-minimo"></span>
+</div>
+</div>
+</section>
+<section class="popup-selecao-numeracoes">
+<p class="popup-label">Seleção de numerações</p>
+<h3>Escolha aro e quantidade</h3>
+<p class="popup-ajuda">Distribua a quantidade da referência entre os aros disponíveis.</p>
+<div class="numeracoes" id="numeracoes"></div>
+<div class="popup-observacao-box">
+<label for="popup-observacao">Observação opcional</label>
+<textarea id="popup-observacao" placeholder="Ex: cores, detalhes ou preferências"></textarea>
+</div>
+<div class="popup-resumo-selecao">
+<span>Total selecionado</span>
+<strong id="popup-total-selecionado">0 peças • R$ 0,00</strong>
+</div>
+</section>
+</div>
+<div class="popup-rodape-fixo">
+<div class="popup-rodape-info">
+<span>Total selecionado</span>
+<strong id="popup-rodape-total">0 peças • R$ 0,00</strong>
+</div>
+<button id="botao-confirmar-popup" onclick="confirmarPopup()" type="button">
           Adicionar ao pedido
         </button>
-      </div>
-
-    </div>
-  </div>
-
-
-
-  <div id="modal-resumo" class="modal-resumo escondido" aria-hidden="true">
-    <div class="modal-resumo-conteudo">
-
-      <button type="button" class="fechar-resumo" onclick="fecharResumoPedido()" aria-label="Fechar resumo">×</button>
-
-      <p class="resumo-label">Resumo do pedido</p>
-      <h2>Confira antes de enviar</h2>
-      <p class="resumo-aviso">Após confirmar, o pedido será enviado para análise comercial.</p>
-
-      <div id="resumo-pedido-itens"></div>
-
-      <div id="resumo-observacoes-cliente" class="resumo-observacoes-cliente escondido"></div>
-
-      <div class="resumo-total">
-        <span>Total estimado</span>
-        <strong id="resumo-total-valor">R$ 0,00</strong>
-      </div>
-
-      <div class="resumo-acoes">
-        <button type="button" class="botao-secundario-resumo" onclick="fecharResumoPedido()">Voltar e editar</button>
-        <button type="button" id="botao-confirmar-pedido" class="botao-confirmar-pedido" onclick="confirmarEnviarPedido()">Confirmar e enviar pedido</button>
-      </div>
-
-      <p id="status-envio-pedido" class="status-envio-pedido"></p>
-
-    </div>
-  </div>
-
-
-  <div id="modal-dados-cliente" class="modal-resumo modal-dados-cliente escondido" aria-hidden="true">
-    <div class="modal-resumo-conteudo modal-dados-cliente-conteudo">
-
-      <button type="button" class="fechar-resumo" onclick="fecharDadosClientePedido()" aria-label="Fechar dados do cliente">×</button>
-
-      <p class="resumo-label">Dados do cliente</p>
-      <h2>Para onde enviamos o pedido?</h2>
-      <p class="resumo-aviso">Preencha os dados abaixo para identificar o pedido e o local de entrega.</p>
-
-      <div class="form-dados-cliente">
-        <label>
-          <span>Nome do cliente ou loja</span>
-          <input id="cliente-nome" class="campo-cliente" type="text" autocomplete="organization" placeholder="Ex: Relojoaria Modelo">
-        </label>
-
-        <label>
-          <span>CNPJ</span>
-          <input id="cliente-cnpj" class="campo-cliente" type="text" inputmode="numeric" autocomplete="off" placeholder="00.000.000/0000-00">
-        </label>
-
-        <label>
-          <span>Número para contato</span>
-          <input id="cliente-contato" class="campo-cliente" type="tel" autocomplete="tel" placeholder="(11) 99999-9999">
-        </label>
-
-        <label class="campo-entrega">
-          <span>Local de entrega</span>
-          <textarea id="cliente-local-entrega" class="campo-cliente" rows="3" placeholder="Endereço completo ou referência para entrega"></textarea>
-        </label>
-      </div>
-
-      <div class="resumo-acoes">
-        <button type="button" class="botao-secundario-resumo" onclick="fecharDadosClientePedido()">Voltar ao resumo</button>
-        <button type="button" id="botao-enviar-dados-cliente" class="botao-confirmar-pedido" onclick="enviarPedidoComDadosCliente()">Enviar pedido</button>
-      </div>
-
-      <p id="status-dados-cliente" class="status-envio-pedido"></p>
-
-    </div>
-  </div>
-
-
-  <div id="aviso-sucesso-pedido" class="aviso-sucesso-pedido escondido" aria-hidden="true">
-    <div class="aviso-sucesso-card">
-      <div class="aviso-sucesso-icone">✓</div>
-      <p class="aviso-sucesso-label">Pedido enviado</p>
-      <h2>Recebemos seu pedido com sucesso</h2>
-      <p>O pedido foi registrado e a planilha será enviada para análise comercial.</p>
-      <div class="aviso-numero-box">
-        <span>Número do pedido</span>
-        <strong id="aviso-numero-pedido">PED-000</strong>
-      </div>
-      <button type="button" onclick="fecharAvisoSucessoPedido()">Continuar comprando</button>
-    </div>
-  </div>
-
-  <div id="zoom-imagem" class="zoom-imagem" aria-hidden="true">
-    <button type="button" class="fechar-zoom" onclick="fecharZoomImagem()" aria-label="Fechar zoom">×</button>
-    <img id="zoom-img" src="" alt="Imagem ampliada do produto">
-  </div>
-
-
-  <button type="button" id="btn-voltar-topo" class="btn-voltar-topo" onclick="voltarAoTopo()" aria-label="Voltar ao topo">↑</button>
-
-  <nav class="mobile-tabbar" aria-label="Navegação mobile">
-    <button type="button" onclick="window.location.href='index.html'">
-      <span class="tab-ico">⌂</span>
-      <span>Início</span>
-    </button>
-    <button type="button" onclick="alternarBuscaCatalogo()">
-      <span class="tab-ico">⌕</span>
-      <span>Busca</span>
-    </button>
-    <button type="button" onclick="window.location.href='contato.html'">
-      <span class="tab-ico">☏</span>
-      <span>Contato</span>
-    </button>
-    <button type="button" onclick="window.location.href='sobre.html'">
-      <span class="tab-ico">ⓘ</span>
-      <span>Sobre</span>
-    </button>
-    <button type="button" onclick="alternarCarrinho()" class="tab-pedido">
-      <span class="tab-ico">🛒</span>
-      <span>Pedido</span>
-    </button>
-  </nav>
-
-  <script>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="modal-resumo escondido" id="modal-resumo">
+<div class="modal-resumo-conteudo">
+<button aria-label="Fechar resumo" class="fechar-resumo" onclick="fecharResumoPedido()" type="button">×</button>
+<p class="resumo-label">Resumo do pedido</p>
+<h2>Confira antes de enviar</h2>
+<p class="resumo-aviso">Após confirmar, o pedido será enviado para análise comercial.</p>
+<div id="resumo-pedido-itens"></div>
+<div class="resumo-observacoes-cliente escondido" id="resumo-observacoes-cliente"></div>
+<div class="resumo-total">
+<span>Total estimado</span>
+<strong id="resumo-total-valor">R$ 0,00</strong>
+</div>
+<div class="resumo-acoes">
+<button class="botao-secundario-resumo" onclick="fecharResumoPedido()" type="button">Voltar e editar</button>
+<button class="botao-confirmar-pedido" id="botao-confirmar-pedido" onclick="confirmarEnviarPedido()" type="button">Confirmar e enviar pedido</button>
+</div>
+<p class="status-envio-pedido" id="status-envio-pedido"></p>
+</div>
+</div>
+<div aria-hidden="true" class="modal-resumo modal-dados-cliente escondido" id="modal-dados-cliente">
+<div class="modal-resumo-conteudo modal-dados-cliente-conteudo">
+<button aria-label="Fechar dados do cliente" class="fechar-resumo" onclick="fecharDadosClientePedido()" type="button">×</button>
+<p class="resumo-label">Dados do cliente</p>
+<h2>Para onde enviamos o pedido?</h2>
+<p class="resumo-aviso">Preencha os dados abaixo para identificar o pedido e o local de entrega.</p>
+<div class="form-dados-cliente">
+<label>
+<span>Nome do cliente ou loja</span>
+<input autocomplete="organization" class="campo-cliente" id="cliente-nome" placeholder="Ex: Relojoaria Modelo" type="text"/>
+</label>
+<label>
+<span>CNPJ</span>
+<input autocomplete="off" class="campo-cliente" id="cliente-cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" type="text"/>
+</label>
+<label>
+<span>Número para contato</span>
+<input autocomplete="tel" class="campo-cliente" id="cliente-contato" placeholder="(11) 99999-9999" type="tel"/>
+</label>
+<label class="campo-entrega">
+<span>Local de entrega</span>
+<textarea class="campo-cliente" id="cliente-local-entrega" placeholder="Endereço completo ou referência para entrega" rows="3"></textarea>
+</label>
+</div>
+<div class="resumo-acoes">
+<button class="botao-secundario-resumo" onclick="fecharDadosClientePedido()" type="button">Voltar ao resumo</button>
+<button class="botao-confirmar-pedido" id="botao-enviar-dados-cliente" onclick="enviarPedidoComDadosCliente()" type="button">Enviar pedido</button>
+</div>
+<p class="status-envio-pedido" id="status-dados-cliente"></p>
+</div>
+</div>
+<div aria-hidden="true" class="aviso-sucesso-pedido escondido" id="aviso-sucesso-pedido">
+<div class="aviso-sucesso-card">
+<div class="aviso-sucesso-icone">✓</div>
+<p class="aviso-sucesso-label">Pedido enviado</p>
+<h2>Recebemos seu pedido com sucesso</h2>
+<p>O pedido foi registrado e a planilha será enviada para análise comercial.</p>
+<div class="aviso-numero-box">
+<span>Número do pedido</span>
+<strong id="aviso-numero-pedido">PED-000</strong>
+</div>
+<button onclick="fecharAvisoSucessoPedido()" type="button">Continuar comprando</button>
+</div>
+</div>
+<div aria-hidden="true" class="zoom-imagem" id="zoom-imagem">
+<button aria-label="Fechar zoom" class="fechar-zoom" onclick="fecharZoomImagem()" type="button">×</button>
+<img alt="Imagem ampliada do produto" id="zoom-img" src=""/>
+</div>
+<button aria-label="Voltar ao topo" class="btn-voltar-topo" id="btn-voltar-topo" onclick="voltarAoTopo()" type="button">↑</button>
+<nav aria-label="Navegação mobile" class="mobile-tabbar">
+<button onclick="window.location.href='index.html'" type="button">
+<span class="tab-ico">⌂</span>
+<span>Início</span>
+</button>
+<button onclick="alternarBuscaCatalogo()" type="button">
+<span class="tab-ico">⌕</span>
+<span>Busca</span>
+</button>
+<button onclick="window.location.href='contato.html'" type="button">
+<span class="tab-ico">☏</span>
+<span>Contato</span>
+</button>
+<button onclick="window.location.href='sobre.html'" type="button">
+<span class="tab-ico">ⓘ</span>
+<span>Sobre</span>
+</button>
+<button class="tab-pedido" onclick="alternarCarrinho()" type="button">
+<span class="tab-ico">🛒</span>
+<span>Pedido</span>
+</button>
+</nav>
+<script>
     (function carregarCatalogoPorFabrica() {
       const params = new URLSearchParams(window.location.search);
       const fabrica = (params.get("fabrica") || "tendenze").toLowerCase();
@@ -356,6 +277,5 @@
       document.head.appendChild(scriptProdutos);
     })();
   </script>
-
 </body>
 </html>

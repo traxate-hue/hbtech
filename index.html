@@ -1,136 +1,120 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HB Joias Representações</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HB Joias Representações</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#0f0f0f" name="theme-color"/></head>
 <body class="home-page home-page-v2">
-
-  <main class="home-v2-shell">
-    <section class="home-v2-hero" aria-label="Apresentação do catálogo">
-      <div class="home-v2-logo-area">
-        <div class="home-v2-kicker"><span></span>Catálogo digital para pedidos<span></span></div>
-        <h1><strong>HB Joias</strong><em>Representações</em></h1>
-        <p>Sua conexão direta com as <b>melhores fábricas</b></p>
-      </div>
-    </section>
-
-    <section class="home-v2-grid" aria-label="Seleção de fábrica">
-      <article class="factory-card factory-tendenze" onclick="entrar('tendenze')" tabindex="0" role="button" aria-label="Entrar no catálogo Tendenze">
-        <div class="factory-card-media"></div>
-        <div class="factory-card-glow"></div>
-        <div class="factory-card-content">
-          <div class="factory-card-top">
-            <span>✦ Prata</span>
-          </div>
-
-          <div class="factory-card-main">
-            <div class="factory-card-diamond">◇</div>
-            <h2>Tendenze</h2>
-            <div class="factory-info-list">
-              <p class="factory-highlight"><strong>Inovação tecnológica</strong><span>Peças fabricadas através de <b>IMPRESSÃO</b>!</span></p>
-              <p><strong>Teores:</strong> 925/700 · padrão 700</p>
-              <p><strong>Entrega:</strong> 60 dias</p>
-              <p><strong>Mínimo:</strong> 6 peças por referência · pedido mínimo de R$ 30 mil</p>
-              <p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
-            </div>
-          </div>
-
-          <div class="factory-card-footer">
-            <button type="button">Acessar catálogo <span>→</span></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="factory-card factory-inove" onclick="entrar('inove')" tabindex="0" role="button" aria-label="Entrar no catálogo Inove">
-        <div class="factory-card-media"></div>
-        <div class="factory-card-glow"></div>
-        <div class="factory-card-content">
-          <div class="factory-card-top">
-            <span>✦ Prata</span>
-          </div>
-
-          <div class="factory-card-main">
-            <div class="factory-card-diamond">◇</div>
-            <h2>Inove</h2>
-            <div class="factory-info-list">
-              <p class="factory-highlight"><strong>Fundição de prata</strong><span>Fábrica de fundição de prata.</span></p>
-              <p><strong>Teores:</strong> 925/700 · padrão 700</p>
-              <p><strong>Entrega:</strong> 45 dias</p>
-              <p><strong>Mínimo:</strong> 5 peças por referência · pedido mínimo de R$ 20 mil</p>
-              <p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
-            </div>
-          </div>
-
-          <div class="factory-card-footer">
-            <button type="button">Acessar catálogo <span>→</span></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="factory-card factory-zarrara" onclick="entrar('zarrara')" tabindex="0" role="button" aria-label="Entrar no catálogo Zarrara">
-        <div class="factory-card-media"></div>
-        <div class="factory-card-glow"></div>
-        <div class="factory-card-content">
-          <div class="factory-card-top">
-            <span>✦ Folheados</span>
-          </div>
-
-          <div class="factory-card-main">
-            <div class="factory-card-diamond">◇</div>
-            <h2>Zarrara</h2>
-            <div class="factory-info-list">
-              <p class="factory-highlight"><strong>Banhados a ouro</strong><span>Fábrica de peças banhadas a ouro.</span></p>
-              <p><strong>Linha:</strong> produtos leves e baratos</p>
-              <p><strong>Entrega:</strong> 30 dias</p>
-              <p><strong>Mínimo:</strong> 10 peças por referência · pedido mínimo de R$ 20 mil</p>
-              <p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
-            </div>
-          </div>
-
-          <div class="factory-card-footer">
-            <button type="button">Acessar catálogo <span>→</span></button>
-          </div>
-        </div>
-      </article>
-
-      <article class="factory-card factory-futura factory-disabled" onclick="avisoFuturaFabrica()" tabindex="0" role="button" aria-label="Futura fábrica em breve">
-        <div class="factory-card-media"></div>
-        <div class="factory-card-glow"></div>
-        <div class="factory-card-content">
-          <div class="factory-card-top">
-            <span>✦ Em breve</span>
-          </div>
-
-          <div class="factory-card-main">
-            <div class="factory-card-diamond">◇</div>
-            <h2>Nova</h2>
-            <p>Espaço preparado para a próxima fábrica.</p>
-          </div>
-
-          <div class="factory-card-footer">
-            <button type="button">Em breve <span>→</span></button>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section class="home-v2-benefits" aria-label="Diferenciais do atendimento">
-      <div class="home-v2-benefit"><strong>Atacado seguro</strong><span>Condições especiais para lojistas</span></div>
-      <div class="home-v2-benefit"><strong>Pagamento facilitado</strong><span>Cheques 30/60/90 · podendo chegar a 120 dias dependendo do valor</span></div>
-      <div class="home-v2-benefit"><strong>Atendimento presencial</strong><span>Equipe disponível mediante agendamento</span></div>
-      <div class="home-v2-benefit"><strong>Suporte exclusivo</strong><span>Atendimento via representante · +55 11 95250-0230</span></div>
-    </section>
-  </main>
-
-  <script>
+<main class="home-v2-shell">
+<section aria-label="Apresentação do catálogo" class="home-v2-hero">
+<div class="home-v2-logo-area">
+<div class="home-v2-kicker"><span></span>Catálogo digital para pedidos<span></span></div>
+<h1><strong>HB Joias</strong><em>Representações</em></h1>
+<p>Sua conexão direta com as <b>melhores fábricas</b></p>
+</div>
+</section>
+<section aria-label="Seleção de fábrica" class="home-v2-grid">
+<article aria-label="Entrar no catálogo Tendenze" class="factory-card factory-tendenze" onclick="entrar('tendenze')" role="button" tabindex="0">
+<div class="factory-card-media"></div>
+<div class="factory-card-glow"></div>
+<div class="factory-card-content">
+<div class="factory-card-top">
+<span>✦ Prata</span>
+</div>
+<div class="factory-card-main">
+<div class="factory-card-diamond">◇</div>
+<h2>Tendenze</h2>
+<div class="factory-info-list">
+<p class="factory-highlight"><strong>Inovação tecnológica</strong><span>Peças fabricadas através de <b>IMPRESSÃO</b>!</span></p>
+<p><strong>Teores:</strong> 925/700 · padrão 700</p>
+<p><strong>Entrega:</strong> 60 dias</p>
+<p><strong>Mínimo:</strong> 6 peças por referência · pedido mínimo de R$ 30 mil</p>
+<p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
+</div>
+</div>
+<div class="factory-card-footer">
+<button type="button">Acessar catálogo <span>→</span></button>
+</div>
+</div>
+</article>
+<article aria-label="Entrar no catálogo Inove" class="factory-card factory-inove" onclick="entrar('inove')" role="button" tabindex="0">
+<div class="factory-card-media"></div>
+<div class="factory-card-glow"></div>
+<div class="factory-card-content">
+<div class="factory-card-top">
+<span>✦ Prata</span>
+</div>
+<div class="factory-card-main">
+<div class="factory-card-diamond">◇</div>
+<h2>Inove</h2>
+<div class="factory-info-list">
+<p class="factory-highlight"><strong>Fundição de prata</strong><span>Fábrica de fundição de prata.</span></p>
+<p><strong>Teores:</strong> 925/700 · padrão 700</p>
+<p><strong>Entrega:</strong> 45 dias</p>
+<p><strong>Mínimo:</strong> 5 peças por referência · pedido mínimo de R$ 20 mil</p>
+<p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
+</div>
+</div>
+<div class="factory-card-footer">
+<button type="button">Acessar catálogo <span>→</span></button>
+</div>
+</div>
+</article>
+<article aria-label="Entrar no catálogo Zarrara" class="factory-card factory-zarrara" onclick="entrar('zarrara')" role="button" tabindex="0">
+<div class="factory-card-media"></div>
+<div class="factory-card-glow"></div>
+<div class="factory-card-content">
+<div class="factory-card-top">
+<span>✦ Folheados</span>
+</div>
+<div class="factory-card-main">
+<div class="factory-card-diamond">◇</div>
+<h2>Zarrara</h2>
+<div class="factory-info-list">
+<p class="factory-highlight"><strong>Banhados a ouro</strong><span>Fábrica de peças banhadas a ouro.</span></p>
+<p><strong>Linha:</strong> produtos leves e baratos</p>
+<p><strong>Entrega:</strong> 30 dias</p>
+<p><strong>Mínimo:</strong> 10 peças por referência · pedido mínimo de R$ 20 mil</p>
+<p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
+</div>
+</div>
+<div class="factory-card-footer">
+<button type="button">Acessar catálogo <span>→</span></button>
+</div>
+</div>
+</article>
+<article aria-label="Futura fábrica em breve" class="factory-card factory-futura factory-disabled" onclick="avisoFuturaFabrica()" role="button" tabindex="0">
+<div class="factory-card-media"></div>
+<div class="factory-card-glow"></div>
+<div class="factory-card-content">
+<div class="factory-card-top">
+<span>✦ Em breve</span>
+</div>
+<div class="factory-card-main">
+<div class="factory-card-diamond">◇</div>
+<h2>Nova</h2>
+<p>Espaço preparado para a próxima fábrica.</p>
+</div>
+<div class="factory-card-footer">
+<button type="button">Em breve <span>→</span></button>
+</div>
+</div>
+</article>
+</section>
+<section aria-label="Diferenciais do atendimento" class="home-v2-benefits">
+<div class="home-v2-benefit"><strong>Atacado seguro</strong><span>Condições especiais para lojistas</span></div>
+<div class="home-v2-benefit"><strong>Pagamento facilitado</strong><span>Cheques 30/60/90 · podendo chegar a 120 dias dependendo do valor</span></div>
+<div class="home-v2-benefit"><strong>Atendimento presencial</strong><span>Equipe disponível mediante agendamento</span></div>
+<div class="home-v2-benefit"><strong>Suporte exclusivo</strong><span>Atendimento via representante · +55 11 95250-0230</span></div>
+</section>
+</main>
+<script>
     function entrar(fabrica) {
       window.location.href = `catalogo.html?fabrica=${encodeURIComponent(fabrica)}&categoria=todos`;
     }
