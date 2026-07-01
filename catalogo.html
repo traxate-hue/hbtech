@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=34" rel="stylesheet"/>
-<link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#0f0f0f" name="theme-color"/></head>
+<link href="style.css?v=CUPOM_ISOLADO_FINAL_20260701" rel="stylesheet"/>
+<link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#002063" name="theme-color"/></head>
 <body>
 <button aria-label="Abrir carrinho" class="botao-carrinho-lateral" onclick="alternarCarrinho()">
 <span class="icone-carrinho">
@@ -101,7 +101,19 @@
 </div>
 <div class="lista-carrinho-scroll" id="lista-carrinho"></div>
 <div class="carrinho-rodape">
-<button onclick="abrirResumoPedido()">Finalizar pedido</button>
+<div id="codigo-comercial-rodape-mobile" class="codigo-comercial-rodape-mobile" aria-hidden="false">
+<div class="codigo-comercial-box codigo-aberto">
+<div class="codigo-comercial-conteudo">
+<label for="codigo-comercial-input">Código comercial</label>
+<div class="codigo-comercial-linha">
+<input id="codigo-comercial-input" type="text" placeholder="Código comercial" autocomplete="off" oninput="statusValidacaoCodigo = '';"/>
+<button type="button" onclick="aplicarCodigoComercial()">Aplicar</button>
+</div>
+<p id="codigo-comercial-status" class="codigo-comercial-status vazio"></p>
+</div>
+</div>
+</div>
+<button class="btn-finalizar-carrinho" onclick="abrirResumoPedido()">Finalizar pedido</button>
 </div>
 </div>
 </aside>
@@ -155,7 +167,7 @@
 <button aria-label="Fechar resumo" class="fechar-resumo" onclick="fecharResumoPedido()" type="button">×</button>
 <p class="resumo-label">Resumo do pedido</p>
 <h2>Confira antes de enviar</h2>
-<p class="resumo-aviso">Após confirmar, o pedido será enviado para análise comercial.</p>
+<p class="resumo-aviso">Após confirmar, a planilha do pedido será baixada no dispositivo e o pedido será encaminhado para análise comercial.</p>
 <div id="resumo-pedido-itens"></div>
 <div class="resumo-observacoes-cliente escondido" id="resumo-observacoes-cliente"></div>
 <div class="resumo-total">
@@ -203,9 +215,9 @@
 <div aria-hidden="true" class="aviso-sucesso-pedido escondido" id="aviso-sucesso-pedido">
 <div class="aviso-sucesso-card">
 <div class="aviso-sucesso-icone">✓</div>
-<p class="aviso-sucesso-label">Pedido enviado</p>
-<h2>Recebemos seu pedido com sucesso</h2>
-<p>O pedido foi registrado e a planilha será enviada para análise comercial.</p>
+<p class="aviso-sucesso-label">Pedido finalizado</p>
+<h2>Pedido preparado com segurança</h2>
+<p>A planilha foi baixada no dispositivo e o pedido foi encaminhado para análise comercial.</p>
 <div class="aviso-numero-box">
 <span>Número do pedido</span>
 <strong id="aviso-numero-pedido">PED-000</strong>

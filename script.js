@@ -6,6 +6,7 @@ let produtoAtual = null;
 let carrinho = [];
 let codigoComercialAplicado = carregarCodigoComercialSalvo();
 let statusValidacaoCodigo = "";
+let codigoComercialPainelAberto = true;
 
 // Código provisório fixo para liberar o pedido mínimo especial.
 // Futuramente essa validação será trocada pela integração Python + Google Sheets + Apps Script.
@@ -136,9 +137,7 @@ function atualizarFiltroPreco(filtro) {
   atualizarBotoesFiltroPreco();
   carregarProdutos();
 
-  // Depois que o cliente escolhe uma opção, recolhe o painel de filtro.
-  // O pequeno atraso deixa a seleção parecer intencional antes da animação fechar.
-  setTimeout(fecharFiltroPrecoPainel, 140);
+  fecharFiltroPrecoPainel();
 }
 
 function produtoPassaFiltroPreco(produto) {
@@ -848,8 +847,46 @@ function abrirPopup(referencia) {
 
   document.getElementById("numeracoes").innerHTML = html;
   atualizarResumoPopup();
+  ajustarPopupMobileNumeracoes();
   document.getElementById("popup").classList.remove("escondido");
 }
+
+function ajustarPopupMobileNumeracoes() {
+  const popup = document.getElementById("popup");
+  const grid = popup?.querySelector(".popup-produto-grid");
+  const visual = popup?.querySelector(".popup-produto-visual");
+  const selecao = popup?.querySelector(".popup-selecao-numeracoes");
+  const numeracoes = document.getElementById("numeracoes");
+
+  if (!grid || !visual || !selecao || !numeracoes) return;
+
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    visual.classList.add("produto-info-inline-mobile");
+    if (visual.parentElement !== selecao) {
+      selecao.insertBefore(visual, numeracoes);
+    }
+    return;
+  }
+
+  visual.classList.remove("produto-info-inline-mobile");
+  if (visual.parentElement !== grid) {
+    grid.insertBefore(visual, selecao);
+  }
+}
+
+function restaurarPopupDesktopSeNecessario() {
+  const popup = document.getElementById("popup");
+  if (!popup || !popup.classList.contains("escondido")) return;
+  ajustarPopupMobileNumeracoes();
+}
+
+window.addEventListener("resize", () => {
+  if (document.getElementById("popup") && !document.getElementById("popup").classList.contains("escondido")) {
+    ajustarPopupMobileNumeracoes();
+  }
+});
 
 function atualizarResumoPopup() {
   const totalEl = document.getElementById("popup-total-selecionado");
@@ -1200,43 +1237,64 @@ function renderizarBlocoCodigoComercial() {
   const codigo = codigoComercialAplicado?.codigo || "";
   const validado = Boolean(codigoComercialAplicado?.valido);
   const valorMinimo = Number(codigoComercialAplicado?.valorMinimo || 10000);
+  const aberto = Boolean(codigoComercialPainelAberto || validado || statusValidacaoCodigo);
+  const textoStatus = validado
+    ? `✓ ${codigo} • Mín. R$ ${formatarMoeda(valorMinimo)}`
+    : (statusValidacaoCodigo || "");
 
   return `
-    <div class="codigo-comercial-box ${validado ? "codigo-validado" : ""}">
-      <label for="codigo-comercial-input">Código comercial</label>
-      <div class="codigo-comercial-linha">
-        <input id="codigo-comercial-input" type="text" value="${codigo}" placeholder="Código comercial"" autocomplete="off" oninput="statusValidacaoCodigo = '';">
-        <button type="button" onclick="aplicarCodigoComercial()">Aplicar</button>
+    <div class="codigo-comercial-box ${validado ? "codigo-validado" : ""} ${aberto ? "codigo-aberto" : "codigo-fechado"}">
+      <div class="codigo-comercial-conteudo">
+        <label for="codigo-comercial-input">Código comercial</label>
+        <div class="codigo-comercial-linha">
+          <input id="codigo-comercial-input" type="text" value="${codigo}" placeholder="Código comercial" autocomplete="off" oninput="statusValidacaoCodigo = '';">
+          <button type="button" onclick="aplicarCodigoComercial()">Aplicar</button>
+        </div>
+        <p id="codigo-comercial-status" class="codigo-comercial-status ${validado ? "sucesso" : ""}">${textoStatus}</p>
+        ${validado ? `<button type="button" class="codigo-comercial-remover" onclick="removerCodigoComercial()">Remover código</button>` : ""}
       </div>
-      <p id="codigo-comercial-status" class="codigo-comercial-status ${validado ? "sucesso" : ""}">
-        ${validado ? `✓ ${codigo} • Mín. R$ ${formatarMoeda(valorMinimo)}` : (statusValidacaoCodigo || "Digite seu código.")}
-      </p>
-      ${validado ? `<button type="button" class="codigo-comercial-remover" onclick="removerCodigoComercial()">Remover código</button>` : ""}
     </div>
   `;
 }
 
-async function aplicarCodigoComercial() {
-  const input = document.getElementById("codigo-comercial-input");
-  const status = document.getElementById("codigo-comercial-status");
-  const codigo = normalizarCodigoComercial(input ? input.value : "");
+function alternarCodigoComercialPainel() {
+  codigoComercialPainelAberto = !codigoComercialPainelAberto;
+  statusValidacaoCodigo = statusValidacaoCodigo || "";
+  sincronizarEstadoCupomMobile();
+  renderizarCarrinho();
+
+  if (codigoComercialPainelAberto) {
+    setTimeout(() => {
+      const input = document.getElementById("codigo-comercial-input");
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    }, 80);
+  }
+}
+
+function aplicarCodigoComercialValor(codigoInformado) {
+  const codigo = normalizarCodigoComercial(codigoInformado);
 
   if (!codigo) {
     codigoComercialAplicado = null;
     statusValidacaoCodigo = "Digite um código comercial.";
+    codigoComercialPainelAberto = true;
     salvarCodigoComercial();
+    sincronizarEstadoCupomMobile();
     renderizarCarrinho();
-    return;
+    return false;
   }
 
-  // Validação provisória local: não consulta Apps Script.
-  // Código ativo: CLIENTEESTRELA -> libera mínimo de R$ 10.000.
   if (codigo !== CODIGO_COMERCIAL_PROVISORIO) {
     codigoComercialAplicado = null;
     statusValidacaoCodigo = "Código inválido.";
+    codigoComercialPainelAberto = true;
     salvarCodigoComercial();
+    sincronizarEstadoCupomMobile();
     renderizarCarrinho();
-    return;
+    return false;
   }
 
   codigoComercialAplicado = {
@@ -1247,20 +1305,25 @@ async function aplicarCodigoComercial() {
     valorMinimo: VALOR_MINIMO_CODIGO_PROVISORIO
   };
 
-  statusValidacaoCodigo = "";
+  statusValidacaoCodigo = "Código aplicado.";
+  codigoComercialPainelAberto = false;
   salvarCodigoComercial();
+  sincronizarEstadoCupomMobile();
   renderizarCarrinho();
+  return true;
+}
 
-  if (status) {
-    status.innerText = `✓ ${CODIGO_COMERCIAL_PROVISORIO} • Mín. R$ ${formatarMoeda(VALOR_MINIMO_CODIGO_PROVISORIO)}`;
-    status.className = "codigo-comercial-status sucesso";
-  }
+async function aplicarCodigoComercial() {
+  const input = document.getElementById("codigo-comercial-input");
+  aplicarCodigoComercialValor(input ? input.value : "");
 }
 
 function removerCodigoComercial() {
   codigoComercialAplicado = null;
   statusValidacaoCodigo = "Código removido.";
+  codigoComercialPainelAberto = false;
   salvarCodigoComercial();
+  sincronizarEstadoCupomMobile();
   renderizarCarrinho();
 }
 
@@ -1398,7 +1461,35 @@ function renderizarCarrinho() {
     `;
   }
 
-  resumoDiv.innerHTML += renderizarBlocoCodigoComercial();
+  const codigoHtml = renderizarBlocoCodigoComercial();
+  const rodapeCarrinho = document.querySelector("#area-carrinho .carrinho-rodape");
+  const botaoFinalizar = rodapeCarrinho ? rodapeCarrinho.querySelector(".btn-finalizar-carrinho") : null;
+  let codigoRodapeMobile = document.getElementById("codigo-comercial-rodape-mobile");
+
+  // Cupom fixo no rodapé do carrinho: sempre antes de "Finalizar pedido".
+  // Não depende de clique, prompt, largura de tela ou ordem antiga do HTML.
+  if (rodapeCarrinho) {
+    const botaoCupomRodape = document.getElementById("btn-cupom-rodape-mobile");
+    if (botaoCupomRodape) botaoCupomRodape.remove();
+
+    if (!codigoRodapeMobile) {
+      codigoRodapeMobile = document.createElement("div");
+      codigoRodapeMobile.id = "codigo-comercial-rodape-mobile";
+      codigoRodapeMobile.className = "codigo-comercial-rodape-mobile";
+    }
+
+    codigoRodapeMobile.setAttribute("aria-hidden", "false");
+
+    if (codigoRodapeMobile.parentElement !== rodapeCarrinho) {
+      rodapeCarrinho.insertBefore(codigoRodapeMobile, botaoFinalizar || rodapeCarrinho.firstChild);
+    } else if (botaoFinalizar && codigoRodapeMobile.nextElementSibling !== botaoFinalizar) {
+      rodapeCarrinho.insertBefore(codigoRodapeMobile, botaoFinalizar);
+    }
+
+    codigoRodapeMobile.innerHTML = codigoHtml;
+  } else {
+    resumoDiv.innerHTML += codigoHtml;
+  }
 
   carrinho.forEach((item, index) => {
     const ehAnel = ehCategoriaAnel(item.categoria);
@@ -2396,6 +2487,352 @@ function montarCorpoEmailPedido(numeroPedido, dadosCliente) {
   return blocos.join("\n");
 }
 
+
+// ===============================
+// BACKUP LOCAL, CSV E WHATSAPP
+// ===============================
+// WhatsApp no aparelho do cliente fica DESATIVADO por padrão.
+// Envio automático real para seu WhatsApp deve ser feito no servidor via WhatsApp Cloud API/provedor, não redirecionando o cliente.
+// Se algum dia quiser reativar abertura no cliente, coloque ABRIR_WHATSAPP_CLIENTE_AUTOMATICAMENTE = true.
+const WHATSAPP_DESTINO_PEDIDO = "5511944469755";
+const ABRIR_WHATSAPP_CLIENTE_AUTOMATICAMENTE = false;
+const BACKUP_PEDIDOS_LOCAL_KEY = "pedidosCatalogoBackupV2";
+const ULTIMO_PEDIDO_LOCAL_KEY = "ultimoPedidoCatalogoBackupV2";
+const LIMITE_PEDIDOS_BACKUP_LOCAL = 25;
+const LIMITE_TEXTO_WHATSAPP_PEDIDO = 6500;
+
+function textoSeguro(valor) {
+  return String(valor ?? "").replace(/\s+/g, " ").trim();
+}
+
+function valorDecimalSeguro(valor) {
+  const numero = Number(valor || 0);
+  return Number.isFinite(numero) ? numero : 0;
+}
+
+function moedaCsv(valor) {
+  return valorDecimalSeguro(valor).toFixed(2).replace(".", ",");
+}
+
+function campoCsv(valor) {
+  const texto = String(valor ?? "").replace(/\r?\n/g, " ").trim();
+  return `"${texto.replace(/"/g, '""')}"`;
+}
+
+function linhaCsv(campos) {
+  return campos.map(campoCsv).join(";");
+}
+
+function nomeArquivoSeguro(texto) {
+  return String(texto || "pedido")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9_-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "") || "pedido";
+}
+
+function textoNumeracoesConsolidado(numeracoes) {
+  const entradas = Object.entries(numeracoes || {})
+    .map(([aro, qtd]) => [aro, Number(qtd || 0)])
+    .filter(([, qtd]) => qtd > 0)
+    .sort((a, b) => Number(a[0]) - Number(b[0]));
+
+  if (!entradas.length) return "-";
+  return entradas.map(([aro, qtd]) => `Aro ${aro}: ${qtd}`).join(" | ");
+}
+
+function consolidarItensPayload(payload) {
+  const mapa = new Map();
+  const pedido = Array.isArray(payload?.pedido) ? payload.pedido : [];
+
+  pedido.forEach(item => {
+    if (!item) return;
+
+    const fabrica = textoSeguro(item.fabrica || item.fabricaChave || payload.fabrica || "");
+    const referencia = textoSeguro(item.referencia || "");
+    const descricao = textoSeguro(item.descricao || "");
+    const peso = textoSeguro(item.peso || "");
+    const chave = [fabrica, referencia, descricao, peso].join("::");
+
+    if (!mapa.has(chave)) {
+      mapa.set(chave, {
+        fabrica,
+        referencia,
+        descricao,
+        peso,
+        numeracoes: {},
+        quantidadeTotal: 0,
+        valorUnitario: valorDecimalSeguro(item.valorUnitario),
+        observacoes: []
+      });
+    }
+
+    const atual = mapa.get(chave);
+    const observacao = textoSeguro(
+      item.observacaoCliente ||
+      item.detalheCliente ||
+      item.descricaoCliente ||
+      item.descricaoDigitadaCliente ||
+      item.observacao ||
+      item.obs ||
+      ""
+    );
+
+    if (observacao && !atual.observacoes.includes(observacao)) {
+      atual.observacoes.push(observacao);
+    }
+
+    const numeracoes = item.numeracoes && typeof item.numeracoes === "object" ? item.numeracoes : null;
+
+    if (numeracoes && Object.keys(numeracoes).length) {
+      Object.entries(numeracoes).forEach(([aro, qtd]) => {
+        const quantidade = Number(qtd || 0);
+        if (quantidade <= 0) return;
+
+        atual.numeracoes[aro] = Number(atual.numeracoes[aro] || 0) + quantidade;
+        atual.quantidadeTotal += quantidade;
+      });
+      return;
+    }
+
+    const quantidade = Number(item.quantidade || item.totalPecas || 0);
+    if (quantidade > 0) {
+      atual.quantidadeTotal += quantidade;
+    }
+  });
+
+  return Array.from(mapa.values())
+    .filter(item => item.quantidadeTotal > 0)
+    .map(item => ({
+      ...item,
+      numeracoesTexto: textoNumeracoesConsolidado(item.numeracoes),
+      subtotal: item.valorUnitario * item.quantidadeTotal,
+      observacao: item.observacoes.join(" | ")
+    }));
+}
+
+function montarCsvPedido(payload) {
+  const dadosCliente = payload?.dadosCliente || {};
+  const itens = consolidarItensPayload(payload);
+  const linhas = [];
+
+  linhas.push(linhaCsv(["PEDIDO HBJOIAS"]));
+  linhas.push(linhaCsv(["Número do Pedido", payload?.numeroPedido || ""]));
+  linhas.push(linhaCsv(["Data", new Date(payload?.dataPedido || Date.now()).toLocaleString("pt-BR")]));
+  linhas.push(linhaCsv(["Fábrica", payload?.fabrica || ""]));
+  linhas.push(linhaCsv(["Origem", payload?.origem || "catalogo-online"]));
+  linhas.push(linhaCsv([]));
+
+  linhas.push(linhaCsv(["DADOS DO CLIENTE"]));
+  linhas.push(linhaCsv(["Nome/Loja", dadosCliente.nome || dadosCliente.loja || ""]));
+  linhas.push(linhaCsv(["CNPJ", dadosCliente.cnpj || ""]));
+  linhas.push(linhaCsv(["Telefone", dadosCliente.telefone || dadosCliente.contato || ""]));
+  linhas.push(linhaCsv(["CEP", dadosCliente.cep || ""]));
+  linhas.push(linhaCsv(["Rua", dadosCliente.rua || ""]));
+  linhas.push(linhaCsv(["Número", dadosCliente.numero || ""]));
+  linhas.push(linhaCsv(["Bairro", dadosCliente.bairro || ""]));
+  linhas.push(linhaCsv(["Cidade", dadosCliente.cidade || ""]));
+  linhas.push(linhaCsv(["UF", dadosCliente.estado || dadosCliente.uf || ""]));
+  linhas.push(linhaCsv(["Complemento/Referência", dadosCliente.complemento || ""]));
+  linhas.push(linhaCsv(["Endereço completo", dadosCliente.enderecoCompleto || dadosCliente.enderecoEntrega || ""]));
+  linhas.push(linhaCsv([]));
+
+  linhas.push(linhaCsv([
+    "Número do Pedido",
+    "Data",
+    "Fábrica",
+    "Referência",
+    "Descrição",
+    "Peso",
+    "Numerações",
+    "Quantidade Total",
+    "Valor Unitário",
+    "Subtotal",
+    "Observação do Cliente"
+  ]));
+
+  itens.forEach(item => {
+    linhas.push(linhaCsv([
+      payload?.numeroPedido || "",
+      new Date(payload?.dataPedido || Date.now()).toLocaleString("pt-BR"),
+      item.fabrica,
+      item.referencia,
+      item.descricao,
+      item.peso,
+      item.numeracoesTexto,
+      item.quantidadeTotal,
+      moedaCsv(item.valorUnitario),
+      moedaCsv(item.subtotal),
+      item.observacao
+    ]));
+  });
+
+  linhas.push(linhaCsv([]));
+  linhas.push(linhaCsv(["RESUMO"]));
+  linhas.push(linhaCsv(["Total de referências", itens.length]));
+  linhas.push(linhaCsv(["Total de peças", payload?.totalPecas || itens.reduce((soma, item) => soma + item.quantidadeTotal, 0)]));
+  linhas.push(linhaCsv(["Subtotal estimado", moedaCsv(payload?.subtotalEstimado || itens.reduce((soma, item) => soma + item.subtotal, 0))]));
+  linhas.push(linhaCsv(["Desconto", moedaCsv(payload?.valorDesconto || 0)]));
+  linhas.push(linhaCsv(["Total estimado", moedaCsv(payload?.totalEstimado || 0)]));
+
+  // BOM UTF-8 para abrir corretamente no Excel em PT-BR.
+  return "\ufeff" + linhas.join("\r\n");
+}
+
+function baixarArquivoTexto(nomeArquivo, conteudo, mimeType) {
+  const blob = new Blob([conteudo], { type: mimeType || "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = nomeArquivo;
+  link.style.display = "none";
+
+  document.body.appendChild(link);
+  link.click();
+
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+    link.remove();
+  }, 1000);
+}
+
+function baixarCsvPedido(payload) {
+  const numeroPedido = nomeArquivoSeguro(payload?.numeroPedido || gerarNumeroPedido());
+  const csv = montarCsvPedido(payload);
+  baixarArquivoTexto(`Pedido ${numeroPedido}.csv`, csv, "text/csv;charset=utf-8");
+}
+
+function salvarBackupLocalPedido(payload, status, erro) {
+  try {
+    const registro = {
+      numeroPedido: payload?.numeroPedido || "",
+      status: status || "GERADO_LOCALMENTE",
+      erro: erro || "",
+      salvoEm: new Date().toISOString(),
+      payload
+    };
+
+    localStorage.setItem(ULTIMO_PEDIDO_LOCAL_KEY, JSON.stringify(registro));
+
+    const listaAtual = JSON.parse(localStorage.getItem(BACKUP_PEDIDOS_LOCAL_KEY) || "[]");
+    const listaFiltrada = Array.isArray(listaAtual)
+      ? listaAtual.filter(item => item && item.numeroPedido !== registro.numeroPedido)
+      : [];
+
+    listaFiltrada.unshift(registro);
+    localStorage.setItem(BACKUP_PEDIDOS_LOCAL_KEY, JSON.stringify(listaFiltrada.slice(0, LIMITE_PEDIDOS_BACKUP_LOCAL)));
+  } catch (erroLocalStorage) {
+    console.warn("Não foi possível salvar backup local do pedido:", erroLocalStorage);
+  }
+}
+
+function atualizarBackupLocalPedido(numeroPedido, status, erro) {
+  try {
+    const listaAtual = JSON.parse(localStorage.getItem(BACKUP_PEDIDOS_LOCAL_KEY) || "[]");
+    if (!Array.isArray(listaAtual)) return;
+
+    const atualizada = listaAtual.map(item => {
+      if (!item || item.numeroPedido !== numeroPedido) return item;
+      return {
+        ...item,
+        status: status || item.status,
+        erro: erro || item.erro || "",
+        atualizadoEm: new Date().toISOString()
+      };
+    });
+
+    localStorage.setItem(BACKUP_PEDIDOS_LOCAL_KEY, JSON.stringify(atualizada));
+
+    const ultimo = atualizada.find(item => item && item.numeroPedido === numeroPedido);
+    if (ultimo) localStorage.setItem(ULTIMO_PEDIDO_LOCAL_KEY, JSON.stringify(ultimo));
+  } catch (erroLocalStorage) {
+    console.warn("Não foi possível atualizar backup local do pedido:", erroLocalStorage);
+  }
+}
+
+function montarTextoWhatsAppPedido(payload) {
+  const dadosCliente = payload?.dadosCliente || {};
+  const itens = consolidarItensPayload(payload);
+  const linhas = [];
+
+  linhas.push("*NOVO PEDIDO HBJOIAS - CRU*");
+  linhas.push(`Número: ${payload?.numeroPedido || "-"}`);
+  linhas.push(`Data: ${new Date(payload?.dataPedido || Date.now()).toLocaleString("pt-BR")}`);
+  linhas.push(`Fábrica: ${payload?.fabrica || "-"}`);
+  linhas.push("");
+  linhas.push("*CLIENTE*");
+  linhas.push(`Nome/Loja: ${dadosCliente.nome || dadosCliente.loja || "-"}`);
+  linhas.push(`CNPJ: ${dadosCliente.cnpj || "-"}`);
+  linhas.push(`Telefone: ${dadosCliente.telefone || dadosCliente.contato || "-"}`);
+  linhas.push(`Endereço: ${dadosCliente.enderecoCompleto || dadosCliente.enderecoEntrega || "-"}`);
+  linhas.push("");
+  linhas.push("*ITENS CONSOLIDADOS*");
+
+  itens.forEach(item => {
+    linhas.push(`Ref. ${item.referencia}`);
+    linhas.push(`Descrição: ${item.descricao || "-"}`);
+    linhas.push(`Peso: ${item.peso || "-"}`);
+    linhas.push(`Numerações: ${item.numeracoesTexto || "-"}`);
+    linhas.push(`Quantidade total: ${item.quantidadeTotal}`);
+    linhas.push(`Valor un.: R$ ${formatarMoeda(item.valorUnitario)}`);
+    linhas.push(`Subtotal: R$ ${formatarMoeda(item.subtotal)}`);
+    if (item.observacao) linhas.push(`Obs.: ${item.observacao}`);
+    linhas.push("---");
+  });
+
+  linhas.push("");
+  linhas.push("*RESUMO*");
+  linhas.push(`Total de referências: ${itens.length}`);
+  linhas.push(`Total de peças: ${payload?.totalPecas || itens.reduce((soma, item) => soma + item.quantidadeTotal, 0)}`);
+  linhas.push(`Subtotal: R$ ${formatarMoeda(payload?.subtotalEstimado || 0)}`);
+  linhas.push(`Desconto: R$ ${formatarMoeda(payload?.valorDesconto || 0)}`);
+  linhas.push(`Total estimado: R$ ${formatarMoeda(payload?.totalEstimado || 0)}`);
+  linhas.push("");
+  linhas.push("CSV do pedido foi baixado automaticamente no dispositivo do cliente.");
+
+  let texto = linhas.join("\n");
+
+  if (texto.length > LIMITE_TEXTO_WHATSAPP_PEDIDO) {
+    texto = texto.slice(0, LIMITE_TEXTO_WHATSAPP_PEDIDO) +
+      "\n\n[Pedido grande: texto truncado para caber no WhatsApp. Usar o CSV baixado automaticamente.]";
+  }
+
+  return texto;
+}
+
+function abrirWhatsAppPedido(payload) {
+  const texto = montarTextoWhatsAppPedido(payload);
+  const numero = String(WHATSAPP_DESTINO_PEDIDO || "").replace(/\D/g, "");
+  const url = numero
+    ? `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`
+    : `https://wa.me/?text=${encodeURIComponent(texto)}`;
+
+  const janela = window.open(url, "_blank", "noopener,noreferrer");
+  return Boolean(janela);
+}
+
+function gerarSaidasLocaisDeSeguranca(payload) {
+  salvarBackupLocalPedido(payload, "GERADO_LOCALMENTE", "");
+
+  try {
+    baixarCsvPedido(payload);
+  } catch (erroCsv) {
+    salvarBackupLocalPedido(payload, "ERRO_DOWNLOAD_CSV", String(erroCsv));
+    console.error("Erro ao baixar CSV do pedido:", erroCsv);
+  }
+
+  if (ABRIR_WHATSAPP_CLIENTE_AUTOMATICAMENTE) {
+    try {
+      abrirWhatsAppPedido(payload);
+    } catch (erroWhatsApp) {
+      atualizarBackupLocalPedido(payload?.numeroPedido || "", "ERRO_WHATSAPP", String(erroWhatsApp));
+      console.error("Erro ao abrir WhatsApp do pedido:", erroWhatsApp);
+    }
+  }
+}
+
 function limparErroCampoCliente() {
   document.querySelectorAll(".campo-cliente.erro").forEach(campo => campo.classList.remove("erro"));
 }
@@ -2679,11 +3116,11 @@ async function enviarPedidoComDadosCliente() {
 
   if (botao) {
     botao.disabled = true;
-    botao.innerText = "Enviando pedido...";
+    botao.innerText = "Preparando segurança...";
   }
 
   if (status) {
-    status.innerText = "Preparando pedido...";
+    status.innerText = "Gerando backup local e planilha do pedido...";
     status.className = "status-envio-pedido carregando";
   }
 
@@ -2695,8 +3132,6 @@ async function enviarPedidoComDadosCliente() {
       observacao: textoObservacaoItem(item)
     }));
 
-  // Payload limpo: sem linhas técnicas, sem dados duplicados em excesso.
-  // O Apps Script novo coloca os dados uma única vez no topo da planilha.
   const payload = {
     origem: "catalogo-online",
     numeroPedido,
@@ -2714,8 +3149,18 @@ async function enviarPedidoComDadosCliente() {
     pedido: montarPedidoParaEnvio()
   };
 
+  // Camada de segurança independente do servidor:
+  // 1) salva no navegador, 2) baixa CSV local.
+  // Não abre WhatsApp no aparelho do cliente por padrão.
+  gerarSaidasLocaisDeSeguranca(payload);
+
   if (status) {
-    status.innerText = "Enviando e criando planilha...";
+    status.innerText = "Backup criado. Encaminhando pedido para processamento...";
+    status.className = "status-envio-pedido carregando";
+  }
+
+  if (botao) {
+    botao.innerText = "Enviando ao sistema...";
   }
 
   try {
@@ -2728,8 +3173,14 @@ async function enviarPedidoComDadosCliente() {
       body: JSON.stringify(payload)
     });
 
+    atualizarBackupLocalPedido(
+      numeroPedido,
+      "ENCAMINHADO_PARA_PROCESSAMENTO",
+      "O navegador usa no-cors com Apps Script; a resposta final do servidor não é legível pelo front."
+    );
+
     if (status) {
-      status.innerText = "Pedido enviado com sucesso!";
+      status.innerText = "Pedido finalizado. A planilha foi baixada e o pedido foi encaminhado para análise.";
       status.className = "status-envio-pedido sucesso";
     }
 
@@ -2747,10 +3198,12 @@ async function enviarPedidoComDadosCliente() {
     }
 
   } catch (erro) {
-    console.error("Erro ao enviar pedido:", erro);
+    console.error("Erro ao encaminhar pedido:", erro);
+
+    atualizarBackupLocalPedido(numeroPedido, "ERRO_ENVIO_SERVIDOR", String(erro));
 
     if (status) {
-      status.innerText = "Não foi possível enviar agora. Confira sua conexão e tente novamente.";
+      status.innerText = "Pedido salvo no dispositivo e CSV baixado. Não consegui encaminhar ao sistema agora; tente novamente antes de fechar esta tela.";
       status.className = "status-envio-pedido erro";
     }
 
@@ -2773,3 +3226,227 @@ window.addEventListener("click", (evento) => {
     if (botaoMenu) botaoMenu.setAttribute("aria-expanded", "false");
   }
 });
+
+/* ======================================================================
+   HBJOIAS - V6: trava de rolagem mobile para carrinho, popup e modais.
+   Objetivo: impedir que o fundo da página mexa ao tocar/arrastar em áreas
+   vazias entre itens no carrinho ou na seleção de numeração.
+   ====================================================================== */
+(function hbJoiasTravaRolagemMobileV6() {
+  let yTravadoV6 = 0;
+  const classesBloqueioV6 = ["carrinho-aberto", "popup-aberto", "modal-aberto", "hb-overlay-mobile-lock"];
+
+  function mobileV6() {
+    return window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function existeOverlayAbertoV6() {
+    const popup = document.getElementById("popup");
+    const carrinho = document.getElementById("area-carrinho");
+    const modalResumo = document.getElementById("modal-resumo");
+    const modalDados = document.getElementById("modal-dados-cliente");
+
+    return Boolean(
+      (popup && !popup.classList.contains("escondido")) ||
+      (carrinho && !carrinho.classList.contains("carrinho-fechado")) ||
+      (modalResumo && !modalResumo.classList.contains("escondido")) ||
+      (modalDados && !modalDados.classList.contains("escondido"))
+    );
+  }
+
+  function travarV6() {
+    if (!mobileV6()) return;
+    if (document.documentElement.classList.contains("hb-overlay-mobile-lock")) return;
+
+    yTravadoV6 = window.scrollY || document.documentElement.scrollTop || 0;
+    document.documentElement.classList.add("hb-overlay-mobile-lock");
+    document.body.classList.add("hb-overlay-mobile-lock");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    // Não sobrescreve o controle antigo do carrinho se ele já estiver fixando o body.
+    if (!document.body.classList.contains("carrinho-mobile-bloqueado")) {
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${yTravadoV6}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    }
+  }
+
+  function liberarV6() {
+    if (existeOverlayAbertoV6()) return;
+
+    const estavaTravado = document.documentElement.classList.contains("hb-overlay-mobile-lock");
+    document.documentElement.classList.remove("hb-overlay-mobile-lock");
+    document.body.classList.remove("hb-overlay-mobile-lock", "popup-aberto", "modal-aberto");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
+
+    if (estavaTravado && !document.body.classList.contains("carrinho-mobile-bloqueado")) {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, yTravadoV6 || 0);
+    }
+  }
+
+  function alvoComRolagemPermitidaV6(alvo) {
+    if (!alvo || !alvo.closest) return null;
+    return alvo.closest(
+      ".lista-carrinho-scroll, #numeracoes, .popup-selecao-numeracoes, .modal-resumo-conteudo, .modal-dados-cliente-conteudo, .lista-carrinho-scroll *"
+    );
+  }
+
+  function podeRolarInternamenteV6(container, deltaY) {
+    if (!container) return false;
+    const el = container.closest && container.closest(".lista-carrinho-scroll, #numeracoes, .popup-selecao-numeracoes, .modal-resumo-conteudo, .modal-dados-cliente-conteudo") || container;
+    if (!el || el.scrollHeight <= el.clientHeight + 1) return false;
+
+    if (deltaY < 0 && el.scrollTop <= 0) return false;
+    if (deltaY > 0 && el.scrollTop + el.clientHeight >= el.scrollHeight - 1) return false;
+    return true;
+  }
+
+  let toqueYV6 = 0;
+  document.addEventListener("touchstart", function (event) {
+    if (!mobileV6()) return;
+    if (!existeOverlayAbertoV6()) return;
+    toqueYV6 = event.touches && event.touches[0] ? event.touches[0].clientY : 0;
+  }, { passive: true });
+
+  document.addEventListener("touchmove", function (event) {
+    if (!mobileV6()) return;
+    if (!existeOverlayAbertoV6()) return;
+
+    const toqueAtual = event.touches && event.touches[0] ? event.touches[0].clientY : toqueYV6;
+    const deltaY = toqueYV6 - toqueAtual;
+    const alvoScroll = alvoComRolagemPermitidaV6(event.target);
+
+    if (alvoScroll && podeRolarInternamenteV6(alvoScroll, deltaY)) {
+      return;
+    }
+
+    event.preventDefault();
+  }, { passive: false });
+
+  function envolverFuncaoV6(nome, antes, depois) {
+    const original = window[nome];
+    if (typeof original !== "function" || original.__hbV6Wrapped) return;
+
+    const novaFuncao = function () {
+      if (typeof antes === "function") antes.apply(this, arguments);
+      const retorno = original.apply(this, arguments);
+      if (typeof depois === "function") depois.apply(this, arguments);
+      return retorno;
+    };
+
+    novaFuncao.__hbV6Wrapped = true;
+    window[nome] = novaFuncao;
+  }
+
+  envolverFuncaoV6("abrirPopup", null, function () {
+    document.body.classList.add("popup-aberto");
+    travarV6();
+  });
+
+  envolverFuncaoV6("fecharPopup", null, function () {
+    document.body.classList.remove("popup-aberto");
+    setTimeout(liberarV6, 20);
+  });
+
+  envolverFuncaoV6("abrirResumoPedido", null, function () {
+    document.body.classList.add("modal-aberto");
+    travarV6();
+  });
+
+  envolverFuncaoV6("fecharResumoPedido", null, function () {
+    const modalDados = document.getElementById("modal-dados-cliente");
+    if (!modalDados || modalDados.classList.contains("escondido")) {
+      document.body.classList.remove("modal-aberto");
+    }
+    setTimeout(liberarV6, 20);
+  });
+
+  envolverFuncaoV6("abrirDadosClientePedido", null, function () {
+    document.body.classList.add("modal-aberto");
+    travarV6();
+  });
+
+  envolverFuncaoV6("fecharDadosClientePedido", null, function () {
+    document.body.classList.remove("modal-aberto");
+    setTimeout(liberarV6, 20);
+  });
+
+  // Complementa o carrinho já existente sem brigar com a trava antiga.
+  envolverFuncaoV6("alternarCarrinho", null, function () {
+    const carrinho = document.getElementById("area-carrinho");
+    const aberto = carrinho && !carrinho.classList.contains("carrinho-fechado");
+    if (aberto) {
+      travarV6();
+    } else {
+      setTimeout(liberarV6, 20);
+    }
+  });
+
+  envolverFuncaoV6("fecharCarrinho", null, function () {
+    setTimeout(liberarV6, 20);
+  });
+
+  window.addEventListener("resize", function () {
+    if (!mobileV6()) liberarV6();
+  });
+})();
+
+
+/* =======================================================================
+   HBJOIAS V18 — Cupom mobile inline, sem prompt, sem popup nativo
+   ======================================================================= */
+function sincronizarEstadoCupomMobile() {
+  const botao = document.getElementById("btn-cupom-rodape-mobile");
+  if (botao) botao.remove();
+
+  codigoComercialPainelAberto = true;
+  document.body.classList.add("codigo-comercial-mobile-aberto");
+
+  const rodapeCarrinho = document.querySelector("#area-carrinho .carrinho-rodape");
+  const botaoFinalizar = rodapeCarrinho ? rodapeCarrinho.querySelector(".btn-finalizar-carrinho") : null;
+  let slot = document.getElementById("codigo-comercial-rodape-mobile");
+
+  if (rodapeCarrinho) {
+    if (!slot) {
+      slot = document.createElement("div");
+      slot.id = "codigo-comercial-rodape-mobile";
+      slot.className = "codigo-comercial-rodape-mobile";
+    }
+
+    slot.setAttribute("aria-hidden", "false");
+
+    if (slot.parentElement !== rodapeCarrinho) {
+      rodapeCarrinho.insertBefore(slot, botaoFinalizar || rodapeCarrinho.firstChild);
+    } else if (botaoFinalizar && slot.nextElementSibling !== botaoFinalizar) {
+      rodapeCarrinho.insertBefore(slot, botaoFinalizar);
+    }
+  }
+}
+
+(function hbCupomInlineFinalV18() {
+  const renderOriginal = renderizarCarrinho;
+  renderizarCarrinho = function () {
+    const retorno = renderOriginal.apply(this, arguments);
+    sincronizarEstadoCupomMobile();
+    return retorno;
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    sincronizarEstadoCupomMobile();
+    setTimeout(sincronizarEstadoCupomMobile, 120);
+  });
+
+  window.addEventListener("resize", sincronizarEstadoCupomMobile);
+  window.addEventListener("orientationchange", function () {
+    setTimeout(sincronizarEstadoCupomMobile, 120);
+  });
+})();
