@@ -8,10 +8,10 @@ let codigoComercialAplicado = carregarCodigoComercialSalvo();
 let statusValidacaoCodigo = "";
 let codigoComercialPainelAberto = true;
 
-// Código provisório fixo para liberar o pedido mínimo especial.
-// Futuramente essa validação será trocada pela integração Python + Google Sheets + Apps Script.
-const CODIGO_COMERCIAL_PROVISORIO = "CLIENTEESTRELA";
-const VALOR_MINIMO_CODIGO_PROVISORIO = 10000;
+// Código comercial validado via Apps Script + aba CUPONS.
+// Valores padrão usados apenas como segurança quando a resposta não trouxer algum campo.
+const VALOR_MINIMO_CODIGO_PADRAO = 10000;
+const DESCONTO_CODIGO_PADRAO = 5;
 
 let paginaAtualProdutos = 1;
 const PRODUTOS_POR_PAGINA = 24;
@@ -1149,22 +1149,21 @@ function carregarCodigoComercialSalvo() {
     const dados = JSON.parse(salvo);
     if (!dados || !dados.codigo || !dados.valido) return null;
 
-    // Durante a fase provisória, só aceitamos o código fixo CLIENTEESTRELA.
-    // Isso evita que códigos antigos, como OFFICIAL20/RUBI20, continuem salvos no navegador.
-    const codigoSalvo = normalizarCodigoComercial(dados.codigo);
-    if (codigoSalvo !== CODIGO_COMERCIAL_PROVISORIO) {
-      localStorage.removeItem("codigoComercialAplicado");
-      return null;
-    }
-
     return {
-      codigo: CODIGO_COMERCIAL_PROVISORIO,
+      codigo: normalizarCodigoComercial(dados.codigo),
       valido: true,
-      tipo: "MINIMO_ESPECIAL",
-      loja: "Cliente Estrela",
-      valorMinimo: VALOR_MINIMO_CODIGO_PROVISORIO
+      tipo: dados.tipo || "PRIMEIRA_COMPRA",
+      loja: dados.loja || dados.cliente || "",
+      cliente: dados.cliente || dados.loja || "",
+      valorMinimo: Number(dados.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO),
+      descontoPercentual: Number(dados.descontoPercentual ?? DESCONTO_CODIGO_PADRAO),
+      validade: dados.validade || "",
+      fabrica: dados.fabrica || "TODAS",
+      validadoEm: dados.validadoEm || "",
+      origemValidacao: dados.origemValidacao || "localStorage"
     };
   } catch (erro) {
+    localStorage.removeItem("codigoComercialAplicado");
     return null;
   }
 }
@@ -1188,8 +1187,14 @@ function codigoComercialParaPayload() {
   return {
     codigo: codigoComercialAplicado.codigo,
     tipo: codigoComercialAplicado.tipo || "PRIMEIRA_COMPRA",
-    loja: codigoComercialAplicado.loja || "",
-    valorMinimo: Number(codigoComercialAplicado.valorMinimo || 10000),
+    loja: codigoComercialAplicado.loja || codigoComercialAplicado.cliente || "",
+    cliente: codigoComercialAplicado.cliente || codigoComercialAplicado.loja || "",
+    valorMinimo: Number(codigoComercialAplicado.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO),
+    descontoPercentual: Number(codigoComercialAplicado.descontoPercentual || 0),
+    validade: codigoComercialAplicado.validade || "",
+    fabrica: codigoComercialAplicado.fabrica || "TODAS",
+    validadoEm: codigoComercialAplicado.validadoEm || "",
+    origemValidacao: codigoComercialAplicado.origemValidacao || "apps_script",
     status: "VALIDADO"
   };
 }
@@ -1236,10 +1241,12 @@ function jsonpAppsScript(params) {
 function renderizarBlocoCodigoComercial() {
   const codigo = codigoComercialAplicado?.codigo || "";
   const validado = Boolean(codigoComercialAplicado?.valido);
-  const valorMinimo = Number(codigoComercialAplicado?.valorMinimo || 10000);
+  const valorMinimo = Number(codigoComercialAplicado?.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO);
+  const desconto = Number(codigoComercialAplicado?.descontoPercentual || 0);
   const aberto = Boolean(codigoComercialPainelAberto || validado || statusValidacaoCodigo);
+  const complementoDesconto = desconto > 0 ? ` • ${desconto}% off` : "";
   const textoStatus = validado
-    ? `✓ ${codigo} • Mín. R$ ${formatarMoeda(valorMinimo)}`
+    ? `✓ ${codigo} • Mín. R$ ${formatarMoeda(valorMinimo)}${complementoDesconto}`
     : (statusValidacaoCodigo || "");
 
   return `
@@ -1274,7 +1281,27 @@ function alternarCodigoComercialPainel() {
   }
 }
 
-function aplicarCodigoComercialValor(codigoInformado) {
+function montarCodigoComercialAplicadoDaResposta(codigo, resposta) {
+  return {
+    codigo: normalizarCodigoComercial(resposta.codigo || codigo),
+    valido: true,
+    tipo: resposta.tipo || "PRIMEIRA_COMPRA",
+    loja: resposta.loja || resposta.cliente || "",
+    cliente: resposta.cliente || resposta.loja || "",
+    valorMinimo: Number(resposta.valorMinimo || resposta.valor_minimo || VALOR_MINIMO_CODIGO_PADRAO),
+    descontoPercentual: Number(resposta.descontoPercentual ?? resposta.desconto_percentual ?? DESCONTO_CODIGO_PADRAO),
+    validade: resposta.validade || "",
+    fabrica: resposta.fabrica || "TODAS",
+    validadoEm: new Date().toISOString(),
+    origemValidacao: "apps_script"
+  };
+}
+
+async function aplicarCodigoComercialValor(codigoInformado) {
+  return aplicarCodigoComercialPorCodigo(codigoInformado);
+}
+
+async function aplicarCodigoComercialPorCodigo(codigoInformado) {
   const codigo = normalizarCodigoComercial(codigoInformado);
 
   if (!codigo) {
@@ -1287,35 +1314,53 @@ function aplicarCodigoComercialValor(codigoInformado) {
     return false;
   }
 
-  if (codigo !== CODIGO_COMERCIAL_PROVISORIO) {
-    codigoComercialAplicado = null;
-    statusValidacaoCodigo = "Código inválido.";
+  codigoComercialAplicado = { codigo, valido: false };
+  statusValidacaoCodigo = "Validando código...";
+  codigoComercialPainelAberto = true;
+  salvarCodigoComercial();
+  sincronizarEstadoCupomMobile();
+  renderizarCarrinho();
+
+  try {
+    const resposta = await jsonpAppsScript({
+      acao: "validar_codigo",
+      codigo,
+      fabrica: fabricaDoCarrinho() || fabricaAtual || "",
+      subtotal: valorSubtotalPedido ? valorSubtotalPedido() : 0,
+      origem: "catalogo-online"
+    });
+
+    if (!resposta || !resposta.valido) {
+      codigoComercialAplicado = { codigo, valido: false };
+      statusValidacaoCodigo = resposta?.mensagem || "Código inválido ou indisponível.";
+      codigoComercialPainelAberto = true;
+      salvarCodigoComercial();
+      sincronizarEstadoCupomMobile();
+      renderizarCarrinho();
+      return false;
+    }
+
+    codigoComercialAplicado = montarCodigoComercialAplicadoDaResposta(codigo, resposta);
+    statusValidacaoCodigo = "Código aplicado.";
+    codigoComercialPainelAberto = false;
+    salvarCodigoComercial();
+    sincronizarEstadoCupomMobile();
+    renderizarCarrinho();
+    return true;
+  } catch (erro) {
+    codigoComercialAplicado = { codigo, valido: false };
+    statusValidacaoCodigo = "Não foi possível validar o código agora. Tente novamente.";
     codigoComercialPainelAberto = true;
     salvarCodigoComercial();
     sincronizarEstadoCupomMobile();
     renderizarCarrinho();
     return false;
   }
-
-  codigoComercialAplicado = {
-    codigo: CODIGO_COMERCIAL_PROVISORIO,
-    valido: true,
-    tipo: "MINIMO_ESPECIAL",
-    loja: "Cliente Estrela",
-    valorMinimo: VALOR_MINIMO_CODIGO_PROVISORIO
-  };
-
-  statusValidacaoCodigo = "Código aplicado.";
-  codigoComercialPainelAberto = false;
-  salvarCodigoComercial();
-  sincronizarEstadoCupomMobile();
-  renderizarCarrinho();
-  return true;
 }
 
 async function aplicarCodigoComercial() {
   const input = document.getElementById("codigo-comercial-input");
-  aplicarCodigoComercialValor(input ? input.value : "");
+  await aplicarCodigoComercialPorCodigo(input ? input.value : "");
 }
 
 function removerCodigoComercial() {
@@ -1380,6 +1425,13 @@ function mensagemMeta(valorAtual, fabrica) {
     return `Faltam R$ ${formatarMoeda(minimo - valorAtual)} para o mínimo`;
   }
 
+  if (codigoComercialAplicado?.valido) {
+    const descontoCodigo = Number(codigoComercialAplicado.descontoPercentual || 0);
+    return descontoCodigo > 0
+      ? `${descontoCodigo}% de desconto aplicado pelo código`
+      : `Mínimo especial liberado pelo código`;
+  }
+
   if (valorAtual < metaDesconto) {
     return `Faltam R$ ${formatarMoeda(metaDesconto - valorAtual)} para ${percentual}% de desconto`;
   }
@@ -1388,6 +1440,13 @@ function mensagemMeta(valorAtual, fabrica) {
 }
 
 function percentualDescontoPedido(valorAtual, fabrica) {
+  if (codigoComercialAplicado?.valido) {
+    const descontoCodigo = Number(codigoComercialAplicado.descontoPercentual || 0);
+    if (Number.isFinite(descontoCodigo) && descontoCodigo > 0) {
+      return descontoCodigo;
+    }
+  }
+
   if (!fabrica) return 0;
   return valorAtual >= metaDescontoFabrica(fabrica) ? percentualDescontoFabrica(fabrica) : 0;
 }
@@ -1450,7 +1509,7 @@ function renderizarCarrinho() {
           ${percentualDescontoPedido(valorAtual, fabCarrinho) > 0 ? `<p><strong>Desconto (${percentualDescontoPedido(valorAtual, fabCarrinho)}%):</strong> - R$ ${formatarMoeda(valorDescontoPedido(valorAtual, fabCarrinho))}</p>` : ""}
           <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</p>
         </div>
-        ${codigoComercialAplicado?.valido ? `<p class="mensagem-codigo-aplicado">✓ ${codigoComercialAplicado.codigo} • Mín. R$ ${formatarMoeda(valorMinimoFabrica(fabCarrinho))}</p>` : ""}
+        ${codigoComercialAplicado?.valido ? `<p class="mensagem-codigo-aplicado">✓ ${codigoComercialAplicado.codigo} • Mín. R$ ${formatarMoeda(valorMinimoFabrica(fabCarrinho))}${Number(codigoComercialAplicado.descontoPercentual || 0) > 0 ? ` • ${codigoComercialAplicado.descontoPercentual}% off` : ""}</p>` : ""}
         <p class="mensagem-meta">${mensagemMeta(valorAtual, fabCarrinho)}</p>
         <div class="resumo-metas-desktop">
           ${criarBarraMeta("mín", valorAtual, valorMinimoFabrica(fabCarrinho))}
@@ -2312,7 +2371,7 @@ function abrirResumoPedido() {
   const totalFinal = valorTotalComDesconto(totalPedido, fabricaDoCarrinho());
 
   totalEl.innerText = percentualDesconto > 0
-    ? `R$ ${formatarMoeda(totalFinal)} (5% aplicado)`
+    ? `R$ ${formatarMoeda(totalFinal)} (${percentualDesconto}% aplicado)`
     : `R$ ${formatarMoeda(totalFinal)}`;
   modal.classList.remove("escondido");
   modal.setAttribute("aria-hidden", "false");
@@ -2622,6 +2681,15 @@ function montarCsvPedido(payload) {
   linhas.push(linhaCsv(["Data", new Date(payload?.dataPedido || Date.now()).toLocaleString("pt-BR")]));
   linhas.push(linhaCsv(["Fábrica", payload?.fabrica || ""]));
   linhas.push(linhaCsv(["Origem", payload?.origem || "catalogo-online"]));
+
+  if (payload?.codigoComercial) {
+    linhas.push(linhaCsv(["Código comercial", payload.codigoComercial.codigo || ""]));
+    linhas.push(linhaCsv(["Tipo do código", payload.codigoComercial.tipo || ""]));
+    linhas.push(linhaCsv(["Cliente do código", payload.codigoComercial.cliente || payload.codigoComercial.loja || ""]));
+    linhas.push(linhaCsv(["Mínimo liberado", moedaCsv(payload.codigoComercial.valorMinimo || 0)]));
+    linhas.push(linhaCsv(["Desconto do código", String(payload.codigoComercial.descontoPercentual || 0) + "%"]));
+  }
+
   linhas.push(linhaCsv([]));
 
   linhas.push(linhaCsv(["DADOS DO CLIENTE"]));
