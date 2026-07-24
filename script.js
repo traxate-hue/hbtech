@@ -6,7 +6,8 @@ let produtoAtual = null;
 let carrinho = [];
 let codigoComercialAplicado = carregarCodigoComercialSalvo();
 let statusValidacaoCodigo = "";
-let codigoComercialPainelAberto = true;
+let codigoComercialPainelAberto = false;
+let sequenciaValidacaoCodigo = 0;
 
 // Código comercial validado via Apps Script + aba CUPONS.
 // Valores padrão usados apenas como segurança quando a resposta não trouxer algum campo.
@@ -23,7 +24,7 @@ const ORDEM_INICIAL_TENDENZE = [
 ];
 const PRIORIDADE_TENDENZE = new Map(ORDEM_INICIAL_TENDENZE.map((ref, index) => [ref, index]));
 
-const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22, 24, 26];
+const NUMERACOES_ANEIS = [12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34];
 
 // Ajuste estes valores quando o preço por grama mudar.
 const COEFICIENTE_GRAMA = 18.90;
@@ -817,11 +818,11 @@ function abrirPopup(referencia) {
           </div>
 
           <div class="controle-qtd" data-aro="${numero}">
-            <button type="button" onclick="alterarQtdAro(${numero}, -5)">-5</button>
-            <button type="button" onclick="alterarQtdAro(${numero}, -1)">-1</button>
+            <button class="ajuste-rapido" type="button" aria-label="Diminuir 5 peças do aro ${numero}" onclick="alterarQtdAro(${numero}, -5)">−5</button>
+            <button class="ajuste-unitario" type="button" aria-label="Diminuir 1 peça do aro ${numero}" onclick="alterarQtdAro(${numero}, -1)">−1</button>
             <input type="number" id="aro-${numero}" min="0" value="0" inputmode="numeric" aria-label="Quantidade do aro ${numero}" oninput="atualizarResumoPopup()">
-            <button type="button" onclick="alterarQtdAro(${numero}, 1)">+1</button>
-            <button type="button" onclick="alterarQtdAro(${numero}, 5)">+5</button>
+            <button class="ajuste-unitario" type="button" aria-label="Aumentar 1 peça do aro ${numero}" onclick="alterarQtdAro(${numero}, 1)">+1</button>
+            <button class="ajuste-rapido" type="button" aria-label="Aumentar 5 peças do aro ${numero}" onclick="alterarQtdAro(${numero}, 5)">+5</button>
           </div>
         </div>
       `;
@@ -848,7 +849,9 @@ function abrirPopup(referencia) {
   document.getElementById("numeracoes").innerHTML = html;
   atualizarResumoPopup();
   ajustarPopupMobileNumeracoes();
+  aplicarLayoutPopupNumeracoesForcado();
   document.getElementById("popup").classList.remove("escondido");
+  requestAnimationFrame(aplicarLayoutPopupNumeracoesForcado);
 }
 
 function ajustarPopupMobileNumeracoes() {
@@ -856,24 +859,587 @@ function ajustarPopupMobileNumeracoes() {
   const grid = popup?.querySelector(".popup-produto-grid");
   const visual = popup?.querySelector(".popup-produto-visual");
   const selecao = popup?.querySelector(".popup-selecao-numeracoes");
-  const numeracoes = document.getElementById("numeracoes");
 
-  if (!grid || !visual || !selecao || !numeracoes) return;
+  if (!grid || !visual || !selecao) return;
 
   const isMobile = window.innerWidth <= 768;
+  visual.classList.toggle("produto-info-inline-mobile", isMobile);
 
-  if (isMobile) {
-    visual.classList.add("produto-info-inline-mobile");
-    if (visual.parentElement !== selecao) {
-      selecao.insertBefore(visual, numeracoes);
-    }
-    return;
-  }
-
-  visual.classList.remove("produto-info-inline-mobile");
+  // Mantém uma única estrutura de DOM. Desktop e mobile são reorganizados
+  // somente pelo CSS, evitando cortes da referência e sumiço da observação.
   if (visual.parentElement !== grid) {
     grid.insertBefore(visual, selecao);
   }
+}
+
+function aplicarEstilosImportantesPopup(elemento, estilos) {
+  if (!elemento) return;
+
+  Object.entries(estilos).forEach(([propriedade, valor]) => {
+    elemento.style.setProperty(propriedade, String(valor), "important");
+  });
+}
+
+function garantirCssPseudoPopupNumeracoes() {
+  if (document.getElementById("hb-popup-runtime-pseudo-v4")) return;
+
+  const estilo = document.createElement("style");
+  estilo.id = "hb-popup-runtime-pseudo-v4";
+  estilo.textContent = `
+    @media (min-width: 769px) {
+      #popup .popup-conteudo.popup-produto-layout::before {
+        display: none !important;
+        content: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #popup .popup-conteudo.popup-produto-layout::before {
+        position: absolute !important;
+        z-index: 7 !important;
+        top: 12px !important;
+        left: 50% !important;
+        display: block !important;
+        width: 54px !important;
+        height: 5px !important;
+        content: "" !important;
+        border-radius: 999px !important;
+        background: #c9e1f1 !important;
+        transform: translateX(-50%) !important;
+      }
+    }
+  `;
+  document.head.appendChild(estilo);
+}
+
+function aplicarLayoutPopupNumeracoesForcado() {
+  const popup = document.getElementById("popup");
+  if (!popup) return;
+
+  garantirCssPseudoPopupNumeracoes();
+
+  const mobile = window.innerWidth <= 768;
+  const conteudo = popup.querySelector(".popup-conteudo.popup-produto-layout");
+  const grid = popup.querySelector(".popup-produto-grid");
+  const visual = popup.querySelector(".popup-produto-visual");
+  const imagemBox = popup.querySelector(".popup-imagem-principal");
+  const imagem = popup.querySelector(".popup-imagem-principal img");
+  const info = popup.querySelector(".popup-info-produto");
+  const infoLabel = popup.querySelector(".popup-info-produto > .popup-label");
+  const referencia = document.getElementById("popup-referencia");
+  const descricao = document.getElementById("popup-descricao");
+  const meta = popup.querySelector(".popup-meta-linha");
+  const metaItens = popup.querySelectorAll(".popup-meta-linha span");
+  const selecao = popup.querySelector(".popup-selecao-numeracoes");
+  const selecaoLabel = popup.querySelector(".popup-selecao-numeracoes > .popup-label");
+  const titulo = popup.querySelector(".popup-selecao-numeracoes > h3");
+  const ajuda = popup.querySelector(".popup-ajuda");
+  const numeracoes = document.getElementById("numeracoes");
+  const observacaoBox = popup.querySelector(".popup-observacao-box");
+  const observacaoLabel = popup.querySelector(".popup-observacao-box label");
+  const observacao = document.getElementById("popup-observacao");
+  const resumoInterno = popup.querySelector(".popup-resumo-selecao");
+  const rodape = popup.querySelector(".popup-rodape-fixo");
+  const rodapeInfo = popup.querySelector(".popup-rodape-info");
+  const rodapeLabel = popup.querySelector(".popup-rodape-info span");
+  const rodapeTotal = document.getElementById("popup-rodape-total");
+  const confirmar = document.getElementById("botao-confirmar-popup");
+  const fechar = popup.querySelector(".fechar-popup");
+
+  aplicarEstilosImportantesPopup(popup, {
+    "box-sizing": "border-box",
+    "align-items": "center",
+    "justify-content": "center",
+    "padding": mobile ? "8px 6px" : "16px 20px"
+  });
+
+  aplicarEstilosImportantesPopup(conteudo, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "display": "flex",
+    "flex-direction": "column",
+    "width": mobile ? "calc(100vw - 12px)" : "min(880px, calc(100vw - 40px))",
+    "height": mobile ? "calc(100dvh - 16px)" : "min(720px, calc(100dvh - 32px))",
+    "max-width": mobile ? "calc(100vw - 12px)" : "880px",
+    "max-height": mobile ? "calc(100dvh - 16px)" : "calc(100dvh - 32px)",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "hidden",
+    "border-radius": mobile ? "21px" : "20px",
+    "background": "#fff",
+    "transform": "none"
+  });
+
+  aplicarEstilosImportantesPopup(grid, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "display": "grid",
+    "grid-template-columns": "minmax(0, 1fr)",
+    "grid-template-rows": "auto minmax(0, 1fr)",
+    "flex": "1 1 auto",
+    "width": "100%",
+    "min-width": "0",
+    "min-height": "0",
+    "height": "auto",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "hidden",
+    "transform": "none"
+  });
+
+  aplicarEstilosImportantesPopup(visual, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "order": "0",
+    "display": "grid",
+    "grid-template-columns": mobile ? "54px minmax(0, 1fr)" : "78px minmax(0, 1fr)",
+    "align-items": "center",
+    "gap": mobile ? "9px" : "14px",
+    "width": "100%",
+    "min-width": "0",
+    "min-height": "0",
+    "height": "auto",
+    "margin": "0",
+    "padding": mobile ? "40px 44px 8px 12px" : "18px 48px 12px 22px",
+    "overflow": "visible",
+    "border": "0",
+    "border-bottom": "1px solid rgba(0, 32, 99, 0.12)",
+    "border-radius": "0",
+    "background": "#fff",
+    "box-shadow": "none",
+    "transform": "none"
+  });
+
+  aplicarEstilosImportantesPopup(imagemBox, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "display": "grid",
+    "place-items": "center",
+    "width": mobile ? "54px" : "78px",
+    "min-width": mobile ? "54px" : "78px",
+    "height": mobile ? "54px" : "78px",
+    "min-height": mobile ? "54px" : "78px",
+    "aspect-ratio": "auto",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "hidden",
+    "border": "1px solid rgba(0, 32, 99, 0.10)",
+    "border-radius": mobile ? "8px" : "11px",
+    "background": "#f7f8fb",
+    "transform": "none"
+  });
+
+  aplicarEstilosImportantesPopup(imagem, {
+    "display": "block",
+    "width": "100%",
+    "height": "100%",
+    "max-width": "none",
+    "max-height": "none",
+    "margin": "0",
+    "object-fit": "contain",
+    "opacity": "1",
+    "visibility": "visible"
+  });
+
+  aplicarEstilosImportantesPopup(info, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "display": "block",
+    "width": "100%",
+    "min-width": "0",
+    "max-width": "none",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "visible",
+    "transform": "none"
+  });
+  aplicarEstilosImportantesPopup(infoLabel, { "display": "none" });
+
+  aplicarEstilosImportantesPopup(referencia, {
+    "display": "block",
+    "width": "100%",
+    "max-width": "none",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "visible",
+    "color": "#002063",
+    "font-size": mobile ? "0.92rem" : "1.05rem",
+    "line-height": "1.15",
+    "white-space": "normal",
+    "text-overflow": "clip",
+    "overflow-wrap": "anywhere"
+  });
+
+  aplicarEstilosImportantesPopup(descricao, {
+    "display": mobile ? "-webkit-box" : "block",
+    "width": "100%",
+    "max-width": "none",
+    "margin": mobile ? "2px 0 4px" : "4px 0 7px",
+    "padding": "0",
+    "overflow": mobile ? "hidden" : "visible",
+    "color": "#465169",
+    "font-size": mobile ? "0.67rem" : "0.78rem",
+    "line-height": "1.2",
+    "white-space": "normal",
+    "text-overflow": "clip",
+    "-webkit-box-orient": "vertical",
+    "-webkit-line-clamp": mobile ? "1" : "unset"
+  });
+
+  aplicarEstilosImportantesPopup(meta, {
+    "display": "flex",
+    "flex-wrap": "wrap",
+    "align-items": "center",
+    "gap": mobile ? "2px 8px" : "5px 12px",
+    "width": "100%",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "visible"
+  });
+  metaItens.forEach(item => aplicarEstilosImportantesPopup(item, {
+    "display": "inline-block",
+    "width": "auto",
+    "max-width": "100%",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "visible",
+    "color": "#39445c",
+    "font-size": mobile ? "0.64rem" : "0.75rem",
+    "line-height": "1.15",
+    "white-space": "normal",
+    "text-overflow": "clip"
+  }));
+
+  aplicarEstilosImportantesPopup(selecao, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "order": "1",
+    "display": "flex",
+    "flex-direction": "column",
+    "width": "100%",
+    "min-width": "0",
+    "min-height": "0",
+    "height": "auto",
+    "margin": "0",
+    "padding": mobile ? "8px 9px 7px" : "12px 18px 10px",
+    "overflow": "hidden",
+    "border": "0",
+    "background": "#fff",
+    "transform": "none"
+  });
+
+  aplicarEstilosImportantesPopup(selecaoLabel, {
+    "order": "0",
+    "display": mobile ? "none" : "block",
+    "margin": "0 0 2px",
+    "padding": "0",
+    "font-size": "0.64rem",
+    "line-height": "1.1"
+  });
+
+  aplicarEstilosImportantesPopup(titulo, {
+    "order": "1",
+    "display": "block",
+    "width": "100%",
+    "margin": "0",
+    "padding": "0",
+    "color": "#002063",
+    "font-size": mobile ? "0.94rem" : "1.08rem",
+    "line-height": "1.15",
+    "white-space": mobile ? "nowrap" : "normal"
+  });
+
+  aplicarEstilosImportantesPopup(ajuda, {
+    "order": "2",
+    "display": "block",
+    "width": "100%",
+    "margin": mobile ? "3px 0 6px" : "4px 0 8px",
+    "padding": "0",
+    "color": "#536078",
+    "font-size": mobile ? "0.64rem" : "0.73rem",
+    "line-height": "1.2"
+  });
+
+  aplicarEstilosImportantesPopup(numeracoes, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "order": "3",
+    "display": "grid",
+    "grid-template-columns": "repeat(2, minmax(0, 1fr))",
+    "grid-auto-rows": mobile ? "minmax(0, auto)" : "minmax(42px, auto)",
+    "grid-auto-flow": "row",
+    "align-content": "start",
+    "gap": mobile ? "5px" : "7px",
+    "flex": "1 1 auto",
+    "width": "100%",
+    "min-width": "0",
+    "min-height": "0",
+    "height": "auto",
+    "margin": "0",
+    "padding": mobile ? "1px 2px 1px 1px" : "1px 5px 1px 1px",
+    "overflow-x": "hidden",
+    "overflow-y": "auto",
+    "overscroll-behavior": "contain",
+    "border": "0",
+    "background": "transparent",
+    "transform": "none"
+  });
+
+  popup.querySelectorAll(".numero-item").forEach(item => {
+    aplicarEstilosImportantesPopup(item, {
+      "box-sizing": "border-box",
+      "position": "relative",
+      "inset": "auto",
+      "display": "grid",
+      "grid-template-columns": mobile ? "28px minmax(0, 1fr)" : "48px minmax(0, 1fr)",
+      "align-items": "center",
+      "gap": mobile ? "3px" : "7px",
+      "width": "100%",
+      "min-width": "0",
+      "min-height": mobile ? "0" : "42px",
+      "height": "auto",
+      "margin": "0",
+      "padding": "4px",
+      "overflow": "hidden",
+      "border": "1px solid rgba(0, 32, 99, 0.14)",
+      "border-radius": mobile ? "8px" : "10px",
+      "background": "#fff",
+      "box-shadow": "none",
+      "transform": "none"
+    });
+
+    const topo = item.querySelector(".numero-topo");
+    const aroLabel = topo?.querySelector("span");
+    const aroNumero = topo?.querySelector("strong");
+    const controle = item.querySelector(".controle-qtd");
+
+    aplicarEstilosImportantesPopup(topo, {
+      "display": "flex",
+      "flex-direction": "column",
+      "align-items": "center",
+      "justify-content": "center",
+      "gap": "1px",
+      "min-width": "0",
+      "margin": "0",
+      "padding": "0"
+    });
+    aplicarEstilosImportantesPopup(aroLabel, {
+      "display": mobile ? "none" : "block",
+      "color": "#8a6400",
+      "font-size": "0.58rem",
+      "font-weight": "700",
+      "line-height": "1",
+      "letter-spacing": "0.08em"
+    });
+    aplicarEstilosImportantesPopup(aroNumero, {
+      "display": "block",
+      "color": "#002063",
+      "font-size": mobile ? "0.88rem" : "1.02rem",
+      "line-height": "1"
+    });
+    aplicarEstilosImportantesPopup(controle, {
+      "box-sizing": "border-box",
+      "display": "grid",
+      "grid-template-columns": mobile
+        ? "30px minmax(30px, 1fr) 30px"
+        : "34px 34px 76px 34px 34px",
+      "align-items": "center",
+      "justify-content": mobile ? "stretch" : "end",
+      "justify-self": mobile ? "stretch" : "end",
+      "gap": mobile ? "2px" : "4px",
+      "width": mobile ? "100%" : "auto",
+      "min-width": "0",
+      "margin": "0",
+      "padding": "0",
+      "overflow": "visible",
+      "border": "0",
+      "background": "transparent"
+    });
+
+    controle?.querySelectorAll("button, input").forEach(campo => {
+      const rapido = campo.classList.contains("ajuste-rapido");
+      aplicarEstilosImportantesPopup(campo, {
+        "box-sizing": "border-box",
+        "display": rapido && mobile ? "none" : "block",
+        "width": "100%",
+        "min-width": "0",
+        "height": mobile ? "32px" : "34px",
+        "margin": "0",
+        "padding": "0 2px",
+        "border": "1px solid rgba(0, 32, 99, 0.20)",
+        "border-radius": mobile ? "7px" : "8px",
+        "background": "#fff",
+        "color": "#002063",
+        "font-size": mobile ? "0.70rem" : "0.74rem",
+        "font-weight": "700",
+        "line-height": "1",
+        "text-align": "center",
+        "transform": "none"
+      });
+    });
+  });
+
+  aplicarEstilosImportantesPopup(observacaoBox, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "order": "4",
+    "display": "block",
+    "flex": "0 0 auto",
+    "width": "100%",
+    "min-width": "0",
+    "height": "auto",
+    "min-height": "0",
+    "max-height": "none",
+    "margin": mobile ? "6px 0 0" : "8px 0 0",
+    "padding": "0",
+    "overflow": "visible",
+    "border": "0",
+    "background": "transparent",
+    "opacity": "1",
+    "visibility": "visible",
+    "transform": "none"
+  });
+  aplicarEstilosImportantesPopup(observacaoLabel, {
+    "display": "block",
+    "margin": mobile ? "0 0 3px" : "0 0 4px",
+    "padding": "0",
+    "color": "#39445c",
+    "font-size": mobile ? "0.64rem" : "0.70rem",
+    "font-weight": "600",
+    "line-height": "1.1",
+    "opacity": "1",
+    "visibility": "visible"
+  });
+  aplicarEstilosImportantesPopup(observacao, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "display": "block",
+    "width": "100%",
+    "min-width": "0",
+    "height": mobile ? "40px" : "46px",
+    "min-height": mobile ? "40px" : "46px",
+    "max-height": mobile ? "40px" : "70px",
+    "margin": "0",
+    "padding": mobile ? "6px 8px" : "8px 10px",
+    "overflow": "auto",
+    "resize": mobile ? "none" : "vertical",
+    "border": "1px solid rgba(0, 32, 99, 0.18)",
+    "border-radius": "8px",
+    "background": "#fff",
+    "color": "#172033",
+    "font-size": mobile ? "0.70rem" : "0.76rem",
+    "line-height": "1.25",
+    "opacity": "1",
+    "visibility": "visible",
+    "transform": "none"
+  });
+  aplicarEstilosImportantesPopup(resumoInterno, {
+    "order": "5",
+    "display": "none"
+  });
+
+  aplicarEstilosImportantesPopup(rodape, {
+    "box-sizing": "border-box",
+    "position": "relative",
+    "inset": "auto",
+    "z-index": "3",
+    "display": "grid",
+    "grid-template-columns": "minmax(0, 1fr) auto",
+    "align-items": "center",
+    "gap": mobile ? "8px" : "16px",
+    "flex": "0 0 auto",
+    "width": "100%",
+    "min-width": "0",
+    "height": mobile ? "auto" : "64px",
+    "min-height": mobile ? "0" : "64px",
+    "max-height": mobile ? "none" : "64px",
+    "margin": "0",
+    "padding": mobile ? "7px 9px calc(7px + env(safe-area-inset-bottom))" : "10px 14px",
+    "overflow": "visible",
+    "border": "0",
+    "border-top": "1px solid rgba(0, 32, 99, 0.13)",
+    "border-radius": "0",
+    "background": "#fff",
+    "box-shadow": "0 -5px 18px rgba(0, 32, 99, 0.05)",
+    "transform": "none"
+  });
+  aplicarEstilosImportantesPopup(rodapeInfo, {
+    "box-sizing": "border-box",
+    "display": "block",
+    "width": mobile ? "auto" : "max-content",
+    "min-width": "0",
+    "height": "auto",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "visible",
+    "border": "0",
+    "border-radius": "0",
+    "background": "transparent",
+    "box-shadow": "none",
+    "text-align": "left",
+    "justify-self": "start"
+  });
+  aplicarEstilosImportantesPopup(rodapeLabel, {
+    "display": "block",
+    "margin": "0 0 2px",
+    "padding": "0",
+    "color": "#8a6400",
+    "font-size": mobile ? "0.54rem" : "0.61rem",
+    "font-weight": "700",
+    "line-height": "1",
+    "letter-spacing": "0.08em",
+    "text-transform": "uppercase"
+  });
+  aplicarEstilosImportantesPopup(rodapeTotal, {
+    "display": "block",
+    "margin": "0",
+    "padding": "0",
+    "overflow": "visible",
+    "color": "#002063",
+    "font-size": mobile ? "0.72rem" : "0.86rem",
+    "line-height": "1.15",
+    "text-align": "left",
+    "white-space": mobile ? "nowrap" : "normal",
+    "text-overflow": "clip"
+  });
+  aplicarEstilosImportantesPopup(confirmar, {
+    "box-sizing": "border-box",
+    "display": "inline-flex",
+    "align-items": "center",
+    "justify-content": "center",
+    "width": "auto",
+    "min-width": mobile ? "144px" : "190px",
+    "min-height": mobile ? "40px" : "44px",
+    "height": mobile ? "40px" : "44px",
+    "margin": "0",
+    "padding": mobile ? "7px 11px" : "8px 18px",
+    "border": "0",
+    "border-radius": mobile ? "9px" : "10px",
+    "background": "#002b74",
+    "color": "#fff",
+    "font-size": mobile ? "0.72rem" : "0.82rem",
+    "font-weight": "700",
+    "line-height": "1",
+    "white-space": "nowrap",
+    "box-shadow": "none",
+    "transform": "none"
+  });
+  aplicarEstilosImportantesPopup(fechar, {
+    "position": "absolute",
+    "z-index": "8",
+    "top": "12px",
+    "right": mobile ? "10px" : "14px",
+    "margin": "0",
+    "transform": "none"
+  });
 }
 
 function restaurarPopupDesktopSeNecessario() {
@@ -885,6 +1451,7 @@ function restaurarPopupDesktopSeNecessario() {
 window.addEventListener("resize", () => {
   if (document.getElementById("popup") && !document.getElementById("popup").classList.contains("escondido")) {
     ajustarPopupMobileNumeracoes();
+    aplicarLayoutPopupNumeracoesForcado();
   }
 });
 
@@ -1130,8 +1697,8 @@ function regrasComerciaisFabrica(fabrica) {
 }
 
 function valorMinimoFabrica(fabrica) {
-  if (codigoComercialAplicado && codigoComercialAplicado.valido) {
-    return Number(codigoComercialAplicado.valorMinimo || 10000);
+  if (codigoComercialEstaAtivoParaFabrica(fabrica)) {
+    return Number(codigoComercialAplicado.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO);
   }
 
   return regrasComerciaisFabrica(fabrica).minimo;
@@ -1181,8 +1748,31 @@ function normalizarCodigoComercial(codigo) {
   return String(codigo || "").trim().toUpperCase();
 }
 
+function escapeHtml(valor) {
+  return String(valor ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function codigoComercialCompativelComFabrica(fabrica) {
+  if (!codigoComercialAplicado || !codigoComercialAplicado.valido) return false;
+
+  const fabricaCodigo = String(codigoComercialAplicado.fabrica || "TODAS").trim().toUpperCase();
+  const fabricaAtualPedido = String(fabrica || fabricaDoCarrinho() || fabricaAtual || "").trim().toUpperCase();
+
+  return !fabricaCodigo || fabricaCodigo === "TODAS" || fabricaCodigo === fabricaAtualPedido;
+}
+
+function codigoComercialEstaAtivoParaFabrica(fabrica) {
+  return Boolean(codigoComercialAplicado?.valido && codigoComercialCompativelComFabrica(fabrica));
+}
+
 function codigoComercialParaPayload() {
-  if (!codigoComercialAplicado || !codigoComercialAplicado.valido) return null;
+  const fabricaPedido = fabricaDoCarrinho() || fabricaAtual || "";
+  if (!codigoComercialEstaAtivoParaFabrica(fabricaPedido)) return null;
 
   return {
     codigo: codigoComercialAplicado.codigo,
@@ -1238,30 +1828,105 @@ function jsonpAppsScript(params) {
   });
 }
 
+function estadoVisualCodigoComercial() {
+  const fabrica = fabricaDoCarrinho() || fabricaAtual || "";
+  const codigoAtual = codigoComercialAplicado?.codigo ? normalizarCodigoComercial(codigoComercialAplicado.codigo) : "";
+
+  if (codigoComercialAplicado?.valido && codigoComercialCompativelComFabrica(fabrica)) {
+    const desconto = Number(codigoComercialAplicado.descontoPercentual || 0);
+
+    if (desconto > 0) {
+      return {
+        classe: "ativo",
+        trigger: `Cupom ativo: ${codigoAtual}`,
+        triggerNote: `${desconto}% aplicado`,
+        texto: `${desconto}% aplicado no total do carrinho.`
+      };
+    }
+
+    return {
+      classe: "ativo",
+      trigger: `Cupom validado: ${codigoAtual}`,
+      triggerNote: "Mínimo especial liberado",
+      texto: "Mínimo especial liberado por código comercial."
+    };
+  }
+
+  if (codigoComercialAplicado?.codigo && !codigoComercialAplicado?.valido) {
+    return {
+      classe: "erro",
+      trigger: "Cupom não aplicado",
+      triggerNote: "Verifique o código",
+      texto: statusValidacaoCodigo || "Código inválido ou ainda não validado."
+    };
+  }
+
+  if (statusValidacaoCodigo && statusValidacaoCodigo !== "Código removido.") {
+    const texto = String(statusValidacaoCodigo || "");
+    const classe = /inválido|invalido|erro|não foi|nao foi|indispon/i.test(texto) ? "erro" : "info";
+    return {
+      classe,
+      trigger: "Tenho cupom",
+      triggerNote: classe === "erro" ? "Não aplicado" : "Validação em andamento",
+      texto
+    };
+  }
+
+  return {
+    classe: "vazio",
+    trigger: "+ Tenho cupom",
+    triggerNote: "Adicionar desconto",
+    texto: ""
+  };
+}
+
 function renderizarBlocoCodigoComercial() {
-  const codigo = codigoComercialAplicado?.codigo || "";
-  const validado = Boolean(codigoComercialAplicado?.valido);
-  const valorMinimo = Number(codigoComercialAplicado?.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO);
-  const desconto = Number(codigoComercialAplicado?.descontoPercentual || 0);
-  const aberto = Boolean(codigoComercialPainelAberto || validado || statusValidacaoCodigo);
-  const complementoDesconto = desconto > 0 ? ` • ${desconto}% off` : "";
-  const textoStatus = validado
-    ? `✓ ${codigo} • Mín. R$ ${formatarMoeda(valorMinimo)}${complementoDesconto}`
-    : (statusValidacaoCodigo || "");
+  const estado = estadoVisualCodigoComercial();
+  const codigoAtual = codigoComercialAplicado?.codigo ? normalizarCodigoComercial(codigoComercialAplicado.codigo) : "";
+  const valorInput = codigoAtual || "";
+  const aberto = codigoComercialPainelAberto ? "hb-cupom--open" : "";
+  const statusHtml = estado.texto
+    ? `<p class="hb-cupom__status hb-cupom__status--${escapeHtml(estado.classe)}">${escapeHtml(estado.texto)}</p>`
+    : "";
+  const removerHtml = codigoComercialAplicado?.valido
+    ? `<span role="button" tabindex="0" class="hb-cupom__remove" onclick="removerCodigoComercial()" onkeydown="hbCupomKey(event, 'remover')">Remover</span>`
+    : "";
 
   return `
-    <div class="codigo-comercial-box ${validado ? "codigo-validado" : ""} ${aberto ? "codigo-aberto" : "codigo-fechado"}">
-      <div class="codigo-comercial-conteudo">
-        <label for="codigo-comercial-input">Código comercial</label>
-        <div class="codigo-comercial-linha">
-          <input id="codigo-comercial-input" type="text" value="${codigo}" placeholder="Código comercial" autocomplete="off" oninput="statusValidacaoCodigo = '';">
-          <button type="button" onclick="aplicarCodigoComercial()">Aplicar</button>
+    <section class="hb-cupom hb-cupom--${escapeHtml(estado.classe)} ${aberto}" aria-label="Cupom do pedido">
+      <span role="button" tabindex="0" class="hb-cupom__trigger" onclick="alternarCodigoComercialPainel()" onkeydown="hbCupomKey(event, 'toggle')" aria-expanded="${codigoComercialPainelAberto ? "true" : "false"}">
+        <span class="hb-cupom__trigger-texto">
+          <span class="hb-cupom__trigger-main">${escapeHtml(estado.trigger)}</span>
+          ${estado.triggerNote ? `<span class="hb-cupom__trigger-note">${escapeHtml(estado.triggerNote)}</span>` : ""}
+        </span>
+        <span class="hb-cupom__trigger-icon" aria-hidden="true">⌄</span>
+      </span>
+
+      <div class="hb-cupom__body">
+        <div class="hb-cupom__topo">
+          <span class="hb-cupom__titulo">Cupom</span>
+          <span class="hb-cupom__subtitulo">Opcional</span>
         </div>
-        <p id="codigo-comercial-status" class="codigo-comercial-status ${validado ? "sucesso" : ""}">${textoStatus}</p>
-        ${validado ? `<button type="button" class="codigo-comercial-remover" onclick="removerCodigoComercial()">Remover código</button>` : ""}
+        <div class="hb-cupom__linha">
+          <input id="hb-cupom-input" class="hb-cupom__input" type="text" value="${escapeHtml(valorInput)}" placeholder="Digite seu código" autocomplete="off" aria-label="Cupom ou código comercial" oninput="statusValidacaoCodigo = '';" />
+          <span role="button" tabindex="0" class="hb-cupom__apply" onclick="aplicarCodigoComercial()" onkeydown="hbCupomKey(event, 'aplicar')">Aplicar</span>
+        </div>
+        <div class="hb-cupom__feedback">
+          ${statusHtml}
+          ${removerHtml}
+        </div>
       </div>
-    </div>
+    </section>
   `;
+}
+
+function hbCupomKey(event, acao) {
+  if (!event || (event.key !== "Enter" && event.key !== " ")) return;
+  event.preventDefault();
+
+  if (acao === "toggle") alternarCodigoComercialPainel();
+  if (acao === "aplicar") aplicarCodigoComercial();
+  if (acao === "remover") removerCodigoComercial();
 }
 
 function alternarCodigoComercialPainel() {
@@ -1272,7 +1937,7 @@ function alternarCodigoComercialPainel() {
 
   if (codigoComercialPainelAberto) {
     setTimeout(() => {
-      const input = document.getElementById("codigo-comercial-input");
+      const input = document.getElementById("hb-cupom-input") || document.getElementById("codigo-comercial-input");
       if (input) {
         input.focus();
         input.select();
@@ -1303,6 +1968,7 @@ async function aplicarCodigoComercialValor(codigoInformado) {
 
 async function aplicarCodigoComercialPorCodigo(codigoInformado) {
   const codigo = normalizarCodigoComercial(codigoInformado);
+  const sequenciaAtual = ++sequenciaValidacaoCodigo;
 
   if (!codigo) {
     codigoComercialAplicado = null;
@@ -1330,6 +1996,8 @@ async function aplicarCodigoComercialPorCodigo(codigoInformado) {
       origem: "catalogo-online"
     });
 
+    if (sequenciaAtual !== sequenciaValidacaoCodigo) return false;
+
     if (!resposta || !resposta.valido) {
       codigoComercialAplicado = { codigo, valido: false };
       statusValidacaoCodigo = resposta?.mensagem || "Código inválido ou indisponível.";
@@ -1348,6 +2016,7 @@ async function aplicarCodigoComercialPorCodigo(codigoInformado) {
     renderizarCarrinho();
     return true;
   } catch (erro) {
+    if (sequenciaAtual !== sequenciaValidacaoCodigo) return false;
     codigoComercialAplicado = { codigo, valido: false };
     statusValidacaoCodigo = "Não foi possível validar o código agora. Tente novamente.";
     codigoComercialPainelAberto = true;
@@ -1359,11 +2028,12 @@ async function aplicarCodigoComercialPorCodigo(codigoInformado) {
 }
 
 async function aplicarCodigoComercial() {
-  const input = document.getElementById("codigo-comercial-input");
+  const input = document.getElementById("hb-cupom-input") || document.getElementById("codigo-comercial-input");
   await aplicarCodigoComercialPorCodigo(input ? input.value : "");
 }
 
 function removerCodigoComercial() {
+  sequenciaValidacaoCodigo++;
   codigoComercialAplicado = null;
   statusValidacaoCodigo = "Código removido.";
   codigoComercialPainelAberto = false;
@@ -1411,7 +2081,7 @@ function criarResumoMetasMobile(valorAtual, fabrica) {
   return `
     <div class="resumo-metas-mobile">
       <span>Mín: ${percMinimo.toFixed(0)}%</span>
-      <span>Desc: ${percDesconto.toFixed(0)}%</span>
+      <span>Meta: ${percDesconto.toFixed(0)}%</span>
     </div>
   `;
 }
@@ -1420,28 +2090,35 @@ function mensagemMeta(valorAtual, fabrica) {
   const minimo = valorMinimoFabrica(fabrica);
   const metaDesconto = metaDescontoFabrica(fabrica);
   const percentual = percentualDescontoFabrica(fabrica);
+  const codigoAtivo = codigoComercialEstaAtivoParaFabrica(fabrica);
 
   if (valorAtual < minimo) {
-    return `Faltam R$ ${formatarMoeda(minimo - valorAtual)} para o mínimo`;
+    const faltante = `faltam R$ ${formatarMoeda(minimo - valorAtual)}`;
+    return codigoAtivo
+      ? `Mínimo comercial pendente • ${faltante}`
+      : `Faltam R$ ${formatarMoeda(minimo - valorAtual)} para o mínimo comercial`;
   }
 
-  if (codigoComercialAplicado?.valido) {
+  if (codigoAtivo) {
     const descontoCodigo = Number(codigoComercialAplicado.descontoPercentual || 0);
     return descontoCodigo > 0
-      ? `${descontoCodigo}% de desconto aplicado pelo código`
+      ? `Cupom aplicado no total do carrinho`
       : `Mínimo especial liberado pelo código`;
   }
 
   if (valorAtual < metaDesconto) {
-    return `Faltam R$ ${formatarMoeda(metaDesconto - valorAtual)} para ${percentual}% de desconto`;
+    return `Faltam R$ ${formatarMoeda(metaDesconto - valorAtual)} para ${percentual}% de desconto por meta`;
   }
 
-  return `${percentual}% de desconto aplicado 🔥`;
+  return `${percentual}% de desconto por meta aplicado`;
 }
 
 function percentualDescontoPedido(valorAtual, fabrica) {
-  if (codigoComercialAplicado?.valido) {
+  // Cupom validado aplica desconto diretamente no total do carrinho.
+  // O mínimo comercial continua sendo controlado separadamente por valorMinimoFabrica().
+  if (codigoComercialEstaAtivoParaFabrica(fabrica)) {
     const descontoCodigo = Number(codigoComercialAplicado.descontoPercentual || 0);
+
     if (Number.isFinite(descontoCodigo) && descontoCodigo > 0) {
       return descontoCodigo;
     }
@@ -1457,6 +2134,97 @@ function valorDescontoPedido(valorAtual, fabrica) {
 
 function valorTotalComDesconto(valorAtual, fabrica) {
   return Math.max(valorAtual - valorDescontoPedido(valorAtual, fabrica), 0);
+}
+
+function origemDescontoPedido(valorAtual, fabrica) {
+  const percentual = percentualDescontoPedido(valorAtual, fabrica);
+
+  if (!percentual || percentual <= 0) {
+    return "";
+  }
+
+  if (codigoComercialEstaAtivoParaFabrica(fabrica)) {
+    const descontoCodigo = Number(codigoComercialAplicado.descontoPercentual || 0);
+
+    if (Number.isFinite(descontoCodigo) && descontoCodigo > 0 && descontoCodigo === percentual) {
+      return "cupom";
+    }
+  }
+
+  return "meta";
+}
+
+function resumoTotaisPedido(valorAtual = valorSubtotalPedido(), fabrica = fabricaDoCarrinho()) {
+  const subtotal = Number(valorAtual || 0);
+  const percentualDesconto = percentualDescontoPedido(subtotal, fabrica);
+  const valorDesconto = valorDescontoPedido(subtotal, fabrica);
+  const totalFinal = valorTotalComDesconto(subtotal, fabrica);
+  const temDesconto = percentualDesconto > 0 && valorDesconto > 0;
+  const origemDesconto = temDesconto ? origemDescontoPedido(subtotal, fabrica) : "";
+  const codigo = origemDesconto === "cupom" && codigoComercialAplicado?.codigo
+    ? normalizarCodigoComercial(codigoComercialAplicado.codigo)
+    : "";
+
+  return {
+    fabrica,
+    subtotal,
+    percentualDesconto,
+    valorDesconto,
+    totalFinal,
+    temDesconto,
+    origemDesconto,
+    codigo
+  };
+}
+
+function badgeDescontoPedido(totais) {
+  if (!totais || !totais.temDesconto) return "";
+  return `<span class="hb-desconto-badge">-${Number(totais.percentualDesconto || 0)}%</span>`;
+}
+
+function labelDescontoPedido(totais) {
+  if (!totais || !totais.temDesconto) return "Desconto";
+  if (totais.origemDesconto === "cupom" && totais.codigo) return `Cupom ${escapeHtml(totais.codigo)}`;
+  if (totais.origemDesconto === "meta") return "Desconto por meta";
+  return "Desconto";
+}
+
+function renderizarTotalCarrinhoRodape() {
+  const fabrica = fabricaDoCarrinho();
+  const subtotal = valorSubtotalPedido();
+
+  if (!fabrica || subtotal <= 0) {
+    return "";
+  }
+
+  const totais = resumoTotaisPedido(subtotal, fabrica);
+
+  // Evita duplicidade visual no carrinho: o card de total só aparece
+  // quando existe desconto real aplicado. Sem desconto, o subtotal já
+  // aparece no card superior da fábrica.
+  if (!totais.temDesconto) {
+    return "";
+  }
+
+  const badge = badgeDescontoPedido(totais);
+  const labelDesconto = labelDescontoPedido(totais);
+  const linhaDesconto = `<div class="hb-total-carrinho__linha hb-total-carrinho__linha--desconto"><span>${labelDesconto}</span><strong>-${totais.percentualDesconto}% / -R$ ${formatarMoeda(totais.valorDesconto)}</strong></div>`;
+  const economiaHtml = `<div class="hb-total-carrinho__economia">Economia aplicada: R$ ${formatarMoeda(totais.valorDesconto)}</div>`;
+
+  return `
+    <section class="hb-total-carrinho hb-total-carrinho--com-desconto" aria-label="Total com desconto aplicado">
+      <div class="hb-total-carrinho__linha">
+        <span>Subtotal</span>
+        <strong>R$ ${formatarMoeda(totais.subtotal)}</strong>
+      </div>
+      ${linhaDesconto}
+      <div class="hb-total-carrinho__final">
+        <span>Total com desconto</span>
+        <strong>R$ ${formatarMoeda(totais.totalFinal)} ${badge}</strong>
+      </div>
+      ${economiaHtml}
+    </section>
+  `;
 }
 
 
@@ -1496,59 +2264,37 @@ function renderizarCarrinho() {
     const pesoAtual = resumo[fabCarrinho].peso;
     const pecasAtual = resumo[fabCarrinho].pecas;
     const valorAtual = resumo[fabCarrinho].valor;
-
     resumoDiv.innerHTML = `
-      <div class="resumo-fabrica">
+      <div class="resumo-fabrica resumo-fabrica--limpo">
         <div class="resumo-principal-mobile">
           <strong>${nomeFabrica(fabCarrinho)}</strong>
-          <span>${pecasAtual}p • R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</span>
+          <span class="resumo-valor-final">${pecasAtual}p • Subtotal R$ ${formatarMoeda(valorAtual)}</span>
         </div>
         <div class="resumo-detalhes-desktop">
-          <strong>${nomeFabrica(fabCarrinho)}</strong> • ${pecasAtual} peças • ${formatarPeso(pesoAtual)}
+          <strong>${nomeFabrica(fabCarrinho)}</strong>
+          <p>${pecasAtual} peças • ${formatarPeso(pesoAtual)}</p>
           <p><strong>Subtotal:</strong> R$ ${formatarMoeda(valorAtual)}</p>
-          ${percentualDescontoPedido(valorAtual, fabCarrinho) > 0 ? `<p><strong>Desconto (${percentualDescontoPedido(valorAtual, fabCarrinho)}%):</strong> - R$ ${formatarMoeda(valorDescontoPedido(valorAtual, fabCarrinho))}</p>` : ""}
-          <p><strong>Total estimado:</strong> R$ ${formatarMoeda(valorTotalComDesconto(valorAtual, fabCarrinho))}</p>
         </div>
-        ${codigoComercialAplicado?.valido ? `<p class="mensagem-codigo-aplicado">✓ ${codigoComercialAplicado.codigo} • Mín. R$ ${formatarMoeda(valorMinimoFabrica(fabCarrinho))}${Number(codigoComercialAplicado.descontoPercentual || 0) > 0 ? ` • ${codigoComercialAplicado.descontoPercentual}% off` : ""}</p>` : ""}
         <p class="mensagem-meta">${mensagemMeta(valorAtual, fabCarrinho)}</p>
         <div class="resumo-metas-desktop">
           ${criarBarraMeta("mín", valorAtual, valorMinimoFabrica(fabCarrinho))}
-          ${criarBarraMeta("5%", valorAtual, metaDescontoFabrica(fabCarrinho))}
+          ${criarBarraMeta("meta", valorAtual, metaDescontoFabrica(fabCarrinho))}
         </div>
         ${criarResumoMetasMobile(valorAtual, fabCarrinho)}
       </div>
     `;
   }
 
-  const codigoHtml = renderizarBlocoCodigoComercial();
-  const rodapeCarrinho = document.querySelector("#area-carrinho .carrinho-rodape");
-  const botaoFinalizar = rodapeCarrinho ? rodapeCarrinho.querySelector(".btn-finalizar-carrinho") : null;
-  let codigoRodapeMobile = document.getElementById("codigo-comercial-rodape-mobile");
-
-  // Cupom fixo no rodapé do carrinho: sempre antes de "Finalizar pedido".
-  // Não depende de clique, prompt, largura de tela ou ordem antiga do HTML.
-  if (rodapeCarrinho) {
-    const botaoCupomRodape = document.getElementById("btn-cupom-rodape-mobile");
-    if (botaoCupomRodape) botaoCupomRodape.remove();
-
-    if (!codigoRodapeMobile) {
-      codigoRodapeMobile = document.createElement("div");
-      codigoRodapeMobile.id = "codigo-comercial-rodape-mobile";
-      codigoRodapeMobile.className = "codigo-comercial-rodape-mobile";
-    }
-
-    codigoRodapeMobile.setAttribute("aria-hidden", "false");
-
-    if (codigoRodapeMobile.parentElement !== rodapeCarrinho) {
-      rodapeCarrinho.insertBefore(codigoRodapeMobile, botaoFinalizar || rodapeCarrinho.firstChild);
-    } else if (botaoFinalizar && codigoRodapeMobile.nextElementSibling !== botaoFinalizar) {
-      rodapeCarrinho.insertBefore(codigoRodapeMobile, botaoFinalizar);
-    }
-
-    codigoRodapeMobile.innerHTML = codigoHtml;
-  } else {
-    resumoDiv.innerHTML += codigoHtml;
+  const totalCarrinhoRoot = document.getElementById("hb-total-carrinho-root");
+  if (totalCarrinhoRoot) {
+    totalCarrinhoRoot.innerHTML = renderizarTotalCarrinhoRodape();
   }
+
+  const cupomRoot = document.getElementById("hb-cupom-root");
+  if (cupomRoot) {
+    cupomRoot.innerHTML = renderizarBlocoCodigoComercial();
+  }
+
 
   carrinho.forEach((item, index) => {
     const ehAnel = ehCategoriaAnel(item.categoria);
@@ -2366,13 +3112,12 @@ function abrirResumoPedido() {
     }
   }
 
-  const percentualDesconto = percentualDescontoPedido(totalPedido, fabricaDoCarrinho());
-  const valorDesconto = valorDescontoPedido(totalPedido, fabricaDoCarrinho());
-  const totalFinal = valorTotalComDesconto(totalPedido, fabricaDoCarrinho());
+  const totaisResumo = resumoTotaisPedido(totalPedido, fabricaDoCarrinho());
+  const badgeResumo = badgeDescontoPedido(totaisResumo);
 
-  totalEl.innerText = percentualDesconto > 0
-    ? `R$ ${formatarMoeda(totalFinal)} (${percentualDesconto}% aplicado)`
-    : `R$ ${formatarMoeda(totalFinal)}`;
+  totalEl.innerHTML = totaisResumo.temDesconto
+    ? `<span class="resumo-total-final">R$ ${formatarMoeda(totaisResumo.totalFinal)} ${badgeResumo}</span><small class="resumo-total-economia">${labelDescontoPedido(totaisResumo)}: -R$ ${formatarMoeda(totaisResumo.valorDesconto)}</small>`
+    : `R$ ${formatarMoeda(totaisResumo.totalFinal)}`;
   modal.classList.remove("escondido");
   modal.setAttribute("aria-hidden", "false");
 }
@@ -3470,51 +4215,8 @@ window.addEventListener("click", (evento) => {
 
 
 /* =======================================================================
-   HBJOIAS V18 — Cupom mobile inline, sem prompt, sem popup nativo
+   Cupom — visual novo isolado; lógica comercial preservada
    ======================================================================= */
 function sincronizarEstadoCupomMobile() {
-  const botao = document.getElementById("btn-cupom-rodape-mobile");
-  if (botao) botao.remove();
-
-  codigoComercialPainelAberto = true;
-  document.body.classList.add("codigo-comercial-mobile-aberto");
-
-  const rodapeCarrinho = document.querySelector("#area-carrinho .carrinho-rodape");
-  const botaoFinalizar = rodapeCarrinho ? rodapeCarrinho.querySelector(".btn-finalizar-carrinho") : null;
-  let slot = document.getElementById("codigo-comercial-rodape-mobile");
-
-  if (rodapeCarrinho) {
-    if (!slot) {
-      slot = document.createElement("div");
-      slot.id = "codigo-comercial-rodape-mobile";
-      slot.className = "codigo-comercial-rodape-mobile";
-    }
-
-    slot.setAttribute("aria-hidden", "false");
-
-    if (slot.parentElement !== rodapeCarrinho) {
-      rodapeCarrinho.insertBefore(slot, botaoFinalizar || rodapeCarrinho.firstChild);
-    } else if (botaoFinalizar && slot.nextElementSibling !== botaoFinalizar) {
-      rodapeCarrinho.insertBefore(slot, botaoFinalizar);
-    }
-  }
+  // Mantido por compatibilidade com a lógica antiga. O visual novo é renderizado em #hb-cupom-root.
 }
-
-(function hbCupomInlineFinalV18() {
-  const renderOriginal = renderizarCarrinho;
-  renderizarCarrinho = function () {
-    const retorno = renderOriginal.apply(this, arguments);
-    sincronizarEstadoCupomMobile();
-    return retorno;
-  };
-
-  document.addEventListener("DOMContentLoaded", function () {
-    sincronizarEstadoCupomMobile();
-    setTimeout(sincronizarEstadoCupomMobile, 120);
-  });
-
-  window.addEventListener("resize", sincronizarEstadoCupomMobile);
-  window.addEventListener("orientationchange", function () {
-    setTimeout(sincronizarEstadoCupomMobile, 120);
-  });
-})();
