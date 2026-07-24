@@ -4220,3 +4220,44 @@ window.addEventListener("click", (evento) => {
 function sincronizarEstadoCupomMobile() {
   // Mantido por compatibilidade com a lógica antiga. O visual novo é renderizado em #hb-cupom-root.
 }
+
+/* =======================================================================
+   HBJOIAS — PONTE DE ROLAGEM DO CARRINHO DESKTOP V20
+   Encaminha o wheel usado no painel e dentro dos cards para a lista.
+   ======================================================================= */
+(function ativarRolagemCarrinhoDesktopV20() {
+  if (window.__hbRolagemCarrinhoDesktopV20) return;
+  window.__hbRolagemCarrinhoDesktopV20 = true;
+
+  document.addEventListener("wheel", function (event) {
+    if (window.innerWidth <= 768 || event.ctrlKey) return;
+    if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) return;
+
+    const area = document.getElementById("area-carrinho");
+    if (!area || area.classList.contains("carrinho-fechado")) return;
+
+    const painel = area.querySelector(".carrinho");
+    const lista = document.getElementById("lista-carrinho");
+    const alvo = event.target;
+
+    if (!painel || !lista || !alvo || !painel.contains(alvo)) return;
+
+    // No fundo ou na barra lateral da lista, mantém a rolagem nativa.
+    // Dentro dos cards, encaminha manualmente porque overflow/overscroll
+    // dos itens pode interromper a propagação até o contêiner da lista.
+    if (alvo === lista) return;
+
+    const limite = Math.max(0, lista.scrollHeight - lista.clientHeight);
+    if (limite <= 1 || event.deltaY === 0) return;
+
+    let deslocamento = event.deltaY;
+    if (event.deltaMode === 1) deslocamento *= 32;
+    if (event.deltaMode === 2) deslocamento *= Math.max(lista.clientHeight, 1);
+
+    const destino = Math.min(limite, Math.max(0, lista.scrollTop + deslocamento));
+    if (Math.abs(destino - lista.scrollTop) < 1) return;
+
+    lista.scrollTop = destino;
+    event.preventDefault();
+  }, { passive: false, capture: true });
+})();

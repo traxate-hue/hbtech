@@ -20929,3 +20929,57 @@ body.filtro-preco-aberto .catalogo-controlbar .btn-filtro-toggle {
     max-height: none !important;
   }
 }
+
+/* =======================================================================
+   HBJOIAS — CARRINHO DESKTOP COM ROLAGEM INDEPENDENTE V18
+   A lista rola sem comprimir os produtos; resumo e rodapé permanecem fixos.
+   ======================================================================= */
+@media (min-width: 769px) {
+  #area-carrinho .lista-carrinho-scroll,
+  #area-carrinho #lista-carrinho {
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    align-content: flex-start !important;
+    gap: 10px !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    scrollbar-gutter: stable !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(0, 43, 116, 0.34) rgba(0, 43, 116, 0.06) !important;
+  }
+
+  #area-carrinho .lista-carrinho-scroll > .item-carrinho,
+  #area-carrinho #lista-carrinho > .item-carrinho {
+    box-sizing: border-box !important;
+    display: block !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 56px !important;
+    max-height: none !important;
+    margin: 0 !important;
+  }
+
+  #area-carrinho .lista-carrinho-scroll::-webkit-scrollbar,
+  #area-carrinho #lista-carrinho::-webkit-scrollbar {
+    width: 8px !important;
+  }
+
+  #area-carrinho .lista-carrinho-scroll::-webkit-scrollbar-track,
+  #area-carrinho #lista-carrinho::-webkit-scrollbar-track {
+    background: rgba(0, 43, 116, 0.06) !important;
+    border-radius: 999px !important;
+  }
+
+  #area-carrinho .lista-carrinho-scroll::-webkit-scrollbar-thumb,
+  #area-carrinho #lista-carrinho::-webkit-scrollbar-thumb {
+    background: rgba(0, 43, 116, 0.34) !important;
+    border-radius: 999px !important;
+  }
+}
