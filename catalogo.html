@@ -8,1212 +8,14 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=HB_POPUP_NUMERACOES_V17_20260724" rel="stylesheet"/>
-<style id="hb-popup-numeracoes-v2">
-  /*
-   * Popup de quantidade/numerações.
-   * Regras isoladas em #popup para não alterar produtos, filtros ou carrinho.
-   */
-  #popup .popup-conteudo.popup-produto-layout {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    width: min(1040px, calc(100vw - 48px));
-    height: min(760px, calc(100dvh - 48px));
-    max-width: 1040px;
-    max-height: calc(100dvh - 48px);
-    overflow: hidden;
-    border-radius: 18px;
-  }
-
-  #popup .popup-produto-grid {
-    display: grid;
-    grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.6fr);
-    flex: 1 1 auto;
-    min-width: 0;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  #popup .popup-produto-visual {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 0;
-    padding: 26px 22px 22px;
-    overflow: hidden;
-    border-right: 1px solid rgba(0, 32, 99, 0.12);
-  }
-
-  #popup .popup-imagem-principal {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    min-height: 0;
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 14px;
-    background: #f7f8fb;
-  }
-
-  #popup .popup-imagem-principal img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  #popup .popup-info-produto {
-    min-width: 0;
-    padding-top: 16px;
-  }
-
-  #popup #popup-referencia {
-    max-width: 100%;
-    margin: 0;
-    overflow-wrap: anywhere;
-  }
-
-  #popup .popup-descricao-destaque {
-    margin: 7px 0 10px;
-  }
-
-  #popup .popup-meta-linha {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 12px;
-  }
-
-  #popup .popup-selecao-numeracoes {
-    box-sizing: border-box;
-    display: flex !important;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 0;
-    padding: 26px 24px 16px;
-    overflow: hidden;
-  }
-
-  #popup .popup-selecao-numeracoes > .popup-label {
-    margin: 0 0 4px;
-  }
-
-  #popup .popup-selecao-numeracoes > h3 {
-    margin: 0;
-  }
-
-  #popup .popup-ajuda {
-    margin: 6px 0 12px;
-  }
-
-  #popup #numeracoes {
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-content: start;
-    gap: 8px;
-    flex: 1 1 auto;
-    min-width: 0;
-    min-height: 0;
-    padding: 1px 5px 1px 1px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;
-  }
-
-  #popup .numero-item {
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 54px minmax(0, 1fr);
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-    padding: 7px;
-    border: 1px solid rgba(0, 32, 99, 0.13);
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: none;
-  }
-
-  #popup .numero-topo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1px;
-    min-width: 0;
-    line-height: 1;
-  }
-
-  #popup .numero-topo span {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  #popup .numero-topo strong {
-    font-size: 1.05rem;
-    color: #002063;
-  }
-
-  #popup .controle-qtd {
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 36px 36px minmax(46px, 1fr) 36px 36px;
-    align-items: stretch;
-    gap: 4px;
-    min-width: 0;
-  }
-
-  #popup .controle-qtd button,
-  #popup .controle-qtd input {
-    box-sizing: border-box;
-    width: 100%;
-    min-width: 0;
-    height: 36px;
-    margin: 0;
-    border-radius: 7px;
-  }
-
-  #popup .controle-qtd button {
-    padding: 0;
-    border: 1px solid rgba(0, 32, 99, 0.18);
-    background: #f6f8fc;
-    color: #002063;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  #popup .controle-qtd button:hover {
-    border-color: rgba(0, 32, 99, 0.38);
-    background: #edf2fb;
-  }
-
-  #popup .controle-qtd input {
-    padding: 0 4px;
-    border: 1px solid rgba(0, 32, 99, 0.22);
-    background: #fff;
-    color: #172033;
-    font-weight: 700;
-    text-align: center;
-    appearance: textfield;
-  }
-
-  #popup .controle-qtd input::-webkit-outer-spin-button,
-  #popup .controle-qtd input::-webkit-inner-spin-button {
-    margin: 0;
-    appearance: none;
-  }
-
-  #popup .popup-observacao-box {
-    box-sizing: border-box;
-    display: block !important;
-    flex: 0 0 auto;
-    width: 100%;
-    margin: 12px 0 0;
-    padding: 0;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  #popup .popup-observacao-box label {
-    display: block !important;
-    margin: 0 0 5px;
-    color: #30394d;
-    font-size: 0.78rem;
-    font-weight: 600;
-  }
-
-  #popup #popup-observacao {
-    box-sizing: border-box;
-    display: block !important;
-    width: 100%;
-    height: 58px;
-    min-height: 58px;
-    max-height: 90px;
-    margin: 0;
-    padding: 9px 11px;
-    resize: vertical;
-    border: 1px solid rgba(0, 32, 99, 0.18);
-    border-radius: 9px;
-    background: #fff;
-    color: #172033;
-    font: inherit;
-    line-height: 1.3;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  #popup .popup-resumo-selecao {
-    display: none !important;
-  }
-
-  #popup .popup-rodape-fixo {
-    box-sizing: border-box;
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    width: 100%;
-    padding: 13px 18px;
-    border-top: 1px solid rgba(0, 32, 99, 0.13);
-    background: #fff;
-  }
-
-  #popup .popup-rodape-info {
-    min-width: 0;
-  }
-
-  #popup .popup-rodape-info strong {
-    display: block;
-    overflow-wrap: anywhere;
-  }
-
-  #popup #botao-confirmar-popup {
-    flex: 0 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    #popup {
-      box-sizing: border-box;
-      align-items: stretch;
-      justify-content: stretch;
-      padding: 0;
-    }
-
-    #popup .popup-conteudo.popup-produto-layout {
-      width: 100%;
-      height: 100dvh;
-      max-width: none;
-      max-height: none;
-      border-radius: 0;
-    }
-
-    #popup .popup-produto-grid {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: auto minmax(0, 1fr);
-    }
-
-    #popup .popup-produto-visual,
-    #popup .popup-produto-visual.produto-info-inline-mobile {
-      display: grid !important;
-      grid-template-columns: 68px minmax(0, 1fr);
-      align-items: center;
-      gap: 11px;
-      min-height: 0;
-      padding: 48px 13px 10px;
-      overflow: visible;
-      border-right: 0;
-      border-bottom: 1px solid rgba(0, 32, 99, 0.12);
-    }
-
-    #popup .popup-imagem-principal {
-      width: 68px;
-      height: 68px;
-      aspect-ratio: auto;
-      border-radius: 9px;
-    }
-
-    #popup .popup-info-produto {
-      min-width: 0;
-      padding: 0;
-    }
-
-    #popup .popup-info-produto > .popup-label {
-      display: none;
-    }
-
-    #popup #popup-referencia {
-      display: block;
-      max-width: 100%;
-      font-size: 1rem;
-      line-height: 1.15;
-      white-space: normal;
-      overflow: visible;
-      text-overflow: clip;
-      overflow-wrap: anywhere;
-    }
-
-    #popup .popup-descricao-destaque {
-      display: -webkit-box;
-      margin: 3px 0 5px;
-      overflow: hidden;
-      font-size: 0.76rem;
-      line-height: 1.25;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
-    }
-
-    #popup .popup-meta-linha {
-      gap: 3px 8px;
-      font-size: 0.7rem;
-      line-height: 1.2;
-    }
-
-    #popup .popup-selecao-numeracoes {
-      padding: 9px 10px 8px;
-    }
-
-    #popup .popup-selecao-numeracoes > .popup-label {
-      display: none;
-    }
-
-    #popup .popup-selecao-numeracoes > h3 {
-      font-size: 0.96rem;
-      line-height: 1.15;
-    }
-
-    #popup .popup-ajuda {
-      margin: 3px 0 7px;
-      font-size: 0.7rem;
-      line-height: 1.2;
-    }
-
-    #popup #numeracoes {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 5px;
-      padding-right: 2px;
-      scrollbar-gutter: auto;
-    }
-
-    #popup .numero-item {
-      grid-template-columns: 29px minmax(0, 1fr);
-      gap: 4px;
-      padding: 5px;
-      border-color: rgba(0, 32, 99, 0.11);
-      border-radius: 8px;
-    }
-
-    #popup .numero-topo span {
-      display: none;
-    }
-
-    #popup .numero-topo strong {
-      font-size: 0.94rem;
-    }
-
-    #popup .controle-qtd {
-      grid-template-columns: 32px minmax(32px, 1fr) 32px;
-      gap: 2px;
-    }
-
-    #popup .controle-qtd .ajuste-rapido {
-      display: none !important;
-    }
-
-    #popup .controle-qtd button,
-    #popup .controle-qtd input {
-      height: 34px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-    }
-
-    #popup .popup-observacao-box {
-      display: block !important;
-      margin-top: 7px;
-    }
-
-    #popup .popup-observacao-box label {
-      margin-bottom: 3px;
-      font-size: 0.7rem;
-    }
-
-    #popup #popup-observacao {
-      display: block !important;
-      height: 44px;
-      min-height: 44px;
-      max-height: 64px;
-      padding: 7px 9px;
-      font-size: 0.76rem;
-      resize: none;
-    }
-
-    #popup .popup-rodape-fixo {
-      gap: 10px;
-      padding: 9px 10px calc(9px + env(safe-area-inset-bottom));
-    }
-
-    #popup .popup-rodape-info {
-      flex: 1 1 auto;
-      font-size: 0.68rem;
-      line-height: 1.15;
-    }
-
-    #popup .popup-rodape-info strong {
-      margin-top: 2px;
-      font-size: 0.82rem;
-    }
-
-    #popup #botao-confirmar-popup {
-      min-height: 42px;
-      padding: 9px 12px;
-      font-size: 0.78rem;
-      white-space: nowrap;
-    }
-
-    #popup .fechar-popup {
-      position: absolute;
-      z-index: 5;
-      top: max(9px, env(safe-area-inset-top));
-      right: 10px;
-    }
-  }
-
-  @media (max-width: 359px) {
-    #popup .popup-produto-visual,
-    #popup .popup-produto-visual.produto-info-inline-mobile {
-      grid-template-columns: 58px minmax(0, 1fr);
-    }
-
-    #popup .popup-imagem-principal {
-      width: 58px;
-      height: 58px;
-    }
-
-    #popup .numero-item {
-      grid-template-columns: 25px minmax(0, 1fr);
-      padding: 4px;
-    }
-
-    #popup .controle-qtd {
-      grid-template-columns: 28px minmax(28px, 1fr) 28px;
-    }
-  }
-</style>
-<style id="hb-popup-numeracoes-v3">
-  /*
-   * Compatibilidade final do popup.
-   * Neutraliza regras responsivas antigas do style.css sem afetar o catálogo.
-   */
-  #popup .popup-conteudo.popup-produto-layout {
-    box-sizing: border-box !important;
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    width: min(920px, calc(100vw - 40px)) !important;
-    height: min(720px, calc(100dvh - 32px)) !important;
-    max-width: 920px !important;
-    max-height: calc(100dvh - 32px) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    border-radius: 20px !important;
-    background: #fff !important;
-  }
-
-  #popup .popup-conteudo.popup-produto-layout::before {
-    display: none !important;
-    content: none !important;
-  }
-
-  #popup .popup-produto-grid {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    grid-template-rows: auto minmax(0, 1fr) !important;
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    transform: none !important;
-  }
-
-  #popup .popup-produto-visual,
-  #popup .popup-produto-visual.produto-info-inline-mobile {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    order: 0 !important;
-    display: grid !important;
-    grid-template-columns: 78px minmax(0, 1fr) !important;
-    align-items: center !important;
-    gap: 14px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 18px 48px 12px 22px !important;
-    overflow: visible !important;
-    border: 0 !important;
-    border-bottom: 1px solid rgba(0, 32, 99, 0.12) !important;
-    border-radius: 0 !important;
-    background: #fff !important;
-    box-shadow: none !important;
-    transform: none !important;
-  }
-
-  #popup .popup-imagem-principal {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    display: grid !important;
-    place-items: center !important;
-    width: 78px !important;
-    min-width: 78px !important;
-    height: 78px !important;
-    min-height: 78px !important;
-    aspect-ratio: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(0, 32, 99, 0.1) !important;
-    border-radius: 11px !important;
-    background: #f7f8fb !important;
-    transform: none !important;
-  }
-
-  #popup .popup-imagem-principal img {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
-    max-height: none !important;
-    margin: 0 !important;
-    object-fit: contain !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  #popup .popup-info-produto {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    transform: none !important;
-  }
-
-  #popup .popup-info-produto > .popup-label {
-    display: none !important;
-  }
-
-  #popup #popup-referencia {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    color: #002063 !important;
-    font-size: 1.05rem !important;
-    line-height: 1.15 !important;
-    white-space: normal !important;
-    text-overflow: clip !important;
-    overflow-wrap: anywhere !important;
-  }
-
-  #popup .popup-descricao-destaque {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 4px 0 7px !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    color: #465169 !important;
-    font-size: 0.78rem !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;
-    text-overflow: clip !important;
-  }
-
-  #popup .popup-meta-linha {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    gap: 5px 12px !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-  }
-
-  #popup .popup-meta-linha span {
-    display: inline-block !important;
-    width: auto !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    color: #39445c !important;
-    font-size: 0.75rem !important;
-    line-height: 1.2 !important;
-    white-space: normal !important;
-    text-overflow: clip !important;
-  }
-
-  #popup .popup-selecao-numeracoes {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    order: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 12px 18px 10px !important;
-    overflow: hidden !important;
-    border: 0 !important;
-    background: #fff !important;
-    transform: none !important;
-  }
-
-  #popup .popup-selecao-numeracoes > .popup-label {
-    order: 0 !important;
-    display: block !important;
-    margin: 0 0 2px !important;
-    padding: 0 !important;
-    font-size: 0.64rem !important;
-    line-height: 1.1 !important;
-  }
-
-  #popup .popup-selecao-numeracoes > h3 {
-    order: 1 !important;
-    display: block !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: #002063 !important;
-    font-size: 1.08rem !important;
-    line-height: 1.15 !important;
-    white-space: normal !important;
-  }
-
-  #popup .popup-ajuda {
-    order: 2 !important;
-    display: block !important;
-    width: 100% !important;
-    margin: 4px 0 8px !important;
-    padding: 0 !important;
-    color: #536078 !important;
-    font-size: 0.73rem !important;
-    line-height: 1.25 !important;
-  }
-
-  #popup #numeracoes {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    order: 3 !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-flow: row !important;
-    align-content: start !important;
-    gap: 7px !important;
-    flex: 1 1 auto !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 1px 5px 1px 1px !important;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    overscroll-behavior: contain !important;
-    border: 0 !important;
-    background: transparent !important;
-    transform: none !important;
-  }
-
-  #popup .numero-item {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    display: grid !important;
-    grid-template-columns: 48px minmax(0, 1fr) !important;
-    align-items: center !important;
-    gap: 7px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 6px !important;
-    overflow: hidden !important;
-    border: 1px solid rgba(0, 32, 99, 0.14) !important;
-    border-radius: 10px !important;
-    background: #fff !important;
-    box-shadow: none !important;
-    transform: none !important;
-  }
-
-  #popup .numero-topo {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1px !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  #popup .numero-topo span {
-    display: block !important;
-    color: #8a6400 !important;
-    font-size: 0.58rem !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.08em !important;
-  }
-
-  #popup .numero-topo strong {
-    display: block !important;
-    color: #002063 !important;
-    font-size: 1.02rem !important;
-    line-height: 1 !important;
-  }
-
-  #popup .controle-qtd {
-    box-sizing: border-box !important;
-    display: grid !important;
-    grid-template-columns: 34px 34px minmax(42px, 1fr) 34px 34px !important;
-    align-items: center !important;
-    gap: 4px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    border: 0 !important;
-    background: transparent !important;
-  }
-
-  #popup .controle-qtd button,
-  #popup .controle-qtd input {
-    box-sizing: border-box !important;
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: 34px !important;
-    margin: 0 !important;
-    padding: 0 3px !important;
-    border: 1px solid rgba(0, 32, 99, 0.2) !important;
-    border-radius: 8px !important;
-    background: #fff !important;
-    color: #002063 !important;
-    font-size: 0.74rem !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    text-align: center !important;
-    transform: none !important;
-  }
-
-  #popup .controle-qtd button {
-    cursor: pointer !important;
-  }
-
-  #popup .controle-qtd button:hover {
-    border-color: rgba(0, 32, 99, 0.4) !important;
-    background: #f2f6fc !important;
-  }
-
-  #popup .popup-observacao-box {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    order: 4 !important;
-    display: block !important;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    margin: 8px 0 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    border: 0 !important;
-    background: transparent !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  #popup .popup-observacao-box label {
-    display: block !important;
-    margin: 0 0 4px !important;
-    padding: 0 !important;
-    color: #39445c !important;
-    font-size: 0.7rem !important;
-    font-weight: 600 !important;
-    line-height: 1.1 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  #popup #popup-observacao {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: 46px !important;
-    min-height: 46px !important;
-    max-height: 70px !important;
-    margin: 0 !important;
-    padding: 8px 10px !important;
-    overflow: auto !important;
-    resize: vertical !important;
-    border: 1px solid rgba(0, 32, 99, 0.18) !important;
-    border-radius: 8px !important;
-    background: #fff !important;
-    color: #172033 !important;
-    font-size: 0.76rem !important;
-    line-height: 1.25 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  #popup .popup-resumo-selecao {
-    order: 5 !important;
-    display: none !important;
-  }
-
-  #popup .popup-rodape-fixo {
-    box-sizing: border-box !important;
-    position: relative !important;
-    inset: auto !important;
-    z-index: 3 !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) auto !important;
-    align-items: center !important;
-    gap: 16px !important;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 10px 14px !important;
-    overflow: visible !important;
-    border: 0 !important;
-    border-top: 1px solid rgba(0, 32, 99, 0.13) !important;
-    border-radius: 0 !important;
-    background: #fff !important;
-    box-shadow: 0 -5px 18px rgba(0, 32, 99, 0.05) !important;
-    transform: none !important;
-  }
-
-  #popup .popup-rodape-info {
-    box-sizing: border-box !important;
-    display: block !important;
-    width: auto !important;
-    min-width: 0 !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-
-  #popup .popup-rodape-info span {
-    display: block !important;
-    margin: 0 0 2px !important;
-    padding: 0 !important;
-    color: #8a6400 !important;
-    font-size: 0.61rem !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
-  }
-
-  #popup .popup-rodape-info strong {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    color: #002063 !important;
-    font-size: 0.86rem !important;
-    line-height: 1.15 !important;
-    white-space: normal !important;
-    text-overflow: clip !important;
-  }
-
-  #popup #botao-confirmar-popup {
-    box-sizing: border-box !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: auto !important;
-    min-width: 190px !important;
-    min-height: 44px !important;
-    height: 44px !important;
-    margin: 0 !important;
-    padding: 8px 18px !important;
-    border: 0 !important;
-    border-radius: 10px !important;
-    background: #002b74 !important;
-    color: #fff !important;
-    font-size: 0.82rem !important;
-    font-weight: 700 !important;
-    line-height: 1 !important;
-    white-space: nowrap !important;
-    box-shadow: none !important;
-    transform: none !important;
-  }
-
-  #popup .fechar-popup {
-    position: absolute !important;
-    z-index: 8 !important;
-    top: 12px !important;
-    right: 14px !important;
-    margin: 0 !important;
-    transform: none !important;
-  }
-
-  @media (max-width: 768px) {
-    #popup {
-      box-sizing: border-box !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 8px 6px !important;
-    }
-
-    #popup .popup-conteudo.popup-produto-layout {
-      width: calc(100vw - 12px) !important;
-      height: calc(100dvh - 16px) !important;
-      max-width: calc(100vw - 12px) !important;
-      max-height: calc(100dvh - 16px) !important;
-      border-radius: 21px !important;
-    }
-
-    #popup .popup-conteudo.popup-produto-layout::before {
-      position: absolute !important;
-      z-index: 7 !important;
-      top: 12px !important;
-      left: 50% !important;
-      display: block !important;
-      width: 54px !important;
-      height: 5px !important;
-      content: "" !important;
-      border-radius: 999px !important;
-      background: #c9e1f1 !important;
-      transform: translateX(-50%) !important;
-    }
-
-    #popup .popup-produto-visual,
-    #popup .popup-produto-visual.produto-info-inline-mobile {
-      grid-template-columns: 54px minmax(0, 1fr) !important;
-      gap: 9px !important;
-      padding: 40px 44px 8px 12px !important;
-    }
-
-    #popup .popup-imagem-principal {
-      width: 54px !important;
-      min-width: 54px !important;
-      height: 54px !important;
-      min-height: 54px !important;
-      border-radius: 8px !important;
-    }
-
-    #popup #popup-referencia {
-      font-size: 0.92rem !important;
-      line-height: 1.12 !important;
-    }
-
-    #popup .popup-descricao-destaque {
-      display: -webkit-box !important;
-      margin: 2px 0 4px !important;
-      overflow: hidden !important;
-      font-size: 0.67rem !important;
-      line-height: 1.2 !important;
-      -webkit-box-orient: vertical !important;
-      -webkit-line-clamp: 1 !important;
-    }
-
-    #popup .popup-meta-linha {
-      gap: 2px 8px !important;
-    }
-
-    #popup .popup-meta-linha span {
-      font-size: 0.64rem !important;
-      line-height: 1.15 !important;
-    }
-
-    #popup .popup-selecao-numeracoes {
-      padding: 8px 9px 7px !important;
-    }
-
-    #popup .popup-selecao-numeracoes > .popup-label {
-      display: none !important;
-    }
-
-    #popup .popup-selecao-numeracoes > h3 {
-      font-size: 0.94rem !important;
-      line-height: 1.1 !important;
-      white-space: nowrap !important;
-    }
-
-    #popup .popup-ajuda {
-      margin: 3px 0 6px !important;
-      font-size: 0.64rem !important;
-      line-height: 1.15 !important;
-    }
-
-    #popup #numeracoes {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 5px !important;
-      padding-right: 2px !important;
-    }
-
-    #popup .numero-item {
-      grid-template-columns: 28px minmax(0, 1fr) !important;
-      gap: 3px !important;
-      padding: 4px !important;
-      border-radius: 8px !important;
-    }
-
-    #popup .numero-topo span {
-      display: none !important;
-    }
-
-    #popup .numero-topo strong {
-      font-size: 0.88rem !important;
-    }
-
-    #popup .controle-qtd {
-      grid-template-columns: 30px minmax(30px, 1fr) 30px !important;
-      gap: 2px !important;
-    }
-
-    #popup .controle-qtd .ajuste-rapido {
-      display: none !important;
-    }
-
-    #popup .controle-qtd button,
-    #popup .controle-qtd input {
-      height: 32px !important;
-      padding: 0 2px !important;
-      border-radius: 7px !important;
-      font-size: 0.7rem !important;
-    }
-
-    #popup .popup-observacao-box {
-      order: 4 !important;
-      margin-top: 6px !important;
-    }
-
-    #popup .popup-observacao-box label {
-      margin-bottom: 3px !important;
-      font-size: 0.64rem !important;
-    }
-
-    #popup #popup-observacao {
-      height: 40px !important;
-      min-height: 40px !important;
-      max-height: 40px !important;
-      padding: 6px 8px !important;
-      font-size: 0.7rem !important;
-      resize: none !important;
-    }
-
-    #popup .popup-rodape-fixo {
-      grid-template-columns: minmax(0, 1fr) auto !important;
-      gap: 8px !important;
-      padding: 7px 9px calc(7px + env(safe-area-inset-bottom)) !important;
-    }
-
-    #popup .popup-rodape-info span {
-      font-size: 0.54rem !important;
-    }
-
-    #popup .popup-rodape-info strong {
-      font-size: 0.72rem !important;
-      white-space: nowrap !important;
-    }
-
-    #popup #botao-confirmar-popup {
-      width: auto !important;
-      min-width: 144px !important;
-      min-height: 40px !important;
-      height: 40px !important;
-      padding: 7px 11px !important;
-      border-radius: 9px !important;
-      font-size: 0.72rem !important;
-    }
-
-    #popup .fechar-popup {
-      top: 12px !important;
-      right: 10px !important;
-    }
-  }
-
-  @media (max-width: 359px) {
-    #popup .popup-produto-visual,
-    #popup .popup-produto-visual.produto-info-inline-mobile {
-      grid-template-columns: 48px minmax(0, 1fr) !important;
-      padding-right: 40px !important;
-    }
-
-    #popup .popup-imagem-principal {
-      width: 48px !important;
-      min-width: 48px !important;
-      height: 48px !important;
-      min-height: 48px !important;
-    }
-
-    #popup .numero-item {
-      grid-template-columns: 24px minmax(0, 1fr) !important;
-      gap: 2px !important;
-      padding: 3px !important;
-    }
-
-    #popup .controle-qtd {
-      grid-template-columns: 27px minmax(27px, 1fr) 27px !important;
-    }
-
-    #popup #botao-confirmar-popup {
-      min-width: 132px !important;
-      padding-inline: 8px !important;
-      font-size: 0.68rem !important;
-    }
-  }
-</style>
+<link href="catalogo.css?v=HB_CATALOGO_P08_3_C_2_2_URL_APPS_CORRETA_20260728" rel="stylesheet"/>
 <link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#002063" name="theme-color"/></head>
-<body>
-<button aria-label="Abrir carrinho" class="botao-carrinho-lateral" onclick="alternarCarrinho()">
-<span class="icone-carrinho">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-<circle cx="9" cy="21" r="1"></circle>
-<circle cx="20" cy="21" r="1"></circle>
-<path d="M1 1h4l2.68 13.39
-               a2 2 0 0 0 2 1.61
-               h9.72
-               a2 2 0 0 0 2-1.61
-               L23 6H6">
-</path>
-</svg>
-</span>
-<span class="contador-carrinho" id="contador-carrinho">0</span>
-</button>
+<body class="catalogo-page" data-patch="HB_P08_3_C_1_FECHAMENTO_E_CONTRASTE">
+
 <div class="topo-fabrica">
 <div class="fabrica-atual" id="fabrica-atual"></div>
 <div class="marca-topo">HBJOIAS <span>REPRESENTAÇÕES</span></div>
+
 <div class="menu-topo-wrap">
 <button aria-expanded="false" aria-label="Abrir menu" class="btn-menu-topo" onclick="alternarMenuTopo()" type="button">
 <span class="menu-topo-icone">☰</span>
@@ -1226,6 +28,17 @@
 </nav>
 </div>
 </div>
+<button aria-label="Abrir pedido" class="botao-carrinho-lateral carrinho-aba-lateral" onclick="alternarCarrinho()" type="button">
+  <span class="icone-carrinho" aria-hidden="true">
+    <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+  </span>
+  <span class="texto-carrinho-lateral">Pedido</span>
+  <span class="contador-carrinho" id="contador-carrinho">0</span>
+</button>
 <header class="hero-catalogo hero-premium">
 <div aria-hidden="true" class="hero-joia-decor"></div>
 <div class="hero-conteudo-premium">
@@ -1237,14 +50,14 @@
 <div class="categorias-area">
 <div class="catalogo-controlbar">
 <div class="busca-catalogo">
-<input id="busca-produto" oninput="atualizarBusca(this.value)" placeholder="Buscar por referência ou descrição" type="text"/>
+<input aria-label="Buscar produtos" autocomplete="off" id="busca-produto" maxlength="80" oninput="atualizarBusca(this.value)" placeholder="Buscar por referência ou descrição" spellcheck="false" type="search"/>
 <button aria-label="Limpar busca" class="btn-fechar-busca" onclick="fecharBuscaCatalogo()" type="button">×</button>
 </div>
-<button aria-expanded="false" aria-label="Abrir filtros de preço" class="btn-filtro-toggle" onclick="alternarFiltroPrecoPainel()" type="button">
+<button aria-expanded="false" aria-controls="filtros-preco" aria-label="Abrir filtros de preço" class="btn-filtro-toggle" onclick="alternarFiltroPrecoPainel()" type="button">
 <span>☷</span>
 <strong>Filtro</strong>
 </button>
-<div aria-label="Filtros por valor estimado" class="filtros-preco" id="filtros-preco">
+<div aria-hidden="true" aria-label="Filtros por valor estimado" class="filtros-preco" id="filtros-preco" role="group">
 <button class="ativo" data-filtro-preco="todos" onclick="atualizarFiltroPreco('todos')" type="button">Todos</button>
 <button data-filtro-preco="ate25" onclick="atualizarFiltroPreco('ate25')" type="button">Até R$25</button>
 <button data-filtro-preco="25a50" onclick="atualizarFiltroPreco('25a50')" type="button">R$25 ~ R$50</button>
@@ -1282,6 +95,7 @@
 <div class="carrinho-topo">
 <p class="carrinho-label">Pedido atual</p>
 <h2>Seu pedido</h2>
+<button aria-label="Fechar carrinho" class="carrinho-fechar-painel" onclick="fecharCarrinho()" type="button">×</button>
 <div id="resumo-fabricas"></div>
 </div>
 <div class="lista-carrinho-scroll" id="lista-carrinho"></div>
@@ -1293,12 +107,15 @@
 </div>
 </aside>
 </div>
-<div class="popup escondido" id="popup">
+<div aria-hidden="true" aria-labelledby="popup-referencia" aria-modal="true" class="popup escondido" id="popup" role="dialog">
 <div class="popup-conteudo popup-produto-layout">
+<div aria-label="Arraste para baixo para fechar" class="popup-arraste-handle" role="button" tabindex="0">
+<span aria-hidden="true"></span>
+</div>
 <button aria-label="Fechar seleção" class="fechar-popup" onclick="fecharPopup()" type="button">×</button>
 <div class="popup-produto-grid">
 <section class="popup-produto-visual">
-<div class="popup-imagem-principal">
+<div aria-label="Ampliar imagem do produto" class="popup-imagem-principal" onclick="ampliarImagemPopup()" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); ampliarImagemPopup(); }" role="button" tabindex="0">
 <img alt="Imagem do produto selecionado" id="popup-imagem-produto" src=""/>
 </div>
 <div class="popup-info-produto">
@@ -1337,62 +154,145 @@
 </div>
 </div>
 </div>
-<div aria-hidden="true" class="modal-resumo escondido" id="modal-resumo">
-<div class="modal-resumo-conteudo">
+<div aria-describedby="descricao-modal-resumo" aria-hidden="true" aria-labelledby="titulo-modal-resumo" aria-modal="true" class="modal-resumo checkout-modal escondido" id="modal-resumo" role="dialog" tabindex="-1">
+<div class="modal-resumo-conteudo checkout-resumo-conteudo">
 <button aria-label="Fechar resumo" class="fechar-resumo" onclick="fecharResumoPedido()" type="button">×</button>
-<p class="resumo-label">Resumo do pedido</p>
-<h2>Confira antes de enviar</h2>
-<p class="resumo-aviso">Após confirmar, a planilha do pedido será baixada no dispositivo e o pedido será encaminhado para análise comercial.</p>
-<div id="resumo-pedido-itens"></div>
+<header class="checkout-modal-cabecalho">
+<div class="checkout-etapa"><span>1</span> de 2</div>
+<p class="resumo-label">Revisão do pedido</p>
+<h2 id="titulo-modal-resumo">Confira os itens antes de continuar</h2>
+<p class="resumo-aviso" id="descricao-modal-resumo">Revise referências, quantidades e valores. Na próxima etapa você informa os dados do cliente e da entrega.</p>
+</header>
+<div class="checkout-resumo-grid">
+<section class="checkout-itens-painel" aria-label="Itens do pedido">
+<div class="checkout-secao-cabecalho">
+<div>
+<span class="checkout-secao-kicker">SEU PEDIDO</span>
+<h3>Itens selecionados</h3>
+</div>
+<span class="checkout-contagem" id="resumo-contagem-itens">0 referências</span>
+</div>
+<div class="checkout-lista-itens" id="resumo-pedido-itens"></div>
 <div class="resumo-observacoes-cliente escondido" id="resumo-observacoes-cliente"></div>
+</section>
+<aside class="checkout-total-painel" aria-label="Totais do pedido">
+<div class="checkout-seguranca-box">
+<span class="checkout-seguranca-icone" aria-hidden="true">✓</span>
+<div>
+<strong>Conferência antes do envio</strong>
+<p>O carrinho só será limpo depois da confirmação do servidor.</p>
+</div>
+</div>
+<div class="checkout-total-linhas">
+<div>
+<span>Subtotal</span>
+<strong id="resumo-subtotal-valor">R$ 0,00</strong>
+</div>
+<div class="checkout-desconto-linha escondido" id="resumo-desconto-linha">
+<span id="resumo-desconto-label">Desconto</span>
+<strong id="resumo-desconto-valor">-R$ 0,00</strong>
+</div>
+</div>
 <div class="resumo-total">
 <span>Total estimado</span>
 <strong id="resumo-total-valor">R$ 0,00</strong>
 </div>
-<div class="resumo-acoes">
-<button class="botao-secundario-resumo" onclick="fecharResumoPedido()" type="button">Voltar e editar</button>
-<button class="botao-confirmar-pedido" id="botao-confirmar-pedido" onclick="confirmarEnviarPedido()" type="button">Confirmar e enviar pedido</button>
+<div class="checkout-proxima-etapa">
+<span class="checkout-proxima-numero">2</span>
+<div>
+<strong>Próxima etapa</strong>
+<p>Identificação do cliente e endereço de entrega.</p>
 </div>
-<p class="status-envio-pedido" id="status-envio-pedido"></p>
+</div>
+</aside>
+</div>
+<div class="resumo-acoes checkout-acoes">
+<button class="botao-secundario-resumo" onclick="fecharResumoPedido()" type="button">Continuar editando</button>
+<button class="botao-confirmar-pedido" id="botao-confirmar-pedido" onclick="confirmarEnviarPedido()" type="button">Continuar para os dados</button>
+</div>
+<p aria-live="polite" class="status-envio-pedido" id="status-envio-pedido"></p>
 </div>
 </div>
-<div aria-hidden="true" class="modal-resumo modal-dados-cliente escondido" id="modal-dados-cliente">
-<div class="modal-resumo-conteudo modal-dados-cliente-conteudo">
+<div aria-describedby="descricao-modal-dados" aria-hidden="true" aria-labelledby="titulo-modal-dados" aria-modal="true" class="modal-resumo modal-dados-cliente checkout-modal escondido" id="modal-dados-cliente" role="dialog" tabindex="-1">
+<div class="modal-resumo-conteudo modal-dados-cliente-conteudo checkout-dados-conteudo">
 <button aria-label="Fechar dados do cliente" class="fechar-resumo" onclick="fecharDadosClientePedido()" type="button">×</button>
-<p class="resumo-label">Dados do cliente</p>
-<h2>Para onde enviamos o pedido?</h2>
-<p class="resumo-aviso">Preencha os dados abaixo para identificar o pedido e o local de entrega.</p>
+<header class="checkout-modal-cabecalho">
+<div class="checkout-etapa"><span>2</span> de 2</div>
+<p class="resumo-label">Identificação e entrega</p>
+<h2 id="titulo-modal-dados">Dados para finalizar o pedido</h2>
+<p class="resumo-aviso" id="descricao-modal-dados">Use dados válidos para identificarmos o comprador e o endereço de entrega sem retrabalho.</p>
+</header>
 <div class="form-dados-cliente">
-<label>
+<section class="checkout-form-secao">
+<div class="checkout-form-titulo">
+<span class="checkout-form-icone" aria-hidden="true">01</span>
+<div><strong>Dados comerciais</strong><p>Quem está realizando o pedido.</p></div>
+</div>
+<div class="checkout-grid checkout-grid-identificacao">
+<label class="campo-nome-cliente campo-span-2">
 <span>Nome do cliente ou loja</span>
 <input autocomplete="organization" class="campo-cliente" id="cliente-nome" placeholder="Ex: Relojoaria Modelo" type="text"/>
 </label>
-<label>
+<label class="campo-cnpj-cliente">
 <span>CNPJ</span>
-<input autocomplete="off" class="campo-cliente" id="cliente-cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" type="text"/>
+<input autocapitalize="characters" autocomplete="off" class="campo-cliente" id="cliente-cnpj" inputmode="text" maxlength="18" placeholder="00.000.000/0000-00" spellcheck="false" type="text"/>
 </label>
-<label>
+<label class="campo-contato-cliente">
 <span>Número para contato</span>
-<input autocomplete="tel" class="campo-cliente" id="cliente-contato" placeholder="(11) 99999-9999" type="tel"/>
-</label>
-<label class="campo-entrega">
-<span>Local de entrega</span>
-<textarea class="campo-cliente" id="cliente-local-entrega" placeholder="Endereço completo ou referência para entrega" rows="3"></textarea>
+<input autocomplete="tel" class="campo-cliente" id="cliente-contato" inputmode="tel" maxlength="18" placeholder="(11) 99999-9999" type="tel"/>
 </label>
 </div>
-<div class="resumo-acoes">
+</section>
+<section class="checkout-form-secao">
+<div class="checkout-form-titulo">
+<span class="checkout-form-icone" aria-hidden="true">02</span>
+<div><strong>Endereço de entrega</strong><p>O CEP pode preencher parte do endereço automaticamente.</p></div>
+</div>
+<div class="checkout-grid checkout-grid-endereco">
+<label class="campo-cep-cliente">
+<span>CEP</span>
+<input autocomplete="postal-code" class="campo-cliente" id="cliente-cep" inputmode="numeric" maxlength="9" placeholder="00000-000" type="text"/>
+</label>
+<label class="campo-rua-cliente campo-span-2">
+<span>Rua / Avenida</span>
+<input autocomplete="address-line1" class="campo-cliente" id="cliente-rua" placeholder="Rua, avenida ou travessa" type="text"/>
+</label>
+<label class="campo-numero-cliente">
+<span>Número</span>
+<input autocomplete="address-line2" class="campo-cliente" id="cliente-numero" placeholder="Nº" type="text"/>
+</label>
+<label class="campo-bairro-cliente">
+<span>Bairro</span>
+<input class="campo-cliente" id="cliente-bairro" placeholder="Bairro" type="text"/>
+</label>
+<label class="campo-cidade-cliente">
+<span>Cidade</span>
+<input autocomplete="address-level2" class="campo-cliente" id="cliente-cidade" placeholder="Cidade" type="text"/>
+</label>
+<label class="campo-estado-cliente">
+<span>UF</span>
+<input autocomplete="address-level1" autocapitalize="characters" class="campo-cliente" id="cliente-estado" maxlength="2" placeholder="UF" type="text"/>
+</label>
+<label class="campo-entrega campo-span-full">
+<span>Complemento ou referência <small>opcional</small></span>
+<textarea id="cliente-local-entrega" placeholder="Apartamento, sala, ponto de referência ou observação de entrega" rows="2"></textarea>
+</label>
+</div>
+</section>
+</div>
+<p aria-live="polite" class="status-envio-pedido" id="status-dados-cliente" role="status"></p>
+<div class="resumo-acoes checkout-acoes">
 <button class="botao-secundario-resumo" onclick="fecharDadosClientePedido()" type="button">Voltar ao resumo</button>
 <button class="botao-confirmar-pedido" id="botao-enviar-dados-cliente" onclick="enviarPedidoComDadosCliente()" type="button">Enviar pedido</button>
 </div>
-<p class="status-envio-pedido" id="status-dados-cliente"></p>
 </div>
 </div>
 <div aria-hidden="true" class="aviso-sucesso-pedido escondido" id="aviso-sucesso-pedido">
 <div class="aviso-sucesso-card">
 <div class="aviso-sucesso-icone">✓</div>
 <p class="aviso-sucesso-label">Pedido finalizado</p>
-<h2>Pedido preparado com segurança</h2>
-<p>A planilha foi baixada no dispositivo e o pedido foi encaminhado para análise comercial.</p>
+<h2>Pedido confirmado e enviado</h2>
+<p>O servidor confirmou o recebimento. Um backup CSV também foi baixado neste dispositivo.</p>
 <div class="aviso-numero-box">
 <span>Número do pedido</span>
 <strong id="aviso-numero-pedido">PED-000</strong>
@@ -1430,18 +330,22 @@
 <script>
     (function carregarCatalogoPorFabrica() {
       const params = new URLSearchParams(window.location.search);
-      const fabrica = (params.get("fabrica") || "tendenze").toLowerCase();
+      const fabricaSolicitada = (params.get("fabrica") || "tendenze").toLowerCase();
       const arquivosPorFabrica = {
         tendenze: "produtos-tendenze.js",
         zarrara: "produtos-zarrara.js",
         inove: "produtos-inove.js"
       };
-      const arquivoProdutos = arquivosPorFabrica[fabrica] || "produtos-tendenze.js";
+      const fabrica = arquivosPorFabrica[fabricaSolicitada] ? fabricaSolicitada : "tendenze";
+      const arquivoProdutos = arquivosPorFabrica[fabrica];
+      const versaoAssets = "HB_CATALOGO_P08_3_C_2_2_URL_APPS_CORRETA_20260728";
 
       document.documentElement.dataset.fabrica = fabrica;
 
       const scriptProdutos = document.createElement("script");
-      scriptProdutos.src = arquivoProdutos + "?v=" + Date.now();
+      scriptProdutos.src = arquivoProdutos + "?v=" + versaoAssets;
+      scriptProdutos.async = true;
+      scriptProdutos.fetchPriority = "high";
 
       scriptProdutos.onload = function () {
         // Normaliza os produtos importados para o mesmo padrão usado pelo catálogo.
@@ -1453,7 +357,12 @@
         }
 
         const scriptApp = document.createElement("script");
-        scriptApp.src = "script.js?v=" + Date.now();
+        scriptApp.src = "script.js?v=" + versaoAssets;
+        scriptApp.async = true;
+        scriptApp.fetchPriority = "high";
+        scriptApp.onerror = function () {
+          alert("Não foi possível carregar o sistema do catálogo. Recarregue a página ou verifique a conexão.");
+        };
         document.body.appendChild(scriptApp);
       };
 
