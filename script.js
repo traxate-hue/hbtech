@@ -10,9 +10,7 @@ let codigoComercialPainelAberto = false;
 let sequenciaValidacaoCodigo = 0;
 
 // Código comercial validado via Apps Script + aba CUPONS.
-// Valores padrão usados apenas como segurança quando a resposta não trouxer algum campo.
-const VALOR_MINIMO_CODIGO_PADRAO = 10000;
-const DESCONTO_CODIGO_PADRAO = 5;
+// Cada código pode devolver condições diferentes; nenhum benefício é presumido.
 
 let paginaAtualProdutos = 1;
 const PRODUTOS_POR_PAGINA = 24;
@@ -143,6 +141,8 @@ function definirEstadoFiltroPreco(aberto) {
 
   if (painel) {
     painel.setAttribute("aria-hidden", estado ? "false" : "true");
+    painel.hidden = !estado;
+    painel.inert = !estado;
   }
 }
 
@@ -347,6 +347,15 @@ function minimoPorFabrica(fabrica) {
   if (fabrica === "zarrara") return 10;
   if (fabrica === "inove") return 5;
   return 1;
+}
+
+function multiploPorFabrica(fabrica) {
+  return String(fabrica || "").toLowerCase() === "zarrara" ? 10 : 1;
+}
+
+function quantidadeValidaParaFabrica(quantidade, fabrica) {
+  const multiplo = multiploPorFabrica(fabrica);
+  return Number.isInteger(quantidade) && quantidade >= 0 && quantidade % multiplo === 0;
 }
 
 function quantidadeInteiraSegura(valor) {
@@ -875,15 +884,16 @@ function carregarProdutos() {
     const imagemSrc = escaparHtml(produto.imagem || "");
     const imagemPrioritaria = indicePagina < limiteImagensPrioritarias;
     const imagemHtml = produto.imagem
-      ? `<img src="${imagemSrc}"
-              alt="${altImagem}"
-              width="640"
-              height="640"
-              loading="${imagemPrioritaria ? "eager" : "lazy"}"
-              fetchpriority="${imagemPrioritaria ? "high" : "low"}"
-              decoding="async"
-              draggable="false"
-              onclick="abrirZoomImagem(this.currentSrc || this.src, this.alt)">`
+      ? `<button type="button" class="produto-imagem-botao" aria-label="Ampliar imagem da referência ${referenciaHtml}" onclick="const imagem = this.querySelector('img'); abrirZoomImagem(imagem.currentSrc || imagem.src, imagem.alt)">
+           <img src="${imagemSrc}"
+                alt="${altImagem}"
+                width="640"
+                height="640"
+                loading="${imagemPrioritaria ? "eager" : "lazy"}"
+                fetchpriority="${imagemPrioritaria ? "high" : "low"}"
+                decoding="async"
+                draggable="false">
+         </button>`
       : `<span>Sem imagem</span>`;
 
     const jaNoCarrinho = produtoJaNoCarrinho(produto);
@@ -903,7 +913,7 @@ function carregarProdutos() {
       <div class="info-produto">
         <p class="ref-produto">Ref. ${referenciaHtml}</p>
         ${produto.peso ? `<p class="peso-produto">Peso: ${pesoHtml}</p>` : ""}
-        <p class="valor-produto">R$ ${formatarMoeda(valorUnitarioProduto(produto))}</p>
+        <p class="valor-produto"><span>Valor estimado</span><strong>R$ ${formatarMoeda(valorUnitarioProduto(produto))}</strong></p>
       </div>
     `;
 
@@ -944,6 +954,7 @@ function carregarProdutos() {
           onchange="irParaPagina(this.value)"
           onkeydown="if(event.key === 'Enter') irParaPagina(this.value)"
           class="input-pagina"
+          aria-label="Ir para página"
         >
         <span>de ${totalPaginas}</span>
       </div>
@@ -1024,9 +1035,12 @@ function abrirPopup(referencia) {
   }
 
   document.getElementById("popup-referencia").innerText = "Ref. " + produto.referencia;
-  document.getElementById("popup-peso").innerText = "Peso: " + (produto.peso || "-") + " • R$ " + formatarMoeda(valorUnitarioProduto(produto));
+  document.getElementById("popup-peso").innerText = "Peso: " + (produto.peso || "-") + " • valor estimado: R$ " + formatarMoeda(valorUnitarioProduto(produto));
   document.getElementById("popup-descricao").innerText = produto.descricao || "";
-  document.getElementById("popup-minimo").innerText = "Mínimo: " + minimoPorFabrica(produto.fabrica) + " peças";
+  const multiploFabrica = multiploPorFabrica(produto.fabrica);
+  document.getElementById("popup-minimo").innerText = multiploFabrica > 1
+    ? `Quantidade: múltiplos de ${multiploFabrica} peças por referência`
+    : "Mínimo: " + minimoPorFabrica(produto.fabrica) + " peças";
 
   const imagemPopup = document.getElementById("popup-imagem-produto");
   const quadroImagemPopup = imagemPopup?.closest(".popup-imagem-principal");
@@ -1054,7 +1068,12 @@ function abrirPopup(referencia) {
 
   document.querySelector(".popup-selecao-numeracoes .popup-label").innerText = ehAnel ? "Seleção de numerações" : "Adicionar ao carrinho";
   document.querySelector(".popup-selecao-numeracoes h3").innerText = ehAnel ? "Escolha aro e quantidade" : "Escolha quantidade";
-  document.querySelector(".popup-ajuda").innerText = ehAnel ? "Distribua a quantidade da referência entre os aros disponíveis." : "Selecione a quantidade desejada para este produto.";
+  const ajudaBase = ehAnel
+    ? "Distribua a quantidade da referência entre os aros disponíveis."
+    : "Selecione a quantidade desejada para este produto.";
+  document.querySelector(".popup-ajuda").innerText = multiploFabrica > 1
+    ? `${ajudaBase} O total deve ser ${multiploFabrica}, ${multiploFabrica * 2}, ${multiploFabrica * 3}... peças.`
+    : ajudaBase;
 
   let html = "";
 
@@ -1079,9 +1098,9 @@ function abrirPopup(referencia) {
       <div class="numero-item numero-item-simples">
         <div class="numero-topo"><span>Qtd.</span><strong>Peças</strong></div>
         <div class="controle-qtd">
-          <button type="button" aria-label="Diminuir uma peça" onclick="alterarQtdSimples(-1)">−</button>
-          <input type="number" id="qtd-popup-simples" min="0" max="${MAX_QUANTIDADE_POR_CAMPO}" step="1" value="${minimoPorFabrica(produto.fabrica)}" inputmode="numeric" aria-label="Quantidade de peças" oninput="atualizarResumoPopup()">
-          <button type="button" aria-label="Aumentar uma peça" onclick="alterarQtdSimples(1)">+</button>
+          <button type="button" aria-label="Diminuir ${multiploFabrica === 1 ? "uma peça" : multiploFabrica + " peças"}" onclick="alterarQtdSimples(-${multiploFabrica})">−</button>
+          <input type="number" id="qtd-popup-simples" min="${minimoPorFabrica(produto.fabrica)}" max="${MAX_QUANTIDADE_POR_CAMPO}" step="${multiploFabrica}" value="${minimoPorFabrica(produto.fabrica)}" inputmode="numeric" aria-label="Quantidade de peças" oninput="atualizarResumoPopup()">
+          <button type="button" aria-label="Aumentar ${multiploFabrica === 1 ? "uma peça" : multiploFabrica + " peças"}" onclick="alterarQtdSimples(${multiploFabrica})">+</button>
         </div>
       </div>
     `;
@@ -1094,10 +1113,13 @@ function abrirPopup(referencia) {
   configurarArrastePopupMobile();
   atualizarResumoPopup();
   const popup = document.getElementById("popup");
+  registrarOrigemFocoModal(popup);
   popup.classList.remove("escondido");
   popup.setAttribute("aria-hidden", "false");
   document.body.classList.add("popup-aberto");
   gerenciadorOverlay.abrir("popup");
+  popup.querySelector(".fechar-popup")?.focus({ preventScroll: true });
+  focarModalAcessivel(popup, popup.querySelector(".fechar-popup"));
 }
 
 function configurarRolagemNumeracoesPopup() {
@@ -1341,6 +1363,7 @@ function fecharPopup() {
   }
   document.body.classList.remove("popup-aberto");
   gerenciadorOverlay.fechar("popup");
+  restaurarFocoModal(popup);
 
   produtoAtual = null;
   definirEstadoConfirmacaoPopup(false);
@@ -1404,6 +1427,13 @@ function confirmarPopup() {
 
   if (totalPecas < minimoAtual) {
     alert(`Mínimo de ${minimoAtual} peças para esta referência.`);
+    definirEstadoConfirmacaoPopup(false);
+    return;
+  }
+
+  const multiploAtual = multiploPorFabrica(produtoAtual.fabrica);
+  if (!quantidadeValidaParaFabrica(totalPecas, produtoAtual.fabrica)) {
+    alert(`Esta referência deve ser solicitada em múltiplos de ${multiploAtual} peças: ${multiploAtual}, ${multiploAtual * 2}, ${multiploAtual * 3}...`);
     definirEstadoConfirmacaoPopup(false);
     return;
   }
@@ -1532,7 +1562,8 @@ function regrasComerciaisFabrica(fabrica) {
 
 function valorMinimoFabrica(fabrica) {
   if (codigoComercialEstaAtivoParaFabrica(fabrica)) {
-    return Number(codigoComercialAplicado.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO);
+    const minimoDoCupom = numeroPositivoOpcional(codigoComercialAplicado.valorMinimo);
+    if (minimoDoCupom !== null) return minimoDoCupom;
   }
 
   return regrasComerciaisFabrica(fabrica).minimo;
@@ -1566,6 +1597,21 @@ function salvarCodigoComercial() {
   localStorage.removeItem("codigoComercialAplicado");
 }
 
+function limparCodigoComercialAposPedidoConcluido() {
+  codigoComercialAplicado = null;
+  statusValidacaoCodigo = "";
+  codigoComercialPainelAberto = false;
+  localStorage.removeItem("codigoComercialAplicado");
+}
+
+function limparCodigoComercialPorBloqueioServidor(mensagem) {
+  codigoComercialAplicado = null;
+  statusValidacaoCodigo = String(mensagem || "Cupom removido.");
+  codigoComercialPainelAberto = false;
+  localStorage.removeItem("codigoComercialAplicado");
+  renderizarCarrinho();
+}
+
 function normalizarCodigoComercial(codigo) {
   return String(codigo || "").trim().toUpperCase();
 }
@@ -1577,6 +1623,53 @@ function escapeHtml(valor) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function numeroPositivoOpcional(valor, limiteMaximo = Infinity) {
+  if (valor === null || valor === undefined || String(valor).trim() === "") return null;
+  const numero = Number(valor);
+  return Number.isFinite(numero) && numero > 0 && numero <= limiteMaximo ? numero : null;
+}
+
+function numeroNaoNegativoOpcional(valor, limiteMaximo = Infinity) {
+  if (valor === null || valor === undefined || String(valor).trim() === "") return null;
+  const numero = Number(valor);
+  return Number.isFinite(numero) && numero >= 0 && numero <= limiteMaximo ? numero : null;
+}
+
+function beneficiosCodigoComercial(dados = codigoComercialAplicado) {
+  if (!dados?.valido) return [];
+
+  const beneficios = [];
+  const desconto = numeroPositivoOpcional(dados.descontoPercentual, 100);
+  const valorMinimo = numeroPositivoOpcional(dados.valorMinimo);
+
+  if (desconto !== null) beneficios.push(`${desconto}% de desconto`);
+  if (valorMinimo !== null) beneficios.push(`pedido mínimo de R$ ${formatarMoeda(valorMinimo)}`);
+
+  const textosAdicionais = [
+    dados.beneficioTexto,
+    ...(Array.isArray(dados.beneficios) ? dados.beneficios : [])
+  ];
+
+  textosAdicionais.forEach(item => {
+    const texto = String(item || "").trim();
+    if (texto && !beneficios.some(existente => existente.toLowerCase() === texto.toLowerCase())) {
+      beneficios.push(texto.slice(0, 180));
+    }
+  });
+
+  return beneficios;
+}
+
+function mensagemPublicaCodigoComercial(mensagem, fallback = "Não foi possível validar o código agora. Tente novamente.") {
+  const texto = String(mensagem || "").replace(/\s+/g, " ").trim();
+  if (!texto) return fallback;
+
+  const pareceErroInterno = /exception:|__gs_internal|\bat\s+[\w$]+\s*\(|código:\d+:\d+|codigo:\d+:\d+|permissão para acessar o documento|permissao para acessar o documento/i.test(texto);
+  if (pareceErroInterno) return "Sistema de cupons temporariamente indisponível. Tente novamente mais tarde.";
+
+  return texto.slice(0, 240);
 }
 
 function codigoComercialCompativelComFabrica(fabrica) {
@@ -1598,11 +1691,13 @@ function codigoComercialParaPayload() {
 
   return {
     codigo: codigoComercialAplicado.codigo,
-    tipo: codigoComercialAplicado.tipo || "PRIMEIRA_COMPRA",
+    tipo: codigoComercialAplicado.tipo || "CUPOM",
     loja: codigoComercialAplicado.loja || codigoComercialAplicado.cliente || "",
     cliente: codigoComercialAplicado.cliente || codigoComercialAplicado.loja || "",
-    valorMinimo: Number(codigoComercialAplicado.valorMinimo || VALOR_MINIMO_CODIGO_PADRAO),
-    descontoPercentual: Number(codigoComercialAplicado.descontoPercentual || 0),
+    valorMinimo: numeroPositivoOpcional(codigoComercialAplicado.valorMinimo),
+    descontoPercentual: numeroNaoNegativoOpcional(codigoComercialAplicado.descontoPercentual, 100) ?? 0,
+    beneficio: codigoComercialAplicado.beneficioTexto || "",
+    beneficios: Array.isArray(codigoComercialAplicado.beneficios) ? codigoComercialAplicado.beneficios : [],
     validade: codigoComercialAplicado.validade || "",
     fabrica: codigoComercialAplicado.fabrica || "TODAS",
     validadoEm: codigoComercialAplicado.validadoEm || "",
@@ -1655,22 +1750,15 @@ function estadoVisualCodigoComercial() {
   const codigoAtual = codigoComercialAplicado?.codigo ? normalizarCodigoComercial(codigoComercialAplicado.codigo) : "";
 
   if (codigoComercialAplicado?.valido && codigoComercialCompativelComFabrica(fabrica)) {
-    const desconto = Number(codigoComercialAplicado.descontoPercentual || 0);
-
-    if (desconto > 0) {
-      return {
-        classe: "ativo",
-        trigger: `Cupom ativo: ${codigoAtual}`,
-        triggerNote: `${desconto}% aplicado`,
-        texto: `${desconto}% aplicado no total do carrinho.`
-      };
-    }
+    const beneficios = beneficiosCodigoComercial(codigoComercialAplicado);
 
     return {
       classe: "ativo",
-      trigger: `Cupom validado: ${codigoAtual}`,
-      triggerNote: "Mínimo especial liberado",
-      texto: "Mínimo especial liberado por código comercial."
+      trigger: `Cupom ativo: ${codigoAtual}`,
+      triggerNote: beneficios.length ? beneficios.join(" · ") : "Condições validadas",
+      texto: beneficios.length
+        ? `Benefícios aplicados: ${beneficios.join("; ")}.`
+        : "As condições deste cupom foram validadas para o pedido."
     };
   }
 
@@ -1697,7 +1785,7 @@ function estadoVisualCodigoComercial() {
   return {
     classe: "vazio",
     trigger: "+ Tenho cupom",
-    triggerNote: "Adicionar desconto",
+    triggerNote: "Consulte as condições do seu código",
     texto: ""
   };
 }
@@ -1782,14 +1870,41 @@ function alternarCodigoComercialPainel() {
 }
 
 function montarCodigoComercialAplicadoDaResposta(codigo, resposta) {
+  const valorMinimoRecebido = resposta.valorMinimo ?? resposta.valor_minimo;
+  const descontoRecebido = resposta.descontoPercentual ?? resposta.desconto_percentual;
+  const minimoFoiInformado = valorMinimoRecebido !== null && valorMinimoRecebido !== undefined && String(valorMinimoRecebido).trim() !== "";
+  const descontoFoiInformado = descontoRecebido !== null && descontoRecebido !== undefined && String(descontoRecebido).trim() !== "";
+  const valorMinimo = numeroPositivoOpcional(valorMinimoRecebido);
+  const descontoPercentual = numeroNaoNegativoOpcional(descontoRecebido, 100);
+  const beneficioTexto = String(
+    resposta.beneficio ?? resposta.beneficioTexto ?? resposta.descricaoBeneficio ?? resposta.descricao_beneficio ?? ""
+  ).trim().slice(0, 240);
+  const beneficios = Array.isArray(resposta.beneficios)
+    ? resposta.beneficios.map(item => String(item || "").trim().slice(0, 180)).filter(Boolean).slice(0, 6)
+    : [];
+
+  if (minimoFoiInformado && valorMinimo === null) {
+    throw new Error("O cupom não informou um pedido mínimo válido.");
+  }
+
+  if (descontoFoiInformado && descontoPercentual === null) {
+    throw new Error("O cupom não informou um desconto válido.");
+  }
+
+  if (valorMinimo === null && (descontoPercentual === null || descontoPercentual === 0) && !beneficioTexto && beneficios.length === 0) {
+    throw new Error("O cupom foi encontrado, mas seus benefícios não estão configurados corretamente.");
+  }
+
   return {
     codigo: normalizarCodigoComercial(resposta.codigo || codigo),
     valido: true,
-    tipo: resposta.tipo || "PRIMEIRA_COMPRA",
+    tipo: resposta.tipo || "CUPOM",
     loja: resposta.loja || resposta.cliente || "",
     cliente: resposta.cliente || resposta.loja || "",
-    valorMinimo: Number(resposta.valorMinimo || resposta.valor_minimo || VALOR_MINIMO_CODIGO_PADRAO),
-    descontoPercentual: Number(resposta.descontoPercentual ?? resposta.desconto_percentual ?? DESCONTO_CODIGO_PADRAO),
+    valorMinimo,
+    descontoPercentual: descontoPercentual ?? 0,
+    beneficioTexto,
+    beneficios,
     validade: resposta.validade || "",
     fabrica: resposta.fabrica || "TODAS",
     validadoEm: new Date().toISOString(),
@@ -1823,19 +1938,34 @@ async function aplicarCodigoComercialPorCodigo(codigoInformado) {
   renderizarCarrinho();
 
   try {
-    const resposta = await jsonpAppsScript({
+    const parametrosValidacao = {
       acao: "validar_codigo",
       codigo,
       fabrica: fabricaDoCarrinho() || fabricaAtual || "",
       subtotal: valorSubtotalPedido ? valorSubtotalPedido() : 0,
       origem: "catalogo-online"
-    });
+    };
+    let resposta;
+
+    try {
+      resposta = await jsonpAppsScript(parametrosValidacao);
+    } catch (primeiroErro) {
+      // Uma repetição curta evita perder um cupom salvo por oscilação momentânea.
+      await new Promise(resolve => window.setTimeout(resolve, 350));
+      resposta = await jsonpAppsScript(parametrosValidacao);
+    }
 
     if (sequenciaAtual !== sequenciaValidacaoCodigo) return false;
 
     if (!resposta || !resposta.valido) {
       codigoComercialAplicado = { codigo, valido: false };
-      statusValidacaoCodigo = resposta?.mensagem || "Código inválido ou indisponível.";
+      statusValidacaoCodigo = mensagemPublicaCodigoComercial(
+        resposta?.mensagem,
+        "Código inválido ou indisponível."
+      );
+      if (resposta?.mensagem && statusValidacaoCodigo !== String(resposta.mensagem)) {
+        console.warn("Falha interna devolvida pela validação do cupom:", resposta.mensagem);
+      }
       codigoComercialPainelAberto = true;
       salvarCodigoComercial();
       sincronizarEstadoCupomMobile();
@@ -1853,7 +1983,9 @@ async function aplicarCodigoComercialPorCodigo(codigoInformado) {
   } catch (erro) {
     if (sequenciaAtual !== sequenciaValidacaoCodigo) return false;
     codigoComercialAplicado = { codigo, valido: false };
-    statusValidacaoCodigo = "Não foi possível validar o código agora. Tente novamente.";
+    const detalheCupom = String(erro?.message || "");
+    statusValidacaoCodigo = mensagemPublicaCodigoComercial(detalheCupom);
+    console.warn("Falha na validação do cupom:", erro);
     codigoComercialPainelAberto = true;
     salvarCodigoComercial();
     sincronizarEstadoCupomMobile();
@@ -1935,10 +2067,10 @@ function mensagemMeta(valorAtual, fabrica) {
   }
 
   if (codigoAtivo) {
-    const descontoCodigo = Number(codigoComercialAplicado.descontoPercentual || 0);
-    return descontoCodigo > 0
-      ? `Cupom aplicado no total do carrinho`
-      : `Mínimo especial liberado pelo código`;
+    const beneficios = beneficiosCodigoComercial(codigoComercialAplicado);
+    return beneficios.length
+      ? `Cupom ativo • ${beneficios.join(" • ")}`
+      : "Cupom ativo • condições validadas";
   }
 
   if (valorAtual < metaDesconto) {
@@ -2699,12 +2831,15 @@ function abrirZoomImagem(src, alt) {
 
   if (!zoom || !img || !src) return;
 
+  registrarOrigemFocoModal(zoom);
   img.src = src;
   img.alt = alt || "Imagem ampliada do produto";
   zoom.classList.add("ativo");
   zoom.setAttribute("aria-hidden", "false");
   document.body.classList.add("zoom-aberto");
   gerenciadorOverlay.abrir("zoom-imagem");
+  zoom.querySelector(".fechar-zoom")?.focus({ preventScroll: true });
+  focarModalAcessivel(zoom, zoom.querySelector(".fechar-zoom"));
 }
 
 function fecharZoomImagem() {
@@ -2717,6 +2852,7 @@ function fecharZoomImagem() {
   zoom.setAttribute("aria-hidden", "true");
   document.body.classList.remove("zoom-aberto");
   gerenciadorOverlay.fechar("zoom-imagem");
+  restaurarFocoModal(zoom);
 
   setTimeout(() => {
     if (!zoom.classList.contains("ativo")) {
@@ -2789,10 +2925,16 @@ function restaurarFocoModal(modal) {
 }
 
 function modalFinalVisivelMaisAcima() {
+  const sucesso = document.getElementById("aviso-sucesso-pedido");
+  const zoom = document.getElementById("zoom-imagem");
+  const popup = document.getElementById("popup");
   const dados = document.getElementById("modal-dados-cliente");
   const resumo = document.getElementById("modal-resumo");
+  if (sucesso && !sucesso.classList.contains("escondido")) return sucesso;
+  if (zoom?.classList.contains("ativo")) return zoom;
   if (dados && !dados.classList.contains("escondido")) return dados;
   if (resumo && !resumo.classList.contains("escondido")) return resumo;
+  if (popup && !popup.classList.contains("escondido")) return popup;
   return null;
 }
 
@@ -3255,11 +3397,14 @@ function inicializarCatalogo() {
   const titulo = document.getElementById("titulo");
   if (titulo) {
     titulo.innerText = "HBJOIAS";
+    titulo.setAttribute("aria-label", `Catálogo B2B ${nomeFabrica(fabricaAtual)} da HB Joias Representações`);
   }
+
+  document.title = `Catálogo ${nomeFabrica(fabricaAtual)} | HB Joias Representações`;
 
   const heroSubtitulo = document.getElementById("hero-subtitulo");
   if (heroSubtitulo && fabricaAtual) {
-    heroSubtitulo.innerText = `Representações • catálogo ${nomeFabrica(fabricaAtual)}`;
+    heroSubtitulo.innerText = `Catálogo B2B • ${nomeFabrica(fabricaAtual)} • compras com CNPJ`;
   }
 
   const fabricaAtualEl = document.getElementById("fabrica-atual");
@@ -3340,7 +3485,10 @@ function gerarMensagemWhatsApp() {
 
   if (codigoComercialAplicado?.valido) {
     mensagem += `CÓDIGO COMERCIAL: ${codigoComercialAplicado.codigo}\n`;
-    mensagem += `MÍNIMO LIBERADO PELO CÓDIGO: R$ ${formatarMoeda(codigoComercialAplicado.valorMinimo || 10000)}\n`;
+    const beneficiosCupom = beneficiosCodigoComercial(codigoComercialAplicado);
+    if (beneficiosCupom.length) {
+      mensagem += `BENEFÍCIOS DO CÓDIGO: ${beneficiosCupom.join("; ")}\n`;
+    }
   }
 
   return mensagem;
@@ -3351,7 +3499,6 @@ function gerarMensagemWhatsApp() {
 // ENVIO DO PEDIDO PARA PLANILHA
 // ===============================
 const URL_APPS_SCRIPT_PEDIDO = "https://script.google.com/macros/s/AKfycbypNx48BWBjK5XEGCkW4VGNeA6W2AHncHsSxLCFhrS6ijQDpn3vivZk87KIHKAFkJIy5A/exec";
-const EMAILS_DESTINO_PEDIDO = ["traxate@gmail.com", "hbjoiasrepresentacoes@gmail.com"];
 
 function pedidoPodeSerEnviado() {
   if (carrinho.length === 0) {
@@ -3375,6 +3522,12 @@ function pedidoPodeSerEnviado() {
 
     if (!Number.isInteger(quantidade) || quantidade < minimoReferencia) {
       alert(`A referência ${item.referencia || "-"} precisa ter pelo menos ${minimoReferencia} peças inteiras.`);
+      return false;
+    }
+
+    if (!quantidadeValidaParaFabrica(quantidade, item.fabrica)) {
+      const multiplo = multiploPorFabrica(item.fabrica);
+      alert(`A referência ${item.referencia || "-"} deve totalizar um múltiplo de ${multiplo} peças.`);
       return false;
     }
   }
@@ -3543,6 +3696,7 @@ function montarTextoDadosClienteEmail(dadosCliente) {
     `Loja/Cliente: ${dadosCliente.nome || "-"}`,
     `CNPJ: ${dadosCliente.cnpj || "-"}`,
     `Telefone: ${dadosCliente.contato || "-"}`,
+    `Intenção de pagamento: ${dadosCliente.intencaoPagamento || "-"}`,
     "",
     "ENDEREÇO DE ENTREGA",
     "",
@@ -3568,6 +3722,9 @@ function montarDadosClienteParaPayload(dadosCliente) {
     cnpj: dadosCliente?.cnpj || "",
     telefone: dadosCliente?.contato || "",
     contato: dadosCliente?.contato || "",
+    intencaoPagamento: dadosCliente?.intencaoPagamento || "",
+    formaPagamentoPretendida: dadosCliente?.intencaoPagamento || "",
+    formaPagamento: dadosCliente?.intencaoPagamento || "",
     cep: dadosCliente?.cep || "",
     rua: dadosCliente?.rua || "",
     numero: dadosCliente?.numero || "",
@@ -3766,8 +3923,19 @@ function montarCsvPedido(payload) {
     linhas.push(linhaCsv(["Código comercial", payload.codigoComercial.codigo || ""]));
     linhas.push(linhaCsv(["Tipo do código", payload.codigoComercial.tipo || ""]));
     linhas.push(linhaCsv(["Cliente do código", payload.codigoComercial.cliente || payload.codigoComercial.loja || ""]));
-    linhas.push(linhaCsv(["Mínimo liberado", moedaCsv(payload.codigoComercial.valorMinimo || 0)]));
-    linhas.push(linhaCsv(["Desconto do código", String(payload.codigoComercial.descontoPercentual || 0) + "%"]));
+    if (numeroPositivoOpcional(payload.codigoComercial.valorMinimo) !== null) {
+      linhas.push(linhaCsv(["Mínimo liberado", moedaCsv(payload.codigoComercial.valorMinimo)]));
+    }
+    if (numeroPositivoOpcional(payload.codigoComercial.descontoPercentual, 100) !== null) {
+      linhas.push(linhaCsv(["Desconto do código", String(payload.codigoComercial.descontoPercentual) + "%"]));
+    }
+    const beneficiosTexto = [
+      payload.codigoComercial.beneficio,
+      ...(Array.isArray(payload.codigoComercial.beneficios) ? payload.codigoComercial.beneficios : [])
+    ].map(item => String(item || "").trim()).filter(Boolean);
+    if (beneficiosTexto.length) {
+      linhas.push(linhaCsv(["Outros benefícios", beneficiosTexto.join(" | ")]));
+    }
   }
 
   linhas.push(linhaCsv([]));
@@ -3776,6 +3944,7 @@ function montarCsvPedido(payload) {
   linhas.push(linhaCsv(["Nome/Loja", dadosCliente.nome || dadosCliente.loja || ""]));
   linhas.push(linhaCsv(["CNPJ", dadosCliente.cnpj || ""]));
   linhas.push(linhaCsv(["Telefone", dadosCliente.telefone || dadosCliente.contato || ""]));
+  linhas.push(linhaCsv(["Intenção de pagamento", dadosCliente.intencaoPagamento || dadosCliente.formaPagamentoPretendida || dadosCliente.formaPagamento || ""]));
   linhas.push(linhaCsv(["CEP", dadosCliente.cep || ""]));
   linhas.push(linhaCsv(["Rua", dadosCliente.rua || ""]));
   linhas.push(linhaCsv(["Número", dadosCliente.numero || ""]));
@@ -3893,51 +4062,22 @@ function registroBackupLocalAindaValido(registro, agora = Date.now()) {
 
 function limparBackupsLocaisExpirados() {
   try {
-    const agora = Date.now();
-    const listaAtual = JSON.parse(localStorage.getItem(BACKUP_PEDIDOS_LOCAL_KEY) || "[]");
-    const listaValida = Array.isArray(listaAtual)
-      ? listaAtual.filter(item => registroBackupLocalAindaValido(item, agora))
-      : [];
-
-    if (listaValida.length) {
-      localStorage.setItem(BACKUP_PEDIDOS_LOCAL_KEY, JSON.stringify(listaValida));
-    } else {
-      localStorage.removeItem(BACKUP_PEDIDOS_LOCAL_KEY);
-    }
-
-    const ultimo = JSON.parse(localStorage.getItem(ULTIMO_PEDIDO_LOCAL_KEY) || "null");
-    if (!registroBackupLocalAindaValido(ultimo, agora)) {
-      localStorage.removeItem(ULTIMO_PEDIDO_LOCAL_KEY);
-    }
+    // Remove imediatamente backups antigos que continham dados pessoais.
+    localStorage.removeItem(BACKUP_PEDIDOS_LOCAL_KEY);
+    localStorage.removeItem(ULTIMO_PEDIDO_LOCAL_KEY);
   } catch (erroLocalStorage) {
-    console.warn("Não foi possível limpar backups locais expirados:", erroLocalStorage);
+    console.warn("Não foi possível limpar os dados locais antigos do pedido:", erroLocalStorage);
   }
 }
 
 executarQuandoDOMPronto(limparBackupsLocaisExpirados);
 
 function atualizarBackupLocalPedido(numeroPedido, status, erro) {
-  try {
-    const listaAtual = JSON.parse(localStorage.getItem(BACKUP_PEDIDOS_LOCAL_KEY) || "[]");
-    if (!Array.isArray(listaAtual)) return;
-
-    const atualizada = listaAtual.map(item => {
-      if (!item || item.numeroPedido !== numeroPedido) return item;
-      return {
-        ...item,
-        status: status || item.status,
-        erro: erro || item.erro || "",
-        atualizadoEm: new Date().toISOString()
-      };
-    });
-
-    localStorage.setItem(BACKUP_PEDIDOS_LOCAL_KEY, JSON.stringify(atualizada));
-
-    const ultimo = atualizada.find(item => item && item.numeroPedido === numeroPedido);
-    if (ultimo) localStorage.setItem(ULTIMO_PEDIDO_LOCAL_KEY, JSON.stringify(ultimo));
-  } catch (erroLocalStorage) {
-    console.warn("Não foi possível atualizar backup local do pedido:", erroLocalStorage);
-  }
+  // Mantida apenas por compatibilidade com chamadas antigas. Dados pessoais
+  // não são mais persistidos no navegador do comprador.
+  void numeroPedido;
+  void status;
+  void erro;
 }
 
 function montarTextoWhatsAppPedido(payload) {
@@ -3954,6 +4094,7 @@ function montarTextoWhatsAppPedido(payload) {
   linhas.push(`Nome/Loja: ${dadosCliente.nome || dadosCliente.loja || "-"}`);
   linhas.push(`CNPJ: ${dadosCliente.cnpj || "-"}`);
   linhas.push(`Telefone: ${dadosCliente.telefone || dadosCliente.contato || "-"}`);
+  linhas.push(`Intenção de pagamento: ${dadosCliente.intencaoPagamento || dadosCliente.formaPagamentoPretendida || dadosCliente.formaPagamento || "-"}`);
   linhas.push(`Endereço: ${dadosCliente.enderecoCompleto || dadosCliente.enderecoEntrega || "-"}`);
   linhas.push("");
   linhas.push("*ITENS CONSOLIDADOS*");
@@ -3977,14 +4118,11 @@ function montarTextoWhatsAppPedido(payload) {
   linhas.push(`Subtotal: R$ ${formatarMoeda(payload?.subtotalEstimado || 0)}`);
   linhas.push(`Desconto: R$ ${formatarMoeda(payload?.valorDesconto || 0)}`);
   linhas.push(`Total estimado: R$ ${formatarMoeda(payload?.totalEstimado || 0)}`);
-  linhas.push("");
-  linhas.push("CSV do pedido foi baixado automaticamente no dispositivo do cliente.");
-
   let texto = linhas.join("\n");
 
   if (texto.length > LIMITE_TEXTO_WHATSAPP_PEDIDO) {
     texto = texto.slice(0, LIMITE_TEXTO_WHATSAPP_PEDIDO) +
-      "\n\n[Pedido grande: texto truncado para caber no WhatsApp. Usar o CSV baixado automaticamente.]";
+      "\n\n[Pedido grande: texto resumido. Consulte o registro recebido pelo sistema.]";
   }
 
   return texto;
@@ -4002,15 +4140,7 @@ function abrirWhatsAppPedido(payload) {
 }
 
 function gerarSaidasLocaisDeSeguranca(payload) {
-  salvarBackupLocalPedido(payload, "GERADO_LOCALMENTE", "");
-
-  try {
-    baixarCsvPedido(payload);
-  } catch (erroCsv) {
-    salvarBackupLocalPedido(payload, "ERRO_DOWNLOAD_CSV", String(erroCsv));
-    console.error("Erro ao baixar CSV do pedido:", erroCsv);
-  }
-
+  // Não baixa CSV nem armazena CNPJ/endereço no navegador do comprador.
   if (ABRIR_WHATSAPP_CLIENTE_AUTOMATICAMENTE) {
     try {
       abrirWhatsAppPedido(payload);
@@ -4023,6 +4153,9 @@ function gerarSaidasLocaisDeSeguranca(payload) {
 
 function limparErroCampoCliente() {
   document.querySelectorAll(".campo-cliente.erro").forEach(campo => campo.classList.remove("erro"));
+  const grupoPagamento = document.getElementById("intencao-pagamento-grupo");
+  grupoPagamento?.classList.remove("erro");
+  grupoPagamento?.setAttribute("aria-invalid", "false");
 }
 
 function somenteNumeros(texto) {
@@ -4182,6 +4315,22 @@ function inicializarEnderecoClientePedido() {
         .slice(0, 2);
     });
   }
+
+  const opcoesPagamento = form.querySelectorAll('input[name="intencao-pagamento"]');
+  opcoesPagamento.forEach(opcao => {
+    if (opcao.dataset.validacaoPagamento === "ativa") return;
+    opcao.dataset.validacaoPagamento = "ativa";
+    opcao.addEventListener("change", () => {
+      const grupo = document.getElementById("intencao-pagamento-grupo");
+      grupo?.classList.remove("erro");
+      grupo?.setAttribute("aria-invalid", "false");
+      const status = document.getElementById("status-dados-cliente");
+      if (status?.classList.contains("erro")) {
+        status.innerText = "";
+        status.className = "status-envio-pedido";
+      }
+    });
+  });
 }
 
 async function buscarEnderecoClientePorCep() {
@@ -4269,7 +4418,7 @@ function abrirDadosClientePedido() {
 
   if (botao) {
     botao.disabled = false;
-    botao.innerText = "Enviar pedido";
+    botao.innerText = "Enviar solicitação";
   }
 
   registrarOrigemFocoModal(modal);
@@ -4313,6 +4462,8 @@ function coletarDadosClientePedido() {
   };
 
   const campoComplemento = document.getElementById("cliente-local-entrega");
+  const campoIntencaoPagamento = document.querySelector('input[name="intencao-pagamento"]:checked');
+  const grupoIntencaoPagamento = document.getElementById("intencao-pagamento-grupo");
 
   limparErroCampoCliente();
 
@@ -4326,7 +4477,8 @@ function coletarDadosClientePedido() {
     bairro: campos.bairro ? campos.bairro.value.trim() : "",
     cidade: campos.cidade ? campos.cidade.value.trim() : "",
     estado: campos.estado ? campos.estado.value.trim().toUpperCase() : "",
-    complemento: campoComplemento ? campoComplemento.value.trim() : ""
+    complemento: campoComplemento ? campoComplemento.value.trim() : "",
+    intencaoPagamento: campoIntencaoPagamento ? campoIntencaoPagamento.value : ""
   };
 
   dados.localEntrega = montarEnderecoCliente(dados);
@@ -4363,16 +4515,25 @@ function coletarDadosClientePedido() {
     erros.push("uf-formato");
   }
 
+  if (!dados.intencaoPagamento) {
+    grupoIntencaoPagamento?.classList.add("erro");
+    grupoIntencaoPagamento?.setAttribute("aria-invalid", "true");
+    erros.push("intencao-pagamento");
+  }
+
   if (erros.length) {
     const status = document.getElementById("status-dados-cliente");
     const possuiFormato = erros.some(erro => erro.includes("-formato"));
     if (status) {
       status.innerText = possuiFormato
         ? "Confira CNPJ, telefone, CEP e UF antes de enviar."
-        : "Preencha os dados obrigatórios do cliente e endereço.";
+        : erros.includes("intencao-pagamento")
+          ? "Preencha os dados obrigatórios e escolha a intenção de pagamento."
+          : "Preencha os dados obrigatórios do cliente e endereço.";
       status.className = "status-envio-pedido erro";
     }
-    const primeiroInvalido = document.querySelector(".campo-cliente.erro");
+    const primeiroInvalido = document.querySelector(".campo-cliente.erro")
+      || grupoIntencaoPagamento?.querySelector('input[name="intencao-pagamento"]');
     if (primeiroInvalido) primeiroInvalido.focus();
     return null;
   }
@@ -4408,7 +4569,7 @@ function mostrarAvisoSucessoPedido(numeroPedido) {
   const numero = document.getElementById("aviso-numero-pedido");
 
   if (!aviso) {
-    alert(`Pedido enviado com sucesso! Número do pedido: ${numeroPedido}`);
+    alert(`Solicitação recebida com sucesso! Número: ${numeroPedido}. A HB fará a conferência antes da preparação e da cobrança.`);
     return;
   }
 
@@ -4418,10 +4579,39 @@ function mostrarAvisoSucessoPedido(numeroPedido) {
 
   aviso.classList.remove("escondido");
   aviso.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-aberto");
+  gerenciadorOverlay.abrir("sucesso-pedido");
+  focarModalAcessivel(aviso, aviso.querySelector(".aviso-copiar-pedido"));
+}
 
-  setTimeout(() => {
-    fecharAvisoSucessoPedido();
-  }, 9000);
+async function copiarNumeroPedido() {
+  const numero = document.getElementById("aviso-numero-pedido")?.innerText?.trim() || "";
+  const botao = document.querySelector(".aviso-copiar-pedido");
+  if (!numero) return;
+
+  try {
+    await navigator.clipboard.writeText(numero);
+  } catch (erroClipboard) {
+    const campo = document.createElement("textarea");
+    campo.value = numero;
+    campo.setAttribute("readonly", "");
+    campo.style.position = "fixed";
+    campo.style.opacity = "0";
+    document.body.appendChild(campo);
+    campo.select();
+    document.execCommand("copy");
+    campo.remove();
+  }
+
+  if (botao) {
+    botao.innerText = "Número copiado";
+    window.setTimeout(() => { botao.innerText = "Copiar número"; }, 1800);
+  }
+}
+
+function baixarCopiaUltimoPedido() {
+  if (!ultimoPedidoConcluidoEmMemoria?.numeroPedido) return;
+  baixarCsvPedido(ultimoPedidoConcluidoEmMemoria);
 }
 
 function fecharAvisoSucessoPedido() {
@@ -4430,6 +4620,18 @@ function fecharAvisoSucessoPedido() {
 
   aviso.classList.add("escondido");
   aviso.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-aberto");
+  gerenciadorOverlay.fechar("sucesso-pedido");
+}
+
+function limparDadosClienteAposEnvio() {
+  document.querySelectorAll(".form-dados-cliente input, .form-dados-cliente textarea").forEach(campo => {
+    if (campo.type === "radio" || campo.type === "checkbox") campo.checked = false;
+    else campo.value = "";
+    campo.classList.remove("erro");
+    campo.setAttribute("aria-invalid", "false");
+  });
+  limparErroCampoCliente();
 }
 
 function confirmarEnviarPedido() {
@@ -4437,6 +4639,7 @@ function confirmarEnviarPedido() {
 }
 
 let envioPedidoPendente = null;
+let ultimoPedidoConcluidoEmMemoria = null;
 
 function configuracaoConfirmacaoPedido() {
   const custom = window.HB_ENVIO_CONFIG || {};
@@ -4533,6 +4736,7 @@ async function aguardarConfirmacaoPedido(numeroPedido, tokenConfirmacao, statusE
       if (estado === "ERRO") {
         const erro = new Error(ultimaResposta.mensagem || "O servidor recusou o processamento do pedido.");
         erro.codigo = "SERVIDOR_REJEITOU";
+        erro.codigoServidor = String(ultimaResposta.codigoErro || "");
         throw erro;
       }
 
@@ -4643,11 +4847,11 @@ async function enviarPedidoComDadosCliente() {
 
   if (botao) {
     botao.disabled = true;
-    botao.innerText = "Preparando segurança...";
+    botao.innerText = "Preparando envio...";
   }
 
   if (status) {
-    status.innerText = "Gerando o backup local do pedido...";
+    status.innerText = "Preparando a solicitação para envio seguro...";
     status.className = "status-envio-pedido carregando";
   }
 
@@ -4665,11 +4869,12 @@ async function enviarPedidoComDadosCliente() {
       origem: "catalogo-online",
       numeroPedido,
       tokenConfirmacao: gerarTokenConfirmacaoPedido(),
-      protocoloFrontend: "P08.3-C.2",
+      protocoloFrontend: "P15-CUPOM-CNPJ-DESKTOP",
       dataPedido: new Date().toISOString(),
-      emailsDestino: EMAILS_DESTINO_PEDIDO,
       codigoComercial: codigoComercialParaPayload(),
       dadosCliente: dadosClientePayload,
+      intencaoPagamento: dadosClientePayload.intencaoPagamento,
+      formaPagamentoPretendida: dadosClientePayload.formaPagamentoPretendida,
       detalhesCliente,
       fabrica: nomeFabrica(fabricaDoCarrinho()),
       totalPecas: totalPecasPedido(),
@@ -4688,7 +4893,7 @@ async function enviarPedidoComDadosCliente() {
   const numeroPedido = payload.numeroPedido;
 
   if (status) {
-    status.innerText = "Backup criado. Enviando o pedido com segurança...";
+    status.innerText = "Enviando a solicitação para conferência...";
     status.className = "status-envio-pedido carregando";
   }
   if (botao) botao.innerText = "Confirmando recebimento...";
@@ -4701,54 +4906,83 @@ async function enviarPedidoComDadosCliente() {
 
     atualizarBackupLocalPedido(
       numeroPedido,
-      "CONFIRMADO_PELO_SERVIDOR",
-      `Confirmado em ${confirmacao.confirmadoEm || new Date().toISOString()}`
+      "RECEBIDO_PELO_SERVIDOR",
+      `Recebido em ${confirmacao.confirmadoEm || new Date().toISOString()}`
     );
 
     if (status) {
-      status.innerText = "Pedido confirmado pelo servidor e encaminhado para análise.";
+      status.innerText = "Pedido recebido pelo servidor e encaminhado para conferência comercial.";
       status.className = "status-envio-pedido sucesso";
     }
 
     carrinho = [];
     salvarCarrinho();
+    limparCodigoComercialAposPedidoConcluido();
     renderizarCarrinho();
+    ultimoPedidoConcluidoEmMemoria = payload;
     envioPedidoPendente = null;
 
     fecharDadosClientePedido();
     fecharResumoPedido();
+    limparDadosClienteAposEnvio();
     mostrarAvisoSucessoPedido(numeroPedido);
 
     if (botao) {
       botao.disabled = false;
-      botao.innerText = "Enviar pedido";
+      botao.innerText = "Enviar solicitação";
     }
   } catch (erro) {
     console.error("Erro ao confirmar pedido:", erro);
     const pendente = erro?.codigo === "CONFIRMACAO_PENDENTE";
+    const codigoErroServidor = String(erro?.codigoServidor || "").toUpperCase();
+    const cupomBloqueadoPorCnpj = codigoErroServidor === "CUPOM_JA_UTILIZADO_CNPJ";
+    const cupomRecusado = cupomBloqueadoPorCnpj || codigoErroServidor === "CUPOM_INVALIDO_PEDIDO";
+
     atualizarBackupLocalPedido(
       numeroPedido,
       pendente ? "AGUARDANDO_CONFIRMACAO" : "ERRO_ENVIO_SERVIDOR",
       String(erro)
     );
 
+    if (!pendente) {
+      // Em erro definitivo o próximo clique precisa montar um payload NOVO,
+      // incluindo eventuais alterações de endereço/pagamento e o estado atual do cupom.
+      envioPedidoPendente = null;
+    }
+
+    if (cupomRecusado) {
+      limparCodigoComercialPorBloqueioServidor(
+        cupomBloqueadoPorCnpj
+          ? "Este CNPJ já utilizou um cupom. O código foi removido deste pedido."
+          : "O cupom não é mais válido e foi removido deste pedido."
+      );
+    }
+
     if (status) {
       const estadoServidor = String(erro?.ultimaResposta?.status || "").toUpperCase();
-      if (pendente && estadoServidor === "PROCESSANDO") {
+      if (cupomBloqueadoPorCnpj) {
+        status.innerText = "Este CNPJ já utilizou um cupom anteriormente. O cupom foi removido; confira o total e envie novamente sem o desconto.";
+        status.className = "status-envio-pedido erro";
+      } else if (codigoErroServidor === "CUPOM_INVALIDO_PEDIDO") {
+        status.innerText = erro?.message || "O cupom não é mais válido. Ele foi removido; confira o total e tente novamente.";
+        status.className = "status-envio-pedido erro";
+      } else if (pendente && estadoServidor === "PROCESSANDO") {
         status.innerText = "O servidor já recebeu o pedido e ainda está finalizando os anexos. Não envie outro pedido; clique abaixo apenas para verificar a confirmação.";
         status.className = "status-envio-pedido aviso";
       } else if (pendente) {
-        status.innerText = "Ainda não conseguimos confirmar o recebimento. O carrinho e o backup foram preservados para uma nova verificação segura.";
+        status.innerText = "Ainda não conseguimos confirmar o recebimento. O carrinho foi preservado para uma nova verificação segura.";
         status.className = "status-envio-pedido aviso";
       } else {
-        status.innerText = "O pedido não foi confirmado pelo sistema. O carrinho e o backup foram preservados para nova tentativa.";
+        status.innerText = "O pedido não foi confirmado pelo sistema. O carrinho foi preservado para nova tentativa.";
         status.className = "status-envio-pedido erro";
       }
     }
 
     if (botao) {
       botao.disabled = false;
-      botao.innerText = pendente ? "Verificar recebimento" : "Tentar enviar novamente";
+      botao.innerText = cupomRecusado
+        ? "Enviar sem cupom"
+        : pendente ? "Verificar recebimento" : "Tentar enviar novamente";
     }
   }
 }
@@ -4776,4 +5010,3 @@ window.addEventListener("click", (evento) => {
 function sincronizarEstadoCupomMobile() {
   // Mantido por compatibilidade com a lógica antiga. O visual novo é renderizado em #hb-cupom-root.
 }
-

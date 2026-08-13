@@ -5,12 +5,16 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Catálogo | HB Joias Representações</title>
+<meta name="description" content="Catálogo B2B de prata e semijoias da HB Joias Representações para atacadistas, revendedores e distribuidores com CNPJ."/>
+<meta property="og:title" content="Catálogo B2B | HB Joias Representações"/>
+<meta property="og:description" content="Escolha produtos, monte uma solicitação e envie para conferência comercial, sem cobrança automática."/>
+<meta property="og:type" content="website"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="catalogo.css?v=HB_CATALOGO_P08_3_C_2_2_URL_APPS_CORRETA_20260728" rel="stylesheet"/>
+<link href="catalogo.css?v=HB_CATALOGO_P15_20260813" rel="stylesheet"/>
 <link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#002063" name="theme-color"/></head>
-<body class="catalogo-page" data-patch="HB_P08_3_C_1_FECHAMENTO_E_CONTRASTE">
+<body class="catalogo-page" data-patch="HB_P15_CUPOM_CNPJ_DESKTOP">
 
 <div class="topo-fabrica">
 <div class="fabrica-atual" id="fabrica-atual"></div>
@@ -23,6 +27,7 @@
 </button>
 <nav aria-label="Navegação principal" class="nav-topo-desktop" id="menu-topo-opcoes">
 <a href="index.html">Início</a>
+<a href="como-comprar.html">Como comprar</a>
 <a href="sobre.html">Sobre</a>
 <a href="contato.html">Contato</a>
 </nav>
@@ -42,11 +47,16 @@
 <header class="hero-catalogo hero-premium">
 <div aria-hidden="true" class="hero-joia-decor"></div>
 <div class="hero-conteudo-premium">
-<p class="hero-subtitulo" id="hero-subtitulo">Catálogo selecionado para lojistas</p>
-<h1 id="titulo"></h1>
+<p class="hero-subtitulo" id="hero-subtitulo">Catálogo B2B para compradores com CNPJ</p>
+<h1 id="titulo">HBJOIAS</h1>
 <div aria-hidden="true" class="hero-divisor"><span></span></div>
 </div>
 </header>
+<section class="catalogo-notice" aria-label="Informação importante sobre o pedido">
+  <strong>Valores estimados e conferência comercial</strong>
+  <span>Enviar a solicitação não confirma o pedido e não gera cobrança automática. A HB entra em contato antes da preparação.</span>
+</section>
+<div class="catalogo-load-status" id="catalogo-load-status" role="status" aria-live="assertive" hidden></div>
 <div class="categorias-area">
 <div class="catalogo-controlbar">
 <div class="busca-catalogo">
@@ -57,7 +67,7 @@
 <span>☷</span>
 <strong>Filtro</strong>
 </button>
-<div aria-hidden="true" aria-label="Filtros por valor estimado" class="filtros-preco" id="filtros-preco" role="group">
+<div aria-hidden="true" aria-label="Filtros por valor estimado" class="filtros-preco" id="filtros-preco" role="group" hidden inert>
 <button class="ativo" data-filtro-preco="todos" onclick="atualizarFiltroPreco('todos')" type="button">Todos</button>
 <button data-filtro-preco="ate25" onclick="atualizarFiltroPreco('ate25')" type="button">Até R$25</button>
 <button data-filtro-preco="25a50" onclick="atualizarFiltroPreco('25a50')" type="button">R$25 ~ R$50</button>
@@ -67,18 +77,18 @@
 </div>
 <div class="categorias-wrapper">
 <div class="categorias categorias-premium" id="categorias-scroll">
-<button onclick="irParaCategoria('todos')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Todos</button>
-<button onclick="irParaCategoria('Anel')"><span aria-hidden="true" class="cat-icone cat-anel"></span>Anel</button>
-<button onclick="irParaCategoria('Brinco')"><span aria-hidden="true" class="cat-icone cat-brinco"></span>Brinco</button>
-<button onclick="irParaCategoria('Gargantilha')"><span aria-hidden="true" class="cat-icone cat-gargantilha"></span>Gargantilha</button>
-<button onclick="irParaCategoria('Piercing')"><span aria-hidden="true" class="cat-icone cat-piercing"></span>Piercing</button>
-<button onclick="irParaCategoria('Pulseira')"><span aria-hidden="true" class="cat-icone cat-pulseira"></span>Pulseira</button>
-<button onclick="irParaCategoria('Pingente')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Pingente</button>
-<button onclick="irParaCategoria('Berloque')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Berloque</button>
-<button onclick="irParaCategoria('Conjunto')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Conjunto</button>
-<button onclick="irParaCategoria('Escapulario')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Escapulário</button>
-<button onclick="irParaCategoria('Infantil')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Infantil</button>
-<button onclick="irParaCategoria('Tornozeleira')"><span aria-hidden="true" class="cat-icone cat-pulseira"></span>Tornozeleira</button>
+<button type="button" onclick="irParaCategoria('todos')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Todos</button>
+<button type="button" onclick="irParaCategoria('Anel')"><span aria-hidden="true" class="cat-icone cat-anel"></span>Anel</button>
+<button type="button" onclick="irParaCategoria('Brinco')"><span aria-hidden="true" class="cat-icone cat-brinco"></span>Brinco</button>
+<button type="button" onclick="irParaCategoria('Gargantilha')"><span aria-hidden="true" class="cat-icone cat-gargantilha"></span>Gargantilha</button>
+<button type="button" onclick="irParaCategoria('Piercing')"><span aria-hidden="true" class="cat-icone cat-piercing"></span>Piercing</button>
+<button type="button" onclick="irParaCategoria('Pulseira')"><span aria-hidden="true" class="cat-icone cat-pulseira"></span>Pulseira</button>
+<button type="button" onclick="irParaCategoria('Pingente')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Pingente</button>
+<button type="button" onclick="irParaCategoria('Berloque')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Berloque</button>
+<button type="button" onclick="irParaCategoria('Conjunto')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Conjunto</button>
+<button type="button" onclick="irParaCategoria('Escapulario')"><span aria-hidden="true" class="cat-icone cat-pingente"></span>Escapulário</button>
+<button type="button" onclick="irParaCategoria('Infantil')"><span aria-hidden="true" class="cat-icone cat-todos"></span>Infantil</button>
+<button type="button" onclick="irParaCategoria('Tornozeleira')"><span aria-hidden="true" class="cat-icone cat-pulseira"></span>Tornozeleira</button>
 </div>
 <div aria-hidden="true" class="categorias-indicador" id="categorias-indicador">
 <span>›</span>
@@ -87,7 +97,7 @@
 </div>
 <div class="layout-catalogo">
 <main class="area-produtos">
-<div class="produtos" id="produtos"></div>
+<div class="produtos" id="produtos" aria-live="polite"></div>
 </main>
 <aside class="area-carrinho carrinho-fechado" id="area-carrinho">
 <div class="carrinho">
@@ -102,12 +112,12 @@
 <div class="carrinho-rodape">
 <div id="hb-total-carrinho-root" aria-live="polite"></div>
 <div id="hb-cupom-root" aria-live="polite"></div>
-<button class="btn-finalizar-carrinho" onclick="abrirResumoPedido()">Finalizar pedido</button>
+<button class="btn-finalizar-carrinho" onclick="abrirResumoPedido()" type="button">Finalizar pedido</button>
 </div>
 </div>
 </aside>
 </div>
-<div aria-hidden="true" aria-labelledby="popup-referencia" aria-modal="true" class="popup escondido" id="popup" role="dialog">
+<div aria-hidden="true" aria-labelledby="popup-referencia" aria-modal="true" class="popup escondido" id="popup" role="dialog" tabindex="-1">
 <div class="popup-conteudo popup-produto-layout">
 <div aria-label="Arraste para baixo para fechar" class="popup-arraste-handle" role="button" tabindex="0">
 <span aria-hidden="true"></span>
@@ -161,7 +171,7 @@
 <div class="checkout-etapa"><span>1</span> de 2</div>
 <p class="resumo-label">Revisão do pedido</p>
 <h2 id="titulo-modal-resumo">Confira os itens antes de continuar</h2>
-<p class="resumo-aviso" id="descricao-modal-resumo">Revise referências, quantidades e valores. Na próxima etapa você informa os dados do cliente e da entrega.</p>
+<p class="resumo-aviso" id="descricao-modal-resumo">Revise referências, quantidades e valores estimados. Na próxima etapa, informe os dados da empresa compradora e da entrega.</p>
 </header>
 <div class="checkout-resumo-grid">
 <section class="checkout-itens-painel" aria-label="Itens do pedido">
@@ -179,8 +189,8 @@
 <div class="checkout-seguranca-box">
 <span class="checkout-seguranca-icone" aria-hidden="true">✓</span>
 <div>
-<strong>Conferência antes do envio</strong>
-<p>O carrinho só será limpo depois da confirmação do servidor.</p>
+<strong>Conferência antes da cobrança</strong>
+<p>Enviar esta solicitação não confirma o pedido e não gera cobrança automática. A HB confirma os detalhes antes da preparação.</p>
 </div>
 </div>
 <div class="checkout-total-linhas">
@@ -219,14 +229,14 @@
 <header class="checkout-modal-cabecalho">
 <div class="checkout-etapa"><span>2</span> de 2</div>
 <p class="resumo-label">Identificação e entrega</p>
-<h2 id="titulo-modal-dados">Dados para finalizar o pedido</h2>
-<p class="resumo-aviso" id="descricao-modal-dados">Use dados válidos para identificarmos o comprador e o endereço de entrega sem retrabalho.</p>
+<h2 id="titulo-modal-dados">Dados para enviar o pedido</h2>
+<p class="resumo-aviso" id="descricao-modal-dados">Compras somente com CNPJ. Use dados válidos para identificarmos a empresa e o endereço que será usado pela fábrica no envio.</p>
 </header>
 <div class="form-dados-cliente">
 <section class="checkout-form-secao">
 <div class="checkout-form-titulo">
 <span class="checkout-form-icone" aria-hidden="true">01</span>
-<div><strong>Dados comerciais</strong><p>Quem está realizando o pedido.</p></div>
+<div><strong>Dados comerciais</strong><p>Empresa com CNPJ responsável pela solicitação.</p></div>
 </div>
 <div class="checkout-grid checkout-grid-identificacao">
 <label class="campo-nome-cliente campo-span-2">
@@ -279,28 +289,57 @@
 </label>
 </div>
 </section>
+<section class="checkout-form-secao checkout-form-pagamento">
+<div class="checkout-form-titulo">
+<span class="checkout-form-icone" aria-hidden="true">03</span>
+<div><strong>Intenção de pagamento</strong><p>Escolha como pretende pagar quando o pedido estiver pronto.</p></div>
+</div>
+<div class="checkout-pagamento-conteudo">
+<fieldset class="checkout-pagamento-opcoes" id="intencao-pagamento-grupo" aria-describedby="intencao-pagamento-ajuda">
+<legend>Forma de pagamento pretendida</legend>
+<label class="checkout-pagamento-opcao">
+<input name="intencao-pagamento" type="radio" value="Pix" required/>
+<span><strong>Pix</strong><small>Pagamento por transferência Pix.</small></span>
+</label>
+<label class="checkout-pagamento-opcao">
+<input name="intencao-pagamento" type="radio" value="Boleto"/>
+<span><strong>Boleto</strong><small>Cobrança por boleto bancário.</small></span>
+</label>
+<label class="checkout-pagamento-opcao">
+<input name="intencao-pagamento" type="radio" value="Cartão"/>
+<span><strong>Cartão</strong><small>Cobrança por cartão.</small></span>
+</label>
+</fieldset>
+<p class="checkout-pagamento-ajuda" id="intencao-pagamento-ajuda"><strong>Não haverá cobrança agora.</strong> Esta escolha registra somente sua intenção. A HB confirmará a forma de pagamento antes da preparação e enviará a cobrança quando o pedido estiver pronto.</p>
+</div>
+</section>
+<p class="checkout-privacy-note">Os dados são usados para conferência comercial, faturamento, contato e entrega. Nenhum arquivo com seus dados será baixado automaticamente neste dispositivo.</p>
 </div>
 <p aria-live="polite" class="status-envio-pedido" id="status-dados-cliente" role="status"></p>
 <div class="resumo-acoes checkout-acoes">
 <button class="botao-secundario-resumo" onclick="fecharDadosClientePedido()" type="button">Voltar ao resumo</button>
-<button class="botao-confirmar-pedido" id="botao-enviar-dados-cliente" onclick="enviarPedidoComDadosCliente()" type="button">Enviar pedido</button>
+<button class="botao-confirmar-pedido" id="botao-enviar-dados-cliente" onclick="enviarPedidoComDadosCliente()" type="button">Enviar solicitação para conferência</button>
 </div>
 </div>
 </div>
-<div aria-hidden="true" class="aviso-sucesso-pedido escondido" id="aviso-sucesso-pedido">
+<div aria-hidden="true" aria-labelledby="titulo-sucesso-pedido" aria-modal="true" class="aviso-sucesso-pedido escondido" id="aviso-sucesso-pedido" role="dialog" tabindex="-1">
 <div class="aviso-sucesso-card">
 <div class="aviso-sucesso-icone">✓</div>
-<p class="aviso-sucesso-label">Pedido finalizado</p>
-<h2>Pedido confirmado e enviado</h2>
-<p>O servidor confirmou o recebimento. Um backup CSV também foi baixado neste dispositivo.</p>
+<p class="aviso-sucesso-label">Solicitação recebida</p>
+<h2 id="titulo-sucesso-pedido">Solicitação recebida com sucesso</h2>
+<p>A HB fará a conferência e entrará em contato para confirmar as condições e o pedido. A fábrica prepara e emite a nota fiscal; quando estiver pronto, a HB envia a cobrança. Após o pagamento, a fábrica libera e envia.</p>
 <div class="aviso-numero-box">
 <span>Número do pedido</span>
 <strong id="aviso-numero-pedido">PED-000</strong>
 </div>
-<button onclick="fecharAvisoSucessoPedido()" type="button">Continuar comprando</button>
+<div class="aviso-sucesso-acoes">
+  <button class="aviso-copiar-pedido" onclick="copiarNumeroPedido()" type="button">Copiar número</button>
+  <button class="aviso-baixar-pedido" onclick="baixarCopiaUltimoPedido()" type="button">Baixar cópia</button>
+  <button onclick="fecharAvisoSucessoPedido()" type="button">Continuar comprando</button>
 </div>
 </div>
-<div aria-hidden="true" class="zoom-imagem" id="zoom-imagem">
+</div>
+<div aria-hidden="true" aria-label="Imagem ampliada do produto" aria-modal="true" class="zoom-imagem" id="zoom-imagem" role="dialog" tabindex="-1">
 <button aria-label="Fechar zoom" class="fechar-zoom" onclick="fecharZoomImagem()" type="button">×</button>
 <img alt="Imagem ampliada do produto" id="zoom-img" src=""/>
 </div>
@@ -318,9 +357,9 @@
 <span class="tab-ico">☏</span>
 <span>Contato</span>
 </button>
-<button onclick="window.location.href='sobre.html'" type="button">
+<button onclick="window.location.href='como-comprar.html'" type="button">
 <span class="tab-ico">ⓘ</span>
-<span>Sobre</span>
+<span>Como</span>
 </button>
 <button class="tab-pedido" onclick="alternarCarrinho()" type="button">
 <span class="tab-ico">🛒</span>
@@ -338,7 +377,23 @@
       };
       const fabrica = arquivosPorFabrica[fabricaSolicitada] ? fabricaSolicitada : "tendenze";
       const arquivoProdutos = arquivosPorFabrica[fabrica];
-      const versaoAssets = "HB_CATALOGO_P08_3_C_2_2_URL_APPS_CORRETA_20260728";
+      const versaoAssets = "HB_CATALOGO_P15_20260813";
+
+      function mostrarErroCarregamentoCatalogo(mensagem) {
+        const status = document.getElementById("catalogo-load-status");
+        if (!status) return;
+        status.hidden = false;
+        status.innerHTML = "";
+        const titulo = document.createElement("strong");
+        const texto = document.createElement("span");
+        const acao = document.createElement("button");
+        titulo.textContent = "Não foi possível carregar o catálogo.";
+        texto.textContent = mensagem || "Verifique sua conexão e tente novamente.";
+        acao.type = "button";
+        acao.textContent = "Tentar novamente";
+        acao.addEventListener("click", function () { window.location.reload(); });
+        status.append(titulo, texto, acao);
+      }
 
       document.documentElement.dataset.fabrica = fabrica;
 
@@ -361,13 +416,13 @@
         scriptApp.async = true;
         scriptApp.fetchPriority = "high";
         scriptApp.onerror = function () {
-          alert("Não foi possível carregar o sistema do catálogo. Recarregue a página ou verifique a conexão.");
+          mostrarErroCarregamentoCatalogo("O sistema do catálogo não respondeu. Recarregue a página ou fale com a HB.");
         };
         document.body.appendChild(scriptApp);
       };
 
       scriptProdutos.onerror = function () {
-        alert("Não encontrei o arquivo " + arquivoProdutos + ". Confira se ele está na pasta do projeto.");
+        mostrarErroCarregamentoCatalogo("Os produtos desta fábrica estão temporariamente indisponíveis. Tente novamente ou fale com a HB.");
       };
 
       document.head.appendChild(scriptProdutos);

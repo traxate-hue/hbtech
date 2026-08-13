@@ -1,136 +1,364 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HB Joias Representações</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=76" rel="stylesheet"/>
-<link href="HBjoi.png" rel="icon" type="image/png"/><link href="HBjoi.png" rel="shortcut icon"/><link href="HBjoi.png" rel="apple-touch-icon"/><meta content="#002063" name="theme-color"/></head>
-<body class="home-page home-page-v2">
-<main class="home-v2-shell">
-<section aria-label="Apresentação do catálogo" class="home-v2-hero">
-<div class="home-v2-logo-area">
-<div class="home-v2-kicker"><span></span>Catálogo digital para pedidos<span></span></div>
-<h1><strong>HB Joias</strong><em>Representações</em></h1>
-<p>Sua conexão direta com as <b>melhores fábricas</b></p>
-</div>
-</section>
-<section aria-label="Seleção de fábrica" class="home-v2-grid">
-<article aria-label="Entrar no catálogo Tendenze" class="factory-card factory-tendenze" onclick="entrar('tendenze')" role="button" tabindex="0">
-<div class="factory-card-media"></div>
-<div class="factory-card-glow"></div>
-<div class="factory-card-content">
-<div class="factory-card-top">
-<span>✦ Prata</span>
-</div>
-<div class="factory-card-main">
-<div class="factory-card-diamond">◇</div>
-<h2>Tendenze</h2>
-<div class="factory-info-list">
-<p class="factory-highlight"><strong>Inovação tecnológica</strong><span>Peças fabricadas através de <b>IMPRESSÃO</b>!</span></p>
-<p><strong>Teores:</strong> 925/700 · padrão 700</p>
-<p><strong>Entrega:</strong> 60 dias</p>
-<p><strong>Mínimo:</strong> 6 peças por referência · pedido mínimo de R$ 30 mil</p>
-<p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
-</div>
-</div>
-<div class="factory-card-footer">
-<button type="button">Acessar catálogo <span>→</span></button>
-</div>
-</div>
-</article>
-<article aria-label="Entrar no catálogo Inove" class="factory-card factory-inove" onclick="entrar('inove')" role="button" tabindex="0">
-<div class="factory-card-media"></div>
-<div class="factory-card-glow"></div>
-<div class="factory-card-content">
-<div class="factory-card-top">
-<span>✦ Prata</span>
-</div>
-<div class="factory-card-main">
-<div class="factory-card-diamond">◇</div>
-<h2>Inove</h2>
-<div class="factory-info-list">
-<p class="factory-highlight"><strong>Fundição de prata</strong><span>Fábrica de fundição de prata.</span></p>
-<p><strong>Teores:</strong> 925/700 · padrão 700</p>
-<p><strong>Entrega:</strong> 45 dias</p>
-<p><strong>Mínimo:</strong> 5 peças por referência · pedido mínimo de R$ 20 mil</p>
-<p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
-</div>
-</div>
-<div class="factory-card-footer">
-<button type="button">Acessar catálogo <span>→</span></button>
-</div>
-</div>
-</article>
-<article aria-label="Entrar no catálogo Zarrara" class="factory-card factory-zarrara" onclick="entrar('zarrara')" role="button" tabindex="0">
-<div class="factory-card-media"></div>
-<div class="factory-card-glow"></div>
-<div class="factory-card-content">
-<div class="factory-card-top">
-<span>✦ Folheados</span>
-</div>
-<div class="factory-card-main">
-<div class="factory-card-diamond">◇</div>
-<h2>Zarrara</h2>
-<div class="factory-info-list">
-<p class="factory-highlight"><strong>Banhados a ouro</strong><span>Fábrica de peças banhadas a ouro.</span></p>
-<p><strong>Linha:</strong> produtos leves e baratos</p>
-<p><strong>Entrega:</strong> 30 dias</p>
-<p><strong>Mínimo:</strong> 10 peças por referência · pedido mínimo de R$ 20 mil</p>
-<p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
-</div>
-</div>
-<div class="factory-card-footer">
-<button type="button">Acessar catálogo <span>→</span></button>
-</div>
-</div>
-</article>
-<article aria-label="Futura fábrica em breve" class="factory-card factory-futura factory-disabled" onclick="avisoFuturaFabrica()" role="button" tabindex="0">
-<div class="factory-card-media"></div>
-<div class="factory-card-glow"></div>
-<div class="factory-card-content">
-<div class="factory-card-top">
-<span>✦ Em breve</span>
-</div>
-<div class="factory-card-main">
-<div class="factory-card-diamond">◇</div>
-<h2>Nova</h2>
-<p>Espaço preparado para a próxima fábrica.</p>
-</div>
-<div class="factory-card-footer">
-<button type="button">Em breve <span>→</span></button>
-</div>
-</div>
-</article>
-</section>
-<section aria-label="Diferenciais do atendimento" class="home-v2-benefits">
-<div class="home-v2-benefit"><strong>Atacado seguro</strong><span>Condições especiais para lojistas</span></div>
-<div class="home-v2-benefit"><strong>Pagamento facilitado</strong><span>Cheques 30/60/90 · podendo chegar a 120 dias dependendo do valor</span></div>
-<div class="home-v2-benefit"><strong>Atendimento presencial</strong><span>Equipe disponível mediante agendamento</span></div>
-<div class="home-v2-benefit"><strong>Suporte exclusivo</strong><span>Atendimento via representante · +55 11 95250-0230</span></div>
-</section>
-</main>
-<script>
-    function entrar(fabrica) {
-      window.location.href = `catalogo.html?fabrica=${encodeURIComponent(fabrica)}&categoria=todos`;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HB Joias Representações</title>
+  <meta name="description" content="Catálogo digital B2B da HB Joias Representações para grandes atacadistas, revendedores e distribuidores de prata e semijoias." />
+  <meta property="og:title" content="HB Joias Representações" />
+  <meta property="og:description" content="Representação comercial B2B de prata e semijoias, com catálogo digital para compradores com CNPJ." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#002063" />
 
-    function avisoFuturaFabrica() {
-      alert('Esta fábrica ficou reservada para uma próxima integração.');
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css?v=HB_INDEX_P14_20260813" />
 
-    document.querySelectorAll('.factory-card').forEach((card) => {
-      card.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
+  <link rel="icon" href="HBjoi.png" type="image/png" />
+  <link rel="shortcut icon" href="HBjoi.png" />
+  <link rel="apple-touch-icon" href="HBjoi.png" />
+</head>
+<body class="home-page-v2">
+  <main class="home-v2-shell">
+    <header class="home-v2-topbar">
+      <span class="home-v2-topbar-label">Atendimento comercial B2B</span>
+      <nav class="home-v2-nav" aria-label="Navegação principal">
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </header>
+
+    <section class="home-v2-hero" aria-label="Apresentação do catálogo">
+      <div class="home-v2-logo-area">
+        <div class="home-v2-kicker"><span></span>Representação comercial B2B<span></span></div>
+        <h1><strong>HB Joias</strong><em>Representações</em></h1>
+        <p>Prata e semijoias para <b>atacadistas, revendedores e distribuidores com CNPJ</b></p>
+      </div>
+    </section>
+
+    <section class="factory-carousel" id="fabricas" aria-label="Seleção de fábrica">
+      <div class="factory-carousel-header">
+        <div class="factory-carousel-heading">
+          <span>Escolha a fábrica</span>
+          <p>Use as setas ou deslize para navegar entre os catálogos.</p>
+        </div>
+
+        <div class="factory-carousel-actions" aria-label="Controles do carrossel">
+          <button class="factory-carousel-arrow" type="button" data-carousel-prev aria-label="Fábrica anterior">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button class="factory-carousel-arrow" type="button" data-carousel-next aria-label="Próxima fábrica">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="factory-carousel-viewport" id="factory-carousel" tabindex="0" aria-roledescription="carrossel">
+        <div class="home-v2-grid">
+      <a class="factory-card factory-tendenze" draggable="false" aria-label="Entrar no catálogo Tendenze" href="catalogo.html?fabrica=tendenze&amp;categoria=todos">
+        <div class="factory-card-media"></div>
+        <div class="factory-card-glow"></div>
+        <div class="factory-card-content">
+          <div class="factory-card-top"><span>✦ Prata</span></div>
+          <div class="factory-card-main">
+            <div class="factory-card-diamond" aria-hidden="true">◇</div>
+            <h2>Tendenze</h2>
+            <div class="factory-info-list">
+              <p class="factory-highlight"><strong>Impressão da peça</strong><span>Processo de impressão aplicado à produção das peças.</span></p>
+              <p><strong>Prata:</strong> teor padrão 700, com modelos em prata 925</p>
+              <p><strong>Prazo estimado:</strong> 45 a 60 dias</p>
+              <p><strong>Mínimo:</strong> 6 peças por referência · pedido mínimo de R$ 30 mil</p>
+              <p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
+            </div>
+          </div>
+          <div class="factory-card-footer"><span class="factory-card-cta">Acessar catálogo <span>→</span></span></div>
+        </div>
+      </a>
+
+      <a class="factory-card factory-inove" draggable="false" aria-label="Entrar no catálogo Inove" href="catalogo.html?fabrica=inove&amp;categoria=todos">
+        <div class="factory-card-media"></div>
+        <div class="factory-card-glow"></div>
+        <div class="factory-card-content">
+          <div class="factory-card-top"><span>✦ Prata</span></div>
+          <div class="factory-card-main">
+            <div class="factory-card-diamond" aria-hidden="true">◇</div>
+            <h2>Inove</h2>
+            <div class="factory-info-list">
+              <p class="factory-highlight"><strong>Sistema de fundição</strong><span>Produção em prata com acabamentos natural ou escurecido.</span></p>
+              <p><strong>Prata:</strong> teor padrão 700, com modelos em prata 925</p>
+              <p><strong>Prazo estimado:</strong> 30 a 50 dias</p>
+              <p><strong>Mínimo:</strong> 5 peças por referência · pedido mínimo de R$ 20 mil</p>
+              <p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
+            </div>
+          </div>
+          <div class="factory-card-footer"><span class="factory-card-cta">Acessar catálogo <span>→</span></span></div>
+        </div>
+      </a>
+
+      <a class="factory-card factory-zarrara" draggable="false" aria-label="Entrar no catálogo Zarrara" href="catalogo.html?fabrica=zarrara&amp;categoria=todos">
+        <div class="factory-card-media"></div>
+        <div class="factory-card-glow"></div>
+        <div class="factory-card-content">
+          <div class="factory-card-top"><span>✦ Semijoias</span></div>
+          <div class="factory-card-main">
+            <div class="factory-card-diamond" aria-hidden="true">◇</div>
+            <h2>Zarrara</h2>
+            <div class="factory-info-list">
+              <p class="factory-highlight"><strong>Variedade e giro</strong><span>Peças leves e atuais, com menor investimento por peça.</span></p>
+              <p><strong>Linha:</strong> Zarrara Luxo com zircônias e modelos sofisticados</p>
+              <p><strong>Prazo estimado:</strong> até 30 dias</p>
+              <p><strong>Mínimo:</strong> múltiplos de 10 por referência · pedido mínimo de R$ 20 mil</p>
+              <p><strong>Descontos:</strong> 5% OFF acima de R$ 70 mil</p>
+            </div>
+          </div>
+          <div class="factory-card-footer"><span class="factory-card-cta">Acessar catálogo <span>→</span></span></div>
+        </div>
+      </a>
+
+      <article class="factory-card factory-futura factory-disabled" aria-label="Nova fábrica em breve">
+        <div class="factory-card-media"></div>
+        <div class="factory-card-glow"></div>
+        <div class="factory-card-content">
+          <div class="factory-card-top"><span>✦ Em breve</span></div>
+          <div class="factory-card-main">
+            <div class="factory-card-diamond" aria-hidden="true">◇</div>
+            <h2>Nova fábrica</h2>
+            <div class="factory-info-list">
+              <p class="factory-highlight"><strong>Mais opções</strong><span>Novos catálogos de prata e semijoias serão adicionados aqui.</span></p>
+              <p>As informações comerciais serão publicadas quando o catálogo estiver disponível.</p>
+            </div>
+          </div>
+          <div class="factory-card-footer"><span class="factory-card-cta factory-card-cta-disabled">Em breve</span></div>
+        </div>
+      </article>
+        </div>
+      </div>
+
+      <div class="factory-carousel-dots" data-carousel-dots aria-label="Selecionar fábrica"></div>
+    </section>
+
+    <section class="home-v2-benefits" aria-label="Recursos do catálogo digital">
+      <div class="home-v2-benefit">
+        <div class="home-v2-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        </div>
+        <div class="home-v2-benefit-copy"><strong>Busca por palavras-chave</strong><span>Localize produtos por referência, descrição ou termo relacionado à peça.</span></div>
+      </div>
+
+      <div class="home-v2-benefit">
+        <div class="home-v2-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="8" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="12" cy="18" r="1"/></svg>
+        </div>
+        <div class="home-v2-benefit-copy"><strong>Filtro prático de preço</strong><span>Navegue por faixas de valor e encontre opções adequadas à sua estratégia de compra.</span></div>
+      </div>
+
+      <div class="home-v2-benefit">
+        <div class="home-v2-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        </div>
+        <div class="home-v2-benefit-copy"><strong>Pedido organizado</strong><span>Escolha referências, numerações e quantidades diretamente no catálogo.</span></div>
+      </div>
+
+      <div class="home-v2-benefit">
+        <div class="home-v2-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/><path d="M4 4h16v16H4z"/></svg>
+        </div>
+        <div class="home-v2-benefit-copy"><strong>Conferência comercial</strong><span>O envio não gera cobrança automática: a HB confere a solicitação antes da confirmação.</span></div>
+      </div>
+    </section>
+
+    <section class="home-v2-process" aria-labelledby="home-process-title">
+      <div class="home-v2-process-copy">
+        <span class="home-v2-process-kicker">Como funciona</span>
+        <h2 id="home-process-title">Do catálogo ao pagamento, sem surpresa.</h2>
+        <p>Você monta e envia uma solicitação. A HB confere e confirma as condições. A fábrica produz, emite a nota fiscal e envia; a HB encaminha a cobrança quando o pedido estiver pronto.</p>
+        <a href="como-comprar.html">Ver o passo a passo completo <span>→</span></a>
+      </div>
+      <div class="home-v2-process-steps">
+        <div><strong>01</strong><span>Monte e envie o pedido</span></div>
+        <div><strong>02</strong><span>A HB confere e confirma as condições</span></div>
+        <div><strong>03</strong><span>A fábrica prepara o pedido</span></div>
+        <div><strong>04</strong><span>A HB envia a cobrança por Pix, boleto ou cartão</span></div>
+        <div><strong>05</strong><span>Após o pagamento, a fábrica libera e envia</span></div>
+      </div>
+    </section>
+
+    <footer class="home-v2-footer">
+      <span>HB Joias Representações · atendimento comercial B2B para clientes com CNPJ</span>
+      <a href="contato.html">Atendimento: 9h–12h e 14h–16h</a>
+    </footer>
+  </main>
+
+  <script>
+    function configurarCarrosselFabricas() {
+      const viewport = document.getElementById("factory-carousel");
+      const trilho = viewport?.querySelector(".home-v2-grid");
+      const cards = [...(trilho?.querySelectorAll(".factory-card") || [])];
+      const botaoAnterior = document.querySelector("[data-carousel-prev]");
+      const botaoProximo = document.querySelector("[data-carousel-next]");
+      const areaIndicadores = document.querySelector("[data-carousel-dots]");
+
+      if (!viewport || !trilho || cards.length === 0) return;
+
+      const indicadores = cards.map((card, indice) => {
+        const indicador = document.createElement("button");
+        const nome = card.querySelector("h2")?.textContent?.trim() || `Fábrica ${indice + 1}`;
+
+        indicador.type = "button";
+        indicador.className = "factory-carousel-dot";
+        indicador.setAttribute("aria-label", `Exibir ${nome}`);
+        indicador.addEventListener("click", () => irParaCard(indice));
+        areaIndicadores?.appendChild(indicador);
+        return indicador;
+      });
+
+      function indiceMaisProximo() {
+        const centroViewport = viewport.scrollLeft + viewport.clientWidth / 2;
+        let indiceAtivo = 0;
+        let menorDistancia = Infinity;
+
+        cards.forEach((card, indice) => {
+          const centroCard = card.offsetLeft + card.offsetWidth / 2;
+          const distancia = Math.abs(centroCard - centroViewport);
+
+          if (distancia < menorDistancia) {
+            menorDistancia = distancia;
+            indiceAtivo = indice;
+          }
+        });
+
+        return indiceAtivo;
+      }
+
+      function irParaCard(indice, comportamento = "smooth") {
+        const indiceSeguro = Math.max(0, Math.min(cards.length - 1, indice));
+        const card = cards[indiceSeguro];
+        const destino = card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
+
+        viewport.scrollTo({ left: destino, behavior: comportamento });
+      }
+
+      function atualizarEstado() {
+        const indiceAtivo = indiceMaisProximo();
+
+        indicadores.forEach((indicador, indice) => {
+          const ativo = indice === indiceAtivo;
+          indicador.classList.toggle("ativo", ativo);
+          indicador.setAttribute("aria-current", ativo ? "true" : "false");
+        });
+
+        if (botaoAnterior) botaoAnterior.disabled = indiceAtivo === 0;
+        if (botaoProximo) botaoProximo.disabled = indiceAtivo === cards.length - 1;
+      }
+
+      let framePendente = 0;
+      viewport.addEventListener("scroll", () => {
+        cancelAnimationFrame(framePendente);
+        framePendente = requestAnimationFrame(atualizarEstado);
+      }, { passive: true });
+
+      botaoAnterior?.addEventListener("click", () => irParaCard(indiceMaisProximo() - 1));
+      botaoProximo?.addEventListener("click", () => irParaCard(indiceMaisProximo() + 1));
+
+      viewport.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
           event.preventDefault();
-          card.click();
+          irParaCard(indiceMaisProximo() - 1);
+        }
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          irParaCard(indiceMaisProximo() + 1);
         }
       });
-    });
+
+      let arrastando = false;
+      let inicioX = 0;
+      let inicioRolagem = 0;
+      let distanciaArrastada = 0;
+
+      let preparandoArraste = false;
+      let ponteiroAtivo = null;
+
+      viewport.addEventListener("dragstart", (event) => {
+        if (event.target.closest(".factory-card")) event.preventDefault();
+      });
+
+      viewport.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "touch" || event.button !== 0) return;
+
+        preparandoArraste = true;
+        arrastando = false;
+        inicioX = event.clientX;
+        inicioRolagem = viewport.scrollLeft;
+        distanciaArrastada = 0;
+        ponteiroAtivo = event.pointerId;
+      });
+
+      viewport.addEventListener("pointermove", (event) => {
+        if (!preparandoArraste) return;
+
+        distanciaArrastada = event.clientX - inicioX;
+
+        // Só transforma o clique em arraste depois de um movimento real.
+        // Assim o clique normal nos links dos cards continua funcionando.
+        // no desktop.
+        if (!arrastando && Math.abs(distanciaArrastada) > 8) {
+          arrastando = true;
+          viewport.classList.add("arrastando");
+          viewport.setPointerCapture?.(event.pointerId);
+        }
+
+        if (!arrastando) return;
+        event.preventDefault();
+        viewport.scrollLeft = inicioRolagem - distanciaArrastada;
+      });
+
+      function finalizarArraste(event) {
+        if (!preparandoArraste && !arrastando) return;
+
+        const houveArraste = arrastando;
+        preparandoArraste = false;
+        arrastando = false;
+        viewport.classList.remove("arrastando");
+        const ponteiroFinal = event?.pointerId ?? ponteiroAtivo;
+        if (ponteiroFinal != null && viewport.hasPointerCapture?.(ponteiroFinal)) {
+          viewport.releasePointerCapture(ponteiroFinal);
+        }
+        ponteiroAtivo = null;
+
+        if (houveArraste) {
+          irParaCard(indiceMaisProximo());
+        }
+      }
+
+      viewport.addEventListener("pointerup", finalizarArraste);
+      viewport.addEventListener("pointercancel", finalizarArraste);
+      viewport.addEventListener("mouseleave", (event) => {
+        if (preparandoArraste || arrastando) finalizarArraste(event);
+      });
+
+      viewport.addEventListener("click", (event) => {
+        if (Math.abs(distanciaArrastada) > 8) {
+          event.preventDefault();
+          event.stopPropagation();
+          distanciaArrastada = 0;
+        }
+      }, true);
+
+      window.addEventListener("resize", () => {
+        irParaCard(indiceMaisProximo(), "auto");
+      }, { passive: true });
+
+      requestAnimationFrame(() => {
+        irParaCard(0, "auto");
+        atualizarEstado();
+      });
+    }
+
+    configurarCarrosselFabricas();
   </script>
 </body>
 </html>

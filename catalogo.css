@@ -21078,3 +21078,491 @@ body.catalogo-page .checkout-grid-endereco .campo-entrega {
   }
 }
 
+/* ======================================================================
+   HB JOIAS — P09 AUDITORIA
+   Correções funcionais sem redesign do catálogo
+   ====================================================================== */
+
+body.catalogo-page [hidden] {
+  display: none !important;
+}
+
+body.catalogo-page .catalogo-notice,
+body.catalogo-page .catalogo-load-status {
+  box-sizing: border-box !important;
+  width: min(1180px, calc(100% - 32px)) !important;
+  margin: 14px auto 0 !important;
+  padding: 13px 16px !important;
+  border: 1px solid #d5e0eb !important;
+  border-radius: 14px !important;
+  background: #f8fafc !important;
+  color: #334155 !important;
+  font-size: .76rem !important;
+  line-height: 1.5 !important;
+}
+
+body.catalogo-page .catalogo-notice {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+  text-align: center !important;
+}
+
+body.catalogo-page .catalogo-notice strong {
+  flex: 0 0 auto !important;
+  color: #002063 !important;
+}
+
+body.catalogo-page .catalogo-load-status:not([hidden]) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 4px 14px !important;
+  border-color: #d8b66f !important;
+  background: #fff9e9 !important;
+}
+
+body.catalogo-page .catalogo-load-status strong,
+body.catalogo-page .catalogo-load-status span {
+  grid-column: 1 !important;
+}
+
+body.catalogo-page .catalogo-load-status button {
+  grid-column: 2 !important;
+  grid-row: 1 / span 2 !important;
+  min-height: 44px !important;
+  padding: 0 16px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: #002063 !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+}
+
+body.catalogo-page .produto-imagem-botao {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  background: transparent !important;
+  cursor: zoom-in !important;
+}
+
+body.catalogo-page .produto-imagem-botao:focus-visible {
+  outline: 3px solid #d8ad55 !important;
+  outline-offset: -3px !important;
+}
+
+body.catalogo-page .valor-produto span,
+body.catalogo-page .valor-produto strong {
+  display: block !important;
+}
+
+body.catalogo-page .valor-produto span {
+  margin-bottom: 2px !important;
+  color: #526174 !important;
+  font-size: .58rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .04em !important;
+  text-transform: uppercase !important;
+}
+
+body.catalogo-page .valor-produto strong {
+  color: inherit !important;
+  font: inherit !important;
+}
+
+body.catalogo-page .checkout-privacy-note {
+  margin: 0 !important;
+  padding: 12px 14px !important;
+  border: 1px solid #d9e3ed !important;
+  border-radius: 12px !important;
+  background: #f7f9fc !important;
+  color: #465568 !important;
+  font-size: .72rem !important;
+  line-height: 1.45 !important;
+}
+
+body.catalogo-page .aviso-sucesso-acoes {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1.2fr !important;
+  gap: 9px !important;
+}
+
+body.catalogo-page .aviso-sucesso-acoes button {
+  width: 100% !important;
+  min-height: 46px !important;
+}
+
+body.catalogo-page .aviso-sucesso-acoes .aviso-copiar-pedido,
+body.catalogo-page .aviso-sucesso-acoes .aviso-baixar-pedido {
+  border: 1px solid #b9c9da !important;
+  background: #fff !important;
+  color: #002063 !important;
+  box-shadow: none !important;
+}
+
+body.catalogo-page #fabrica-atual {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+body.catalogo-page #popup .popup-label,
+body.catalogo-page #popup .popup-rodape-info span {
+  color: #754b00 !important;
+  -webkit-text-fill-color: #754b00 !important;
+}
+
+body.catalogo-page #hb-total-carrinho-root .mensagem-meta,
+body.catalogo-page #hb-total-carrinho-root .subtotal-label,
+body.catalogo-page .checkout-total-painel .mensagem-meta {
+  color: #465568 !important;
+  -webkit-text-fill-color: #465568 !important;
+}
+
+body.catalogo-page .mensagem-meta {
+  color: #754b00 !important;
+  -webkit-text-fill-color: #754b00 !important;
+}
+
+body.catalogo-page .hb-total-carrinho__linha > span,
+body.catalogo-page .checkout-modal small {
+  color: #465568 !important;
+  -webkit-text-fill-color: #465568 !important;
+}
+
+@media (max-width: 768px) {
+  body.catalogo-page .catalogo-notice {
+    align-items: center !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    margin-top: 10px !important;
+    padding: 11px 12px !important;
+    font-size: .69rem !important;
+  }
+
+  body.catalogo-page .catalogo-load-status:not([hidden]) {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.catalogo-page .catalogo-load-status button,
+  body.catalogo-page .catalogo-load-status strong,
+  body.catalogo-page .catalogo-load-status span {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  body.catalogo-page #popup .numero-item.numero-item-simples {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    min-height: 54px !important;
+    height: auto !important;
+    padding: 6px !important;
+  }
+
+  body.catalogo-page #popup .numero-item-simples .numero-topo {
+    display: none !important;
+  }
+
+  body.catalogo-page #popup .numero-item-simples .controle-qtd {
+    grid-template-columns: 44px minmax(64px, 1fr) 44px !important;
+    gap: 7px !important;
+    width: 100% !important;
+  }
+
+  body.catalogo-page #popup .numero-item-simples .controle-qtd button,
+  body.catalogo-page #popup .numero-item-simples .controle-qtd input {
+    min-height: 44px !important;
+    height: 44px !important;
+    font-size: .92rem !important;
+  }
+
+  body.catalogo-page #area-carrinho #hb-cupom-root .hb-cupom__trigger {
+    min-height: 52px !important;
+    height: auto !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
+
+  body.catalogo-page #area-carrinho #hb-cupom-root .hb-cupom__trigger-texto {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 3px !important;
+  }
+
+  body.catalogo-page #area-carrinho #hb-cupom-root .hb-cupom__trigger-note {
+    display: block !important;
+    max-width: 100% !important;
+    color: #465568 !important;
+    font-size: .58rem !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+  }
+
+  body.catalogo-page .btn-adicionar-card,
+  body.catalogo-page .btn-escolher-numeracoes,
+  body.catalogo-page .btn-filtro-toggle,
+  body.catalogo-page .mobile-tabbar button {
+    min-height: 44px !important;
+  }
+
+  body.catalogo-page .aviso-sucesso-acoes {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+body.catalogo-page #modal-dados-cliente .checkout-grid label > span small {
+  color: #465568 !important;
+  -webkit-text-fill-color: #465568 !important;
+}
+
+/* ======================================================================
+   HB JOIAS — P12
+   Intenção de pagamento no fechamento da solicitação.
+   ====================================================================== */
+
+body.catalogo-page .checkout-pagamento-conteudo {
+  min-width: 0 !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcoes {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcoes legend {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  min-height: 76px !important;
+  display: grid !important;
+  grid-template-columns: 20px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  border: 1px solid #bdcee1 !important;
+  border-radius: 13px !important;
+  color: #17304f !important;
+  background: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(0, 32, 99, .035) !important;
+  cursor: pointer !important;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao:hover,
+body.catalogo-page .checkout-pagamento-opcao:has(input:checked) {
+  border-color: #d6a431 !important;
+  background: #fffbef !important;
+  box-shadow: 0 0 0 3px rgba(214, 164, 49, .12) !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao input {
+  width: 18px !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  accent-color: #002063 !important;
+  cursor: pointer !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao input:focus-visible {
+  outline: 3px solid rgba(0, 32, 99, .2) !important;
+  outline-offset: 3px !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao > span {
+  display: block !important;
+  min-width: 0 !important;
+  color: #17304f !important;
+  -webkit-text-fill-color: #17304f !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao > span strong,
+body.catalogo-page .checkout-pagamento-opcao > span small {
+  display: block !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao > span strong {
+  font-size: .76rem !important;
+  font-weight: 900 !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcao > span small {
+  margin-top: 3px !important;
+  color: #68788d !important;
+  -webkit-text-fill-color: #68788d !important;
+  font-size: .61rem !important;
+  font-weight: 650 !important;
+  line-height: 1.35 !important;
+}
+
+body.catalogo-page .checkout-pagamento-opcoes.erro {
+  padding: 6px !important;
+  border: 1px solid #c63d35 !important;
+  border-radius: 16px !important;
+  background: #fff4f3 !important;
+}
+
+body.catalogo-page .checkout-pagamento-ajuda {
+  margin: 10px 0 0 !important;
+  color: #5a6a7f !important;
+  -webkit-text-fill-color: #5a6a7f !important;
+  font-size: .65rem !important;
+  line-height: 1.5 !important;
+}
+
+body.catalogo-page .checkout-pagamento-ajuda strong {
+  color: #17304f !important;
+  -webkit-text-fill-color: #17304f !important;
+}
+
+@media (max-width: 700px) {
+  body.catalogo-page .checkout-pagamento-opcoes {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.catalogo-page .checkout-pagamento-opcao {
+    min-height: 64px !important;
+  }
+}
+
+
+/* ======================================================================
+   HB JOIAS — P15 — CARRINHO DESKTOP EM COLUNA ÚNICA
+   Corrige o layout de duas colunas que fazia os itens escaparem para a
+   direita e deixava um grande vazio no painel em resoluções desktop.
+   Mobile (<= 768px) permanece intocado.
+   ====================================================================== */
+@media (min-width: 769px) {
+  body.catalogo-page #area-carrinho.area-carrinho,
+  body.catalogo-page .area-carrinho {
+    width: min(460px, 92vw) !important;
+    max-width: 460px !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    padding: 10px !important;
+    overflow: hidden !important;
+  }
+
+  body.catalogo-page #area-carrinho .carrinho,
+  body.catalogo-page .area-carrinho .carrinho {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    min-height: 0 !important;
+    padding: 16px !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+  }
+
+  body.catalogo-page #area-carrinho .cart-sheet-handle {
+    display: none !important;
+  }
+
+  body.catalogo-page #area-carrinho .carrinho-topo {
+    position: relative !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 2px 52px 10px 2px !important;
+    border-bottom: 1px solid #dbe4f0 !important;
+  }
+
+  body.catalogo-page #area-carrinho #resumo-fabricas {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 8px 0 0 !important;
+  }
+
+  body.catalogo-page #area-carrinho #resumo-fabricas .resumo-fabrica,
+  body.catalogo-page #area-carrinho #resumo-fabricas .resumo-fabrica--limpo {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body.catalogo-page #area-carrinho .lista-carrinho-scroll,
+  body.catalogo-page #area-carrinho #lista-carrinho {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-width: none !important;
+    max-height: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 12px 2px !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    gap: 10px !important;
+  }
+
+  body.catalogo-page #area-carrinho .item-carrinho,
+  body.catalogo-page #area-carrinho #lista-carrinho > .item-carrinho,
+  body.catalogo-page #area-carrinho .lista-carrinho-scroll > .item-carrinho {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.catalogo-page #area-carrinho .carrinho-rodape {
+    position: static !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 10px 0 0 !important;
+    border-top: 1px solid #dbe4f0 !important;
+    background: #ffffff !important;
+  }
+
+  body.catalogo-page #area-carrinho #hb-total-carrinho-root,
+  body.catalogo-page #area-carrinho #hb-cupom-root {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body.catalogo-page #area-carrinho .btn-finalizar-carrinho {
+    width: 100% !important;
+  }
+}
